@@ -141,7 +141,7 @@ Government_Data <- WB_DataPull_Function(Government_Indicators, 2004, 2007, 2011)
 Services_Data <- WB_DataPull_Function(Services_Indicators, 2004, 2007, 2011)
 Transport_Data <- WB_DataPull_Function(Transport_Indicators, 2004, 2007, 2011)
 Housing_Data <- WB_DataPull_Function(Housing_Indicators, 2004, 2007, 2011)
-GoodsData <- read.csv("./World Bank Data/ass_pov_final.csv")
+GoodsData <- read.csv("./GFN_Data_Visualization/ScatterVisuals/ass_pov_final.csv")
 
 
 

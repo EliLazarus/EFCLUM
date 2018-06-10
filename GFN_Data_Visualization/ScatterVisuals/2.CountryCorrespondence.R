@@ -3,13 +3,14 @@ library(dplyr)
 library(splitstackshape)
 
 #Eli to-do
+# Resolve issue of country correpsondence before/after data collection
 # Get rid of X column in WBData straight away - then update all indexes eg. weighting function
 # GOODS_GTAP need to replace GTAP codes for GTAP Regions, and rename.
 
-"Set working directory to top level directory"
+"Set working directory to top level directory in console"
 ##eg. setwd("C:\\Users\\Eli\\GitFolders\\EFCLUM")
 
-#read in World Bank Data
+#read in previous World Bank Data to get country list 
 WBData <- read.csv("./GFN_Data_Visualization/ScatterVisuals/IndicesData.csv", header=TRUE, colClasses=NA)
 
 WBData$country <- as.character(WBData$country)
@@ -17,14 +18,20 @@ WBData$CLUM_category <- as.character(WBData$CLUM_category)
 
 # Align Personal Transport CLUM category name
 WBData$CLUM_category[WBData$CLUM_category == "Transport"] <- "Personal Transportation"
-
 #deal with weird symbol in country name
 WBData$country[grepl("Korea, Dem. Peopl",WBData$country)] <- "Korea, Democratic People's Republic of"
+
+#Get GFN population to use for country aggregation weighting
+GFN_Pop <- read.csv("./GFN_Data_Visualization/ScatterVisuals/GFN_Population.csv", header=TRUE, colClasses = NA)
+#Deal with wierd characters
+GFN_Pop$GFN_Country <- as.character(GFN_Pop$GFN_Country)
+GFN_Pop$GFN_Country[grepl("oire",GFN_Pop$GFN_Country)] <- "Cote d'Ivoire"
+GFN_Pop$GFN_Country[grepl("R",GFN_Pop$GFN_Country) & grepl("union",GFN_Pop$GFN_Country)] <- "Reunion"
+
 
 #Get correspondence table and add fields for alt spellings
 GFNtoGTAP <- read.csv("./GFN_Data_Visualization/ScatterVisuals/GFNtoGTAP.csv", header=TRUE, colClasses = NA)
 GFNtoGTAP$AltGFN1 <- ""; GFNtoGTAP$AltGFN2 <- ""; GFNtoGTAP$AltGFN3 <- ""; GFNtoGTAP$AltGFN4 <- ""; GFNtoGTAP$AltGFN5 <- ""
-GFN_Pop <- read.csv("./GFN_Data_Visualization/ScatterVisuals/GFN_Population.csv", header=TRUE, colClasses = NA)
 
 #drop the known and obvious country groupings in the World Bank List
 WB_drop <- c("Arab World", "East Asia & Pacific (excluding high income)", 
@@ -49,6 +56,7 @@ WB_drop <- c("Arab World", "East Asia & Pacific (excluding high income)",
              #Plus country GFN has but we don't want
              "World")
 
+# Write a file with the known countries to drop
 write.csv(WB_drop, "./GFN_Data_Visualization/ScatterVisuals/DropThese.csv")
 
 #Separate Goods bc already in GTAP codes
@@ -56,7 +64,7 @@ GOODS_GTAP <- subset(WBData,WBData[,5]=="Goods")
 #Take GOODS (w GTAP codes) out of the WBData before it gets mixed up in the country names and aggregation
 WBData <- WBData[!(WBData[,5]=="Goods"),]
 
-#Replace GTAP codes with GTAP names for eventual integration with the rest of the indicies
+#Replace GTAP codes in the Goods with GTAP names for eventual integration with the rest of the indicies
 for (i in 1:length(GOODS_GTAP[, 1])) {
   for (j in 1:length(GFNtoGTAP[,1])) {
     ifelse(GOODS_GTAP$country[i] == GFNtoGTAP$GTAP9_Code[j],
@@ -65,7 +73,8 @@ for (i in 1:length(GOODS_GTAP[, 1])) {
   }
 }
 
-#filter to end up with remainders not in GFN or drop
+#filter to end up with a list of country name not in GFN or drop
+# All names in the list need to have alt spelling added as below, or added to WB_drop
 WB_notGFNlist <- WBData$country[!(WBData$country %in% GFNtoGTAP$GFN_Name)]
 WB_notGFNlist <- WB_notGFNlist[!(WB_notGFNlist %in% WB_drop)]
 
@@ -76,9 +85,9 @@ wb <- "Congo, Dem. Rep."; gfn <- "Congo, Democratic Republic of"
 GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Congo, Rep."; gfn <- "Congo"
 GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
-wb <- "Cote d'Ivoire"; gfn <- "Côte d'Ivoire"
+wb <- "Cote d'Ivoire"; gfn <- "Cote d'Ivoire"
 GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
-wb <- "Cote dIvoire"; gfn <- "Côte d'Ivoire"
+wb <- "Cote dIvoire"; gfn <- "Cote d'Ivoire"
 GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Curacao"; gfn <- "Curaçao"
 GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
@@ -145,9 +154,13 @@ GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlis
 
 #Throw exception and list if any countries haven't been dealt with
 ifelse(length(WB_notGFNlist) == 0, print("All present and accounted for"),
-       stop(print(c('Eli says:: Error:: These countries are not dealt with:',WB_notGFNlist))))
+       stop(print(c('Eli says:: Error:: These countries are not dealt with: either add them to the drop list or
+                    the alt spelling code above, then re-run this script from beginning',WB_notGFNlist))))
 
-"Reminder for Eli: functions used to print country names to build list #as a string dput(WB_notGFN[1]) #as the whole vector print(WB_notGFN)"
+
+"Reminder for Eli: the 2 functions used to print country names to build list:
+#as a string dput(WB_notGFN[1]) 
+#as the whole vector print(WB_notGFN)"
 
 #loop through and update country names to GFN spellings 
 for (i in 1:length(WBData[,1])) {
@@ -164,24 +177,26 @@ for (i in 1:length(WBData[,1])) {
   }
 }
 
-# Create subset with only GFN and get rid of 'World'
+# Create subset with only GFN
 WB_filt <-WBData[WBData$country %in% GFNtoGTAP$GFN_Name,]
+#  And get rid of 'World' because it's in the GFN list so it hasn't been dropped yet 
 WB_filt <- WB_filt[!WB_filt$country=="World",]
 
-#Table of WB straight to GTAP
+#Table of WB countries straight correspondence to GTAP
 WBGFN_GTAP <- WB_filt[WB_filt$country %in% GFNtoGTAP$GTAP_name,]
 #Table of WB not 1:1 in GTAP via GFN name
 WBGFN_notGTAP <- WB_filt[!(WB_filt$country %in% GFNtoGTAP$GTAP_name),]
 
-#Subset population table for just years included
+#Subset population table for just years included in case
 years <- c(2004,2007,2011)
 GFN_yr_Pop <- GFN_Pop[GFN_Pop$Year %in% years,]
 
+"Country grouping of WB data to GTAP grouping weighted by population"
 #Initialize Population column and fill population column in WBGFN_notGTAP
 WBGFN_notGTAP$Population <- NA
 for (i in 1:length(WBGFN_notGTAP[, 1])) {
   for (j in 1:length(GFN_yr_Pop[, 1])) {
-    ifelse(WBGFN_notGTAP$country[i] == GFN_Pop$GFN_Country[j],
+    ifelse(WBGFN_notGTAP$country[i] == GFN_Pop$GFN_Country[j] & WBGFN_notGTAP$year[i] == GFN_Pop$Year[j],
       WBGFN_notGTAP$Population[i] <- GFN_Pop$Population[j],
       "nope")
   }
@@ -189,8 +204,9 @@ for (i in 1:length(WBGFN_notGTAP[, 1])) {
 
 # Check countries with no population/weighting data
 ZeroPopTest <- WBGFN_notGTAP$country[is.na(WBGFN_notGTAP$Population)]
-print(ZeroPopTest)
+print(unique(ZeroPopTest))
 #Have to filter out countries with no population (or other weighting data)
+# Hopefully all small countries,etc. If not, do something, maybe get supplementary population data and add it. 
 WBGFN_notGTAP <- WBGFN_notGTAP[!is.na(WBGFN_notGTAP$Population),]
 
 
@@ -204,7 +220,7 @@ for (i in 1:length(WBGFN_notGTAP[, 1])) {
   }
 }
 
-#Create table of aggregated indicat ors by GTAP Region, na's omitted
+#Create table of aggregated indicators by GTAP Region, na's omitted
 WBGTAP_weighted <- as.data.frame(t(sapply(split(WBGFN_notGTAP, list(WBGFN_notGTAP$GTAP_Region, 
                                                                     WBGFN_notGTAP$CLUM_category, WBGFN_notGTAP$year)),
                                           function(x) apply(x[,c(4,6:7)], 2, weighted.mean, x$Population, na.rm = TRUE))))
@@ -237,3 +253,6 @@ NFA_CLUM_WB <- merge(NFA_CLUM, GTAP_WBweighted, by.x = c("year", "clum7_name", "
       by.y = c("year", "CLUM_category", "GTAP_Region"), sort = TRUE)
 
 write.csv(NFA_CLUM_WB, "./GFN_Data_Visualization/ScatterVisuals/NFA_WB_2017_CLUM.csv")
+
+# If new country correspondence issues came up, repeat WB data pull sripts again once they're dealt with
+print("Success: No need to run data pull sript again")
