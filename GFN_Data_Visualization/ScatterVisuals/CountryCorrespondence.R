@@ -6,11 +6,11 @@ library(splitstackshape)
 # Get rid of X column in WBData straight away - then update all indexes eg. weighting function
 # GOODS_GTAP need to replace GTAP codes for GTAP Regions, and rename.
 
-"Set working directory first run and then comment out"
-#setwd("./GFN_Data_Visualization/ScatterVisuals")
+"Set working directory to top level directory"
+##eg. setwd("C:\\Users\\Eli\\GitFolders\\EFCLUM")
 
 #read in World Bank Data
-WBData <- read.csv("IndicesData.csv", header=TRUE, colClasses=NA)
+WBData <- read.csv("./GFN_Data_Visualization/ScatterVisuals/IndicesData.csv", header=TRUE, colClasses=NA)
 
 WBData$country <- as.character(WBData$country)
 WBData$CLUM_category <- as.character(WBData$CLUM_category)
@@ -22,9 +22,9 @@ WBData$CLUM_category[WBData$CLUM_category == "Transport"] <- "Personal Transport
 WBData$country[grepl("Korea, Dem. Peopl",WBData$country)] <- "Korea, Democratic People's Republic of"
 
 #Get correspondence table and add fields for alt spellings
-GFNtoGTAP <- read.csv("GFNtoGTAP.csv", header=TRUE, colClasses = NA)
+GFNtoGTAP <- read.csv("./GFN_Data_Visualization/ScatterVisuals/GFNtoGTAP.csv", header=TRUE, colClasses = NA)
 GFNtoGTAP$AltGFN1 <- ""; GFNtoGTAP$AltGFN2 <- ""; GFNtoGTAP$AltGFN3 <- ""; GFNtoGTAP$AltGFN4 <- ""; GFNtoGTAP$AltGFN5 <- ""
-GFN_Pop <- read.csv("GFN_Population.csv", header=TRUE, colClasses = NA)
+GFN_Pop <- read.csv("./GFN_Data_Visualization/ScatterVisuals/GFN_Population.csv", header=TRUE, colClasses = NA)
 
 #drop the known and obvious country groupings in the World Bank List
 WB_drop <- c("Arab World", "East Asia & Pacific (excluding high income)", 
@@ -49,7 +49,7 @@ WB_drop <- c("Arab World", "East Asia & Pacific (excluding high income)",
              #Plus country GFN has but we don't want
              "World")
 
-#write.csv(WB_drop, "DropThese.csv")
+write.csv(WB_drop, "./GFN_Data_Visualization/ScatterVisuals/DropThese.csv")
 
 #Separate Goods bc already in GTAP codes
 GOODS_GTAP <- subset(WBData,WBData[,5]=="Goods")
@@ -229,11 +229,11 @@ colnames(WBGFN_GTAP)[1] <- "GTAP_Region"
 #Stick 'em together
 GTAP_WBweighted <- rbind(WBGTAP_weighted,WBGFN_GTAP,GOODS_GTAP)
 
-write.csv(GTAP_WBweighted, "WBIndicators_byGTAP.csv")
+write.csv(GTAP_WBweighted, "./GFN_Data_Visualization/ScatterVisuals/WBIndicators_byGTAP.csv")
 
-NFA_CLUM <- read.csv("NFA_2017_CLUM.csv", header=TRUE, colClasses=NA)
+NFA_CLUM <- read.csv("./GFN_Data_Visualization/ScatterVisuals/NFA_2017_CLUM.csv", header=TRUE, colClasses=NA)
 
 NFA_CLUM_WB <- merge(NFA_CLUM, GTAP_WBweighted, by.x = c("year", "clum7_name", "GTAP_name"), 
       by.y = c("year", "CLUM_category", "GTAP_Region"), sort = TRUE)
 
-write.csv(NFA_CLUM_WB, "NFA_WB_2017_CLUM.csv")
+write.csv(NFA_CLUM_WB, "./GFN_Data_Visualization/ScatterVisuals/NFA_WB_2017_CLUM.csv")
