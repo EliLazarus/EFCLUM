@@ -1,26 +1,19 @@
 library(data.table)
 library(dplyr)
 library(splitstackshape)
-
-#Eli to-do
-# Resolve issue of country correpsondence before/after data collection
-# Get rid of X column in WBData straight away - then update all indexes eg. weighting function
-# GOODS_GTAP need to replace GTAP codes for GTAP Regions, and rename.
+library(WDI)
 
 "Set working directory to top level directory in console"
 ##eg. setwd("C:\\Users\\Eli\\GitFolders\\EFCLUM")
 
-#read in previous World Bank Data to get country list 
+#read in previous World Bank Data to get country list from WB Data in case of other countries
+# and for GTAP group weighted Aggregation (by population) and final output
 WBData <- read.csv("./GFN_Data_Visualization/ScatterVisuals/IndicesData.csv", header=TRUE, colClasses=NA)
-
-
 WBData$country <- as.character(WBData$country)
 WBData$CLUM_category <- as.character(WBData$CLUM_category)
-
-# Align Personal Transport CLUM category name
-WBData$CLUM_category[WBData$CLUM_category == "Transport"] <- "Personal Transportation"
 #deal with weird symbol in country name
 WBData$country[grepl("Korea, Dem. Peopl",WBData$country)] <- "Korea, Democratic People's Republic of"
+
 #Separate Goods bc already in GTAP codes
 GOODS_GTAP <- subset(WBData,WBData[,5]=="Goods")
 #Take GOODS (w GTAP codes) out of the WBData before it gets mixed up in the country names and aggregation
@@ -41,102 +34,31 @@ for (i in 1:length(GOODS_GTAP[, 1])) {
 
 #Get GFN population to use for country aggregation weighting
 GFN_Pop <- read.csv("./GFN_Data_Visualization/ScatterVisuals/GFN_Population.csv", header=TRUE, colClasses = NA)
-#Deal with wierd characters
+#Deal with wierd characters in population file
 GFN_Pop$GFN_Country <- as.character(GFN_Pop$GFN_Country)
 GFN_Pop$GFN_Country[grepl("oire",GFN_Pop$GFN_Country)] <- "Cote d'Ivoire"
 GFN_Pop$GFN_Country[grepl("R",GFN_Pop$GFN_Country) & grepl("union",GFN_Pop$GFN_Country)] <- "Reunion"
 
-
-# #drop the known and obvious country groupings in the World Bank List
-# WB_drop <- c("Africa", "Andean Region", "East Asia & Pacific (IBRD-only countries)", 
-#  "Europe & Central Asia (IBRD-only countries)", "IBRD countries classified as high income", 
-#  "Latin America & the Caribbean (IBRD-only countries)", 
-#  "Middle East & North Africa (IBRD-only countries)", 
-#  "Latin America & Caribbean (IDA & IBRD)", "Middle East & North Africa (IDA & IBRD)", 
-#  "East Asia & Pacific (IDA & IBRD)", "Sub-Saharan Africa (IDA & IBRD)", 
-#  "Europe & Central Asia (IDA & IBRD)", 
-#  "Sub-Saharan Africa (IBRD-only countries)", "Sub-Saharan Africa (IFC classification)", 
-#  "Sub-Saharan Africa (developing only)", "Sub-Saharan Africa (all income levels)",
-#  "East Asia and the Pacific (IFC classification)", "Europe and Central Asia (IFC classification)", 
-#  "Latin America and the Caribbean (IFC classification)", "Middle East and North Africa (IFC classification)", 
-#  "South Asia (IFC classification)","East Asia & Pacific (IDA-eligible countries)", 
-#  "Europe & Central Asia (IDA-eligible countries)","IDA countries classified as Fragile Situations", 
-#  "Latin America & the Caribbean (IDA-eligible countries)", 
-#  "Middle East & North Africa (IDA-eligible countries)", 
-#  "IDA countries not classified", 
-#  "Arab World", "East Asia & Pacific (excluding high income)", 
-#  "Europe & Central Asia (excluding high income)", "South Asia", 
-#  "Central Europe and the Baltics", "European Union", "Fragile and conflict affected situations", 
-#  "OECD members", "Small states", "Pacific island small states", 
-#  "Caribbean small states", "Other small states", "Middle East & North Africa (IDA & IBRD countries)", 
-#  "Latin America & the Caribbean (IDA & IBRD countries)", "East Asia & Pacific (IDA & IBRD countries)", 
-#  "South Asia (IDA & IBRD)", "Sub-Saharan Africa (IDA & IBRD countries)", 
-#  "Europe & Central Asia (IDA & IBRD countries)", "Pre-demographic dividend", 
-#  "Early-demographic dividend", "Late-demographic dividend", "Post-demographic dividend", 
-#  "Euro area", "High income", "Heavily indebted poor countries (HIPC)", 
-#  "IBRD only", "IDA total", "IDA blend", "IDA only", "Latin America & Caribbean (excluding high income)", 
-#  "Least developed countries: UN classification", "Low income", 
-#  "Lower middle income", "Low & middle income", "Middle income", 
-#  "Middle East & North Africa (excluding high income)", "Upper middle income", 
-#  "IDA only", "Not classified", "East Asia & Pacific", "Europe & Central Asia", 
-#  "Sub-Saharan Africa (excluding high income)", "Sub-Saharan Africa", "Sub-Saharan Africa ", 
-#  "Latin America & Caribbean",  "Middle East & North Africa", "IDA & IBRD total", "North America",
-#  "Russian Federation - Moscow", "Russian Federation - Saint Petersburg","Pakistan - Karachi",
-#  "Pakistan - Lahore", "Nigeria - Kano", "Nigeria - Lagos","European Monetary Union",
-#  "Germany, Fed. Rep. (former)","High income: nonOECD" ,  "High income: OECD","Mexico - Mexico City",
-#  "Mexico - Monterrey", "India - Delhi","India - Mumbai", "China - Beijing","China - Shanghai",
-#  "Brazil - Rio de Janeiro","Brazil - SÃ£o Paulo", "Bangladesh - Chittagong","Bangladesh - Dhaka",
-#  "Japan - Osaka","Japan - Tokyo","North Africa" , "Sub-Saharan Africa excluding South Africa",
-#  "Sub-Saharan Africa excluding South Africa and Nigeria", "United States - Los Angeles",
-#  "United States - New York City"," All States in India", " All Union Territories in India",
-#  " Andaman and Nicobar Islands"," Andhra Pradesh"," Arunachal Pradesh", " Assam" ," Bihar" ,
-#  " Central Govt. Projects", " Chandigarh", " Chhattisgarh", " D.V.C.", " Dadra and Nagar Haveli",
-#  " Daman and Diu" , " Delhi" , " Goa" , " Gujarat" , " Haryana" , " Himachal Pradesh",
-#  " Jammu and Kashmir" , " Jharkhand" , " Karnataka" , " Kerala", " Lakshadweep", " Madhya Pradesh",
-#  " Maharashtra" , " Manipur" , " Meghalaya" , " Mizoram" , " Nagaland", " Odisha", " Others",
-#  " Pudducherry" , " Punjab", " Rajasthan" , " Sikkim", " Tamil Nadu", " Tripura" , " Uttar Pradesh" ,
-#  " Uttarakhand" , " West Bengal", "East Asia & Pacific (all income levels)",
-#  "Europe & Central Asia (all income levels)", "Latin America & Caribbean (all income levels)",
-#  "Middle East & North Africa (all income levels)", "IDA 18", "Sub-Saharan Africa (IBRD only)",
-#  "Sub-Saharan Africa (IDA total)", "South Asia (IDA total)", "South Asia (IBRD only)",
-#  "Middle East & North Africa (IBRD only)","Middle East & North Africa (IDA total)",
-#  "Latin America & Caribbean (IDA total)", "Latin America & Caribbean (IBRD only)",
-#  "Latin America & Caribbean Latin America and the Caribbean", "Latin America & Caribbean ",
-#  "Latin America and the Caribbean", "IDA countries not classified as fragile situations",
-#  "IDA countries classified as fragile situations", "East Asia & Pacific (IBRD only)",
-#  "East Asia & Pacific (IDA total)", "Europe & Central Asia (IBRD only)",
-#  "Europe & Central Asia (IDA total)", "Indonesia - Jakarta", "Indonesia - Surabaya", "Fragile Situations", 
-#  "IDA countries in Sub-Saharan Africa not classified as fragile situations ",
-#  "South Asia (IDA-eligible countries)", 
-#  "IDA countries in Sub-Saharan Africa classified as fragile situations ",
-#  "Sub-Saharan Africa (IDA-eligible countries)", 
-#  "IDA total, excluding Sub-Saharan Africa", 
-#  "IDA countries not classified as Fragile Situations",
-#  "IDA countries classified as fragile situations, excluding Sub-Saharan Africa", 
-#  "IBRD, including blend",  "Latin America & Caribbean Latin America and the Caribbean", 
-#  "Central America",  "Middle East (developing only)",
-#  "Non-resource rich Sub-Saharan Africa countries, of which landlocked", 
-#  "Non-resource rich Sub-Saharan Africa countries",
-#  "IDA countries not classified as fragile situations, excluding Sub-Saharan Africa", 
-#  "Resource rich Sub-Saharan Africa countries", 
-#  "Southern Cone",
-#  "Sub-Saharan Africa",
-#  "Resource rich Sub-Saharan Africa countries, of which oil exporters", 
-#    #plus countries that GFN does not have
-#  "Monaco", "West Bank and Gaza", "San Marino", "Kosovo", 
-#  #Plus country GFN has but we don't want
-#  "World")
-
-# Write a file with the known countries to drop
-#write.csv(WB_drop, "./GFN_Data_Visualization/ScatterVisuals/DropTheseCountries.csv")
-
-
-#filter to end up with a list of country name not in GFN or drop
+# Get general list of WB countries and groupings for correspondence in case
+WBCountries <- as.data.frame(WDI_data[[2]][,3])
+####filter to end up with a list of country name not in GFN or drop
 # All names in the list need to have alt spelling added as below, or added to WB_drop
-WBCountries <- as.character(WDI_data[[2]][,3])
 
-# Filter out anything not already on the GFN country names list
+# Filter out countries from either list that are already in drop list
+WB_drop <- read.csv("./GFN_Data_Visualization/ScatterVisuals/DropTheseCountries.csv",
+                    header=TRUE, colClasses=NA)
+colnames(WB_drop) <- "country"
+
+#AAAAAARRRRGHHH!!!
+WB_drop <- as.character(WB_drop)
+WB_notGFNlist <- unique(WBData$country[!(WBData$country %in% WB_drop)])
+WBCountries <- WBCountries[!(WBCountries %in% WB_drop)]
+WBCountries <- WBCountries[!WBCountries %in% WB_notGFNlist]
+# Filter out countries from WB general list
 WB_notGFNlist <- WBCountries[!(WBCountries %in% GFNtoGTAP$GFN_Name)]
+
+# Filter out anything from the data not already on the GFN country names list
+WB_notGFNlist <- WBData$country[!(WBData$country %in% GFNtoGTAP$GFN_Name)]
 # Filter out countries and aggreagations on the drop list
 WB_notGFNlist <- WB_notGFNlist[!(WB_notGFNlist %in% WB_drop)]
 # The list that is left are countries that need spelling updates
@@ -144,6 +66,8 @@ WB_notGFNlist <- WB_notGFNlist[!(WB_notGFNlist %in% WB_drop)]
 
 #Update spellings to GFN, and then drop from the 'remainder' list
 wb <- "Bahamas, The"; gfn <- "Bahamas" 
+GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+wb <- "Cape Verde"; gfn <- "Cabo Verde" 
 GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Congo, Dem. Rep."; gfn <- "Congo, Democratic Republic of" 
 GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
@@ -153,6 +77,8 @@ wb <- "Cote d'Ivoire"; gfn <- "Cote d'Ivoire"
 GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Cote dIvoire"; gfn <- "Cote d'Ivoire"
 GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+wb <- "Cote D'Ivoire"; gfn <- "Cote d'Ivoire"
+GFNtoGTAP$AltGFN3[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Curacao"; gfn <- "Curaçao"
 GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Egypt, Arab Rep."; gfn <- "Egypt"
@@ -165,6 +91,8 @@ wb <- "Hong Kong SAR, China"; gfn <- "China Hong Kong SAR"
 GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Hong Kong, Special Administrative Region of China"; gfn <- "China Hong Kong SAR"
 GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+wb <- "Hong Kong, China"; gfn <- "China Hong Kong SAR"
+GFNtoGTAP$AltGFN3[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Iran, Islamic Rep."; gfn <- "Iran, Islamic Republic of"
 GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Iran"; gfn <- "Iran, Islamic Republic of"
@@ -177,6 +105,8 @@ wb <- "Korea, Rep."; gfn <- "Korea, Republic of"
 GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "South Korea"; gfn <- "Korea, Republic of"
 GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+wb <- "Korea, Dem. Rep."; gfn <- "Korea, Democratic People's Republic of"
+GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Lao PDR"; gfn <- "Lao People's Democratic Republic"
 GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Laos"; gfn <- "Lao People's Democratic Republic"

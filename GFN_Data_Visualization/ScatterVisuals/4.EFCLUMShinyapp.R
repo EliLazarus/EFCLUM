@@ -22,16 +22,16 @@ CLUMData <- read.csv("NFA_WB_2017_CLUM.csv")
 CLUMQScore <- read.csv("CLUM_QScore.csv")
 CLUMData$QScore <- CLUMQScore$NFA_GTAP_Qscore[match(CLUMData$GTAP_name,CLUMQScore$GTAP.Only)]
 
-cols <- c(names(CLUMData[,7:14]))
+cols <- c(names(CLUMData[,7:13]))
 #Log transformed data
 CLUMDatalog <- CLUMData
 CLUMDatalog[cols] <- log(CLUMDatalog[cols])
 
 #Friendly names
-setnames(CLUMData, old = c(names(CLUMData[,c(7:14,16:18)])), new = c("Coicop Expenditure", "Crop-Land", 
+setnames(CLUMData, old = c(names(CLUMData[,c(7:14,16:17)])), new = c("Coicop Expenditure", "Crop-Land", 
                                                             "Grazing-Land", "Forest-Land", "Fishing-Ground",
                                                             "BuiltUp-Land", "Carbon", "Total", "Z-Score", 
-                                                            "Min-Max", "#NA"))
+                                                            "Min-Max"))
 
 # Define UI for application that draws a Scatterplot
 ui <- pageWithSidebar(
@@ -39,8 +39,8 @@ ui <- pageWithSidebar(
   sidebarPanel(width = 3,
     #selection of GTAP years, 2011 as default
     checkboxGroupInput("Select_years", "Years", unique(CLUMData[,2]), selected = "2011", FALSE),
-    selectInput('xcol', 'X Variable', names(CLUMData[,c(7:14,16:18)]), selected = "Min-Max"),
-    selectInput('ycol', 'Y Variable', names(CLUMData[,c(7:14,16:18)]), selected = "Total"),
+    selectInput('xcol', 'X Variable', names(CLUMData[,c(7:14,16:17)]), selected = "Min-Max"),
+    selectInput('ycol', 'Y Variable', names(CLUMData[,c(7:14,16:17)]), selected = "Total"),
     selectInput('zcol', 'CLUM Category', unique(CLUMData[,3]),
                selected=unique(CLUMData[,3])[1]),
     selectInput('scale', 'Scale', c("normal","log"), selected="normal"),
