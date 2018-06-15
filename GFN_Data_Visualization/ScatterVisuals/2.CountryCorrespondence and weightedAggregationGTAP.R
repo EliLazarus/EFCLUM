@@ -3,9 +3,6 @@ library(dplyr)
 library(splitstackshape)
 library(WDI)
 
-##Todo for Eli
-# print warning to variable for saving non-downloaded to file
-
 "Set working directory to top level directory in console"
 ##eg. setwd("C:\\Users\\Eli\\GitFolders\\EFCLUM")
 

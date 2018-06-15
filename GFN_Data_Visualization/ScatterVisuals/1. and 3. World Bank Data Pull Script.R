@@ -3,10 +3,8 @@ library(data.table)
 library(WDI)
 library(dplyr)
 
-# Eli to do
-# Finalise/triple check the filtering for country names
-
-#### Set wd [setwd("path")] to folder with the top level of repo for relative paths to work ####
+"Set working directory to top level directory in console"
+##eg. setwd("C:\\Users\\Eli\\GitFolders\\EFCLUM")
 
 ###############WORLD BANK DATA PULL SCRIPT#############
 
@@ -246,8 +244,10 @@ GoodsData$ass_pov_extr <- 0-GoodsData$ass_pov_extr+max(GoodsData$ass_pov_extr, n
 
 Indicators_Nodownloads <- as.data.frame(names(warnings()))
 
+#Output WB Indicators info, and list of what was not downloaded at all at the end
 write.csv(IndicatorsDownloaded,"./GFN_Data_Visualization/ScatterVisuals/IndicatorsDLed.csv")
-write.table(Indicators_Nodownloads,"./GFN_Data_Visualization/ScatterVisuals/IndicatorsDLed.csv", append = TRUE)
+write.table(Indicators_Nodownloads,"./GFN_Data_Visualization/ScatterVisuals/IndicatorsDLed.csv",
+            append = TRUE, col.names=FALSE)
 
 ####Dropping WB countries not used in correspondence before forming indicators
 #drop the known and obvious country groupings in the World Bank List
@@ -380,13 +380,13 @@ MaxMin_Fun <- function(data, category){
 FoodData_MaxMin <- MaxMin_Fun(FoodData_NoNAs, "Food")
 GovernmentData_MaxMin <- MaxMin_Fun(GovernmentData_NoNAs, "Government")
 ServicesData_MaxMin <- MaxMin_Fun(ServicesData_NoNAs, "Services")
-TransportData_MaxMin <- MaxMin_Fun(TransportData_NoNAs, "Personal Transport")
+TransportData_MaxMin <- MaxMin_Fun(TransportData_NoNAs, "Personal Transportation")
 
 #Single column version
 ######  Transport if there is only 1 column (eg. if the NA_Factor for Transport is 2)
 # colnames(TransportData_NoNAs) <- c("iso2c", "country", "MaxMin_Index", "year")
 # TransportData_NoNAs$MaxMin_Index <- TransportData_NoNAs$MaxMin_Index/max(TransportData_NoNAs$MaxMin_Index, na.rm=TRUE)
-# TransportData_NoNAs$CLUM_category <- "Personal Transport"
+# TransportData_NoNAs$CLUM_category <- "Personal Transportation"
 # TransportData_NoNAs$NAPercent <- (rowSums(is.na(TransportData_NoNAs))/max(rowSums(is.na(TransportData_NoNAs))))*100
 # TransportData_MaxMin <- TransportData_NoNAs[,c(2:6)]
 
@@ -429,7 +429,7 @@ ZScore_Fun <- function(data, category){
 FoodData_ZScore <- ZScore_Fun(FoodData_NoNAs, "Food")
 GovernmentData_ZScore <- ZScore_Fun(GovernmentData_NoNAs, "Government")
 ServicesData_ZScore <- ZScore_Fun(ServicesData_NoNAs, "Services")
-TransportData_ZScore <- ZScore_Fun(TransportData_NoNAs, "Personal Transport")
+TransportData_ZScore <- ZScore_Fun(TransportData_NoNAs, "Personal Transportation")
 
 
 ##For Housing data, only one column and already 0 to 1
