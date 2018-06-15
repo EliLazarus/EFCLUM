@@ -71,30 +71,30 @@
 "70",NA,NA,100,"Tanzania","Housing",2004
 "71",-1.51757311201249,0.179410292346613,0,"Venezuela (Bolivarian Republic of)","Housing",2004
 "72",NA,NA,100,"Vietnam","Housing",2004
-"73",-0.233233074210644,0.00099859424055798,84.8325894602181,"Caribbean","Personal Transport",2004
-"74",-0.271069968910817,0.000134429343663322,93.1205618440559,"Central Africa","Personal Transport",2004
-"75",NA,NA,100,"Cote dIvoire","Personal Transport",2004
-"76",-0.124335297758666,0.0130950385229454,0,"Iran","Personal Transport",2004
-"77",-0.240653358840787,0.000365047906407814,66.6666666666666,"Laos","Personal Transport",2004
-"78",-0.243452751895888,0.000126034809699838,33.3333333333333,"Rest of East Asia","Personal Transport",2004
-"79",NA,NA,100,"Rest of Eastern Africa","Personal Transport",2004
-"80",-0.241772042871412,0.000269534297159443,66.6666666666667,"Rest of Eastern Europe","Personal Transport",2004
-"81",-0.26742251322219,0.000101113809088243,21.7466338987358,"Rest of Europe","Personal Transport",2004
-"82",-0.222910157249006,0.00187996827467731,65.4971662098788,"Rest of Former Soviet Union","Personal Transport",2004
-"83",-0.230022271549026,0.00243488313055277,4.93523547480551,"Rest of North Africa","Personal Transport",2004
-"84",NA,NA,100,"Rest of North America","Personal Transport",2004
-"85",-0.233236503867385,0.000998301415341196,65.9388290366885,"Rest of Oceania","Personal Transport",2004
-"86",NA,NA,100,"Rest of South African Customs Union","Personal Transport",2004
-"87",NA,NA,100,"Rest of South America","Personal Transport",2004
-"88",-0.244213616284472,6.1071958785134e-05,99.1240103236149,"Rest of South Asia","Personal Transport",2004
-"89",-0.223020635059871,0.00187053564297013,67.3014974724683,"Rest of Southeast Asia","Personal Transport",2004
-"90",-0.243559368599212,0.000116931840620183,92.9970302223726,"Rest of Western Africa","Personal Transport",2004
-"91",-0.237053195698936,0.00125989024524446,64.2881635436634,"Rest of Western Asia","Personal Transport",2004
-"92",-0.268476225739016,0.000102683925586554,64.2087508848139,"South Central Africa","Personal Transport",2004
-"93",0.130695812851995,0.0378188242477445,0,"South Korea","Personal Transport",2004
-"94",-0.255286275340674,0.000403971100246044,50,"Tanzania","Personal Transport",2004
-"95",-0.167132177919264,0.00664231043431801,33.3333333333333,"Venezuela (Bolivarian Republic of)","Personal Transport",2004
-"96",-0.201337908201622,0.00562829859652627,0,"Vietnam","Personal Transport",2004
+"73",-0.233233074210644,0.00099859424055798,84.8325894602181,"Caribbean","Personal Transportation",2004
+"74",-0.271069968910817,0.000134429343663322,93.1205618440559,"Central Africa","Personal Transportation",2004
+"75",NA,NA,100,"Cote dIvoire","Personal Transportation",2004
+"76",-0.124335297758666,0.0130950385229454,0,"Iran","Personal Transportation",2004
+"77",-0.240653358840787,0.000365047906407814,66.6666666666666,"Laos","Personal Transportation",2004
+"78",-0.243452751895888,0.000126034809699838,33.3333333333333,"Rest of East Asia","Personal Transportation",2004
+"79",NA,NA,100,"Rest of Eastern Africa","Personal Transportation",2004
+"80",-0.241772042871412,0.000269534297159443,66.6666666666667,"Rest of Eastern Europe","Personal Transportation",2004
+"81",-0.26742251322219,0.000101113809088243,21.7466338987358,"Rest of Europe","Personal Transportation",2004
+"82",-0.222910157249006,0.00187996827467731,65.4971662098788,"Rest of Former Soviet Union","Personal Transportation",2004
+"83",-0.230022271549026,0.00243488313055277,4.93523547480551,"Rest of North Africa","Personal Transportation",2004
+"84",NA,NA,100,"Rest of North America","Personal Transportation",2004
+"85",-0.233236503867385,0.000998301415341196,65.9388290366885,"Rest of Oceania","Personal Transportation",2004
+"86",NA,NA,100,"Rest of South African Customs Union","Personal Transportation",2004
+"87",NA,NA,100,"Rest of South America","Personal Transportation",2004
+"88",-0.244213616284472,6.1071958785134e-05,99.1240103236149,"Rest of South Asia","Personal Transportation",2004
+"89",-0.223020635059871,0.00187053564297013,67.3014974724683,"Rest of Southeast Asia","Personal Transportation",2004
+"90",-0.243559368599212,0.000116931840620183,92.9970302223726,"Rest of Western Africa","Personal Transportation",2004
+"91",-0.237053195698936,0.00125989024524446,64.2881635436634,"Rest of Western Asia","Personal Transportation",2004
+"92",-0.268476225739016,0.000102683925586554,64.2087508848139,"South Central Africa","Personal Transportation",2004
+"93",0.130695812851995,0.0378188242477445,0,"South Korea","Personal Transportation",2004
+"94",-0.255286275340674,0.000403971100246044,50,"Tanzania","Personal Transportation",2004
+"95",-0.167132177919264,0.00664231043431801,33.3333333333333,"Venezuela (Bolivarian Republic of)","Personal Transportation",2004
+"96",-0.201337908201622,0.00562829859652627,0,"Vietnam","Personal Transportation",2004
 "97",0.0418332496498657,0.550013463239347,35.0343762927855,"Caribbean","Services",2004
 "98",-1.47668002833192,0.427529282242069,36.1743872239319,"Central Africa","Services",2004
 "99",-0.437596014871762,0.205416359877344,77.7777777777778,"Cote dIvoire","Services",2004
@@ -191,30 +191,30 @@
 "190",NA,NA,100,"Tanzania","Housing",2007
 "191",-1.5038699417429,0.183435094993539,0,"Venezuela (Bolivarian Republic of)","Housing",2007
 "192",NA,NA,100,"Vietnam","Housing",2007
-"193",-0.231439853182975,0.00115170003973251,85.3191355130272,"Caribbean","Personal Transport",2007
-"194",-0.244135188337071,6.77681626434829e-05,99.7170614621889,"Central Africa","Personal Transport",2007
-"195",NA,NA,100,"Cote dIvoire","Personal Transport",2007
-"196",-0.0978206257252787,0.0157605008725288,0,"Iran","Personal Transport",2007
-"197",-0.239762389663056,0.000441119146869234,66.6666666666667,"Laos","Personal Transport",2007
-"198",-0.243187978893689,0.000148641215422266,33.3333333333333,"Rest of East Asia","Personal Transport",2007
-"199",NA,NA,100,"Rest of Eastern Africa","Personal Transport",2007
-"200",-0.254737885308891,0.00045031789271229,50,"Rest of Eastern Europe","Personal Transport",2007
-"201",-0.25506033340823,0.000740165568443642,12.1396155745672,"Rest of Europe","Personal Transport",2007
-"202",-0.235070127603386,0.00210476324635698,51.6501051272634,"Rest of Former Soviet Union","Personal Transport",2007
-"203",-0.232479112224524,0.00220591482133746,4.97999123396076,"Rest of North Africa","Personal Transport",2007
-"204",NA,NA,100,"Rest of North America","Personal Transport",2007
-"205",-0.230689480383237,0.00121576711535239,66.4678707495645,"Rest of Oceania","Personal Transport",2007
-"206",NA,NA,100,"Rest of South African Customs Union","Personal Transport",2007
-"207",NA,NA,100,"Rest of South America","Personal Transport",2007
-"208",-0.244085321128943,7.20258412203504e-05,99.1447070645332,"Rest of South Asia","Personal Transport",2007
-"209",-0.218762142286722,0.00223412715190955,67.3248449166235,"Rest of Southeast Asia","Personal Transport",2007
-"210",-0.243208913686998,0.000146853795906991,93.0603766981666,"Rest of Western Africa","Personal Transport",2007
-"211",-0.245049847943437,0.00104354156533512,54.5931585755935,"Rest of Western Asia","Personal Transport",2007
-"212",-0.268266411591757,0.000121065244207743,64.1931454556223,"South Central Africa","Personal Transport",2007
-"213",0.159769266370709,0.0407689295304869,0,"South Korea","Personal Transport",2007
-"214",-0.255208681710124,0.00041122930747689,50,"Tanzania","Personal Transport",2007
-"215",-0.158455299440876,0.00738314516315286,33.3333333333333,"Venezuela (Bolivarian Republic of)","Personal Transport",2007
-"216",-0.183294215081464,0.00721367659151416,0,"Vietnam","Personal Transport",2007
+"193",-0.231439853182975,0.00115170003973251,85.3191355130272,"Caribbean","Personal Transportation",2007
+"194",-0.244135188337071,6.77681626434829e-05,99.7170614621889,"Central Africa","Personal Transportation",2007
+"195",NA,NA,100,"Cote dIvoire","Personal Transportation",2007
+"196",-0.0978206257252787,0.0157605008725288,0,"Iran","Personal Transportation",2007
+"197",-0.239762389663056,0.000441119146869234,66.6666666666667,"Laos","Personal Transportation",2007
+"198",-0.243187978893689,0.000148641215422266,33.3333333333333,"Rest of East Asia","Personal Transportation",2007
+"199",NA,NA,100,"Rest of Eastern Africa","Personal Transportation",2007
+"200",-0.254737885308891,0.00045031789271229,50,"Rest of Eastern Europe","Personal Transportation",2007
+"201",-0.25506033340823,0.000740165568443642,12.1396155745672,"Rest of Europe","Personal Transportation",2007
+"202",-0.235070127603386,0.00210476324635698,51.6501051272634,"Rest of Former Soviet Union","Personal Transportation",2007
+"203",-0.232479112224524,0.00220591482133746,4.97999123396076,"Rest of North Africa","Personal Transportation",2007
+"204",NA,NA,100,"Rest of North America","Personal Transportation",2007
+"205",-0.230689480383237,0.00121576711535239,66.4678707495645,"Rest of Oceania","Personal Transportation",2007
+"206",NA,NA,100,"Rest of South African Customs Union","Personal Transportation",2007
+"207",NA,NA,100,"Rest of South America","Personal Transportation",2007
+"208",-0.244085321128943,7.20258412203504e-05,99.1447070645332,"Rest of South Asia","Personal Transportation",2007
+"209",-0.218762142286722,0.00223412715190955,67.3248449166235,"Rest of Southeast Asia","Personal Transportation",2007
+"210",-0.243208913686998,0.000146853795906991,93.0603766981666,"Rest of Western Africa","Personal Transportation",2007
+"211",-0.245049847943437,0.00104354156533512,54.5931585755935,"Rest of Western Asia","Personal Transportation",2007
+"212",-0.268266411591757,0.000121065244207743,64.1931454556223,"South Central Africa","Personal Transportation",2007
+"213",0.159769266370709,0.0407689295304869,0,"South Korea","Personal Transportation",2007
+"214",-0.255208681710124,0.00041122930747689,50,"Tanzania","Personal Transportation",2007
+"215",-0.158455299440876,0.00738314516315286,33.3333333333333,"Venezuela (Bolivarian Republic of)","Personal Transportation",2007
+"216",-0.183294215081464,0.00721367659151416,0,"Vietnam","Personal Transportation",2007
 "217",0.00302144853482192,0.502445817864815,29.8046801812783,"Caribbean","Services",2007
 "218",-1.43027537022254,0.421524820410113,44.5424329541812,"Central Africa","Services",2007
 "219",-0.44019913478288,0.38417967825987,66.6666666666666,"Cote dIvoire","Services",2007
@@ -311,30 +311,30 @@
 "310",NA,NA,100,"Tanzania","Housing",2011
 "311",-1.48590411788882,0.188711895469599,0,"Venezuela (Bolivarian Republic of)","Housing",2011
 "312",NA,NA,100,"Vietnam","Housing",2011
-"313",-0.221661805422839,0.00198655296281518,85.9389294014365,"Caribbean","Personal Transport",2011
-"314",-0.246565404099431,0.000176321152975111,70.7847692201231,"Central Africa","Personal Transport",2011
-"315",-0.243515949529831,0.000120638974997078,66.6666666666667,"Cote dIvoire","Personal Transport",2011
-"316",-0.0349135252296628,0.0219750022423844,0,"Iran","Personal Transport",2011
-"317",-0.236546261589696,0.000715713216045238,66.6666666666667,"Laos","Personal Transport",2011
-"318",-0.243692711492245,0.000105546980702245,33.3333333333333,"Rest of East Asia","Personal Transport",2011
-"319",-0.249607300190961,0.00056266968451108,70.3867245159104,"Rest of Eastern Africa","Personal Transport",2011
-"320",-0.253390935350749,0.000548698434188922,50,"Rest of Eastern Europe","Personal Transport",2011
-"321",-0.249989909009891,0.000801184039808427,14.6255183882194,"Rest of Europe","Personal Transport",2011
-"322",-0.234938578225408,0.00243731622463276,48.2835409669882,"Rest of Former Soviet Union","Personal Transport",2011
-"323",-0.22433791535772,0.00293487463846913,4.87427044694759,"Rest of North Africa","Personal Transport",2011
-"324",NA,NA,100,"Rest of North America","Personal Transport",2011
-"325",-0.220588064363895,0.00207822932640874,67.2944415880733,"Rest of Oceania","Personal Transport",2011
-"326",-0.273359050973219,1.02196405139253e-07,91.349698520858,"Rest of South African Customs Union","Personal Transport",2011
-"327",-0.239574476942998,0.000457163196507103,66.6666666666667,"Rest of South America","Personal Transport",2011
-"328",-0.209862164993097,0.00299401013072297,66.6666666666667,"Rest of South Asia","Personal Transport",2011
-"329",-0.220700653289982,0.00206861644699181,67.3418165692931,"Rest of Southeast Asia","Personal Transport",2011
-"330",-0.242205008240754,0.000232567571995548,70.5613009904629,"Rest of Western Africa","Personal Transport",2011
-"331",-0.235161593379404,0.00163597948107494,49.7481087866529,"Rest of Western Asia","Personal Transport",2011
-"332",-0.253215323641828,0.000341203118416099,48.7573391595728,"South Central Africa","Personal Transport",2011
-"333",0.144113658510273,0.0378502627184474,0,"South Korea","Personal Transport",2011
-"334",-0.230531589610379,0.00122924788129688,66.6666666666666,"Tanzania","Personal Transport",2011
-"335",-0.123317104466363,0.0103832557686579,33.3333333333333,"Venezuela (Bolivarian Republic of)","Personal Transport",2011
-"336",-0.110091893948166,0.0134497835385699,0,"Vietnam","Personal Transport",2011
+"313",-0.221661805422839,0.00198655296281518,85.9389294014365,"Caribbean","Personal Transportation",2011
+"314",-0.246565404099431,0.000176321152975111,70.7847692201231,"Central Africa","Personal Transportation",2011
+"315",-0.243515949529831,0.000120638974997078,66.6666666666667,"Cote dIvoire","Personal Transportation",2011
+"316",-0.0349135252296628,0.0219750022423844,0,"Iran","Personal Transportation",2011
+"317",-0.236546261589696,0.000715713216045238,66.6666666666667,"Laos","Personal Transportation",2011
+"318",-0.243692711492245,0.000105546980702245,33.3333333333333,"Rest of East Asia","Personal Transportation",2011
+"319",-0.249607300190961,0.00056266968451108,70.3867245159104,"Rest of Eastern Africa","Personal Transportation",2011
+"320",-0.253390935350749,0.000548698434188922,50,"Rest of Eastern Europe","Personal Transportation",2011
+"321",-0.249989909009891,0.000801184039808427,14.6255183882194,"Rest of Europe","Personal Transportation",2011
+"322",-0.234938578225408,0.00243731622463276,48.2835409669882,"Rest of Former Soviet Union","Personal Transportation",2011
+"323",-0.22433791535772,0.00293487463846913,4.87427044694759,"Rest of North Africa","Personal Transportation",2011
+"324",NA,NA,100,"Rest of North America","Personal Transportation",2011
+"325",-0.220588064363895,0.00207822932640874,67.2944415880733,"Rest of Oceania","Personal Transportation",2011
+"326",-0.273359050973219,1.02196405139253e-07,91.349698520858,"Rest of South African Customs Union","Personal Transportation",2011
+"327",-0.239574476942998,0.000457163196507103,66.6666666666667,"Rest of South America","Personal Transportation",2011
+"328",-0.209862164993097,0.00299401013072297,66.6666666666667,"Rest of South Asia","Personal Transportation",2011
+"329",-0.220700653289982,0.00206861644699181,67.3418165692931,"Rest of Southeast Asia","Personal Transportation",2011
+"330",-0.242205008240754,0.000232567571995548,70.5613009904629,"Rest of Western Africa","Personal Transportation",2011
+"331",-0.235161593379404,0.00163597948107494,49.7481087866529,"Rest of Western Asia","Personal Transportation",2011
+"332",-0.253215323641828,0.000341203118416099,48.7573391595728,"South Central Africa","Personal Transportation",2011
+"333",0.144113658510273,0.0378502627184474,0,"South Korea","Personal Transportation",2011
+"334",-0.230531589610379,0.00122924788129688,66.6666666666666,"Tanzania","Personal Transportation",2011
+"335",-0.123317104466363,0.0103832557686579,33.3333333333333,"Venezuela (Bolivarian Republic of)","Personal Transportation",2011
+"336",-0.110091893948166,0.0134497835385699,0,"Vietnam","Personal Transportation",2011
 "337",0.0467227727764621,0.502830230124711,31.2252521931072,"Caribbean","Services",2011
 "338",-1.38196291300201,0.39702148838844,6.84888361178493,"Central Africa","Services",2011
 "339",-0.768185211422985,0.50230411088817,66.6666666666667,"Cote dIvoire","Services",2011
@@ -1358,573 +1358,573 @@
 "1357",-0.843133647214253,0.14317709752167,55.5555555555556,"Zimbabwe","Services",2004
 "1358",-0.839839086170152,0.143909757602904,55.5555555555556,"Zimbabwe","Services",2007
 "1359",-0.837785485298549,0.144400999434402,55.5555555555556,"Zimbabwe","Services",2011
-"1360",NA,NA,100,"Bangladesh","Personal Transport",2004
-"1361",NA,0.00332677896457282,0,"Bangladesh","Personal Transport",2004
-"1362",NA,NA,100,"Bangladesh","Personal Transport",2007
-"1363",NA,0.00296264863818612,0,"Bangladesh","Personal Transport",2007
-"1364",NA,NA,100,"Bangladesh","Personal Transport",2011
-"1365",NA,0.00509130376997763,0,"Bangladesh","Personal Transport",2011
-"1366",NA,NA,100,"Benin","Personal Transport",2004
-"1367",NA,NA,100,"Benin","Personal Transport",2004
-"1368",NA,NA,100,"Benin","Personal Transport",2007
-"1369",NA,NA,100,"Benin","Personal Transport",2007
-"1370",NA,NA,100,"Benin","Personal Transport",2011
-"1371",NA,7.83473317448121e-05,33.3333333333333,"Benin","Personal Transport",2011
-"1372",NA,NA,100,"Burkina Faso","Personal Transport",2004
-"1373",NA,8.24449946957709e-05,33.3333333333333,"Burkina Faso","Personal Transport",2004
-"1374",NA,NA,100,"Burkina Faso","Personal Transport",2007
-"1375",NA,0.000104540855180202,33.3333333333333,"Burkina Faso","Personal Transport",2007
-"1376",NA,NA,100,"Burkina Faso","Personal Transport",2011
-"1377",NA,0.000179644450077113,33.3333333333333,"Burkina Faso","Personal Transport",2011
-"1378",NA,NA,100,"Cambodia","Personal Transport",2004
-"1379",NA,0.000131909612902101,0,"Cambodia","Personal Transport",2004
-"1380",NA,NA,100,"Cambodia","Personal Transport",2007
-"1381",NA,0.000413517459055044,33.3333333333333,"Cambodia","Personal Transport",2007
-"1382",NA,NA,100,"Cambodia","Personal Transport",2011
-"1383",NA,0.000671745218636426,33.3333333333333,"Cambodia","Personal Transport",2011
-"1384",NA,NA,100,"Cameroon","Personal Transport",2004
-"1385",NA,0.000401380431650089,0,"Cameroon","Personal Transport",2004
-"1386",NA,NA,100,"Cameroon","Personal Transport",2007
-"1387",NA,0.000493409442427845,0,"Cameroon","Personal Transport",2007
-"1388",NA,NA,100,"Cameroon","Personal Transport",2011
-"1389",NA,0.000367813618013134,0,"Cameroon","Personal Transport",2011
-"1390",NA,NA,100,"Ethiopia","Personal Transport",2004
-"1391",NA,0.00188538041753491,33.3333333333333,"Ethiopia","Personal Transport",2004
-"1392",NA,NA,100,"Ethiopia","Personal Transport",2007
-"1393",NA,0.00307694732265442,33.3333333333333,"Ethiopia","Personal Transport",2007
-"1394",NA,NA,100,"Ethiopia","Personal Transport",2011
-"1395",NA,0.00596655099839724,33.3333333333333,"Ethiopia","Personal Transport",2011
-"1396",NA,NA,100,"Ghana","Personal Transport",2004
-"1397",NA,0.000108221662885888,0,"Ghana","Personal Transport",2004
-"1398",NA,NA,100,"Ghana","Personal Transport",2007
-"1399",NA,NA,100,"Ghana","Personal Transport",2007
-"1400",NA,NA,100,"Ghana","Personal Transport",2011
-"1401",NA,0.000660461519253169,33.3333333333333,"Ghana","Personal Transport",2011
-"1402",NA,NA,100,"Guinea","Personal Transport",2004
-"1403",NA,NA,100,"Guinea","Personal Transport",2004
-"1404",NA,NA,100,"Guinea","Personal Transport",2007
-"1405",NA,NA,100,"Guinea","Personal Transport",2007
-"1406",NA,NA,100,"Guinea","Personal Transport",2011
-"1407",NA,NA,100,"Guinea","Personal Transport",2011
-"1408",NA,NA,100,"Honduras","Personal Transport",2004
-"1409",NA,NA,100,"Honduras","Personal Transport",2004
-"1410",NA,NA,100,"Honduras","Personal Transport",2007
-"1411",NA,NA,100,"Honduras","Personal Transport",2007
-"1412",NA,NA,100,"Honduras","Personal Transport",2011
-"1413",NA,0.000569197918500567,33.3333333333333,"Honduras","Personal Transport",2011
-"1414",NA,NA,100,"India","Personal Transport",2004
-"1415",NA,0.292625754250585,0,"India","Personal Transport",2004
-"1416",NA,NA,100,"India","Personal Transport",2007
-"1417",NA,0.389875068681946,0,"India","Personal Transport",2007
-"1418",NA,NA,100,"India","Personal Transport",2011
-"1419",NA,0.549708909273706,0,"India","Personal Transport",2011
-"1420",NA,NA,100,"Kenya","Personal Transport",2004
-"1421",NA,0.00146269863528073,0,"Kenya","Personal Transport",2004
-"1422",NA,NA,100,"Kenya","Personal Transport",2007
-"1423",NA,0.0038391174682771,33.3333333333333,"Kenya","Personal Transport",2007
-"1424",NA,NA,100,"Kenya","Personal Transport",2011
-"1425",NA,0.00605761657734949,33.3333333333333,"Kenya","Personal Transport",2011
-"1426",NA,NA,100,"Kyrgyzstan","Personal Transport",2004
-"1427",NA,0.000329933142354482,33.3333333333333,"Kyrgyzstan","Personal Transport",2004
-"1428",NA,NA,100,"Kyrgyzstan","Personal Transport",2007
-"1429",NA,0.000215382921659416,0,"Kyrgyzstan","Personal Transport",2007
-"1430",NA,NA,100,"Kyrgyzstan","Personal Transport",2011
-"1431",NA,0.000395774654672277,0,"Kyrgyzstan","Personal Transport",2011
-"1432",NA,NA,100,"Madagascar","Personal Transport",2004
-"1433",NA,0.000689918589665535,33.3333333333333,"Madagascar","Personal Transport",2004
-"1434",NA,NA,100,"Madagascar","Personal Transport",2007
-"1435",NA,0.00082820245445698,33.3333333333333,"Madagascar","Personal Transport",2007
-"1436",NA,NA,100,"Madagascar","Personal Transport",2011
-"1437",NA,0.000731021145524494,33.3333333333333,"Madagascar","Personal Transport",2011
-"1438",NA,NA,100,"Malawi","Personal Transport",2004
-"1439",NA,9.5561913081325e-05,0,"Malawi","Personal Transport",2004
-"1440",NA,NA,100,"Malawi","Personal Transport",2007
-"1441",NA,0.000208029718462113,33.3333333333333,"Malawi","Personal Transport",2007
-"1442",NA,NA,100,"Malawi","Personal Transport",2011
-"1443",NA,0.000111123590346288,33.3333333333333,"Malawi","Personal Transport",2011
-"1444",NA,NA,100,"Mongolia","Personal Transport",2004
-"1445",NA,0.00041670971033262,33.3333333333333,"Mongolia","Personal Transport",2004
-"1446",NA,NA,100,"Mongolia","Personal Transport",2007
-"1447",NA,0.000916447991418718,0,"Mongolia","Personal Transport",2007
-"1448",NA,NA,100,"Mongolia","Personal Transport",2011
-"1449",NA,0.00104849784988086,0,"Mongolia","Personal Transport",2011
-"1450",NA,NA,100,"Mozambique","Personal Transport",2004
-"1451",NA,0.000394830159804287,33.3333333333333,"Mozambique","Personal Transport",2004
-"1452",NA,NA,100,"Mozambique","Personal Transport",2007
-"1453",NA,0.000385489758267986,0,"Mozambique","Personal Transport",2007
-"1454",NA,NA,100,"Mozambique","Personal Transport",2011
-"1455",NA,0.000513837189960727,0,"Mozambique","Personal Transport",2011
-"1456",NA,NA,100,"Nepal","Personal Transport",2004
-"1457",NA,0.000597460190604541,33.3333333333333,"Nepal","Personal Transport",2004
-"1458",NA,NA,100,"Nepal","Personal Transport",2007
-"1459",NA,0.000709692812857184,33.3333333333333,"Nepal","Personal Transport",2007
-"1460",NA,NA,100,"Nepal","Personal Transport",2011
-"1461",NA,0.00121068563919676,33.3333333333333,"Nepal","Personal Transport",2011
-"1462",NA,NA,100,"Nicaragua","Personal Transport",2004
-"1463",NA,NA,100,"Nicaragua","Personal Transport",2004
-"1464",NA,NA,100,"Nicaragua","Personal Transport",2007
-"1465",NA,NA,100,"Nicaragua","Personal Transport",2007
-"1466",NA,NA,100,"Nicaragua","Personal Transport",2011
-"1467",NA,NA,100,"Nicaragua","Personal Transport",2011
-"1468",NA,NA,100,"Nigeria","Personal Transport",2004
-"1469",NA,0.000860251023992744,0,"Nigeria","Personal Transport",2004
-"1470",NA,NA,100,"Nigeria","Personal Transport",2007
-"1471",NA,0.00100482567058591,0,"Nigeria","Personal Transport",2007
-"1472",NA,NA,100,"Nigeria","Personal Transport",2011
-"1473",NA,0.00644081471970769,33.3333333333333,"Nigeria","Personal Transport",2011
-"1474",NA,NA,100,"Pakistan","Personal Transport",2004
-"1475",NA,0.0151999131613081,0,"Pakistan","Personal Transport",2004
-"1476",NA,NA,100,"Pakistan","Personal Transport",2007
-"1477",NA,0.0167457245171733,0,"Pakistan","Personal Transport",2007
-"1478",NA,NA,100,"Pakistan","Personal Transport",2011
-"1479",NA,0.0158701587501946,0,"Pakistan","Personal Transport",2011
-"1480",NA,NA,100,"Rwanda","Personal Transport",2004
-"1481",NA,NA,100,"Rwanda","Personal Transport",2004
-"1482",NA,NA,100,"Rwanda","Personal Transport",2007
-"1483",NA,NA,100,"Rwanda","Personal Transport",2007
-"1484",NA,NA,100,"Rwanda","Personal Transport",2011
-"1485",NA,0.000360574656821903,33.3333333333333,"Rwanda","Personal Transport",2011
-"1486",NA,NA,100,"Senegal","Personal Transport",2004
-"1487",NA,0.000559412478512931,33.3333333333333,"Senegal","Personal Transport",2004
-"1488",NA,NA,100,"Senegal","Personal Transport",2007
-"1489",NA,0.000427896613904306,0,"Senegal","Personal Transport",2007
-"1490",NA,NA,100,"Senegal","Personal Transport",2011
-"1491",NA,0.000525863476092127,33.3333333333333,"Senegal","Personal Transport",2011
-"1492",NA,NA,100,"Togo","Personal Transport",2004
-"1493",NA,NA,100,"Togo","Personal Transport",2004
-"1494",NA,NA,100,"Togo","Personal Transport",2007
-"1495",NA,NA,100,"Togo","Personal Transport",2007
-"1496",NA,NA,100,"Togo","Personal Transport",2011
-"1497",NA,0.00111829715589261,33.3333333333333,"Togo","Personal Transport",2011
-"1498",NA,NA,100,"Uganda","Personal Transport",2004
-"1499",NA,6.14145615106313e-05,33.3333333333333,"Uganda","Personal Transport",2004
-"1500",NA,NA,100,"Uganda","Personal Transport",2007
-"1501",NA,8.02294970708878e-05,33.3333333333333,"Uganda","Personal Transport",2007
-"1502",NA,NA,100,"Uganda","Personal Transport",2011
-"1503",NA,0.000190249308778848,33.3333333333333,"Uganda","Personal Transport",2011
-"1504",NA,NA,100,"Zambia","Personal Transport",2004
-"1505",NA,6.70265285082885e-05,33.3333333333333,"Zambia","Personal Transport",2004
-"1506",NA,NA,100,"Zambia","Personal Transport",2007
-"1507",NA,8.27472912182686e-05,33.3333333333333,"Zambia","Personal Transport",2007
-"1508",NA,NA,100,"Zambia","Personal Transport",2011
-"1509",NA,0.000411169354022292,33.3333333333333,"Zambia","Personal Transport",2011
-"1510",NA,NA,100,"Zimbabwe","Personal Transport",2004
-"1511",NA,0.000302324736839793,33.3333333333333,"Zimbabwe","Personal Transport",2004
-"1512",NA,NA,100,"Zimbabwe","Personal Transport",2007
-"1513",NA,0.000342311177295688,33.3333333333333,"Zimbabwe","Personal Transport",2007
-"1514",NA,NA,100,"Zimbabwe","Personal Transport",2011
-"1515",NA,0.000375314727145616,33.3333333333333,"Zimbabwe","Personal Transport",2011
-"1516",-0.0196794698514282,0.0192318709853258,33.3333333333333,"United Arab Emirates","Personal Transport",2004
-"1517",NA,NA,100,"United Arab Emirates","Personal Transport",2007
-"1518",0.547264042126327,0.0676376938866002,33.3333333333333,"United Arab Emirates","Personal Transport",2011
-"1519",-0.257364129828271,0.000166089010373197,0,"Albania","Personal Transport",2004
-"1520",-0.257053971400105,0.000186554681264935,0,"Albania","Personal Transport",2007
-"1521",-0.252483536249083,0.000573772053995598,0,"Albania","Personal Transport",2011
-"1522",-0.255008477746175,0.000357878426966014,0,"Armenia","Personal Transport",2004
-"1523",-0.236106929755131,0.000753223512096852,33.3333333333333,"Armenia","Personal Transport",2007
-"1524",-0.255851162932221,0.000289092553138402,0,"Armenia","Personal Transport",2011
-"1525",-0.137995550286313,0.00913000525283873,33.3333333333333,"Argentina","Personal Transport",2004
-"1526",-0.134198466877866,0.00945420147896625,33.3333333333333,"Argentina","Personal Transport",2007
-"1527",-0.156078246611342,0.0101593825520594,0,"Argentina","Personal Transport",2011
-"1528",-0.16508069855854,0.00933866645959499,0,"Austria","Personal Transport",2004
-"1529",-0.149837846536029,0.0107654872105055,0,"Austria","Personal Transport",2007
-"1530",-0.105253359484869,0.0147890092144846,0,"Austria","Personal Transport",2011
-"1531",0.409632124388577,0.0558866356333087,33.3333333333333,"Australia","Personal Transport",2004
-"1532",0.129659709311327,0.0334034487393185,0,"Australia","Personal Transport",2007
-"1533",0.752105417756955,0.085127117686583,33.3333333333333,"Australia","Personal Transport",2011
-"1534",-0.248519927884754,0.00101065468515019,0,"Azerbaijan","Personal Transport",2004
-"1535",-0.2432281619142,0.00153449817752477,0,"Azerbaijan","Personal Transport",2007
-"1536",-0.245808908361666,0.00124307227715332,0,"Azerbaijan","Personal Transport",2011
-"1537",-0.228229100373586,NA,100,"Bangladesh","Personal Transport",2004
-"1538",-0.228229100373586,0.00332677896457282,0,"Bangladesh","Personal Transport",2004
-"1539",-0.232165716341092,NA,100,"Bangladesh","Personal Transport",2007
-"1540",-0.232165716341092,0.00296264863818612,0,"Bangladesh","Personal Transport",2007
-"1541",-0.213058208398663,NA,100,"Bangladesh","Personal Transport",2011
-"1542",-0.213058208398663,0.00509130376997763,0,"Bangladesh","Personal Transport",2011
-"1543",-0.197621602117707,0.00662632846829315,0,"Belgium","Personal Transport",2004
-"1544",-0.186032869275831,0.00781461488947909,0,"Belgium","Personal Transport",2007
-"1545",-0.146367667168838,0.0113462542626234,0,"Belgium","Personal Transport",2011
-"1546",-0.243963288879326,NA,100,"Burkina Faso","Personal Transport",2004
-"1547",-0.243963288879326,8.24449946957709e-05,33.3333333333333,"Burkina Faso","Personal Transport",2004
-"1548",-0.243704495536039,NA,100,"Burkina Faso","Personal Transport",2007
-"1549",-0.243704495536039,0.000104540855180202,33.3333333333333,"Burkina Faso","Personal Transport",2007
-"1550",-0.242824859713302,NA,100,"Burkina Faso","Personal Transport",2011
-"1551",-0.242824859713302,0.000179644450077113,33.3333333333333,"Burkina Faso","Personal Transport",2011
-"1552",-0.244541822548553,0.00166280938763119,0,"Bulgaria","Personal Transport",2004
-"1553",-0.242402882654725,0.00181313765837481,0,"Bulgaria","Personal Transport",2007
-"1554",-0.243262517421394,0.00168338361213849,0,"Bulgaria","Personal Transport",2011
-"1555",-0.208979404572478,0.00306938050481128,33.3333333333333,"Bahrain","Personal Transport",2004
-"1556",NA,NA,100,"Bahrain","Personal Transport",2007
-"1557",-0.156949274497343,0.00751173006651875,33.3333333333333,"Bahrain","Personal Transport",2011
-"1558",NA,NA,100,"Benin","Personal Transport",2004
-"1559",NA,NA,100,"Benin","Personal Transport",2004
-"1560",NA,NA,100,"Benin","Personal Transport",2007
-"1561",NA,NA,100,"Benin","Personal Transport",2007
-"1562",-0.244011281936465,NA,100,"Benin","Personal Transport",2011
-"1563",-0.244011281936465,7.83473317448121e-05,33.3333333333333,"Benin","Personal Transport",2011
-"1564",-0.227940729883682,0.00145045633406673,33.3333333333333,"Brunei Darussalam","Personal Transport",2004
-"1565",-0.228925013212312,0.00136641790081237,33.3333333333333,"Brunei Darussalam","Personal Transport",2007
-"1566",-0.224268637082418,0.00176398082118004,33.3333333333333,"Brunei Darussalam","Personal Transport",2011
-"1567",-0.216221621254631,0.0024510376704326,33.3333333333333,"Bolivia","Personal Transport",2004
-"1568",-0.217474989234253,0.00234402470146841,33.3333333333333,"Bolivia","Personal Transport",2007
-"1569",-0.211475667842113,0.00285624872855485,33.3333333333333,"Bolivia","Personal Transport",2011
-"1570",0.309980211688912,0.047378322660318,33.3333333333333,"Brazil","Personal Transport",2004
-"1571",0.467704651946406,0.0608448870728347,33.3333333333333,"Brazil","Personal Transport",2007
-"1572",1.13763688675761,0.118043920890156,33.3333333333333,"Brazil","Personal Transport",2011
-"1573",-0.24157792426003,0.000286108207832917,33.3333333333333,"Botswana","Personal Transport",2004
-"1574",-0.241347030746345,0.000305821971720066,33.3333333333333,"Botswana","Personal Transport",2007
-"1575",-0.238384895225026,0.000558730073541935,33.3333333333333,"Botswana","Personal Transport",2011
-"1576",-0.199600583490186,0.00728326255415604,0,"Belarus","Personal Transport",2004
-"1577",-0.217748259375301,0.00501714136318394,0,"Belarus","Personal Transport",2007
-"1578",-0.220539830741751,0.0045532051831602,0,"Belarus","Personal Transport",2011
-"1579",0.395544598752458,0.0546838380764934,33.3333333333333,"Canada","Personal Transport",2004
-"1580",0.162610144939923,0.0364619890025402,0,"Canada","Personal Transport",2007
-"1581",0.272676504439258,0.0458639235205564,0,"Canada","Personal Transport",2011
-"1582",-0.134955788914004,0.0125623426298594,0,"Switzerland","Personal Transport",2004
-"1583",-0.0972366720659846,0.0163204319292355,0,"Switzerland","Personal Transport",2007
-"1584",0.0109387936492849,0.0259126848132982,0,"Switzerland","Personal Transport",2011
-"1585",-0.212768638107798,0.00408939088704058,0,"Chile","Personal Transport",2004
-"1586",-0.199542491214324,0.00520471241683095,0,"Chile","Personal Transport",2007
-"1587",-0.16952146471088,0.00778501491653188,0,"Chile","Personal Transport",2011
-"1588",-0.255032930444091,NA,100,"Cameroon","Personal Transport",2004
-"1589",-0.255032930444091,0.000401380431650089,0,"Cameroon","Personal Transport",2004
-"1590",-0.254051475770793,NA,100,"Cameroon","Personal Transport",2007
-"1591",-0.254051475770793,0.000493409442427845,0,"Cameroon","Personal Transport",2007
-"1592",-0.255754262627334,NA,100,"Cameroon","Personal Transport",2011
-"1593",-0.255754262627334,0.000367813618013134,0,"Cameroon","Personal Transport",2011
-"1594",2.96012664631546,0.362121927276995,0,"China","Personal Transport",2004
-"1595",4.03405990616118,0.475728205459962,0,"China","Personal Transport",2007
-"1596",5.408896016866,0.613071971324587,0,"China","Personal Transport",2011
-"1597",-0.105994776186633,0.0118622418355789,33.3333333333333,"Colombia","Personal Transport",2004
-"1598",-0.0619105276629469,0.0156261694257002,33.3333333333333,"Colombia","Personal Transport",2007
-"1599",0.0504117121581677,0.0252162790817547,33.3333333333333,"Colombia","Personal Transport",2011
-"1600",-0.230744497531356,0.00121106973321096,33.3333333333333,"Costa Rica","Personal Transport",2004
-"1601",-0.228924604077755,0.00136645283285497,33.3333333333333,"Costa Rica","Personal Transport",2007
-"1602",-0.21613976370404,0.0024580266949356,33.3333333333333,"Costa Rica","Personal Transport",2011
-"1603",-0.213248456164389,0.00270488748046476,33.3333333333333,"Cyprus","Personal Transport",2004
-"1604",-0.212329571421111,0.00278334216106356,33.3333333333333,"Cyprus","Personal Transport",2007
-"1605",-0.225052570365642,0.00169704834047875,33.3333333333333,"Cyprus","Personal Transport",2011
-"1606",-0.198960398724968,0.00617276452088596,0,"Czech Republic","Personal Transport",2004
-"1607",-0.192515311410832,0.00677402381682223,0,"Czech Republic","Personal Transport",2007
-"1608",-0.19316259233939,0.00668393068993038,0,"Czech Republic","Personal Transport",2011
-"1609",0.675943561929135,0.0909192995401134,0,"Germany","Personal Transport",2004
-"1610",0.88438281131717,0.109466772487272,0,"Germany","Personal Transport",2007
-"1611",0.910324966121721,0.112392214776696,0,"Germany","Personal Transport",2011
-"1612",-0.186299577818313,0.00707280191067496,0,"Denmark","Personal Transport",2004
-"1613",-0.22607268261859,0.00584972223017083,33.3333333333333,"Denmark","Personal Transport",2007
-"1614",-0.189905083489227,0.0103238808471673,33.3333333333333,"Denmark","Personal Transport",2011
-"1615",NA,NA,100,"Dominican Republic","Personal Transport",2004
-"1616",NA,NA,100,"Dominican Republic","Personal Transport",2007
-"1617",-0.244484650618988,3.79309584569205e-05,33.3333333333333,"Dominican Republic","Personal Transport",2011
-"1618",-0.216158834836066,0.00245639839543156,33.3333333333333,"Ecuador","Personal Transport",2004
-"1619",-0.203531431754387,0.00353453020990893,33.3333333333333,"Ecuador","Personal Transport",2007
-"1620",-0.170747857359487,0.00633360253846317,33.3333333333333,"Ecuador","Personal Transport",2011
-"1621",-0.254342144130878,0.000440413008528871,0,"Estonia","Personal Transport",2004
-"1622",-0.252892146102538,0.000577037377287891,0,"Estonia","Personal Transport",2007
-"1623",-0.253302379837278,0.00053726220439769,0,"Estonia","Personal Transport",2011
-"1624",-0.0541024365702909,0.0239714306331001,0,"Egypt","Personal Transport",2004
-"1625",-0.0446000189714142,0.0247827501626607,0,"Egypt","Personal Transport",2007
-"1626",-0.0298151855838008,0.0260450840838816,0,"Egypt","Personal Transport",2011
-"1627",0.18270009117763,0.0409264763194854,0,"Spain","Personal Transport",2004
-"1628",0.305838216419944,0.0515985175324118,0,"Spain","Personal Transport",2007
-"1629",0.249468408542332,0.0470161433505494,0,"Spain","Personal Transport",2011
-"1630",-0.222846768609063,NA,100,"Ethiopia","Personal Transport",2004
-"1631",-0.222846768609063,0.00188538041753491,33.3333333333333,"Ethiopia","Personal Transport",2004
-"1632",-0.208890779733041,NA,100,"Ethiopia","Personal Transport",2007
-"1633",-0.208890779733041,0.00307694732265442,33.3333333333333,"Ethiopia","Personal Transport",2007
-"1634",-0.175046875054657,NA,100,"Ethiopia","Personal Transport",2011
-"1635",-0.175046875054657,0.00596655099839724,33.3333333333333,"Ethiopia","Personal Transport",2011
-"1636",-0.189833987474652,0.00644839828888854,0,"Finland","Personal Transport",2004
-"1637",-0.178323830318619,0.00749857908638215,0,"Finland","Personal Transport",2007
-"1638",-0.168300301420214,0.00837085544760666,0,"Finland","Personal Transport",2011
-"1639",0.428517087622679,0.0704298749340181,0,"France","Personal Transport",2004
-"1640",0.569214669541115,0.0839125834223805,0,"France","Personal Transport",2007
-"1641",0.609621893101595,0.0881169097290446,0,"France","Personal Transport",2011
-"1642",0.59059147909526,0.0791680604451408,0,"United Kingdom","Personal Transport",2004
-"1643",0.74544373479794,0.0936297509844435,0,"United Kingdom","Personal Transport",2007
-"1644",0.878018747941406,0.10702195241055,0,"United Kingdom","Personal Transport",2011
-"1645",-0.254809896503365,0.000467282726404334,0,"Georgia","Personal Transport",2004
-"1646",-0.25340977456922,0.000617695930023669,0,"Georgia","Personal Transport",2007
-"1647",-0.254745027176748,0.000477095644701664,0,"Georgia","Personal Transport",2011
-"1648",-0.258034472884313,NA,100,"Ghana","Personal Transport",2004
-"1649",-0.258034472884313,0.000108221662885888,0,"Ghana","Personal Transport",2004
-"1650",NA,NA,100,"Ghana","Personal Transport",2007
-"1651",NA,NA,100,"Ghana","Personal Transport",2007
-"1652",-0.237193386029372,NA,100,"Ghana","Personal Transport",2011
-"1653",-0.237193386029372,0.000660461519253169,33.3333333333333,"Ghana","Personal Transport",2011
-"1654",NA,NA,100,"Guinea","Personal Transport",2004
-"1655",NA,NA,100,"Guinea","Personal Transport",2004
-"1656",NA,NA,100,"Guinea","Personal Transport",2007
-"1657",NA,NA,100,"Guinea","Personal Transport",2007
-"1658",NA,NA,100,"Guinea","Personal Transport",2011
-"1659",NA,NA,100,"Guinea","Personal Transport",2011
-"1660",-0.179263723305026,0.00708429787124151,0,"Greece","Personal Transport",2004
-"1661",-0.170770906858684,0.00785469381317933,0,"Greece","Personal Transport",2007
-"1662",-0.178017554947234,0.00715032723594252,0,"Greece","Personal Transport",2011
-"1663",NA,NA,100,"Guatemala","Personal Transport",2004
-"1664",NA,NA,100,"Guatemala","Personal Transport",2007
-"1665",-0.239796690778107,0.000438190506422053,33.3333333333333,"Guatemala","Personal Transport",2011
-"1666",NA,NA,100,"Honduras","Personal Transport",2004
-"1667",NA,NA,100,"Honduras","Personal Transport",2004
-"1668",NA,NA,100,"Honduras","Personal Transport",2007
-"1669",NA,NA,100,"Honduras","Personal Transport",2007
-"1670",-0.238262292686158,NA,100,"Honduras","Personal Transport",2011
-"1671",-0.238262292686158,0.000569197918500567,33.3333333333333,"Honduras","Personal Transport",2011
-"1672",-0.240420090724321,0.00179071639431063,0,"Croatia","Personal Transport",2004
-"1673",-0.240331465436283,0.00186129039351466,0,"Croatia","Personal Transport",2007
-"1674",-0.238745461318272,0.00197691526943131,0,"Croatia","Personal Transport",2011
-"1675",-0.209374451502216,0.00538904334446605,0,"Hungary","Personal Transport",2004
-"1676",-0.208698006827335,0.00529561293109011,0,"Hungary","Personal Transport",2007
-"1677",-0.127328347895969,0.0121663593324135,0,"Hungary","Personal Transport",2011
-"1678",0.176488339168005,0.0359807428247804,33.3333333333333,"Indonesia","Personal Transport",2004
-"1679",0.233536928817057,0.0408515701100001,33.3333333333333,"Indonesia","Personal Transport",2007
-"1680",0.382572397435088,0.058000979602362,0,"Indonesia","Personal Transport",2011
-"1681",0.0207932389696915,0.024151612281726,0,"Ireland","Personal Transport",2004
-"1682",0.222003456653559,0.0413982881228772,0,"Ireland","Personal Transport",2007
-"1683",0.455395477699767,0.0612669592172482,0,"Ireland","Personal Transport",2011
-"1684",-0.214171127560286,0.00406510644885686,0,"Israel","Personal Transport",2004
-"1685",-0.214895925494949,0.00406781320070671,0,"Israel","Personal Transport",2007
-"1686",-0.210653097469584,0.00444526495119374,0,"Israel","Personal Transport",2011
-"1687",2.16468605202208,NA,100,"India","Personal Transport",2004
-"1688",2.16468605202208,0.292625754250585,0,"India","Personal Transport",2004
-"1689",3.01898068124464,NA,100,"India","Personal Transport",2007
-"1690",3.01898068124464,0.389875068681946,0,"India","Personal Transport",2007
-"1691",4.3648937249505,NA,100,"India","Personal Transport",2011
-"1692",4.3648937249505,0.549708909273706,0,"India","Personal Transport",2011
-"1693",0.211704898307274,0.0474147931934065,0,"Italy","Personal Transport",2004
-"1694",0.233112169058196,0.0494874576366214,0,"Italy","Personal Transport",2007
-"1695",0.175276400470023,0.0435110693702958,0,"Italy","Personal Transport",2011
-"1696",-0.213334830763763,0.00269751278885592,33.3333333333333,"Jamaica","Personal Transport",2004
-"1697",-0.219465554741927,0.00217406956589991,33.3333333333333,"Jamaica","Personal Transport",2007
-"1698",-0.244928909377776,0,33.3333333333333,"Jamaica","Personal Transport",2011
-"1699",-0.218803543556708,0.00223059229790648,33.3333333333333,"Jordan","Personal Transport",2004
-"1700",-0.209582642004981,0.00301787589507817,33.3333333333333,"Jordan","Personal Transport",2007
-"1701",-0.231357038318132,0.00245228141177999,0,"Jordan","Personal Transport",2011
-"1702",1.54219401774629,0.192157232774713,0,"Japan","Personal Transport",2004
-"1703",1.56971705933212,0.196134421458202,0,"Japan","Personal Transport",2007
-"1704",1.45762095036315,0.185299043403916,0,"Japan","Personal Transport",2011
-"1705",-0.242431870030269,NA,100,"Kenya","Personal Transport",2004
-"1706",-0.242431870030269,0.00146269863528073,0,"Kenya","Personal Transport",2004
-"1707",-0.199964014455953,NA,100,"Kenya","Personal Transport",2007
-"1708",-0.199964014455953,0.0038391174682771,33.3333333333333,"Kenya","Personal Transport",2007
-"1709",-0.173980287688571,NA,100,"Kenya","Personal Transport",2011
-"1710",-0.173980287688571,0.00605761657734949,33.3333333333333,"Kenya","Personal Transport",2011
-"1711",-0.241064633486303,NA,100,"Kyrgyzstan","Personal Transport",2004
-"1712",-0.241064633486303,0.000329933142354482,33.3333333333333,"Kyrgyzstan","Personal Transport",2004
-"1713",-0.256733013909592,NA,100,"Kyrgyzstan","Personal Transport",2007
-"1714",-0.256733013909592,0.000215382921659416,0,"Kyrgyzstan","Personal Transport",2007
-"1715",-0.254662857689263,NA,100,"Kyrgyzstan","Personal Transport",2011
-"1716",-0.254662857689263,0.000395774654672277,0,"Kyrgyzstan","Personal Transport",2011
-"1717",-0.257682865822431,NA,100,"Cambodia","Personal Transport",2004
-"1718",-0.257682865822431,0.000131909612902101,0,"Cambodia","Personal Transport",2004
-"1719",-0.240085668906915,NA,100,"Cambodia","Personal Transport",2007
-"1720",-0.240085668906915,0.000413517459055044,33.3333333333333,"Cambodia","Personal Transport",2007
-"1721",-0.237061227958854,NA,100,"Cambodia","Personal Transport",2011
-"1722",-0.237061227958854,0.000671745218636426,33.3333333333333,"Cambodia","Personal Transport",2011
-"1723",-0.205645052348071,0.00335406859075851,33.3333333333333,"Kuwait","Personal Transport",2004
-"1724",-0.20307493200437,0.00357350630820963,33.3333333333333,"Kuwait","Personal Transport",2007
-"1725",-0.186348244526519,0.00500163636821038,33.3333333333333,"Kuwait","Personal Transport",2011
-"1726",-0.20376100547462,0.00659955234661217,0,"Kazakhstan","Personal Transport",2004
-"1727",-0.192725016093429,0.00782597411904911,0,"Kazakhstan","Personal Transport",2007
-"1728",-0.160805254402828,0.0110233724804759,0,"Kazakhstan","Personal Transport",2011
-"1729",-0.220811671023413,0.00401439747072595,0,"Sri Lanka","Personal Transport",2004
-"1730",-0.19446741756935,0.00430841871228372,33.3333333333333,"Sri Lanka","Personal Transport",2007
-"1731",-0.187250472814068,0.00492460382126182,33.3333333333333,"Sri Lanka","Personal Transport",2011
-"1732",-0.25379060310506,0.000527239422685299,0,"Lithuania","Personal Transport",2004
-"1733",-0.254122219749274,0.000493543365136851,0,"Lithuania","Personal Transport",2007
-"1734",-0.256991195592007,0.000245423079117741,0,"Lithuania","Personal Transport",2011
-"1735",-0.231461458634777,0.00114985535917523,33.3333333333333,"Luxembourg","Personal Transport",2004
-"1736",-0.249663770948144,0.000859484410658043,0,"Luxembourg","Personal Transport",2007
-"1737",-0.251524879412679,0.000705806570223971,0,"Luxembourg","Personal Transport",2011
-"1738",-0.251127685031641,0.000812699792234031,0,"Latvia","Personal Transport",2004
-"1739",-0.244502275783178,0.00140576693273813,0,"Latvia","Personal Transport",2007
-"1740",-0.23285855841103,0.00225679963705264,0,"Latvia","Personal Transport",2011
-"1741",-0.224580770404306,0.00336978182297887,0,"Morocco","Personal Transport",2004
-"1742",-0.20765259242611,0.00497564094428608,0,"Morocco","Personal Transport",2007
-"1743",-0.180207985970329,0.00750250934946088,0,"Morocco","Personal Transport",2011
-"1744",-0.236848375988199,NA,100,"Madagascar","Personal Transport",2004
-"1745",-0.236848375988199,0.000689918589665535,33.3333333333333,"Madagascar","Personal Transport",2004
-"1746",-0.235228753900282,NA,100,"Madagascar","Personal Transport",2007
-"1747",-0.235228753900282,0.00082820245445698,33.3333333333333,"Madagascar","Personal Transport",2007
-"1748",-0.236366970529656,NA,100,"Madagascar","Personal Transport",2011
-"1749",-0.236366970529656,0.000731021145524494,33.3333333333333,"Madagascar","Personal Transport",2011
-"1750",-0.240048280302777,NA,100,"Mongolia","Personal Transport",2004
-"1751",-0.240048280302777,0.00041670971033262,33.3333333333333,"Mongolia","Personal Transport",2004
-"1752",-0.250808117779689,NA,100,"Mongolia","Personal Transport",2007
-"1753",-0.250808117779689,0.000916447991418718,0,"Mongolia","Personal Transport",2007
-"1754",-0.24945805196797,NA,100,"Mongolia","Personal Transport",2011
-"1755",-0.24945805196797,0.00104849784988086,0,"Mongolia","Personal Transport",2011
-"1756",-0.223445836016273,0.0018342318459283,33.3333333333333,"Malta","Personal Transport",2004
-"1757",-0.218574774395531,0.00225012468388013,33.3333333333333,"Malta","Personal Transport",2007
-"1758",-0.21859063622759,0.00224877039545934,33.3333333333333,"Malta","Personal Transport",2011
-"1759",-0.227797249541709,0.00146270673269844,33.3333333333333,"Mauritius","Personal Transport",2004
-"1760",-0.224819048949226,0.0017169864755626,33.3333333333333,"Mauritius","Personal Transport",2007
-"1761",-0.224134000341255,0.00177547615027555,33.3333333333333,"Mauritius","Personal Transport",2011
-"1762",-0.258073351804249,NA,100,"Malawi","Personal Transport",2004
-"1763",-0.258073351804249,9.5561913081325e-05,0,"Malawi","Personal Transport",2004
-"1764",-0.242492402938846,NA,100,"Malawi","Personal Transport",2007
-"1765",-0.242492402938846,0.000208029718462113,33.3333333333333,"Malawi","Personal Transport",2007
-"1766",-0.243627396567985,NA,100,"Malawi","Personal Transport",2011
-"1767",-0.243627396567985,0.000111123590346288,33.3333333333333,"Malawi","Personal Transport",2011
-"1768",-0.0922904279569271,0.0142577611475571,0,"Mexico","Personal Transport",2004
-"1769",-0.0939436313298923,0.0141181931956867,0,"Mexico","Personal Transport",2007
-"1770",-0.0248782138288912,0.0200728041148231,0,"Mexico","Personal Transport",2011
-"1771",-0.0998941181461103,0.0139025361511291,0,"Malaysia","Personal Transport",2004
-"1772",-0.0822955303152423,0.0154465864131103,0,"Malaysia","Personal Transport",2007
-"1773",0.0455445969169887,0.0261672144342769,0,"Malaysia","Personal Transport",2011
-"1774",-0.240304540159,NA,100,"Mozambique","Personal Transport",2004
-"1775",-0.240304540159,0.000394830159804287,33.3333333333333,"Mozambique","Personal Transport",2004
-"1776",-0.254948338361987,NA,100,"Mozambique","Personal Transport",2007
-"1777",-0.254948338361987,0.000385489758267986,0,"Mozambique","Personal Transport",2007
-"1778",-0.253584157299058,NA,100,"Mozambique","Personal Transport",2011
-"1779",-0.253584157299058,0.000513837189960727,0,"Mozambique","Personal Transport",2011
-"1780",-0.240476974638858,0.000380107647388599,33.3333333333333,"Namibia","Personal Transport",2004
-"1781",-0.238150792906835,0.000578717806209684,33.3333333333333,"Namibia","Personal Transport",2007
-"1782",-0.236417842120206,0.000726677712447245,33.3333333333333,"Namibia","Personal Transport",2011
-"1783",-0.250872980003498,NA,100,"Nigeria","Personal Transport",2004
-"1784",-0.250872980003498,0.000860251023992744,0,"Nigeria","Personal Transport",2004
-"1785",-0.247698198787674,NA,100,"Nigeria","Personal Transport",2007
-"1786",-0.247698198787674,0.00100482567058591,0,"Nigeria","Personal Transport",2007
-"1787",-0.169492156145905,NA,100,"Nigeria","Personal Transport",2011
-"1788",-0.169492156145905,0.00644081471970769,33.3333333333333,"Nigeria","Personal Transport",2011
-"1789",NA,NA,100,"Nicaragua","Personal Transport",2004
-"1790",NA,NA,100,"Nicaragua","Personal Transport",2004
-"1791",NA,NA,100,"Nicaragua","Personal Transport",2007
-"1792",NA,NA,100,"Nicaragua","Personal Transport",2007
-"1793",NA,NA,100,"Nicaragua","Personal Transport",2011
-"1794",NA,NA,100,"Nicaragua","Personal Transport",2011
-"1795",0.000470848984509206,0.0243977221624128,0,"Netherlands","Personal Transport",2004
-"1796",0.0321195678708227,0.0273292904829982,0,"Netherlands","Personal Transport",2007
-"1797",0.0460031863650443,0.0287144648498913,0,"Netherlands","Personal Transport",2011
-"1798",-0.0517352253411999,0.0164949400734763,33.3333333333333,"Norway","Personal Transport",2004
-"1799",-0.252153338272176,0.00262338171992462,33.3333333333333,"Norway","Personal Transport",2007
-"1800",-0.25136026163526,0.0027214902688583,33.3333333333333,"Norway","Personal Transport",2011
-"1801",-0.237931276481026,NA,100,"Nepal","Personal Transport",2004
-"1802",-0.237931276481026,0.000597460190604541,33.3333333333333,"Nepal","Personal Transport",2004
-"1803",-0.236616774357011,NA,100,"Nepal","Personal Transport",2007
-"1804",-0.236616774357011,0.000709692812857184,33.3333333333333,"Nepal","Personal Transport",2007
-"1805",-0.230748996155618,NA,100,"Nepal","Personal Transport",2011
-"1806",-0.230748996155618,0.00121068563919676,33.3333333333333,"Nepal","Personal Transport",2011
-"1807",-0.0670277466635405,0.0151892595899642,33.3333333333333,"New Zealand","Personal Transport",2004
-"1808",-0.047509431860727,0.016855739706088,33.3333333333333,"New Zealand","Personal Transport",2007
-"1809",-0.0286064993827254,0.0184696782775921,33.3333333333333,"New Zealand","Personal Transport",2011
-"1810",-0.193518193925071,0.0043894637381953,33.3333333333333,"Oman","Personal Transport",2004
-"1811",NA,NA,100,"Oman","Personal Transport",2007
-"1812",-0.185199119352781,0.00509974905223658,33.3333333333333,"Oman","Personal Transport",2011
-"1813",-0.221314402333412,0.00201621435247191,33.3333333333333,"Panama","Personal Transport",2004
-"1814",-0.206009811541638,0.00332292533124074,33.3333333333333,"Panama","Personal Transport",2007
-"1815",-0.144532321683057,0.00857189356817886,33.3333333333333,"Panama","Personal Transport",2011
-"1816",-0.194178474156395,0.00433308879559973,33.3333333333333,"Peru","Personal Transport",2004
-"1817",-0.161950315658654,0.00708473953278474,33.3333333333333,"Peru","Personal Transport",2007
-"1818",-0.191090213025258,0.00582251972987329,0,"Peru","Personal Transport",2011
-"1819",-0.200421282145441,0.00503659502911064,0,"Philippines","Personal Transport",2004
-"1820",-0.106166990363268,0.0118475381327246,33.3333333333333,"Philippines","Personal Transport",2007
-"1821",0.169345333883882,0.0353708706920877,33.3333333333333,"Philippines","Personal Transport",2011
-"1822",-0.123847736181565,NA,100,"Pakistan","Personal Transport",2004
-"1823",-0.123847736181565,0.0151999131613081,0,"Pakistan","Personal Transport",2004
-"1824",-0.110519064827776,NA,100,"Pakistan","Personal Transport",2007
-"1825",-0.110519064827776,0.0167457245171733,0,"Pakistan","Personal Transport",2007
-"1826",-0.11149940921109,NA,100,"Pakistan","Personal Transport",2011
-"1827",-0.11149940921109,0.0158701587501946,0,"Pakistan","Personal Transport",2011
-"1828",-0.154724131577446,0.0118641071416354,0,"Poland","Personal Transport",2004
-"1829",-0.154995959740737,0.0115963103337288,0,"Poland","Personal Transport",2007
-"1830",-0.159192260098739,0.0110232029714426,0,"Poland","Personal Transport",2011
-"1831",NA,NA,100,"Puerto Rico","Personal Transport",2004
-"1832",NA,NA,100,"Puerto Rico","Personal Transport",2007
-"1833",NA,NA,100,"Puerto Rico","Personal Transport",2011
-"1834",-0.17381377804546,0.00782618251399989,0,"Portugal","Personal Transport",2004
-"1835",-0.163035111867563,0.00877733889951261,0,"Portugal","Personal Transport",2007
-"1836",-0.156991741162074,0.00931548718806648,0,"Portugal","Personal Transport",2011
-"1837",-0.23905222648766,0.000501753111581771,33.3333333333333,"Paraguay","Personal Transport",2004
-"1838",-0.237711020465825,0.000616265721384097,33.3333333333333,"Paraguay","Personal Transport",2007
-"1839",-0.231625809735418,0.00113582300832691,33.3333333333333,"Paraguay","Personal Transport",2011
-"1840",-0.174855631256191,0.00598287945660144,33.3333333333333,"Qatar","Personal Transport",2004
-"1841",-0.105207742922342,0.0119294389936799,33.3333333333333,"Qatar","Personal Transport",2007
-"1842",-0.0156860018555898,0.0195728345919012,33.3333333333333,"Qatar","Personal Transport",2011
-"1843",-0.212959235041174,0.00530998903708804,0,"Romania","Personal Transport",2004
-"1844",-0.204873295985605,0.00580786492820739,0,"Romania","Personal Transport",2007
-"1845",-0.210469093935087,0.00491801448457351,0,"Romania","Personal Transport",2011
-"1846",0.623564165478769,0.1013717486262,0,"Russian Federation","Personal Transport",2004
-"1847",0.718269377491524,0.110904500322267,0,"Russian Federation","Personal Transport",2007
-"1848",0.716259689411645,0.105418624089798,0,"Russian Federation","Personal Transport",2011
-"1849",NA,NA,100,"Rwanda","Personal Transport",2004
-"1850",NA,NA,100,"Rwanda","Personal Transport",2004
-"1851",NA,NA,100,"Rwanda","Personal Transport",2007
-"1852",NA,NA,100,"Rwanda","Personal Transport",2007
-"1853",-0.24070575088121,NA,100,"Rwanda","Personal Transport",2011
-"1854",-0.24070575088121,0.000360574656821903,33.3333333333333,"Rwanda","Personal Transport",2011
-"1855",-0.14007263030766,0.0102240107748185,0,"Saudi Arabia","Personal Transport",2004
-"1856",-0.122852942117034,0.0116912255185967,0,"Saudi Arabia","Personal Transport",2007
-"1857",-0.0758862818215213,0.0156936555192499,0,"Saudi Arabia","Personal Transport",2011
-"1858",-0.146621575717689,0.0104146130094376,0,"Sweden","Personal Transport",2004
-"1859",-0.219934599897458,0.00660904152035548,33.3333333333333,"Sweden","Personal Transport",2007
-"1860",-0.220232003636301,0.00657225081450535,33.3333333333333,"Sweden","Personal Transport",2011
-"1861",0.022513239463338,0.0228342983377279,33.3333333333333,"Singapore","Personal Transport",2004
-"1862",0.0803541653899788,0.0277727755540622,33.3333333333333,"Singapore","Personal Transport",2007
-"1863",0.172229864373025,0.0356171528508229,33.3333333333333,"Singapore","Personal Transport",2011
-"1864",-0.24996968115807,0.000904288309947574,0,"Slovenia","Personal Transport",2004
-"1865",-0.248351801633523,0.00105002224553152,0,"Slovenia","Personal Transport",2007
-"1866",-0.248298170494688,0.00104842722296378,0,"Slovenia","Personal Transport",2011
-"1867",-0.244939328457387,0.00156538813155612,0,"Slovakia","Personal Transport",2004
-"1868",-0.229191764669979,0.00289741384693319,0,"Slovakia","Personal Transport",2007
-"1869",-0.248902967732797,0.00125641686017786,0,"Slovakia","Personal Transport",2011
-"1870",-0.238376902693391,NA,100,"Senegal","Personal Transport",2004
-"1871",-0.238376902693391,0.000559412478512931,33.3333333333333,"Senegal","Personal Transport",2004
-"1872",-0.254371927363099,NA,100,"Senegal","Personal Transport",2007
-"1873",-0.254371927363099,0.000427896613904306,0,"Senegal","Personal Transport",2007
-"1874",-0.238769838669185,NA,100,"Senegal","Personal Transport",2011
-"1875",-0.238769838669185,0.000525863476092127,33.3333333333333,"Senegal","Personal Transport",2011
-"1876",-0.207301764057181,0.00321261800195138,33.3333333333333,"El Salvador","Personal Transport",2004
-"1877",-0.205009650645005,0.00340831939645599,33.3333333333333,"El Salvador","Personal Transport",2007
-"1878",-0.211076581104157,0.00289032288506534,33.3333333333333,"El Salvador","Personal Transport",2011
-"1879",NA,NA,100,"Togo","Personal Transport",2004
-"1880",NA,NA,100,"Togo","Personal Transport",2004
-"1881",NA,NA,100,"Togo","Personal Transport",2007
-"1882",NA,NA,100,"Togo","Personal Transport",2007
-"1883",-0.231831077774137,NA,100,"Togo","Personal Transport",2011
-"1884",-0.231831077774137,0.00111829715589261,33.3333333333333,"Togo","Personal Transport",2011
-"1885",-0.0605426935016012,0.0184340215909624,0,"Thailand","Personal Transport",2004
-"1886",0.0885428676620662,0.028471929638375,33.3333333333333,"Thailand","Personal Transport",2007
-"1887",0.0231585899430535,0.0252910750176771,0,"Thailand","Personal Transport",2011
-"1888",-0.238539360477139,0.00196395851170717,0,"Tunisia","Personal Transport",2004
-"1889",-0.236836022550428,0.00214010208676376,0,"Tunisia","Personal Transport",2007
-"1890",-0.227997264390558,0.00290219869788858,0,"Tunisia","Personal Transport",2011
-"1891",-0.125496193153421,0.0122282785903384,0,"Turkey","Personal Transport",2004
-"1892",-0.0560677414934745,0.0182178432200877,0,"Turkey","Personal Transport",2007
-"1893",0.186090739421102,0.0389454974961963,0,"Turkey","Personal Transport",2011
-"1894",-0.227109651710729,0.00152141406090759,33.3333333333333,"Trinidad and Tobago","Personal Transport",2004
-"1895",-0.227845181228663,0.00145861430955387,33.3333333333333,"Trinidad and Tobago","Personal Transport",2007
-"1896",-0.203621178361465,0.00352686761517697,33.3333333333333,"Trinidad and Tobago","Personal Transport",2011
-"1897",-0.0281743119799406,0.0279090135175384,0,"Ukraine","Personal Transport",2004
-"1898",-0.025613215414563,0.0283657781264641,0,"Ukraine","Personal Transport",2007
-"1899",-0.00716566648286057,0.029519574575676,0,"Ukraine","Personal Transport",2011
-"1900",-0.244209603618624,NA,100,"Uganda","Personal Transport",2004
-"1901",-0.244209603618624,6.14145615106313e-05,33.3333333333333,"Uganda","Personal Transport",2004
-"1902",-0.243989237451811,NA,100,"Uganda","Personal Transport",2007
-"1903",-0.243989237451811,8.02294970708878e-05,33.3333333333333,"Uganda","Personal Transport",2007
-"1904",-0.242700652428392,NA,100,"Uganda","Personal Transport",2011
-"1905",-0.242700652428392,0.000190249308778848,33.3333333333333,"Uganda","Personal Transport",2011
-"1906",10.4257819846504,0.911068794076428,33.3333333333333,"United States of America","Personal Transport",2004
-"1907",5.63442470157307,0.504628986170782,0,"United States of America","Personal Transport",2007
-"1908",5.53005337811158,0.495790392376631,0,"United States of America","Personal Transport",2011
-"1909",-0.254662457751363,0.000384325828833469,0,"Uruguay","Personal Transport",2004
-"1910",-0.235440197786561,0.000810149306133418,33.3333333333333,"Uruguay","Personal Transport",2007
-"1911",NA,NA,100,"Uruguay","Personal Transport",2011
-"1912",-0.0894798394875067,0.0132722925446785,33.3333333333333,"South Africa","Personal Transport",2004
-"1913",-0.100610252730266,0.015730653547934,0,"South Africa","Personal Transport",2007
-"1914",0.0132630841167817,0.022044517041964,33.3333333333333,"South Africa","Personal Transport",2011
-"1915",-0.244143874578437,NA,100,"Zambia","Personal Transport",2004
-"1916",-0.244143874578437,6.70265285082885e-05,33.3333333333333,"Zambia","Personal Transport",2004
-"1917",-0.243959748291813,NA,100,"Zambia","Personal Transport",2007
-"1918",-0.243959748291813,8.27472912182686e-05,33.3333333333333,"Zambia","Personal Transport",2007
-"1919",-0.240113170617122,NA,100,"Zambia","Personal Transport",2011
-"1920",-0.240113170617122,0.000411169354022292,33.3333333333333,"Zambia","Personal Transport",2011
-"1921",-0.241387991409885,NA,100,"Zimbabwe","Personal Transport",2004
-"1922",-0.241387991409885,0.000302324736839793,33.3333333333333,"Zimbabwe","Personal Transport",2004
-"1923",-0.240919658229602,NA,100,"Zimbabwe","Personal Transport",2007
-"1924",-0.240919658229602,0.000342311177295688,33.3333333333333,"Zimbabwe","Personal Transport",2007
-"1925",-0.240533110757869,NA,100,"Zimbabwe","Personal Transport",2011
-"1926",-0.240533110757869,0.000375314727145616,33.3333333333333,"Zimbabwe","Personal Transport",2011
+"1360",NA,NA,100,"Bangladesh","Personal Transportation",2004
+"1361",NA,0.00332677896457282,0,"Bangladesh","Personal Transportation",2004
+"1362",NA,NA,100,"Bangladesh","Personal Transportation",2007
+"1363",NA,0.00296264863818612,0,"Bangladesh","Personal Transportation",2007
+"1364",NA,NA,100,"Bangladesh","Personal Transportation",2011
+"1365",NA,0.00509130376997763,0,"Bangladesh","Personal Transportation",2011
+"1366",NA,NA,100,"Benin","Personal Transportation",2004
+"1367",NA,NA,100,"Benin","Personal Transportation",2004
+"1368",NA,NA,100,"Benin","Personal Transportation",2007
+"1369",NA,NA,100,"Benin","Personal Transportation",2007
+"1370",NA,NA,100,"Benin","Personal Transportation",2011
+"1371",NA,7.83473317448121e-05,33.3333333333333,"Benin","Personal Transportation",2011
+"1372",NA,NA,100,"Burkina Faso","Personal Transportation",2004
+"1373",NA,8.24449946957709e-05,33.3333333333333,"Burkina Faso","Personal Transportation",2004
+"1374",NA,NA,100,"Burkina Faso","Personal Transportation",2007
+"1375",NA,0.000104540855180202,33.3333333333333,"Burkina Faso","Personal Transportation",2007
+"1376",NA,NA,100,"Burkina Faso","Personal Transportation",2011
+"1377",NA,0.000179644450077113,33.3333333333333,"Burkina Faso","Personal Transportation",2011
+"1378",NA,NA,100,"Cambodia","Personal Transportation",2004
+"1379",NA,0.000131909612902101,0,"Cambodia","Personal Transportation",2004
+"1380",NA,NA,100,"Cambodia","Personal Transportation",2007
+"1381",NA,0.000413517459055044,33.3333333333333,"Cambodia","Personal Transportation",2007
+"1382",NA,NA,100,"Cambodia","Personal Transportation",2011
+"1383",NA,0.000671745218636426,33.3333333333333,"Cambodia","Personal Transportation",2011
+"1384",NA,NA,100,"Cameroon","Personal Transportation",2004
+"1385",NA,0.000401380431650089,0,"Cameroon","Personal Transportation",2004
+"1386",NA,NA,100,"Cameroon","Personal Transportation",2007
+"1387",NA,0.000493409442427845,0,"Cameroon","Personal Transportation",2007
+"1388",NA,NA,100,"Cameroon","Personal Transportation",2011
+"1389",NA,0.000367813618013134,0,"Cameroon","Personal Transportation",2011
+"1390",NA,NA,100,"Ethiopia","Personal Transportation",2004
+"1391",NA,0.00188538041753491,33.3333333333333,"Ethiopia","Personal Transportation",2004
+"1392",NA,NA,100,"Ethiopia","Personal Transportation",2007
+"1393",NA,0.00307694732265442,33.3333333333333,"Ethiopia","Personal Transportation",2007
+"1394",NA,NA,100,"Ethiopia","Personal Transportation",2011
+"1395",NA,0.00596655099839724,33.3333333333333,"Ethiopia","Personal Transportation",2011
+"1396",NA,NA,100,"Ghana","Personal Transportation",2004
+"1397",NA,0.000108221662885888,0,"Ghana","Personal Transportation",2004
+"1398",NA,NA,100,"Ghana","Personal Transportation",2007
+"1399",NA,NA,100,"Ghana","Personal Transportation",2007
+"1400",NA,NA,100,"Ghana","Personal Transportation",2011
+"1401",NA,0.000660461519253169,33.3333333333333,"Ghana","Personal Transportation",2011
+"1402",NA,NA,100,"Guinea","Personal Transportation",2004
+"1403",NA,NA,100,"Guinea","Personal Transportation",2004
+"1404",NA,NA,100,"Guinea","Personal Transportation",2007
+"1405",NA,NA,100,"Guinea","Personal Transportation",2007
+"1406",NA,NA,100,"Guinea","Personal Transportation",2011
+"1407",NA,NA,100,"Guinea","Personal Transportation",2011
+"1408",NA,NA,100,"Honduras","Personal Transportation",2004
+"1409",NA,NA,100,"Honduras","Personal Transportation",2004
+"1410",NA,NA,100,"Honduras","Personal Transportation",2007
+"1411",NA,NA,100,"Honduras","Personal Transportation",2007
+"1412",NA,NA,100,"Honduras","Personal Transportation",2011
+"1413",NA,0.000569197918500567,33.3333333333333,"Honduras","Personal Transportation",2011
+"1414",NA,NA,100,"India","Personal Transportation",2004
+"1415",NA,0.292625754250585,0,"India","Personal Transportation",2004
+"1416",NA,NA,100,"India","Personal Transportation",2007
+"1417",NA,0.389875068681946,0,"India","Personal Transportation",2007
+"1418",NA,NA,100,"India","Personal Transportation",2011
+"1419",NA,0.549708909273706,0,"India","Personal Transportation",2011
+"1420",NA,NA,100,"Kenya","Personal Transportation",2004
+"1421",NA,0.00146269863528073,0,"Kenya","Personal Transportation",2004
+"1422",NA,NA,100,"Kenya","Personal Transportation",2007
+"1423",NA,0.0038391174682771,33.3333333333333,"Kenya","Personal Transportation",2007
+"1424",NA,NA,100,"Kenya","Personal Transportation",2011
+"1425",NA,0.00605761657734949,33.3333333333333,"Kenya","Personal Transportation",2011
+"1426",NA,NA,100,"Kyrgyzstan","Personal Transportation",2004
+"1427",NA,0.000329933142354482,33.3333333333333,"Kyrgyzstan","Personal Transportation",2004
+"1428",NA,NA,100,"Kyrgyzstan","Personal Transportation",2007
+"1429",NA,0.000215382921659416,0,"Kyrgyzstan","Personal Transportation",2007
+"1430",NA,NA,100,"Kyrgyzstan","Personal Transportation",2011
+"1431",NA,0.000395774654672277,0,"Kyrgyzstan","Personal Transportation",2011
+"1432",NA,NA,100,"Madagascar","Personal Transportation",2004
+"1433",NA,0.000689918589665535,33.3333333333333,"Madagascar","Personal Transportation",2004
+"1434",NA,NA,100,"Madagascar","Personal Transportation",2007
+"1435",NA,0.00082820245445698,33.3333333333333,"Madagascar","Personal Transportation",2007
+"1436",NA,NA,100,"Madagascar","Personal Transportation",2011
+"1437",NA,0.000731021145524494,33.3333333333333,"Madagascar","Personal Transportation",2011
+"1438",NA,NA,100,"Malawi","Personal Transportation",2004
+"1439",NA,9.5561913081325e-05,0,"Malawi","Personal Transportation",2004
+"1440",NA,NA,100,"Malawi","Personal Transportation",2007
+"1441",NA,0.000208029718462113,33.3333333333333,"Malawi","Personal Transportation",2007
+"1442",NA,NA,100,"Malawi","Personal Transportation",2011
+"1443",NA,0.000111123590346288,33.3333333333333,"Malawi","Personal Transportation",2011
+"1444",NA,NA,100,"Mongolia","Personal Transportation",2004
+"1445",NA,0.00041670971033262,33.3333333333333,"Mongolia","Personal Transportation",2004
+"1446",NA,NA,100,"Mongolia","Personal Transportation",2007
+"1447",NA,0.000916447991418718,0,"Mongolia","Personal Transportation",2007
+"1448",NA,NA,100,"Mongolia","Personal Transportation",2011
+"1449",NA,0.00104849784988086,0,"Mongolia","Personal Transportation",2011
+"1450",NA,NA,100,"Mozambique","Personal Transportation",2004
+"1451",NA,0.000394830159804287,33.3333333333333,"Mozambique","Personal Transportation",2004
+"1452",NA,NA,100,"Mozambique","Personal Transportation",2007
+"1453",NA,0.000385489758267986,0,"Mozambique","Personal Transportation",2007
+"1454",NA,NA,100,"Mozambique","Personal Transportation",2011
+"1455",NA,0.000513837189960727,0,"Mozambique","Personal Transportation",2011
+"1456",NA,NA,100,"Nepal","Personal Transportation",2004
+"1457",NA,0.000597460190604541,33.3333333333333,"Nepal","Personal Transportation",2004
+"1458",NA,NA,100,"Nepal","Personal Transportation",2007
+"1459",NA,0.000709692812857184,33.3333333333333,"Nepal","Personal Transportation",2007
+"1460",NA,NA,100,"Nepal","Personal Transportation",2011
+"1461",NA,0.00121068563919676,33.3333333333333,"Nepal","Personal Transportation",2011
+"1462",NA,NA,100,"Nicaragua","Personal Transportation",2004
+"1463",NA,NA,100,"Nicaragua","Personal Transportation",2004
+"1464",NA,NA,100,"Nicaragua","Personal Transportation",2007
+"1465",NA,NA,100,"Nicaragua","Personal Transportation",2007
+"1466",NA,NA,100,"Nicaragua","Personal Transportation",2011
+"1467",NA,NA,100,"Nicaragua","Personal Transportation",2011
+"1468",NA,NA,100,"Nigeria","Personal Transportation",2004
+"1469",NA,0.000860251023992744,0,"Nigeria","Personal Transportation",2004
+"1470",NA,NA,100,"Nigeria","Personal Transportation",2007
+"1471",NA,0.00100482567058591,0,"Nigeria","Personal Transportation",2007
+"1472",NA,NA,100,"Nigeria","Personal Transportation",2011
+"1473",NA,0.00644081471970769,33.3333333333333,"Nigeria","Personal Transportation",2011
+"1474",NA,NA,100,"Pakistan","Personal Transportation",2004
+"1475",NA,0.0151999131613081,0,"Pakistan","Personal Transportation",2004
+"1476",NA,NA,100,"Pakistan","Personal Transportation",2007
+"1477",NA,0.0167457245171733,0,"Pakistan","Personal Transportation",2007
+"1478",NA,NA,100,"Pakistan","Personal Transportation",2011
+"1479",NA,0.0158701587501946,0,"Pakistan","Personal Transportation",2011
+"1480",NA,NA,100,"Rwanda","Personal Transportation",2004
+"1481",NA,NA,100,"Rwanda","Personal Transportation",2004
+"1482",NA,NA,100,"Rwanda","Personal Transportation",2007
+"1483",NA,NA,100,"Rwanda","Personal Transportation",2007
+"1484",NA,NA,100,"Rwanda","Personal Transportation",2011
+"1485",NA,0.000360574656821903,33.3333333333333,"Rwanda","Personal Transportation",2011
+"1486",NA,NA,100,"Senegal","Personal Transportation",2004
+"1487",NA,0.000559412478512931,33.3333333333333,"Senegal","Personal Transportation",2004
+"1488",NA,NA,100,"Senegal","Personal Transportation",2007
+"1489",NA,0.000427896613904306,0,"Senegal","Personal Transportation",2007
+"1490",NA,NA,100,"Senegal","Personal Transportation",2011
+"1491",NA,0.000525863476092127,33.3333333333333,"Senegal","Personal Transportation",2011
+"1492",NA,NA,100,"Togo","Personal Transportation",2004
+"1493",NA,NA,100,"Togo","Personal Transportation",2004
+"1494",NA,NA,100,"Togo","Personal Transportation",2007
+"1495",NA,NA,100,"Togo","Personal Transportation",2007
+"1496",NA,NA,100,"Togo","Personal Transportation",2011
+"1497",NA,0.00111829715589261,33.3333333333333,"Togo","Personal Transportation",2011
+"1498",NA,NA,100,"Uganda","Personal Transportation",2004
+"1499",NA,6.14145615106313e-05,33.3333333333333,"Uganda","Personal Transportation",2004
+"1500",NA,NA,100,"Uganda","Personal Transportation",2007
+"1501",NA,8.02294970708878e-05,33.3333333333333,"Uganda","Personal Transportation",2007
+"1502",NA,NA,100,"Uganda","Personal Transportation",2011
+"1503",NA,0.000190249308778848,33.3333333333333,"Uganda","Personal Transportation",2011
+"1504",NA,NA,100,"Zambia","Personal Transportation",2004
+"1505",NA,6.70265285082885e-05,33.3333333333333,"Zambia","Personal Transportation",2004
+"1506",NA,NA,100,"Zambia","Personal Transportation",2007
+"1507",NA,8.27472912182686e-05,33.3333333333333,"Zambia","Personal Transportation",2007
+"1508",NA,NA,100,"Zambia","Personal Transportation",2011
+"1509",NA,0.000411169354022292,33.3333333333333,"Zambia","Personal Transportation",2011
+"1510",NA,NA,100,"Zimbabwe","Personal Transportation",2004
+"1511",NA,0.000302324736839793,33.3333333333333,"Zimbabwe","Personal Transportation",2004
+"1512",NA,NA,100,"Zimbabwe","Personal Transportation",2007
+"1513",NA,0.000342311177295688,33.3333333333333,"Zimbabwe","Personal Transportation",2007
+"1514",NA,NA,100,"Zimbabwe","Personal Transportation",2011
+"1515",NA,0.000375314727145616,33.3333333333333,"Zimbabwe","Personal Transportation",2011
+"1516",-0.0196794698514282,0.0192318709853258,33.3333333333333,"United Arab Emirates","Personal Transportation",2004
+"1517",NA,NA,100,"United Arab Emirates","Personal Transportation",2007
+"1518",0.547264042126327,0.0676376938866002,33.3333333333333,"United Arab Emirates","Personal Transportation",2011
+"1519",-0.257364129828271,0.000166089010373197,0,"Albania","Personal Transportation",2004
+"1520",-0.257053971400105,0.000186554681264935,0,"Albania","Personal Transportation",2007
+"1521",-0.252483536249083,0.000573772053995598,0,"Albania","Personal Transportation",2011
+"1522",-0.255008477746175,0.000357878426966014,0,"Armenia","Personal Transportation",2004
+"1523",-0.236106929755131,0.000753223512096852,33.3333333333333,"Armenia","Personal Transportation",2007
+"1524",-0.255851162932221,0.000289092553138402,0,"Armenia","Personal Transportation",2011
+"1525",-0.137995550286313,0.00913000525283873,33.3333333333333,"Argentina","Personal Transportation",2004
+"1526",-0.134198466877866,0.00945420147896625,33.3333333333333,"Argentina","Personal Transportation",2007
+"1527",-0.156078246611342,0.0101593825520594,0,"Argentina","Personal Transportation",2011
+"1528",-0.16508069855854,0.00933866645959499,0,"Austria","Personal Transportation",2004
+"1529",-0.149837846536029,0.0107654872105055,0,"Austria","Personal Transportation",2007
+"1530",-0.105253359484869,0.0147890092144846,0,"Austria","Personal Transportation",2011
+"1531",0.409632124388577,0.0558866356333087,33.3333333333333,"Australia","Personal Transportation",2004
+"1532",0.129659709311327,0.0334034487393185,0,"Australia","Personal Transportation",2007
+"1533",0.752105417756955,0.085127117686583,33.3333333333333,"Australia","Personal Transportation",2011
+"1534",-0.248519927884754,0.00101065468515019,0,"Azerbaijan","Personal Transportation",2004
+"1535",-0.2432281619142,0.00153449817752477,0,"Azerbaijan","Personal Transportation",2007
+"1536",-0.245808908361666,0.00124307227715332,0,"Azerbaijan","Personal Transportation",2011
+"1537",-0.228229100373586,NA,100,"Bangladesh","Personal Transportation",2004
+"1538",-0.228229100373586,0.00332677896457282,0,"Bangladesh","Personal Transportation",2004
+"1539",-0.232165716341092,NA,100,"Bangladesh","Personal Transportation",2007
+"1540",-0.232165716341092,0.00296264863818612,0,"Bangladesh","Personal Transportation",2007
+"1541",-0.213058208398663,NA,100,"Bangladesh","Personal Transportation",2011
+"1542",-0.213058208398663,0.00509130376997763,0,"Bangladesh","Personal Transportation",2011
+"1543",-0.197621602117707,0.00662632846829315,0,"Belgium","Personal Transportation",2004
+"1544",-0.186032869275831,0.00781461488947909,0,"Belgium","Personal Transportation",2007
+"1545",-0.146367667168838,0.0113462542626234,0,"Belgium","Personal Transportation",2011
+"1546",-0.243963288879326,NA,100,"Burkina Faso","Personal Transportation",2004
+"1547",-0.243963288879326,8.24449946957709e-05,33.3333333333333,"Burkina Faso","Personal Transportation",2004
+"1548",-0.243704495536039,NA,100,"Burkina Faso","Personal Transportation",2007
+"1549",-0.243704495536039,0.000104540855180202,33.3333333333333,"Burkina Faso","Personal Transportation",2007
+"1550",-0.242824859713302,NA,100,"Burkina Faso","Personal Transportation",2011
+"1551",-0.242824859713302,0.000179644450077113,33.3333333333333,"Burkina Faso","Personal Transportation",2011
+"1552",-0.244541822548553,0.00166280938763119,0,"Bulgaria","Personal Transportation",2004
+"1553",-0.242402882654725,0.00181313765837481,0,"Bulgaria","Personal Transportation",2007
+"1554",-0.243262517421394,0.00168338361213849,0,"Bulgaria","Personal Transportation",2011
+"1555",-0.208979404572478,0.00306938050481128,33.3333333333333,"Bahrain","Personal Transportation",2004
+"1556",NA,NA,100,"Bahrain","Personal Transportation",2007
+"1557",-0.156949274497343,0.00751173006651875,33.3333333333333,"Bahrain","Personal Transportation",2011
+"1558",NA,NA,100,"Benin","Personal Transportation",2004
+"1559",NA,NA,100,"Benin","Personal Transportation",2004
+"1560",NA,NA,100,"Benin","Personal Transportation",2007
+"1561",NA,NA,100,"Benin","Personal Transportation",2007
+"1562",-0.244011281936465,NA,100,"Benin","Personal Transportation",2011
+"1563",-0.244011281936465,7.83473317448121e-05,33.3333333333333,"Benin","Personal Transportation",2011
+"1564",-0.227940729883682,0.00145045633406673,33.3333333333333,"Brunei Darussalam","Personal Transportation",2004
+"1565",-0.228925013212312,0.00136641790081237,33.3333333333333,"Brunei Darussalam","Personal Transportation",2007
+"1566",-0.224268637082418,0.00176398082118004,33.3333333333333,"Brunei Darussalam","Personal Transportation",2011
+"1567",-0.216221621254631,0.0024510376704326,33.3333333333333,"Bolivia","Personal Transportation",2004
+"1568",-0.217474989234253,0.00234402470146841,33.3333333333333,"Bolivia","Personal Transportation",2007
+"1569",-0.211475667842113,0.00285624872855485,33.3333333333333,"Bolivia","Personal Transportation",2011
+"1570",0.309980211688912,0.047378322660318,33.3333333333333,"Brazil","Personal Transportation",2004
+"1571",0.467704651946406,0.0608448870728347,33.3333333333333,"Brazil","Personal Transportation",2007
+"1572",1.13763688675761,0.118043920890156,33.3333333333333,"Brazil","Personal Transportation",2011
+"1573",-0.24157792426003,0.000286108207832917,33.3333333333333,"Botswana","Personal Transportation",2004
+"1574",-0.241347030746345,0.000305821971720066,33.3333333333333,"Botswana","Personal Transportation",2007
+"1575",-0.238384895225026,0.000558730073541935,33.3333333333333,"Botswana","Personal Transportation",2011
+"1576",-0.199600583490186,0.00728326255415604,0,"Belarus","Personal Transportation",2004
+"1577",-0.217748259375301,0.00501714136318394,0,"Belarus","Personal Transportation",2007
+"1578",-0.220539830741751,0.0045532051831602,0,"Belarus","Personal Transportation",2011
+"1579",0.395544598752458,0.0546838380764934,33.3333333333333,"Canada","Personal Transportation",2004
+"1580",0.162610144939923,0.0364619890025402,0,"Canada","Personal Transportation",2007
+"1581",0.272676504439258,0.0458639235205564,0,"Canada","Personal Transportation",2011
+"1582",-0.134955788914004,0.0125623426298594,0,"Switzerland","Personal Transportation",2004
+"1583",-0.0972366720659846,0.0163204319292355,0,"Switzerland","Personal Transportation",2007
+"1584",0.0109387936492849,0.0259126848132982,0,"Switzerland","Personal Transportation",2011
+"1585",-0.212768638107798,0.00408939088704058,0,"Chile","Personal Transportation",2004
+"1586",-0.199542491214324,0.00520471241683095,0,"Chile","Personal Transportation",2007
+"1587",-0.16952146471088,0.00778501491653188,0,"Chile","Personal Transportation",2011
+"1588",-0.255032930444091,NA,100,"Cameroon","Personal Transportation",2004
+"1589",-0.255032930444091,0.000401380431650089,0,"Cameroon","Personal Transportation",2004
+"1590",-0.254051475770793,NA,100,"Cameroon","Personal Transportation",2007
+"1591",-0.254051475770793,0.000493409442427845,0,"Cameroon","Personal Transportation",2007
+"1592",-0.255754262627334,NA,100,"Cameroon","Personal Transportation",2011
+"1593",-0.255754262627334,0.000367813618013134,0,"Cameroon","Personal Transportation",2011
+"1594",2.96012664631546,0.362121927276995,0,"China","Personal Transportation",2004
+"1595",4.03405990616118,0.475728205459962,0,"China","Personal Transportation",2007
+"1596",5.408896016866,0.613071971324587,0,"China","Personal Transportation",2011
+"1597",-0.105994776186633,0.0118622418355789,33.3333333333333,"Colombia","Personal Transportation",2004
+"1598",-0.0619105276629469,0.0156261694257002,33.3333333333333,"Colombia","Personal Transportation",2007
+"1599",0.0504117121581677,0.0252162790817547,33.3333333333333,"Colombia","Personal Transportation",2011
+"1600",-0.230744497531356,0.00121106973321096,33.3333333333333,"Costa Rica","Personal Transportation",2004
+"1601",-0.228924604077755,0.00136645283285497,33.3333333333333,"Costa Rica","Personal Transportation",2007
+"1602",-0.21613976370404,0.0024580266949356,33.3333333333333,"Costa Rica","Personal Transportation",2011
+"1603",-0.213248456164389,0.00270488748046476,33.3333333333333,"Cyprus","Personal Transportation",2004
+"1604",-0.212329571421111,0.00278334216106356,33.3333333333333,"Cyprus","Personal Transportation",2007
+"1605",-0.225052570365642,0.00169704834047875,33.3333333333333,"Cyprus","Personal Transportation",2011
+"1606",-0.198960398724968,0.00617276452088596,0,"Czech Republic","Personal Transportation",2004
+"1607",-0.192515311410832,0.00677402381682223,0,"Czech Republic","Personal Transportation",2007
+"1608",-0.19316259233939,0.00668393068993038,0,"Czech Republic","Personal Transportation",2011
+"1609",0.675943561929135,0.0909192995401134,0,"Germany","Personal Transportation",2004
+"1610",0.88438281131717,0.109466772487272,0,"Germany","Personal Transportation",2007
+"1611",0.910324966121721,0.112392214776696,0,"Germany","Personal Transportation",2011
+"1612",-0.186299577818313,0.00707280191067496,0,"Denmark","Personal Transportation",2004
+"1613",-0.22607268261859,0.00584972223017083,33.3333333333333,"Denmark","Personal Transportation",2007
+"1614",-0.189905083489227,0.0103238808471673,33.3333333333333,"Denmark","Personal Transportation",2011
+"1615",NA,NA,100,"Dominican Republic","Personal Transportation",2004
+"1616",NA,NA,100,"Dominican Republic","Personal Transportation",2007
+"1617",-0.244484650618988,3.79309584569205e-05,33.3333333333333,"Dominican Republic","Personal Transportation",2011
+"1618",-0.216158834836066,0.00245639839543156,33.3333333333333,"Ecuador","Personal Transportation",2004
+"1619",-0.203531431754387,0.00353453020990893,33.3333333333333,"Ecuador","Personal Transportation",2007
+"1620",-0.170747857359487,0.00633360253846317,33.3333333333333,"Ecuador","Personal Transportation",2011
+"1621",-0.254342144130878,0.000440413008528871,0,"Estonia","Personal Transportation",2004
+"1622",-0.252892146102538,0.000577037377287891,0,"Estonia","Personal Transportation",2007
+"1623",-0.253302379837278,0.00053726220439769,0,"Estonia","Personal Transportation",2011
+"1624",-0.0541024365702909,0.0239714306331001,0,"Egypt","Personal Transportation",2004
+"1625",-0.0446000189714142,0.0247827501626607,0,"Egypt","Personal Transportation",2007
+"1626",-0.0298151855838008,0.0260450840838816,0,"Egypt","Personal Transportation",2011
+"1627",0.18270009117763,0.0409264763194854,0,"Spain","Personal Transportation",2004
+"1628",0.305838216419944,0.0515985175324118,0,"Spain","Personal Transportation",2007
+"1629",0.249468408542332,0.0470161433505494,0,"Spain","Personal Transportation",2011
+"1630",-0.222846768609063,NA,100,"Ethiopia","Personal Transportation",2004
+"1631",-0.222846768609063,0.00188538041753491,33.3333333333333,"Ethiopia","Personal Transportation",2004
+"1632",-0.208890779733041,NA,100,"Ethiopia","Personal Transportation",2007
+"1633",-0.208890779733041,0.00307694732265442,33.3333333333333,"Ethiopia","Personal Transportation",2007
+"1634",-0.175046875054657,NA,100,"Ethiopia","Personal Transportation",2011
+"1635",-0.175046875054657,0.00596655099839724,33.3333333333333,"Ethiopia","Personal Transportation",2011
+"1636",-0.189833987474652,0.00644839828888854,0,"Finland","Personal Transportation",2004
+"1637",-0.178323830318619,0.00749857908638215,0,"Finland","Personal Transportation",2007
+"1638",-0.168300301420214,0.00837085544760666,0,"Finland","Personal Transportation",2011
+"1639",0.428517087622679,0.0704298749340181,0,"France","Personal Transportation",2004
+"1640",0.569214669541115,0.0839125834223805,0,"France","Personal Transportation",2007
+"1641",0.609621893101595,0.0881169097290446,0,"France","Personal Transportation",2011
+"1642",0.59059147909526,0.0791680604451408,0,"United Kingdom","Personal Transportation",2004
+"1643",0.74544373479794,0.0936297509844435,0,"United Kingdom","Personal Transportation",2007
+"1644",0.878018747941406,0.10702195241055,0,"United Kingdom","Personal Transportation",2011
+"1645",-0.254809896503365,0.000467282726404334,0,"Georgia","Personal Transportation",2004
+"1646",-0.25340977456922,0.000617695930023669,0,"Georgia","Personal Transportation",2007
+"1647",-0.254745027176748,0.000477095644701664,0,"Georgia","Personal Transportation",2011
+"1648",-0.258034472884313,NA,100,"Ghana","Personal Transportation",2004
+"1649",-0.258034472884313,0.000108221662885888,0,"Ghana","Personal Transportation",2004
+"1650",NA,NA,100,"Ghana","Personal Transportation",2007
+"1651",NA,NA,100,"Ghana","Personal Transportation",2007
+"1652",-0.237193386029372,NA,100,"Ghana","Personal Transportation",2011
+"1653",-0.237193386029372,0.000660461519253169,33.3333333333333,"Ghana","Personal Transportation",2011
+"1654",NA,NA,100,"Guinea","Personal Transportation",2004
+"1655",NA,NA,100,"Guinea","Personal Transportation",2004
+"1656",NA,NA,100,"Guinea","Personal Transportation",2007
+"1657",NA,NA,100,"Guinea","Personal Transportation",2007
+"1658",NA,NA,100,"Guinea","Personal Transportation",2011
+"1659",NA,NA,100,"Guinea","Personal Transportation",2011
+"1660",-0.179263723305026,0.00708429787124151,0,"Greece","Personal Transportation",2004
+"1661",-0.170770906858684,0.00785469381317933,0,"Greece","Personal Transportation",2007
+"1662",-0.178017554947234,0.00715032723594252,0,"Greece","Personal Transportation",2011
+"1663",NA,NA,100,"Guatemala","Personal Transportation",2004
+"1664",NA,NA,100,"Guatemala","Personal Transportation",2007
+"1665",-0.239796690778107,0.000438190506422053,33.3333333333333,"Guatemala","Personal Transportation",2011
+"1666",NA,NA,100,"Honduras","Personal Transportation",2004
+"1667",NA,NA,100,"Honduras","Personal Transportation",2004
+"1668",NA,NA,100,"Honduras","Personal Transportation",2007
+"1669",NA,NA,100,"Honduras","Personal Transportation",2007
+"1670",-0.238262292686158,NA,100,"Honduras","Personal Transportation",2011
+"1671",-0.238262292686158,0.000569197918500567,33.3333333333333,"Honduras","Personal Transportation",2011
+"1672",-0.240420090724321,0.00179071639431063,0,"Croatia","Personal Transportation",2004
+"1673",-0.240331465436283,0.00186129039351466,0,"Croatia","Personal Transportation",2007
+"1674",-0.238745461318272,0.00197691526943131,0,"Croatia","Personal Transportation",2011
+"1675",-0.209374451502216,0.00538904334446605,0,"Hungary","Personal Transportation",2004
+"1676",-0.208698006827335,0.00529561293109011,0,"Hungary","Personal Transportation",2007
+"1677",-0.127328347895969,0.0121663593324135,0,"Hungary","Personal Transportation",2011
+"1678",0.176488339168005,0.0359807428247804,33.3333333333333,"Indonesia","Personal Transportation",2004
+"1679",0.233536928817057,0.0408515701100001,33.3333333333333,"Indonesia","Personal Transportation",2007
+"1680",0.382572397435088,0.058000979602362,0,"Indonesia","Personal Transportation",2011
+"1681",0.0207932389696915,0.024151612281726,0,"Ireland","Personal Transportation",2004
+"1682",0.222003456653559,0.0413982881228772,0,"Ireland","Personal Transportation",2007
+"1683",0.455395477699767,0.0612669592172482,0,"Ireland","Personal Transportation",2011
+"1684",-0.214171127560286,0.00406510644885686,0,"Israel","Personal Transportation",2004
+"1685",-0.214895925494949,0.00406781320070671,0,"Israel","Personal Transportation",2007
+"1686",-0.210653097469584,0.00444526495119374,0,"Israel","Personal Transportation",2011
+"1687",2.16468605202208,NA,100,"India","Personal Transportation",2004
+"1688",2.16468605202208,0.292625754250585,0,"India","Personal Transportation",2004
+"1689",3.01898068124464,NA,100,"India","Personal Transportation",2007
+"1690",3.01898068124464,0.389875068681946,0,"India","Personal Transportation",2007
+"1691",4.3648937249505,NA,100,"India","Personal Transportation",2011
+"1692",4.3648937249505,0.549708909273706,0,"India","Personal Transportation",2011
+"1693",0.211704898307274,0.0474147931934065,0,"Italy","Personal Transportation",2004
+"1694",0.233112169058196,0.0494874576366214,0,"Italy","Personal Transportation",2007
+"1695",0.175276400470023,0.0435110693702958,0,"Italy","Personal Transportation",2011
+"1696",-0.213334830763763,0.00269751278885592,33.3333333333333,"Jamaica","Personal Transportation",2004
+"1697",-0.219465554741927,0.00217406956589991,33.3333333333333,"Jamaica","Personal Transportation",2007
+"1698",-0.244928909377776,0,33.3333333333333,"Jamaica","Personal Transportation",2011
+"1699",-0.218803543556708,0.00223059229790648,33.3333333333333,"Jordan","Personal Transportation",2004
+"1700",-0.209582642004981,0.00301787589507817,33.3333333333333,"Jordan","Personal Transportation",2007
+"1701",-0.231357038318132,0.00245228141177999,0,"Jordan","Personal Transportation",2011
+"1702",1.54219401774629,0.192157232774713,0,"Japan","Personal Transportation",2004
+"1703",1.56971705933212,0.196134421458202,0,"Japan","Personal Transportation",2007
+"1704",1.45762095036315,0.185299043403916,0,"Japan","Personal Transportation",2011
+"1705",-0.242431870030269,NA,100,"Kenya","Personal Transportation",2004
+"1706",-0.242431870030269,0.00146269863528073,0,"Kenya","Personal Transportation",2004
+"1707",-0.199964014455953,NA,100,"Kenya","Personal Transportation",2007
+"1708",-0.199964014455953,0.0038391174682771,33.3333333333333,"Kenya","Personal Transportation",2007
+"1709",-0.173980287688571,NA,100,"Kenya","Personal Transportation",2011
+"1710",-0.173980287688571,0.00605761657734949,33.3333333333333,"Kenya","Personal Transportation",2011
+"1711",-0.241064633486303,NA,100,"Kyrgyzstan","Personal Transportation",2004
+"1712",-0.241064633486303,0.000329933142354482,33.3333333333333,"Kyrgyzstan","Personal Transportation",2004
+"1713",-0.256733013909592,NA,100,"Kyrgyzstan","Personal Transportation",2007
+"1714",-0.256733013909592,0.000215382921659416,0,"Kyrgyzstan","Personal Transportation",2007
+"1715",-0.254662857689263,NA,100,"Kyrgyzstan","Personal Transportation",2011
+"1716",-0.254662857689263,0.000395774654672277,0,"Kyrgyzstan","Personal Transportation",2011
+"1717",-0.257682865822431,NA,100,"Cambodia","Personal Transportation",2004
+"1718",-0.257682865822431,0.000131909612902101,0,"Cambodia","Personal Transportation",2004
+"1719",-0.240085668906915,NA,100,"Cambodia","Personal Transportation",2007
+"1720",-0.240085668906915,0.000413517459055044,33.3333333333333,"Cambodia","Personal Transportation",2007
+"1721",-0.237061227958854,NA,100,"Cambodia","Personal Transportation",2011
+"1722",-0.237061227958854,0.000671745218636426,33.3333333333333,"Cambodia","Personal Transportation",2011
+"1723",-0.205645052348071,0.00335406859075851,33.3333333333333,"Kuwait","Personal Transportation",2004
+"1724",-0.20307493200437,0.00357350630820963,33.3333333333333,"Kuwait","Personal Transportation",2007
+"1725",-0.186348244526519,0.00500163636821038,33.3333333333333,"Kuwait","Personal Transportation",2011
+"1726",-0.20376100547462,0.00659955234661217,0,"Kazakhstan","Personal Transportation",2004
+"1727",-0.192725016093429,0.00782597411904911,0,"Kazakhstan","Personal Transportation",2007
+"1728",-0.160805254402828,0.0110233724804759,0,"Kazakhstan","Personal Transportation",2011
+"1729",-0.220811671023413,0.00401439747072595,0,"Sri Lanka","Personal Transportation",2004
+"1730",-0.19446741756935,0.00430841871228372,33.3333333333333,"Sri Lanka","Personal Transportation",2007
+"1731",-0.187250472814068,0.00492460382126182,33.3333333333333,"Sri Lanka","Personal Transportation",2011
+"1732",-0.25379060310506,0.000527239422685299,0,"Lithuania","Personal Transportation",2004
+"1733",-0.254122219749274,0.000493543365136851,0,"Lithuania","Personal Transportation",2007
+"1734",-0.256991195592007,0.000245423079117741,0,"Lithuania","Personal Transportation",2011
+"1735",-0.231461458634777,0.00114985535917523,33.3333333333333,"Luxembourg","Personal Transportation",2004
+"1736",-0.249663770948144,0.000859484410658043,0,"Luxembourg","Personal Transportation",2007
+"1737",-0.251524879412679,0.000705806570223971,0,"Luxembourg","Personal Transportation",2011
+"1738",-0.251127685031641,0.000812699792234031,0,"Latvia","Personal Transportation",2004
+"1739",-0.244502275783178,0.00140576693273813,0,"Latvia","Personal Transportation",2007
+"1740",-0.23285855841103,0.00225679963705264,0,"Latvia","Personal Transportation",2011
+"1741",-0.224580770404306,0.00336978182297887,0,"Morocco","Personal Transportation",2004
+"1742",-0.20765259242611,0.00497564094428608,0,"Morocco","Personal Transportation",2007
+"1743",-0.180207985970329,0.00750250934946088,0,"Morocco","Personal Transportation",2011
+"1744",-0.236848375988199,NA,100,"Madagascar","Personal Transportation",2004
+"1745",-0.236848375988199,0.000689918589665535,33.3333333333333,"Madagascar","Personal Transportation",2004
+"1746",-0.235228753900282,NA,100,"Madagascar","Personal Transportation",2007
+"1747",-0.235228753900282,0.00082820245445698,33.3333333333333,"Madagascar","Personal Transportation",2007
+"1748",-0.236366970529656,NA,100,"Madagascar","Personal Transportation",2011
+"1749",-0.236366970529656,0.000731021145524494,33.3333333333333,"Madagascar","Personal Transportation",2011
+"1750",-0.240048280302777,NA,100,"Mongolia","Personal Transportation",2004
+"1751",-0.240048280302777,0.00041670971033262,33.3333333333333,"Mongolia","Personal Transportation",2004
+"1752",-0.250808117779689,NA,100,"Mongolia","Personal Transportation",2007
+"1753",-0.250808117779689,0.000916447991418718,0,"Mongolia","Personal Transportation",2007
+"1754",-0.24945805196797,NA,100,"Mongolia","Personal Transportation",2011
+"1755",-0.24945805196797,0.00104849784988086,0,"Mongolia","Personal Transportation",2011
+"1756",-0.223445836016273,0.0018342318459283,33.3333333333333,"Malta","Personal Transportation",2004
+"1757",-0.218574774395531,0.00225012468388013,33.3333333333333,"Malta","Personal Transportation",2007
+"1758",-0.21859063622759,0.00224877039545934,33.3333333333333,"Malta","Personal Transportation",2011
+"1759",-0.227797249541709,0.00146270673269844,33.3333333333333,"Mauritius","Personal Transportation",2004
+"1760",-0.224819048949226,0.0017169864755626,33.3333333333333,"Mauritius","Personal Transportation",2007
+"1761",-0.224134000341255,0.00177547615027555,33.3333333333333,"Mauritius","Personal Transportation",2011
+"1762",-0.258073351804249,NA,100,"Malawi","Personal Transportation",2004
+"1763",-0.258073351804249,9.5561913081325e-05,0,"Malawi","Personal Transportation",2004
+"1764",-0.242492402938846,NA,100,"Malawi","Personal Transportation",2007
+"1765",-0.242492402938846,0.000208029718462113,33.3333333333333,"Malawi","Personal Transportation",2007
+"1766",-0.243627396567985,NA,100,"Malawi","Personal Transportation",2011
+"1767",-0.243627396567985,0.000111123590346288,33.3333333333333,"Malawi","Personal Transportation",2011
+"1768",-0.0922904279569271,0.0142577611475571,0,"Mexico","Personal Transportation",2004
+"1769",-0.0939436313298923,0.0141181931956867,0,"Mexico","Personal Transportation",2007
+"1770",-0.0248782138288912,0.0200728041148231,0,"Mexico","Personal Transportation",2011
+"1771",-0.0998941181461103,0.0139025361511291,0,"Malaysia","Personal Transportation",2004
+"1772",-0.0822955303152423,0.0154465864131103,0,"Malaysia","Personal Transportation",2007
+"1773",0.0455445969169887,0.0261672144342769,0,"Malaysia","Personal Transportation",2011
+"1774",-0.240304540159,NA,100,"Mozambique","Personal Transportation",2004
+"1775",-0.240304540159,0.000394830159804287,33.3333333333333,"Mozambique","Personal Transportation",2004
+"1776",-0.254948338361987,NA,100,"Mozambique","Personal Transportation",2007
+"1777",-0.254948338361987,0.000385489758267986,0,"Mozambique","Personal Transportation",2007
+"1778",-0.253584157299058,NA,100,"Mozambique","Personal Transportation",2011
+"1779",-0.253584157299058,0.000513837189960727,0,"Mozambique","Personal Transportation",2011
+"1780",-0.240476974638858,0.000380107647388599,33.3333333333333,"Namibia","Personal Transportation",2004
+"1781",-0.238150792906835,0.000578717806209684,33.3333333333333,"Namibia","Personal Transportation",2007
+"1782",-0.236417842120206,0.000726677712447245,33.3333333333333,"Namibia","Personal Transportation",2011
+"1783",-0.250872980003498,NA,100,"Nigeria","Personal Transportation",2004
+"1784",-0.250872980003498,0.000860251023992744,0,"Nigeria","Personal Transportation",2004
+"1785",-0.247698198787674,NA,100,"Nigeria","Personal Transportation",2007
+"1786",-0.247698198787674,0.00100482567058591,0,"Nigeria","Personal Transportation",2007
+"1787",-0.169492156145905,NA,100,"Nigeria","Personal Transportation",2011
+"1788",-0.169492156145905,0.00644081471970769,33.3333333333333,"Nigeria","Personal Transportation",2011
+"1789",NA,NA,100,"Nicaragua","Personal Transportation",2004
+"1790",NA,NA,100,"Nicaragua","Personal Transportation",2004
+"1791",NA,NA,100,"Nicaragua","Personal Transportation",2007
+"1792",NA,NA,100,"Nicaragua","Personal Transportation",2007
+"1793",NA,NA,100,"Nicaragua","Personal Transportation",2011
+"1794",NA,NA,100,"Nicaragua","Personal Transportation",2011
+"1795",0.000470848984509206,0.0243977221624128,0,"Netherlands","Personal Transportation",2004
+"1796",0.0321195678708227,0.0273292904829982,0,"Netherlands","Personal Transportation",2007
+"1797",0.0460031863650443,0.0287144648498913,0,"Netherlands","Personal Transportation",2011
+"1798",-0.0517352253411999,0.0164949400734763,33.3333333333333,"Norway","Personal Transportation",2004
+"1799",-0.252153338272176,0.00262338171992462,33.3333333333333,"Norway","Personal Transportation",2007
+"1800",-0.25136026163526,0.0027214902688583,33.3333333333333,"Norway","Personal Transportation",2011
+"1801",-0.237931276481026,NA,100,"Nepal","Personal Transportation",2004
+"1802",-0.237931276481026,0.000597460190604541,33.3333333333333,"Nepal","Personal Transportation",2004
+"1803",-0.236616774357011,NA,100,"Nepal","Personal Transportation",2007
+"1804",-0.236616774357011,0.000709692812857184,33.3333333333333,"Nepal","Personal Transportation",2007
+"1805",-0.230748996155618,NA,100,"Nepal","Personal Transportation",2011
+"1806",-0.230748996155618,0.00121068563919676,33.3333333333333,"Nepal","Personal Transportation",2011
+"1807",-0.0670277466635405,0.0151892595899642,33.3333333333333,"New Zealand","Personal Transportation",2004
+"1808",-0.047509431860727,0.016855739706088,33.3333333333333,"New Zealand","Personal Transportation",2007
+"1809",-0.0286064993827254,0.0184696782775921,33.3333333333333,"New Zealand","Personal Transportation",2011
+"1810",-0.193518193925071,0.0043894637381953,33.3333333333333,"Oman","Personal Transportation",2004
+"1811",NA,NA,100,"Oman","Personal Transportation",2007
+"1812",-0.185199119352781,0.00509974905223658,33.3333333333333,"Oman","Personal Transportation",2011
+"1813",-0.221314402333412,0.00201621435247191,33.3333333333333,"Panama","Personal Transportation",2004
+"1814",-0.206009811541638,0.00332292533124074,33.3333333333333,"Panama","Personal Transportation",2007
+"1815",-0.144532321683057,0.00857189356817886,33.3333333333333,"Panama","Personal Transportation",2011
+"1816",-0.194178474156395,0.00433308879559973,33.3333333333333,"Peru","Personal Transportation",2004
+"1817",-0.161950315658654,0.00708473953278474,33.3333333333333,"Peru","Personal Transportation",2007
+"1818",-0.191090213025258,0.00582251972987329,0,"Peru","Personal Transportation",2011
+"1819",-0.200421282145441,0.00503659502911064,0,"Philippines","Personal Transportation",2004
+"1820",-0.106166990363268,0.0118475381327246,33.3333333333333,"Philippines","Personal Transportation",2007
+"1821",0.169345333883882,0.0353708706920877,33.3333333333333,"Philippines","Personal Transportation",2011
+"1822",-0.123847736181565,NA,100,"Pakistan","Personal Transportation",2004
+"1823",-0.123847736181565,0.0151999131613081,0,"Pakistan","Personal Transportation",2004
+"1824",-0.110519064827776,NA,100,"Pakistan","Personal Transportation",2007
+"1825",-0.110519064827776,0.0167457245171733,0,"Pakistan","Personal Transportation",2007
+"1826",-0.11149940921109,NA,100,"Pakistan","Personal Transportation",2011
+"1827",-0.11149940921109,0.0158701587501946,0,"Pakistan","Personal Transportation",2011
+"1828",-0.154724131577446,0.0118641071416354,0,"Poland","Personal Transportation",2004
+"1829",-0.154995959740737,0.0115963103337288,0,"Poland","Personal Transportation",2007
+"1830",-0.159192260098739,0.0110232029714426,0,"Poland","Personal Transportation",2011
+"1831",NA,NA,100,"Puerto Rico","Personal Transportation",2004
+"1832",NA,NA,100,"Puerto Rico","Personal Transportation",2007
+"1833",NA,NA,100,"Puerto Rico","Personal Transportation",2011
+"1834",-0.17381377804546,0.00782618251399989,0,"Portugal","Personal Transportation",2004
+"1835",-0.163035111867563,0.00877733889951261,0,"Portugal","Personal Transportation",2007
+"1836",-0.156991741162074,0.00931548718806648,0,"Portugal","Personal Transportation",2011
+"1837",-0.23905222648766,0.000501753111581771,33.3333333333333,"Paraguay","Personal Transportation",2004
+"1838",-0.237711020465825,0.000616265721384097,33.3333333333333,"Paraguay","Personal Transportation",2007
+"1839",-0.231625809735418,0.00113582300832691,33.3333333333333,"Paraguay","Personal Transportation",2011
+"1840",-0.174855631256191,0.00598287945660144,33.3333333333333,"Qatar","Personal Transportation",2004
+"1841",-0.105207742922342,0.0119294389936799,33.3333333333333,"Qatar","Personal Transportation",2007
+"1842",-0.0156860018555898,0.0195728345919012,33.3333333333333,"Qatar","Personal Transportation",2011
+"1843",-0.212959235041174,0.00530998903708804,0,"Romania","Personal Transportation",2004
+"1844",-0.204873295985605,0.00580786492820739,0,"Romania","Personal Transportation",2007
+"1845",-0.210469093935087,0.00491801448457351,0,"Romania","Personal Transportation",2011
+"1846",0.623564165478769,0.1013717486262,0,"Russian Federation","Personal Transportation",2004
+"1847",0.718269377491524,0.110904500322267,0,"Russian Federation","Personal Transportation",2007
+"1848",0.716259689411645,0.105418624089798,0,"Russian Federation","Personal Transportation",2011
+"1849",NA,NA,100,"Rwanda","Personal Transportation",2004
+"1850",NA,NA,100,"Rwanda","Personal Transportation",2004
+"1851",NA,NA,100,"Rwanda","Personal Transportation",2007
+"1852",NA,NA,100,"Rwanda","Personal Transportation",2007
+"1853",-0.24070575088121,NA,100,"Rwanda","Personal Transportation",2011
+"1854",-0.24070575088121,0.000360574656821903,33.3333333333333,"Rwanda","Personal Transportation",2011
+"1855",-0.14007263030766,0.0102240107748185,0,"Saudi Arabia","Personal Transportation",2004
+"1856",-0.122852942117034,0.0116912255185967,0,"Saudi Arabia","Personal Transportation",2007
+"1857",-0.0758862818215213,0.0156936555192499,0,"Saudi Arabia","Personal Transportation",2011
+"1858",-0.146621575717689,0.0104146130094376,0,"Sweden","Personal Transportation",2004
+"1859",-0.219934599897458,0.00660904152035548,33.3333333333333,"Sweden","Personal Transportation",2007
+"1860",-0.220232003636301,0.00657225081450535,33.3333333333333,"Sweden","Personal Transportation",2011
+"1861",0.022513239463338,0.0228342983377279,33.3333333333333,"Singapore","Personal Transportation",2004
+"1862",0.0803541653899788,0.0277727755540622,33.3333333333333,"Singapore","Personal Transportation",2007
+"1863",0.172229864373025,0.0356171528508229,33.3333333333333,"Singapore","Personal Transportation",2011
+"1864",-0.24996968115807,0.000904288309947574,0,"Slovenia","Personal Transportation",2004
+"1865",-0.248351801633523,0.00105002224553152,0,"Slovenia","Personal Transportation",2007
+"1866",-0.248298170494688,0.00104842722296378,0,"Slovenia","Personal Transportation",2011
+"1867",-0.244939328457387,0.00156538813155612,0,"Slovakia","Personal Transportation",2004
+"1868",-0.229191764669979,0.00289741384693319,0,"Slovakia","Personal Transportation",2007
+"1869",-0.248902967732797,0.00125641686017786,0,"Slovakia","Personal Transportation",2011
+"1870",-0.238376902693391,NA,100,"Senegal","Personal Transportation",2004
+"1871",-0.238376902693391,0.000559412478512931,33.3333333333333,"Senegal","Personal Transportation",2004
+"1872",-0.254371927363099,NA,100,"Senegal","Personal Transportation",2007
+"1873",-0.254371927363099,0.000427896613904306,0,"Senegal","Personal Transportation",2007
+"1874",-0.238769838669185,NA,100,"Senegal","Personal Transportation",2011
+"1875",-0.238769838669185,0.000525863476092127,33.3333333333333,"Senegal","Personal Transportation",2011
+"1876",-0.207301764057181,0.00321261800195138,33.3333333333333,"El Salvador","Personal Transportation",2004
+"1877",-0.205009650645005,0.00340831939645599,33.3333333333333,"El Salvador","Personal Transportation",2007
+"1878",-0.211076581104157,0.00289032288506534,33.3333333333333,"El Salvador","Personal Transportation",2011
+"1879",NA,NA,100,"Togo","Personal Transportation",2004
+"1880",NA,NA,100,"Togo","Personal Transportation",2004
+"1881",NA,NA,100,"Togo","Personal Transportation",2007
+"1882",NA,NA,100,"Togo","Personal Transportation",2007
+"1883",-0.231831077774137,NA,100,"Togo","Personal Transportation",2011
+"1884",-0.231831077774137,0.00111829715589261,33.3333333333333,"Togo","Personal Transportation",2011
+"1885",-0.0605426935016012,0.0184340215909624,0,"Thailand","Personal Transportation",2004
+"1886",0.0885428676620662,0.028471929638375,33.3333333333333,"Thailand","Personal Transportation",2007
+"1887",0.0231585899430535,0.0252910750176771,0,"Thailand","Personal Transportation",2011
+"1888",-0.238539360477139,0.00196395851170717,0,"Tunisia","Personal Transportation",2004
+"1889",-0.236836022550428,0.00214010208676376,0,"Tunisia","Personal Transportation",2007
+"1890",-0.227997264390558,0.00290219869788858,0,"Tunisia","Personal Transportation",2011
+"1891",-0.125496193153421,0.0122282785903384,0,"Turkey","Personal Transportation",2004
+"1892",-0.0560677414934745,0.0182178432200877,0,"Turkey","Personal Transportation",2007
+"1893",0.186090739421102,0.0389454974961963,0,"Turkey","Personal Transportation",2011
+"1894",-0.227109651710729,0.00152141406090759,33.3333333333333,"Trinidad and Tobago","Personal Transportation",2004
+"1895",-0.227845181228663,0.00145861430955387,33.3333333333333,"Trinidad and Tobago","Personal Transportation",2007
+"1896",-0.203621178361465,0.00352686761517697,33.3333333333333,"Trinidad and Tobago","Personal Transportation",2011
+"1897",-0.0281743119799406,0.0279090135175384,0,"Ukraine","Personal Transportation",2004
+"1898",-0.025613215414563,0.0283657781264641,0,"Ukraine","Personal Transportation",2007
+"1899",-0.00716566648286057,0.029519574575676,0,"Ukraine","Personal Transportation",2011
+"1900",-0.244209603618624,NA,100,"Uganda","Personal Transportation",2004
+"1901",-0.244209603618624,6.14145615106313e-05,33.3333333333333,"Uganda","Personal Transportation",2004
+"1902",-0.243989237451811,NA,100,"Uganda","Personal Transportation",2007
+"1903",-0.243989237451811,8.02294970708878e-05,33.3333333333333,"Uganda","Personal Transportation",2007
+"1904",-0.242700652428392,NA,100,"Uganda","Personal Transportation",2011
+"1905",-0.242700652428392,0.000190249308778848,33.3333333333333,"Uganda","Personal Transportation",2011
+"1906",10.4257819846504,0.911068794076428,33.3333333333333,"United States of America","Personal Transportation",2004
+"1907",5.63442470157307,0.504628986170782,0,"United States of America","Personal Transportation",2007
+"1908",5.53005337811158,0.495790392376631,0,"United States of America","Personal Transportation",2011
+"1909",-0.254662457751363,0.000384325828833469,0,"Uruguay","Personal Transportation",2004
+"1910",-0.235440197786561,0.000810149306133418,33.3333333333333,"Uruguay","Personal Transportation",2007
+"1911",NA,NA,100,"Uruguay","Personal Transportation",2011
+"1912",-0.0894798394875067,0.0132722925446785,33.3333333333333,"South Africa","Personal Transportation",2004
+"1913",-0.100610252730266,0.015730653547934,0,"South Africa","Personal Transportation",2007
+"1914",0.0132630841167817,0.022044517041964,33.3333333333333,"South Africa","Personal Transportation",2011
+"1915",-0.244143874578437,NA,100,"Zambia","Personal Transportation",2004
+"1916",-0.244143874578437,6.70265285082885e-05,33.3333333333333,"Zambia","Personal Transportation",2004
+"1917",-0.243959748291813,NA,100,"Zambia","Personal Transportation",2007
+"1918",-0.243959748291813,8.27472912182686e-05,33.3333333333333,"Zambia","Personal Transportation",2007
+"1919",-0.240113170617122,NA,100,"Zambia","Personal Transportation",2011
+"1920",-0.240113170617122,0.000411169354022292,33.3333333333333,"Zambia","Personal Transportation",2011
+"1921",-0.241387991409885,NA,100,"Zimbabwe","Personal Transportation",2004
+"1922",-0.241387991409885,0.000302324736839793,33.3333333333333,"Zimbabwe","Personal Transportation",2004
+"1923",-0.240919658229602,NA,100,"Zimbabwe","Personal Transportation",2007
+"1924",-0.240919658229602,0.000342311177295688,33.3333333333333,"Zimbabwe","Personal Transportation",2007
+"1925",-0.240533110757869,NA,100,"Zimbabwe","Personal Transportation",2011
+"1926",-0.240533110757869,0.000375314727145616,33.3333333333333,"Zimbabwe","Personal Transportation",2011
 "1927",NA,NA,100,"India","Housing",2004
 "1928",NA,NA,100,"India","Housing",2004
 "1929",NA,NA,100,"India","Housing",2007

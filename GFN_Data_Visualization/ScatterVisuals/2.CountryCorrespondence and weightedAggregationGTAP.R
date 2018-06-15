@@ -3,6 +3,9 @@ library(dplyr)
 library(splitstackshape)
 library(WDI)
 
+##Todo for Eli
+# print warning to variable for saving non-downloaded to file
+
 "Set working directory to top level directory in console"
 ##eg. setwd("C:\\Users\\Eli\\GitFolders\\EFCLUM")
 
@@ -49,11 +52,14 @@ WB_drop <- read.csv("./GFN_Data_Visualization/ScatterVisuals/DropTheseCountries.
                     header=TRUE, colClasses=NA)
 colnames(WB_drop) <- "country"
 
-#AAAAAARRRRGHHH!!!
-WB_drop <- as.character(WB_drop)
-WB_notGFNlist <- unique(WBData$country[!(WBData$country %in% WB_drop)])
-WBCountries <- WBCountries[!(WBCountries %in% WB_drop)]
-WBCountries <- WBCountries[!WBCountries %in% WB_notGFNlist]
+#WB_drop <- as.character(WB_drop)
+
+# List of countries in WB data that are not already on the WB_drop list
+WBData_Countries <- unique(WBData$country[!(WBData$country %in% WB_drop[,1])])
+# List of countries from the WB download that are not already on the WB_drop list
+WBCountries <- filter(WBCountries,!(WBCountries[,1] %in% WB_drop[,1]))
+# Any countries on the WB list that don't match the remaining list of GFN count
+WBCountries <- filter(WBCountries,!(WBCountries[,1] %in% WBData_Countries))
 # Filter out countries from WB general list
 WB_notGFNlist <- WBCountries[!(WBCountries %in% GFNtoGTAP$GFN_Name)]
 

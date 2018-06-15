@@ -4,8 +4,7 @@ library(WDI)
 library(dplyr)
 
 # Eli to do
-#Countries in the updated data are in the rankings bc ONLY WB_Drop countries are dropped
-#But IndicesData is the 
+# Finalise/triple check the filtering for country names
 
 #### Set wd [setwd("path")] to folder with the top level of repo for relative paths to work ####
 
@@ -233,6 +232,7 @@ remove(Housing_Indicators)
 # Reverse the orders for High is BAD
 ##Housing (none)
 
+
 ## Goods is now from different data source - in ass_pov_final.csv
 ##Goods Metrics (Prelminary from Scott) 
 # I'm tempted to use just 1 or two measures of material satisfaction and well-being
@@ -244,7 +244,10 @@ GoodsData <- read.csv("./GFN_Data_Visualization/ScatterVisuals/ass_pov_final.csv
 # Reverse the orders for High is BAD
 GoodsData$ass_pov_extr <- 0-GoodsData$ass_pov_extr+max(GoodsData$ass_pov_extr, na.rm = TRUE)
 
+Indicators_Nodownloads <- as.data.frame(names(warnings()))
+
 write.csv(IndicatorsDownloaded,"./GFN_Data_Visualization/ScatterVisuals/IndicatorsDLed.csv")
+write.table(Indicators_Nodownloads,"./GFN_Data_Visualization/ScatterVisuals/IndicatorsDLed.csv", append = TRUE)
 
 ####Dropping WB countries not used in correspondence before forming indicators
 #drop the known and obvious country groupings in the World Bank List
