@@ -49,28 +49,35 @@ ui <- pageWithSidebar(
   ),
   mainPanel(
     fluidRow(
-     column(width = 6, class = "well",
-            h4("Selection controls right plot"),
+     column(width = 12, class = "well",
+            h4("Selection controls zoomed plot below"),
             
       plotOutput('plot1', hover = "plot_hover",
                  brush = brushOpts(
-                   id = "plot_brush",
+                   id = "plot_brush", 
                    resetOnNew = TRUE)
        )
      ),
-     column(width = 6, class = "well",
+     fluidRow(
+       column(width = 12,
+              h5("Mouse over points shows country, year and the quality score of the Ecological 
+                 Footprint results below"),
+              verbatimTextOutput("info", placeholder = TRUE)
+              )
+     ),
+       fluidRow(
+     column(width = 12, class = "well",
             h4("Zoomed from selection"),
       plotOutput("plot2", hover="plot_hover2")
                        )
              ),
 
-    fluidRow(
-     column(width = 6,
-      h6("Hover IDs"),
-      verbatimTextOutput("info", placeholder = TRUE)),
-     column(width = 6,
-      h6("Hover IDs Zoomed"),
+fluidRow(
+     column(width = 12,
+      h5("Mouse over points shows country, year and the quality score of the Ecological 
+         Footprint results below"),
        verbatimTextOutput("info2")
+          )
       )
     )
   )
@@ -96,9 +103,9 @@ server <- function(input, output, session) {
   ranges <- reactiveValues(x = NULL, y = NULL)
   
   output$plot1 <- renderPlot({
-    palette(c("#FFB266","#660000","#FF9933","#FF8000", "#CC0000", "#990000"))
+    palette(c("#FFB266","#660000","#FF9933","#FF8000", "#CC0000", "#990000", "#700000"))
     par(mar = c(5.1, 4.1, 0, 1))
-    Qcolors <- seq(from=input$clusters,to=6) 
+    Qcolors <- seq(from=input$clusters, to=6) 
     plot(selectedData(),
                 col = Qcolors, #c(0,1,2,3,4,5,6) ,
     pch = 20, cex = 3)
@@ -107,7 +114,7 @@ server <- function(input, output, session) {
   })
     
    output$plot2 <- renderPlot({
-     palette(c("#FFB266","#660000","#FF9933","#FF8000", "#CC0000", "#990000"))
+     palette(c("#FFB266","#660000","#FF9933","#FF8000", "#CC0000", "#990000", "#700000"))
      par(mar = c(5.1, 4.1, 0, 1))
      Qcolors <- seq(from=input$clusters,to=6)
      plot(selectedData(), xlim=c(input$plot_brush$xmin, input$plot_brush$xmax), 
