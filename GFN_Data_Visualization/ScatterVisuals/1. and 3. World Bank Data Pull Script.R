@@ -5,9 +5,9 @@ library(dplyr)
 library(httr)
 library(jsonlite)
 library(boxr)
-### I am working on trying to group by year for the NA remove function (that gets rid of column vectors)
-### THEN I will figure out changing the minmax and zscore functions to work separately for each year....
 
+# Run to activate connection for the SDG data file on Box
+box_auth()
 
 "Set working directory to top level directory in console"
 ##eg. setwd("C:\\Users\\Eli\\GitFolders\\EFCLUM")
@@ -151,8 +151,8 @@ WB_drop <- c("Africa", "Andean Region", "East Asia & Pacific (IBRD-only countrie
              "Sub-Saharan Africa", "Resource rich Sub-Saharan Africa countries, of which oil exporters",
              "Holy See", "United States Virgin Islands","Micronesia (Federated States of)",
              "Falkland Islands (Malvinas)",
-             #A British 'dependency', semi-independent islands in the channel, near Normandy, France
-             "Jersey",
+             #British 'dependencies/juristictions', semi-independent islands in the channel, near Normandy, France
+             "Jersey", "Guernsey",
              #Carribean territories of the Netherlands
              "Bonaire, Sint Eustatius and Saba",
              #plus countries that GFN does not have
@@ -914,9 +914,9 @@ if (WB_SDG == "SDG") {
   Goods_Data_MaxMin_2011 <- MaxMin_Fun(Goods_Data_NoNAs_2011, "Goods")
   Goods_Data_MaxMin <- rbind(Goods_Data_MaxMin_2004,Goods_Data_MaxMin_2007, Goods_Data_MaxMin_2011)
   remove(Goods_Data_MaxMin_2004,Goods_Data_MaxMin_2007, Goods_Data_MaxMin_2011)
-  GFCF_Data_MaxMin_2004 <- MaxMin_Fun(GFCF_Data_NoNAs_2004, "GFCF")
-  GFCF_Data_MaxMin_2007 <- MaxMin_Fun(GFCF_Data_NoNAs_2007, "GFCF")
-  GFCF_Data_MaxMin_2011 <- MaxMin_Fun(GFCF_Data_NoNAs_2011, "GFCF")
+  GFCF_Data_MaxMin_2004 <- MaxMin_Fun(GFCF_Data_NoNAs_2004, "Gross Fixed Capital Formation")
+  GFCF_Data_MaxMin_2007 <- MaxMin_Fun(GFCF_Data_NoNAs_2007, "Gross Fixed Capital Formation")
+  GFCF_Data_MaxMin_2011 <- MaxMin_Fun(GFCF_Data_NoNAs_2011, "Gross Fixed Capital Formation")
   GFCF_Data_MaxMin <- rbind(GFCF_Data_MaxMin_2004,GFCF_Data_MaxMin_2007, GFCF_Data_MaxMin_2011)
   remove(GFCF_Data_MaxMin_2004,GFCF_Data_MaxMin_2007, GFCF_Data_MaxMin_2011)
 }  
@@ -950,7 +950,7 @@ Goods_Data_MaxMin$NAPercent <- (rowSums(is.na(Goods_Data))/max(rowSums(is.na(Goo
 ##Binding Data together for single spreadsheet
 MaxMinData <- rbind(FoodData_MaxMin, GovernmentData_MaxMin, ServicesData_MaxMin, 
                     TransportData_MaxMin, HousingData_MaxMin, Goods_Data_MaxMin, 
-                    if (exists("GFCF_Data_MaxMin")) GFCF_Data_MaxMin)
+                    if (WB_SDG=="SDG") GFCF_Data_MaxMin)
 colnames(MaxMinData) <- c("country", "year", "MaxMin_Index", "CLUM_category", "NAPercent")
 
 ########Now for z-score stuff
@@ -1021,9 +1021,9 @@ if (WB_SDG=="SDG"){
   Goods_Data_ZScore_2011 <- ZScore_Fun(Goods_Data_NoNAs_2011, "Goods")
   Goods_Data_ZScore <- rbind(Goods_Data_ZScore_2004, Goods_Data_ZScore_2007, Goods_Data_ZScore_2011)
   remove(Goods_Data_ZScore_2004, Goods_Data_ZScore_2007, Goods_Data_ZScore_2011)
-  GFCF_Data_ZScore_2004 <- ZScore_Fun(GFCF_Data_NoNAs_2004, "GFCF")
-  GFCF_Data_ZScore_2007 <- ZScore_Fun(GFCF_Data_NoNAs_2007, "GFCF")
-  GFCF_Data_ZScore_2011 <- ZScore_Fun(GFCF_Data_NoNAs_2011, "GFCF")
+  GFCF_Data_ZScore_2004 <- ZScore_Fun(GFCF_Data_NoNAs_2004, "Gross Fixed Capital Formation")
+  GFCF_Data_ZScore_2007 <- ZScore_Fun(GFCF_Data_NoNAs_2007, "Gross Fixed Capital Formation")
+  GFCF_Data_ZScore_2011 <- ZScore_Fun(GFCF_Data_NoNAs_2011, "Gross Fixed Capital Formation")
   GFCF_Data_ZScore <- rbind(GFCF_Data_ZScore_2004, GFCF_Data_ZScore_2007, GFCF_Data_ZScore_2011)
   remove(GFCF_Data_ZScore_2004, GFCF_Data_ZScore_2007, GFCF_Data_ZScore_2011)
 }
@@ -1044,14 +1044,20 @@ if (WB_SDG=="WB"){
 ##Binding Data together for single spreadsheet
 ZScoreData <- rbind(FoodData_ZScore, GovernmentData_ZScore, ServicesData_ZScore, 
                     TransportData_ZScore, HousingData_ZScore, Goods_Data_ZScore,
-                    if (exists("GFCF_Data_ZScore")) GFCF_Data_ZScore)
+                    if (WB_SDG=="SDG") GFCF_Data_ZScore)
 colnames(ZScoreData) <- c("country", "year", "ZScore_Index", "CLUM_category")
 
 ##Combining MaxMin and Z-score datasets
 IndicesData <- left_join(ZScoreData, MaxMinData, by = c("country", "year", "CLUM_category"))
 
 #write.csv(IndicesData, "./World Bank Data/IndicesData.csv")
-write.csv(IndicesData, "./GFN_Data_Visualization/ScatterVisuals/IndicesData.csv")
+if(WB_SDG=="WB"){
+write.csv(IndicesData, "./GFN_Data_Visualization/ScatterVisuals/IndicesDataWB.csv")
+}
+if(WB_SDG=="SDG"){
+write.csv(IndicesData, "./GFN_Data_Visualization/ScatterVisuals/IndicesDataSDG.csv")
+}
 
 print ('Looks good, Run 2.Country Correspondence to make sure all countries and groupings were dealt with
        and do the GTAP weighted aggregation')
+

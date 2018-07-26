@@ -35,7 +35,7 @@ setnames(CLUMData, old = c(names(CLUMData[,c(7:14,16:17)])), new = c("Coicop Exp
 
 # Define UI for application that draws a Scatterplot
 ui <- pageWithSidebar(
-  headerPanel('Initial Visual Exploration of CLUM Data'),
+  headerPanel('EF CLUM and World Bank Indicators'),
   sidebarPanel(width = 3,
     #selection of GTAP years, 2011 as default
     checkboxGroupInput("Select_years", "Years", unique(CLUMData[,2]), selected = "2011", FALSE),
@@ -104,7 +104,7 @@ server <- function(input, output, session) {
   
   output$plot1 <- renderPlot({
     palette(c("#FFB266","#660000","#FF9933","#FF8000", "#CC0000", "#990000", "#700000"))
-    par(mar = c(5.1, 4.1, 0, 1))
+    par(mar = c(2,2, 1, 1))
     Qcolors <- seq(from=input$clusters, to=6) 
     plot(selectedData(),
                 col = Qcolors, #c(0,1,2,3,4,5,6) ,
@@ -115,7 +115,7 @@ server <- function(input, output, session) {
     
    output$plot2 <- renderPlot({
      palette(c("#FFB266","#660000","#FF9933","#FF8000", "#CC0000", "#990000", "#700000"))
-     par(mar = c(5.1, 4.1, 0, 1))
+     par(mar = c(2, 2, 1, 1))
      Qcolors <- seq(from=input$clusters,to=6)
      plot(selectedData(), xlim=c(input$plot_brush$xmin, input$plot_brush$xmax), 
           ylim=c(input$plot_brush$ymin, input$plot_brush$ymax),
@@ -138,7 +138,7 @@ server <- function(input, output, session) {
   })
   
   output$info <- renderPrint({
-    #It would be good to suppress the text when nothing near and suppress line number
+    #It would be good to suppress the text when nothing near and suppress line number: DONE
     # Just shows year and country. Take out of expand the column index for more data listed on the hover
      a <- nearPoints(if(input$scale == "normal") {CLUMData}
                 else {CLUMDatalog}, 
@@ -152,7 +152,7 @@ server <- function(input, output, session) {
       }
     })
   output$info2 <- renderPrint({
-    #It would be good to suppress the text when nothing near and suppress line number
+    #It would be good to suppress the text when nothing near and suppress line number : DONE
     a <- nearPoints(if(input$scale == "normal") {CLUMData}
                 else {CLUMDatalog},
                input$plot_hover2, xvar = input$xcol, yvar = input$ycol, threshold = 3, maxpoint = 3, 

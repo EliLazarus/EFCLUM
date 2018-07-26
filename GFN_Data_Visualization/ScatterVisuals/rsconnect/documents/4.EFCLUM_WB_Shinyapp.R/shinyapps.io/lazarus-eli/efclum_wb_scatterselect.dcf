@@ -1,0 +1,12 @@
+name: efclum_wb_scatterselect
+title: EFCLUM_WB_ScatterSelect
+username:
+account: lazarus-eli
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 388414
+bundleId: 1500958
+url: https://lazarus-eli.shinyapps.io/efclum_wb_scatterselect/
+when: 1532573896.16123
+asMultiple: FALSE
+asStatic: FALSE
