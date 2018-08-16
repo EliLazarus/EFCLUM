@@ -157,8 +157,6 @@ plotfunc(EFSDGData11.Goods,"SDG Data")
 
 plotfunc(EFWBData11.Goods,"World Bank Data")
 
-
-
 ggplot(EFWBData, aes(ZScore_Index, total)) + geom_point() + facet_grid(~ clum7_name, scales = "free")+
   geom_text( label = EFWBData$GTAP_name)
 ggplot(EFWBData, aes(MaxMin_Index, total, colour = as.factor(year)
