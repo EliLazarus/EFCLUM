@@ -104,18 +104,20 @@ server <- function(input, output, session) {
   
   output$plot1 <- renderPlot({
     palette(c("#FFB266","#660000","#FF9933","#FF8000", "#CC0000", "#990000", "#700000"))
-    par(mar = c(2,2, 1, 1))
+    par(mar = c(4,4, 1, 1))
     Qcolors <- seq(from=input$clusters, to=6) 
     plot(selectedData(),
-                col = Qcolors, #c(0,1,2,3,4,5,6) ,
+                col = Qcolors,
+         #c(0,1,2,3,4,5,6) ,
     pch = 20, cex = 3)
     abline(a=0, b=1, h=NULL, v=NULL, col="grey")
+    
 
   })
     
    output$plot2 <- renderPlot({
      palette(c("#FFB266","#660000","#FF9933","#FF8000", "#CC0000", "#990000", "#700000"))
-     par(mar = c(2, 2, 1, 1))
+     par(mar = c(4, 4, 1, 1))
      Qcolors <- seq(from=input$clusters,to=6)
      plot(selectedData(), xlim=c(input$plot_brush$xmin, input$plot_brush$xmax), 
           ylim=c(input$plot_brush$ymin, input$plot_brush$ymax),
