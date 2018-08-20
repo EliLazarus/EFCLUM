@@ -6,7 +6,9 @@ library(grid)
 # color points (by continent?)
 # filter by quality score
 # export for Powerpoint
+# CLEAN UP!!
 
+#DONE, as a table on the graphic!!!!
 #add data indicators used (probably just in powerpoint slides)
 
 
@@ -42,6 +44,7 @@ p <- ggplot(EFWBData11.Food, aes(ZScore_Index, total)) + geom_point() +
   theme(plot.margin = unit(c(0,4,0,0),"cm"))
 gt <- ggplot_gtable(ggplot_build(p))
 gt$layout$clip[gt$layout$name == "panel"] <- "off"
+grid.newpage()
 grid.draw(gt)
 
 
@@ -51,6 +54,7 @@ p <- ggplot(EFWBData11.Goods, aes(ZScore_Index, total)) + geom_point() +
 theme(plot.margin = unit(c(0,4,0,0),"cm"))
 gt <- ggplot_gtable(ggplot_build(p))
 gt$layout$clip[gt$layout$name == "panel"] <- "off"
+grid.newpage()
 grid.draw(gt)
 
 p <- ggplot(EFWBData11.Government, aes(ZScore_Index, total)) + geom_point() +
@@ -79,12 +83,25 @@ grid.draw(gt)
 
 p <- ggplot(EFWBData11.Services, aes(ZScore_Index, total)) + geom_point() +
   geom_text(label = EFWBData11.Services$GTAP_name,hjust=-.1) +
-  labs(title = paste("World Bank Data, CLUM category:",EFWBData11.Services$clum7_name), y = "EF per capita") +
-theme(plot.margin = unit(c(0,4,0,0),"cm"))
+  # 
+  # annotation_custom(textGrob(subset(IndicatorsDownloaded[,2],IndicatorsDownloaded$CLUM=="Services"))) +
+                   # xmin=-.5,xmax=1,ymin=-2,ymax=-1) +
+  # 
+  labs(title = paste("World Bank Data, CLUM category:",EFWBData11.Services$clum7_name), 
+       y = "EF per capita") 
+  # annotate("text", x = 0, y = -1:-17, hjust = 0, 
+  #          label = subset(IndicatorsDownloaded[,2],IndicatorsDownloaded$CLUM=="Services")) 
+  # 
+ # labs(caption = "text",subset(IndicatorsDownloaded[,2],IndicatorsDownloaded$CLUM=="Services"))
 gt <- ggplot_gtable(ggplot_build(p))
 gt$layout$clip[gt$layout$name == "panel"] <- "off"
-grid.draw(gt)
-
+tb <- tableGrob(subset(SDGIndicatorsDownloaded[,2],SDGIndicatorsDownloaded$CLUM=="Services"),
+                theme = ttheme_default(core = list(fg_params=list(hjust=0, x=0))))
+                         #rowhead = list(fg_params=list(hjust=0, x=0))))
+grid.arrange(gt, tb)
+#grid.draw(gt)
+#subset(IndicatorsDownloaded[,2],IndicatorsDownloaded$CLUM=="Services")
+ 
 
 p <- ggplot(EFSDGData11.Food, aes(ZScore_Index, total)) + geom_point() +
   geom_text(label = EFSDGData11.Food$GTAP_name,hjust=-.1) +
@@ -136,26 +153,42 @@ gt$layout$clip[gt$layout$name == "panel"] <- "off"
 grid.draw(gt)
 
 p <- ggplot(EFSDGData11.Services, aes(ZScore_Index, total)) + geom_point() +
-  geom_text(label = EFSDGData11.Services$GTAP_name,hjust=-.1) +
-  labs(title = paste("SDG Data, CLUM category:",EFSDGData11.Services$clum7_name), y = "EF per capita") +
-  theme(plot.margin = unit(c(0,4,0,0),"cm")) 
+  geom_text(label = EFSDGData11.Services$GTAP_name,hjust=-.1) + 
+  abs(title = paste("SDG Data, CLUM category:",EFSDGData11.Services$clum7_name), y = "EF per capita") +
+  theme(plot.margin = unit(c(0,4,1,0),"cm")) 
 gt <- ggplot_gtable(ggplot_build(p)) 
 gt$layout$clip[gt$layout$name == "panel"] <- "off" 
 grid.draw(gt)
 
-plotfunc <- function(data, title){p <- ggplot(data, aes(ZScore_Index, total)) + geom_point() +
+
+
+
+plotfunc <- function(data, title, CLUMcat, IndDL){p <- ggplot(data, aes(ZScore_Index, total)) + geom_point() +
   geom_text(label = data$GTAP_name,hjust=-.1) +
   labs(title = paste(title,"CLUM category:",data$clum7_name), y = "EF per capita") +
   theme(plot.margin = unit(c(0,4,0,0),"cm")) 
 gt <- ggplot_gtable(ggplot_build(p)) 
 gt$layout$clip[gt$layout$name == "panel"] <- "off" 
-grid.draw(gt)
+tb <- tableGrob(subset(IndDL[,2],IndDL$CLUM==CLUMcat),
+                theme = ttheme_default(core = list(fg_params=list(hjust=0, x=0))))
+#rowhead = list(fg_params=list(hjust=0, x=0))))
+#tb <- grid.table(subset(IndDL[,2],IndDL$CLUM==CLUMcat))
+grid.newpage()
+grid.arrange(gt, tb)#, main=textGrob("Total Data and Image", gp=gpar(cex=3)), ncol = 2,
+           #  widths=unit.c(grobWidth(gt), unit(1,"npc") - grobWidth(tb)))
+
+#grid.draw(gt)
 }
 
-plotfunc(EFSDGData11.Services,"SDG Data")
-plotfunc(EFSDGData11.Goods,"SDG Data")
 
-plotfunc(EFWBData11.Goods,"World Bank Data")
+plotfunc(EFSDGData11.Services,"SDG Data", "Services", SDGIndicatorsDownloaded)
+plotfunc(EFSDGData11.Goods,"SDG Data", "Goods",SDGIndicatorsDownloaded)
+plotfunc(EFSDGData11.Services,"SDG Data", "Services", SDGIndicatorsDownloaded)
+
+
+#Goods DOES NOT HAVE WB Data!!!!
+plotfunc(EFWBData11.Goods,"World Bank Data", "Goods", IndicatorsDownloaded)
+plotfunc(EFWBData11.PersonalTransportation,"World Bank Data", "Personal Transportation",IndicatorsDownloaded)
 
 ggplot(EFWBData, aes(ZScore_Index, total)) + geom_point() + facet_grid(~ clum7_name, scales = "free")+
   geom_text( label = EFWBData$GTAP_name)
@@ -163,6 +196,7 @@ ggplot(EFWBData, aes(MaxMin_Index, total, colour = as.factor(year)
                      ))+ geom_point() + facet_grid(~ clum7_name) +
   scale_colour_manual(values = color.codes) #+
   #geom_text(label = EFWBData$GTAP_name)
+
 ggplot(EFSDGData, aes(ZScore_Index, total)) + geom_point() + facet_grid(~ clum7_name)
 ggplot(EFSDGData, aes(MaxMin_Index, total)) + geom_point() + facet_grid(~ clum7_name)
 

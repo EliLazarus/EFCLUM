@@ -459,7 +459,7 @@ if(WB_SDG=="WB"){
 
 if (WB_SDG == "SDG") {
   Food_Indicators <- c()
-  
+  SDGIndicatorsDownloaded <- data.frame()
   #High is BAD#
   Food_Indicators_reverse <- c(
     # Prevalence of undernourishment (%)
@@ -498,6 +498,10 @@ if (WB_SDG == "SDG") {
     assign(nam, Food_Data[Food_Data$TimePeriod == i,])
   }
   
+  Food_IndicatorsList <- cbind(unique(SDGIndicators$SeriesCode[SDGIndicators$SeriesCode%in%Food_Indicators]),
+                               unique(SDGIndicators$SeriesDescription[SDGIndicators$SeriesCode%in%Food_Indicators]),
+                               "Food")
+  SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,Food_IndicatorsList)
   remove(Food_Indicators, Food_Indicators_reverse, Food_Data_cols)
   
   Govt_Indicators1 <- c(
@@ -551,6 +555,11 @@ if (WB_SDG == "SDG") {
     assign(nam, Government_Data[Government_Data$TimePeriod == i,])
   }
   
+  Government_IndicatorsList <- 
+    cbind(unique(SDGIndicators$SeriesCode[SDGIndicators$SeriesCode%in%Govt_Indicators]),
+          unique(SDGIndicators$SeriesDescription[SDGIndicators$SeriesCode%in%Govt_Indicators]),
+          "Government")
+  SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,Government_IndicatorsList)
   remove(Govt_Indicators, Govt_Indicators_reverse, Govt_Data_cols)
   
   Services_Indicators <- c(
@@ -609,6 +618,11 @@ if (WB_SDG == "SDG") {
     assign(nam, Services_Data[Services_Data$TimePeriod == i,])
   }
   
+  Services_IndicatorsList <- 
+    cbind(unique(SDGIndicators$SeriesCode[SDGIndicators$SeriesCode%in%Services_Indicators]),
+          unique(SDGIndicators$SeriesDescription[SDGIndicators$SeriesCode%in%Services_Indicators]),
+          "Services")
+  SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,Services_IndicatorsList)
   remove(Services_Indicators,
          Services_Indicators_reverse,
          Services_Data_cols)
@@ -655,6 +669,11 @@ if (WB_SDG == "SDG") {
     assign(nam, Goods_Data[Goods_Data$TimePeriod == i,])
   }
   
+  Goods_IndicatorsList <- 
+    cbind(unique(SDGIndicators$SeriesCode[SDGIndicators$SeriesCode%in%Goods_Indicators]),
+    unique(SDGIndicators$SeriesDescription[SDGIndicators$SeriesCode%in%Goods_Indicators]),
+    "Goods")
+  SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,Goods_IndicatorsList)
   remove(Goods_Indicators,
          Goods_Indicators_reverse,
          Goods_Data_cols)
@@ -703,7 +722,7 @@ if (WB_SDG == "SDG") {
        Housing_Data$TimePeriod[i] <- 2011
      }
      else{
-       stop(print("Housing has OTHER years that 2005 and 2010, fix it"))
+       stop(print("Housing has OTHER years than 2005 and 2010, fix it"))
      }
    }
    # Split into the 2 years
@@ -712,6 +731,11 @@ if (WB_SDG == "SDG") {
      assign(nam, Housing_Data[Housing_Data$TimePeriod == i,])
    }
    
+   Housing_IndicatorsList <- 
+     cbind(unique(SDGIndicators$SeriesCode[SDGIndicators$SeriesCode%in%Housing_Indicators]),
+           unique(SDGIndicators$SeriesDescription[SDGIndicators$SeriesCode%in%Housing_Indicators]),
+           "Housing")
+   SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,Housing_IndicatorsList)
    remove(Housing_Indicators,
           Housing_Indicators_reverse,
           Housing_Data_cols)
@@ -755,6 +779,11 @@ if (WB_SDG == "SDG") {
      assign(nam, Transport_Data[Transport_Data$TimePeriod == i,])
    }
    
+   Transport_IndicatorsList <- 
+     cbind(unique(SDGIndicators$SeriesCode[SDGIndicators$SeriesCode%in%Transport_Indicators]),
+           unique(SDGIndicators$SeriesDescription[SDGIndicators$SeriesCode%in%Transport_Indicators]),
+           "Personal Transportation")
+   SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,Transport_IndicatorsList)
    remove(Transport_Indicators,
           Transport_Indicators_reverse,
           Transport_Data_cols)
@@ -801,7 +830,14 @@ if (WB_SDG == "SDG") {
      assign(nam, GFCF_Data[GFCF_Data$TimePeriod == i,])
    }
    
+   GFCF_IndicatorsList <- 
+     cbind(unique(SDGIndicators$SeriesCode[SDGIndicators$SeriesCode%in%GFCF_Indicators]),
+           unique(SDGIndicators$SeriesDescription[SDGIndicators$SeriesCode%in%GFCF_Indicators]),
+           "Gross Fixed Capital Formation")
+   SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,GFCF_IndicatorsList)
    remove(GFCF_Indicators, GFCF_Indicators_reverse, GFCF_Data_cols)
+   
+   colnames(SDGIndicatorsDownloaded) <- c("indicator", "description", "CLUM")
            
 }
 
