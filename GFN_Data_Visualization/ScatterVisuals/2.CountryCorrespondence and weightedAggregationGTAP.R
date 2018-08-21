@@ -1,5 +1,5 @@
 library(data.table)
-library(dplyr)
+#library(dplyr)
 library(splitstackshape)
 library(WDI)
 
@@ -99,6 +99,9 @@ WB_notGFNlist <- WBData_Countries[!(WBData_Countries %in% GFNtoGTAP$GFN_Name)]
 #Update spellings to GFN, and then drop from the 'remainder' list
 wb <- "Bahamas, The"; gfn <- "Bahamas" 
 GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+
+WBData$country[WBData$country==wb]<-gfn
+
 wb <- "Bolivia (Plurinational State of)" ; gfn <- "Bolivia" 
 GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Czechia"; gfn <- "Czech Republic" 
@@ -278,11 +281,11 @@ WBGFN_notGTAP <- WB_filt[!(WB_filt$country %in% GFNtoGTAP$GTAP_name),]
 #Initialize Population column and fill population column in WBGFN_notGTAP
 WBGFN_notGTAP$Population <- NA
 for (i in 1:length(WBGFN_notGTAP[, 1])) {
-for (j in 1:length(GFN_yr_Pop[, 1])) {
-ifelse(WBGFN_notGTAP$country[i] == GFN_Pop$GFN_Country[j] & WBGFN_notGTAP$year[i] == GFN_Pop$Year[j],
-WBGFN_notGTAP$Population[i] <- GFN_Pop$Population[j],
-"nope")
-}
+  for (j in 1:length(GFN_yr_Pop[, 1])) {
+    ifelse(WBGFN_notGTAP$country[i] == GFN_Pop$GFN_Country[j] & WBGFN_notGTAP$year[i] == GFN_Pop$Year[j],
+           WBGFN_notGTAP$Population[i] <- GFN_Pop$Population[j],
+           "nope")
+  }
 }
 
 # Check countries with no population/weighting data
@@ -336,6 +339,9 @@ NFA_CLUM <- read.csv("./GFN_Data_Visualization/ScatterVisuals/NFA_2017_CLUM.csv"
 
 NFA_CLUM_WB <- merge(NFA_CLUM, GTAP_WBweighted, by.x = c("year", "clum7_name", "GTAP_name"), 
 by.y = c("year", "CLUM_category", "GTAP_Region"), sort = TRUE)
+
+CLUMQScore <- read.csv("./GFN_Data_Visualization/ScatterVisuals/CLUM_QScore.csv")
+NFA_CLUM_WB$QScore <- CLUMQScore$NFA_GTAP_Qscore[match(NFA_CLUM_WB$GTAP_name,CLUMQScore$GTAP.Only)]
 
 if(WB_SDG =="WB"){
   write.csv(NFA_CLUM_WB, "./GFN_Data_Visualization/ScatterVisuals/NFA_WB_2017_CLUM.csv")

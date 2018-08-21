@@ -12,7 +12,7 @@ box_auth()
 "Set working directory to top level directory in console"
 ##eg. setwd("C:\\Users\\Eli\\GitFolders\\EFCLUM")
 "Set to use WB (WB_yes_or_no<-1) or SDG (WB_yes_or_no<-0) Indicators"
-WB_yes_or_no <- 0
+WB_yes_or_no <- 1
 
 if(WB_yes_or_no==1) {
   WB_SDG <- "WB"
@@ -420,7 +420,8 @@ if(WB_SDG=="WB"){
   IndicatorsDownloaded <- rbind(cbind(subset(IndicatorList,IndicatorList$indicator %in% Housing_Indicators),
                                       CLUM="Housing"),IndicatorsDownloaded)
   Housing_Data <- WB_DataPull_Function(Housing_Indicators, 2004, 2007, 2011)
-  Housing_Data <- Housing_Data[!(Housing_Data$country %in% WB_drop),]
+  #Housing_Data$country <- trimws(Housing_Data$country, which = c("both", "left", "right"))
+  Housing_Data <- Housing_Data[!(Housing_Data$country %in% as.character(WB_drop)),]
   Housing_Data$iso2c <- NULL
   # Reverse the orders for High is BAD
   ##Housing (none)
@@ -446,6 +447,19 @@ if(WB_SDG=="WB"){
     nam <- paste(deparse(substitute(Goods_Data)), i, sep = "_") 
     assign(nam, Goods_Data[Goods_Data$year ==i,])
   }
+  
+  #Add a row for Goods Data, including that it's needed for the plot function
+  GoodsDL <- cbind.data.frame(
+    "No.Code",
+    "Percentage of population experiencing 'asset poverty'",
+    "People not owning a radio, TV, telephone, bicycle, motorbike, or
+    refrigerator, and does not own a car or truck.",
+    "Oxford Poverty & Human Development Initiative",
+    "Oxford University",
+    "Goods"
+  )
+  colnames(GoodsDL) <- colnames(IndicatorsDownloaded)
+  IndicatorsDownloaded <- rbind(IndicatorsDownloaded,GoodsDL)
   
   Indicators_Nodownloads <- as.data.frame(names(warnings()))
   
@@ -960,7 +974,7 @@ if (WB_SDG == "SDG") {
 if (WB_SDG == "WB") {
 ##For Housing data, only one column and already 0 to 100
 
-HousingData_MaxMin <- rbind(HousingData_NoNAs_2004[2:4,],HousingData_NoNAs_2007[2:4,],HousingData_NoNAs_2011[2:4,])
+HousingData_MaxMin <- rbind(HousingData_NoNAs_2004,HousingData_NoNAs_2007,HousingData_NoNAs_2011)
 colnames(HousingData_MaxMin) <- c("country", "year", "MaxMin_Index")
 HousingData_MaxMin$MaxMin_Index <- HousingData_MaxMin$MaxMin_Index/100
 HousingData_MaxMin$CLUM_category <- "Housing"
