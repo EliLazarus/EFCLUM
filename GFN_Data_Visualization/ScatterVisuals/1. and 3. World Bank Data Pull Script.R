@@ -12,7 +12,7 @@ box_auth()
 "Set working directory to top level directory in console"
 ##eg. setwd("C:\\Users\\Eli\\GitFolders\\EFCLUM")
 "Set to use WB (WB_yes_or_no<-1) or SDG (WB_yes_or_no<-0) Indicators"
-WB_yes_or_no <- 1
+WB_yes_or_no <- 0
 
 if(WB_yes_or_no==1) {
   WB_SDG <- "WB"

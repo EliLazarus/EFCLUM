@@ -98,126 +98,183 @@ WB_notGFNlist <- WBData_Countries[!(WBData_Countries %in% GFNtoGTAP$GFN_Name)]
 
 #Update spellings to GFN, and then drop from the 'remainder' list
 wb <- "Bahamas, The"; gfn <- "Bahamas" 
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
-
-WBData$country[WBData$country==wb]<-gfn
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 
 wb <- "Bolivia (Plurinational State of)" ; gfn <- "Bolivia" 
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+
 wb <- "Czechia"; gfn <- "Czech Republic" 
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Cape Verde"; gfn <- "Cabo Verde" 
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Congo, Dem. Rep."; gfn <- "Congo, Democratic Republic of" 
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Democratic Republic of the Congo"; gfn <- "Congo, Democratic Republic of" 
-GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Congo, Rep."; gfn <- "Congo"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 # wb <- "Cote d'Ivoire"; gfn <- "Cote d'Ivoire"
 # GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Cote dIvoire"; gfn <- "Cote d'Ivoire"
-GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Cote D'Ivoire"; gfn <- "Cote d'Ivoire"
-GFNtoGTAP$AltGFN3[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN3[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Curacao"; gfn <- "Curaçao"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "CuraÃ§ao"; gfn <- "Curaçao" 
-GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Egypt, Arab Rep."; gfn <- "Egypt"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Micronesia, Fed. Sts."; gfn <- "Micronesia, Federated States of"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Gambia, The"; gfn <- "Gambia"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Hong Kong SAR, China"; gfn <- "China Hong Kong SAR"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Hong Kong, Special Administrative Region of China"; gfn <- "China Hong Kong SAR"
-GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Hong Kong, China"; gfn <- "China Hong Kong SAR"
-GFNtoGTAP$AltGFN3[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN3[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "China, Hong Kong Special Administrative Region" ; gfn <- "China Hong Kong SAR" 
-GFNtoGTAP$AltGF4[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGF4[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Iran, Islamic Rep."; gfn <- "Iran, Islamic Republic of"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Iran"; gfn <- "Iran, Islamic Republic of"
-GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Iran (Islamic Republic of)"; gfn <- "Iran, Islamic Republic of"
-GFNtoGTAP$AltGFN3[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN3[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Kyrgyz Republic"; gfn <- "Kyrgyzstan"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "St. Kitts and Nevis"; gfn <- "Saint Kitts and Nevis"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Korea, Rep."; gfn <- "Korea, Republic of"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "South Korea"; gfn <- "Korea, Republic of"
-GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Republic of Korea"; gfn <- "Korea, Republic of"
-GFNtoGTAP$AltGFN3[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN3[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Korea, Dem. Rep."; gfn <- "Korea, Democratic People's Republic of"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Democratic People's Republic of Korea"; gfn <- "Korea, Democratic People's Republic of"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Lao PDR"; gfn <- "Lao People's Democratic Republic"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Laos"; gfn <- "Lao People's Democratic Republic"
-GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "St. Lucia"; gfn <- "Saint Lucia"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Libya"; gfn <- "Libyan Arab Jamahiriya"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "St. Martin (French part)"; gfn <- "Saint-Martin (French Part)"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Macedonia, FYR"; gfn <- "Macedonia TFYR"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "The former Yugoslav Republic of Macedonia"; gfn <- "Macedonia TFYR"
-GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Macao SAR, China"; gfn <- "China, Macao SAR"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Republic of Moldova"; gfn <- "Moldova"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Korea, Dem. People’s Rep."; gfn <- "Korea, Democratic People's Republic of"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "RÃ©union"; gfn <- "Réunion"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Slovak Republic"; gfn <- "Slovakia"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Eswatini"; gfn <- "Swaziland"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Sint Maarten (Dutch part)"; gfn <- "Sint Maarten (Dutch Part)"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Sint Maarten (Dutch part)\t"; gfn <- "Sint Maarten (Dutch Part)"
-GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Sudan [former]"; gfn <- "Sudan (former)"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Taiwan"; gfn <- "Taiwan, Republic of China"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Taiwan, Republic of China"; gfn <- "Taiwan, Republic of China"
-GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Taiwan, China"; gfn <- "Taiwan, Republic of China"
-GFNtoGTAP$AltGFN3[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN3[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Tanzania"; gfn <- "Tanzania, United Republic of"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "United Republic of Tanzania"; gfn <- "Tanzania, United Republic of"
-GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "United States"; gfn <- "United States of America"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "United Kingdom of Great Britain and Northern Ireland"; gfn <- "United Kingdom"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "St. Vincent and the Grenadines"; gfn <- "Saint Vincent and Grenadines"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Saint Vincent and the Grenadines"; gfn <- "Saint Vincent and Grenadines"
-GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Venezuela, RB"; gfn <- "Venezuela, Bolivarian Republic of"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Venezuela (Bolivarian Republic of)"; gfn <- "Venezuela, Bolivarian Republic of"
-GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Virgin Islands (U.S.)"; gfn <- "US Virgin Islands"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Vietnam"; gfn <- "Viet Nam"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Yemen, Rep." ; gfn <- "Yemen"
-GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+#GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 
 #Throw exception and list if any countries haven't been dealt with
 #Otherwise go ahead to weighted aggregation
@@ -234,38 +291,39 @@ the alt spelling code above, then re-run this script from beginning: \n',WB_notG
 #as a string dput(WB_notGFN[1]) 
 #as the whole vector print(WB_notGFN)"
 
+##DONE
 ##** I should just replace each spelling in the data:: NO LOOP
 
-
-#loop through and update country names to GFN spellings 
-for (i in 1:length(WBData[,1])) {
-  for (j in 1:length(GFNtoGTAP[,1])) {ifelse(WBData$country[i] == GFNtoGTAP$AltGFN1[j],
-                                             WBData$country[i] <- as.character(GFNtoGTAP$GFN_Name[j]),
-                                             WBData$country[i] <- WBData$country[i])
-  }
-}
-#2nd loop for spellings that have 2nd alternate
-for (i in 1:length(WBData[,1])) {
-  for (j in 1:length(GFNtoGTAP[,1])) {ifelse(WBData$country[i] == GFNtoGTAP$AltGFN2[j],
-                                             WBData$country[i] <- as.character(GFNtoGTAP$GFN_Name[j]),
-                                             WBData$country[i] <- WBData$country[i])
-  }
-}
-#3nd loop for spellings that have 3nd alternate
-for (i in 1:length(WBData[,1])) {
-  for (j in 1:length(GFNtoGTAP[,1])) {ifelse(WBData$country[i] == GFNtoGTAP$AltGFN3[j],
-                                             WBData$country[i] <- as.character(GFNtoGTAP$GFN_Name[j]),
-                                             WBData$country[i] <- WBData$country[i])
-  }
-}
-
-#4th loop for spellings that have 4th alternate
-for (i in 1:length(WBData[,1])) {
-  for (j in 1:length(GFNtoGTAP[,1])) {ifelse(WBData$country[i] == GFNtoGTAP$AltGFN4[j],
-                                             WBData$country[i] <- as.character(GFNtoGTAP$GFN_Name[j]),
-                                             WBData$country[i] <- WBData$country[i])
-  }
-}
+# 
+# #loop through and update country names to GFN spellings 
+# for (i in 1:length(WBData[,1])) {
+#   for (j in 1:length(GFNtoGTAP[,1])) {ifelse(WBData$country[i] == GFNtoGTAP$AltGFN1[j],
+#                                              WBData$country[i] <- as.character(GFNtoGTAP$GFN_Name[j]),
+#                                              WBData$country[i] <- WBData$country[i])
+#   }
+# }
+# #2nd loop for spellings that have 2nd alternate
+# for (i in 1:length(WBData[,1])) {
+#   for (j in 1:length(GFNtoGTAP[,1])) {ifelse(WBData$country[i] == GFNtoGTAP$AltGFN2[j],
+#                                              WBData$country[i] <- as.character(GFNtoGTAP$GFN_Name[j]),
+#                                              WBData$country[i] <- WBData$country[i])
+#   }
+# }
+# #3nd loop for spellings that have 3nd alternate
+# for (i in 1:length(WBData[,1])) {
+#   for (j in 1:length(GFNtoGTAP[,1])) {ifelse(WBData$country[i] == GFNtoGTAP$AltGFN3[j],
+#                                              WBData$country[i] <- as.character(GFNtoGTAP$GFN_Name[j]),
+#                                              WBData$country[i] <- WBData$country[i])
+#   }
+# }
+# 
+# #4th loop for spellings that have 4th alternate
+# for (i in 1:length(WBData[,1])) {
+#   for (j in 1:length(GFNtoGTAP[,1])) {ifelse(WBData$country[i] == GFNtoGTAP$AltGFN4[j],
+#                                              WBData$country[i] <- as.character(GFNtoGTAP$GFN_Name[j]),
+#                                              WBData$country[i] <- WBData$country[i])
+#   }
+# }
 "Let the weighted aggregation begin"
 # Create Data subset with only GFN -> after all dropped and spelling correspondence!
 WB_filt <-WBData[WBData$country %in% GFNtoGTAP$GFN_Name,]
@@ -342,6 +400,8 @@ by.y = c("year", "CLUM_category", "GTAP_Region"), sort = TRUE)
 
 CLUMQScore <- read.csv("./GFN_Data_Visualization/ScatterVisuals/CLUM_QScore.csv")
 NFA_CLUM_WB$QScore <- CLUMQScore$NFA_GTAP_Qscore[match(NFA_CLUM_WB$GTAP_name,CLUMQScore$GTAP.Only)]
+NFA_CLUM_WB$Continents <- CLUMQScore$Continents[match(NFA_CLUM_WB$GTAP_name,CLUMQScore$GTAP.Only)]
+
 
 if(WB_SDG =="WB"){
   write.csv(NFA_CLUM_WB, "./GFN_Data_Visualization/ScatterVisuals/NFA_WB_2017_CLUM.csv")
