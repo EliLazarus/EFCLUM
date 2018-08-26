@@ -31,32 +31,32 @@ years <- c(2004, 2007, 2011)
 
 #Array of all World Bank Indicator data
 if(WB_SDG =="WB"){
-WBIndicators <- WDIcache()
-IndicatorList <- as.data.frame(WBIndicators[[1]], stringAsFactors=FALSE)
-WBCountries <- as.data.frame(WBIndicators[[2]])
-
-# look at a table of indicators based on a search for the term in the "NAME"
-# to look in the description change column vector index from 2 to 3
-"food" -> word ;SearchWB <- IndicatorList[grep(word,IndicatorList[,2]),] 
-#View(SearchWB)
-
-######Data Pull Function
-WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear, CLUM_endyear){
-  DataFrame <- WDI(country = "all",
-                   indicator = indicator_list,
-                   start = CLUM_startyear, end = CLUM_endyear, extra = FALSE, cache = NULL)
-  DataFrame <- subset(DataFrame, year == CLUM_startyear | year == CLUM_middleyear | year == CLUM_endyear)
-  return(DataFrame)
-}
-
-#Single year pull function - Actually, better to just group in the minmax zscore
-# WB_DataPull_Function <- function(indicator_list, Datayear){
-#   DataFrame <- WDI(country = "all",
-#                    indicator = indicator_list,
-#                    start = Datayear, end = Datayear, extra = FALSE, cache = NULL) 
-#   return(DataFrame)
-# }
-
+  WBIndicators <- WDIcache()
+  IndicatorList <- as.data.frame(WBIndicators[[1]], stringAsFactors=FALSE)
+  WBCountries <- as.data.frame(WBIndicators[[2]])
+  
+  # look at a table of indicators based on a search for the term in the "NAME"
+  # to look in the description change column vector index from 2 to 3
+  "food" -> word ;SearchWB <- IndicatorList[grep(word,IndicatorList[,2]),] 
+  #View(SearchWB)
+  
+  ######Data Pull Function
+  WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear, CLUM_endyear){
+    DataFrame <- WDI(country = "all",
+                     indicator = indicator_list,
+                     start = CLUM_startyear, end = CLUM_endyear, extra = FALSE, cache = NULL)
+    DataFrame <- subset(DataFrame, year == CLUM_startyear | year == CLUM_middleyear | year == CLUM_endyear)
+    return(DataFrame)
+  }
+  
+  #Single year pull function - Actually, better to just group in the minmax zscore
+  # WB_DataPull_Function <- function(indicator_list, Datayear){
+  #   DataFrame <- WDI(country = "all",
+  #                    indicator = indicator_list,
+  #                    start = Datayear, end = Datayear, extra = FALSE, cache = NULL) 
+  #   return(DataFrame)
+  # }
+  
 }
 
 if(WB_SDG =="SDG") {
@@ -482,17 +482,15 @@ if (WB_SDG == "SDG") {
     "SH_STA_STUNT",
     #Proportion of children moderately or severely overweight (%)
     "SH_STA_OVRWGT"
-    )
+  )
   Food_Indicators <- c(Food_Indicators, Food_Indicators_reverse)
   
   Food_Data <-
-    subset(
-      SDGIndicators,
+    subset(SDGIndicators,
       SDGIndicators$SeriesCode %in% Food_Indicators &
-        SDGIndicators$TimePeriod %in% years
-    )
-  Food_Data_cols <-
-    c("SeriesCode", "GeoAreaName", "TimePeriod", "Value")
+        SDGIndicators$TimePeriod %in% years)
+  
+  Food_Data_cols <- c("SeriesCode", "GeoAreaName", "TimePeriod", "Value")
   Food_Data <- Food_Data[Food_Data_cols]
   Food_Data <- Food_Data[!(Food_Data$GeoAreaName %in% WB_drop),]
   Food_Data <-
@@ -522,7 +520,7 @@ if (WB_SDG == "SDG") {
     #  Proportion of population covered by labour market programs (%)
     "SI_COV_LMKT",
     # Countries with procedures in law or policy for participation by service users/communities in planning program in rural drinking-water supply, by level of definition in procedures (10 = Clearly defined; 5 = Not clearly defined ; 0 = NA)
-#    "ER_H2O_PRDU", not in the data for those years
+    #    "ER_H2O_PRDU", not in the data for those years
     # Countries that have conducted at least one population and housing census in the last 10 years (1 = YES; 0 = NO)
     "SG_REG_CENSUSN")
   
@@ -531,13 +529,13 @@ if (WB_SDG == "SDG") {
     # Number of victims of intentional homicide per 100,000 population (victims per 100,000 population)
     "VC_IHR_PSRC",
     # Unsentenced detainees as a proportion of overall prison population (%)
-#    "VC_PRS_UNSEC",  Not in the data for those years
+    #    "VC_PRS_UNSEC",  Not in the data for those years
     # Bribery incidence (% of firms experiencing at least one bribe payment request)
     "IC_FRM_BRIB"
-    )
-
+  )
   
-    Govt_Indicators <- c(Govt_Indicators1, Govt_Indicators_reverse)
+  
+  Govt_Indicators <- c(Govt_Indicators1, Govt_Indicators_reverse)
   
   Government_Data <-
     subset(
@@ -563,7 +561,7 @@ if (WB_SDG == "SDG") {
     Government_Data[i] <- readr::parse_number(Government_Data[[i]])
   }
   
-    # Split into the 3 years
+  # Split into the 3 years
   for (i in years) {
     nam <- paste(deparse(substitute(Government_Data)), i, sep = "_")
     assign(nam, Government_Data[Government_Data$TimePeriod == i,])
@@ -685,8 +683,8 @@ if (WB_SDG == "SDG") {
   
   Goods_IndicatorsList <- 
     cbind(unique(SDGIndicators$SeriesCode[SDGIndicators$SeriesCode%in%Goods_Indicators]),
-    unique(SDGIndicators$SeriesDescription[SDGIndicators$SeriesCode%in%Goods_Indicators]),
-    "Goods")
+          unique(SDGIndicators$SeriesDescription[SDGIndicators$SeriesCode%in%Goods_Indicators]),
+          "Goods")
   SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,Goods_IndicatorsList)
   remove(Goods_Indicators,
          Goods_Indicators_reverse,
@@ -697,9 +695,9 @@ if (WB_SDG == "SDG") {
   
   #High is BAD#
   Housing_Indicators_reverse <- c(
-  # Proportion of urban population living in slums (%)
-  "EN_LND_SLUM"
-    )
+    # Proportion of urban population living in slums (%)
+    "EN_LND_SLUM"
+  )
   Housing_Indicators <-
     c(Housing_Indicators, Housing_Indicators_reverse)
   
@@ -709,150 +707,150 @@ if (WB_SDG == "SDG") {
            #For Housing, only 1 indicator, and only 2 years.
            #&
            #                         SDGIndicators$TimePeriod %in% years
-           )
-   Housing_Data_cols <-
-     c("SeriesCode", "GeoAreaName", "TimePeriod", "Value")
-   Housing_Data <- Housing_Data[Housing_Data_cols]
-   Housing_Data <-
-     Housing_Data[!(Housing_Data$GeoAreaName %in% WB_drop),]
-   Housing_Data <-
-     dcast(Housing_Data,
-           GeoAreaName + TimePeriod ~ SeriesCode,
-           value.var = 'Value')
-   # Reverse the orders for High is BAD
-   for (i in Housing_Indicators_reverse) {
-     # The if removes the warning from the max function for when vectors are all NA
-     if (!all(is.na(Housing_Data[[i]]))) {
-       Housing_Data[i] <-
-         0 - readr::parse_number(Housing_Data[[i]]) + readr::parse_number(max(Housing_Data[[i]], na.rm = TRUE))
-     }
-   }
-   
-   for (i in 1:nrow(Housing_Data)) {
-     if (Housing_Data$TimePeriod[i] == 2005) {
-       Housing_Data$TimePeriod[i] <- 2007
-     }
-     else if (Housing_Data$TimePeriod[i] == 2010) {
-       Housing_Data$TimePeriod[i] <- 2011
-     }
-     else{
-       stop(print("Housing has OTHER years than 2005 and 2010, fix it"))
-     }
-   }
-   # Split into the 2 years
-   for (i in years) {
-     nam <- paste(deparse(substitute(Housing_Data)), i, sep = "_")
-     assign(nam, Housing_Data[Housing_Data$TimePeriod == i,])
-   }
-   
-   Housing_IndicatorsList <- 
-     cbind(unique(SDGIndicators$SeriesCode[SDGIndicators$SeriesCode%in%Housing_Indicators]),
-           unique(SDGIndicators$SeriesDescription[SDGIndicators$SeriesCode%in%Housing_Indicators]),
-           "Housing")
-   SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,Housing_IndicatorsList)
-   remove(Housing_Indicators,
-          Housing_Indicators_reverse,
-          Housing_Data_cols)
-   
-   Transport_Indicators <- c()
-   
-   #High is BAD#
-   Transport_Indicators_reverse <- c(
-     # Death rate due to road traffic injuries (per 100,000 population)
-     "SH_STA_TRAF")
-   Transport_Indicators <-
-     c(Transport_Indicators, Transport_Indicators_reverse)
-   
-   Transport_Data <-
-     subset(
-       SDGIndicators,
-       SDGIndicators$SeriesCode %in% Transport_Indicators &
-         SDGIndicators$TimePeriod %in% years
-     )
-   Transport_Data_cols <-
-     c("SeriesCode", "GeoAreaName", "TimePeriod", "Value")
-   Transport_Data <- Transport_Data[Transport_Data_cols]
-   Transport_Data <-
-     Transport_Data[!(Transport_Data$GeoAreaName %in% WB_drop),]
-   Transport_Data <-
-     dcast(Transport_Data,
-           GeoAreaName + TimePeriod ~ SeriesCode,
-           value.var = 'Value')
-   # Reverse the orders for High is BAD
-   for (i in Transport_Indicators_reverse) {
-     # The if removes the warning from the max function for when vectors are all NA
-     if (!all(is.na(Transport_Data[[i]]))) {
-       Transport_Data[i] <-
-         0 - readr::parse_number(Transport_Data[[i]]) + readr::parse_number(max(Transport_Data[[i]], na.rm = TRUE))
-     }
-   }
-   
-   # Split into the 3 years
-   for (i in years) {
-     nam <- paste(deparse(substitute(Transport_Data)), i, sep = "_")
-     assign(nam, Transport_Data[Transport_Data$TimePeriod == i,])
-   }
-   
-   Transport_IndicatorsList <- 
-     cbind(unique(SDGIndicators$SeriesCode[SDGIndicators$SeriesCode%in%Transport_Indicators]),
-           unique(SDGIndicators$SeriesDescription[SDGIndicators$SeriesCode%in%Transport_Indicators]),
-           "Personal Transportation")
-   SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,Transport_IndicatorsList)
-   remove(Transport_Indicators,
-          Transport_Indicators_reverse,
-          Transport_Data_cols)
-   
-   GFCF_Indicators <- c(
-     # Number of automated teller machines (ATMs) per 100,000 adults
-     "FB_ATM_TOTL",
-     # Research and development expenditure as a proportion of GDP (%)
-     "GB_XPD_RSDV"
-     )
-   
-   #High is BAD#
-   GFCF_Indicators_reverse <- c(
-     # Direct agriculture loss attributed to disasters, by hazard type (millions of current United States dollars)
-     "VC_DSR_AGLH")
-   GFCF_Indicators <-
-     c(GFCF_Indicators, GFCF_Indicators_reverse)
-   
-   GFCF_Data <-
-     subset(
-       SDGIndicators,
-       SDGIndicators$SeriesCode %in% GFCF_Indicators &
-         SDGIndicators$TimePeriod %in% years
-     )
-   GFCF_Data_cols <-
-     c("SeriesCode", "GeoAreaName", "TimePeriod", "Value")
-   GFCF_Data <- GFCF_Data[GFCF_Data_cols]
-   GFCF_Data <-
-     GFCF_Data[!(GFCF_Data$GeoAreaName %in% WB_drop),]
-   GFCF_Data <-
-     dcast(GFCF_Data, GeoAreaName + TimePeriod ~ SeriesCode, value.var = 'Value')
-   # Reverse the orders for High is BAD
-   for (i in GFCF_Indicators_reverse) {
-     # The if removes the warning from the max function for when vectors are all NA
-     if (!all(is.na(GFCF_Data[[i]]))) {
-       GFCF_Data[i] <-
-         0 - readr::parse_number(GFCF_Data[[i]]) + readr::parse_number(max(GFCF_Data[[i]], na.rm = TRUE))
-     }
-   }
-   
-   # Split into the 3 years
-   for (i in years) {
-     nam <- paste(deparse(substitute(GFCF_Data)), i, sep = "_")
-     assign(nam, GFCF_Data[GFCF_Data$TimePeriod == i,])
-   }
-   
-   GFCF_IndicatorsList <- 
-     cbind(unique(SDGIndicators$SeriesCode[SDGIndicators$SeriesCode%in%GFCF_Indicators]),
-           unique(SDGIndicators$SeriesDescription[SDGIndicators$SeriesCode%in%GFCF_Indicators]),
-           "Gross Fixed Capital Formation")
-   SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,GFCF_IndicatorsList)
-   remove(GFCF_Indicators, GFCF_Indicators_reverse, GFCF_Data_cols)
-   
-   colnames(SDGIndicatorsDownloaded) <- c("indicator", "description", "CLUM")
-           
+    )
+  Housing_Data_cols <-
+    c("SeriesCode", "GeoAreaName", "TimePeriod", "Value")
+  Housing_Data <- Housing_Data[Housing_Data_cols]
+  Housing_Data <-
+    Housing_Data[!(Housing_Data$GeoAreaName %in% WB_drop),]
+  Housing_Data <-
+    dcast(Housing_Data,
+          GeoAreaName + TimePeriod ~ SeriesCode,
+          value.var = 'Value')
+  # Reverse the orders for High is BAD
+  for (i in Housing_Indicators_reverse) {
+    # The if removes the warning from the max function for when vectors are all NA
+    if (!all(is.na(Housing_Data[[i]]))) {
+      Housing_Data[i] <-
+        0 - readr::parse_number(Housing_Data[[i]]) + readr::parse_number(max(Housing_Data[[i]], na.rm = TRUE))
+    }
+  }
+  
+  for (i in 1:nrow(Housing_Data)) {
+    if (Housing_Data$TimePeriod[i] == 2005) {
+      Housing_Data$TimePeriod[i] <- 2007
+    }
+    else if (Housing_Data$TimePeriod[i] == 2010) {
+      Housing_Data$TimePeriod[i] <- 2011
+    }
+    else{
+      stop(print("Housing has OTHER years than 2005 and 2010, fix it"))
+    }
+  }
+  # Split into the 2 years
+  for (i in years) {
+    nam <- paste(deparse(substitute(Housing_Data)), i, sep = "_")
+    assign(nam, Housing_Data[Housing_Data$TimePeriod == i,])
+  }
+  
+  Housing_IndicatorsList <- 
+    cbind(unique(SDGIndicators$SeriesCode[SDGIndicators$SeriesCode%in%Housing_Indicators]),
+          unique(SDGIndicators$SeriesDescription[SDGIndicators$SeriesCode%in%Housing_Indicators]),
+          "Housing")
+  SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,Housing_IndicatorsList)
+  remove(Housing_Indicators,
+         Housing_Indicators_reverse,
+         Housing_Data_cols)
+  
+  Transport_Indicators <- c()
+  
+  #High is BAD#
+  Transport_Indicators_reverse <- c(
+    # Death rate due to road traffic injuries (per 100,000 population)
+    "SH_STA_TRAF")
+  Transport_Indicators <-
+    c(Transport_Indicators, Transport_Indicators_reverse)
+  
+  Transport_Data <-
+    subset(
+      SDGIndicators,
+      SDGIndicators$SeriesCode %in% Transport_Indicators &
+        SDGIndicators$TimePeriod %in% years
+    )
+  Transport_Data_cols <-
+    c("SeriesCode", "GeoAreaName", "TimePeriod", "Value")
+  Transport_Data <- Transport_Data[Transport_Data_cols]
+  Transport_Data <-
+    Transport_Data[!(Transport_Data$GeoAreaName %in% WB_drop),]
+  Transport_Data <-
+    dcast(Transport_Data,
+          GeoAreaName + TimePeriod ~ SeriesCode,
+          value.var = 'Value')
+  # Reverse the orders for High is BAD
+  for (i in Transport_Indicators_reverse) {
+    # The if removes the warning from the max function for when vectors are all NA
+    if (!all(is.na(Transport_Data[[i]]))) {
+      Transport_Data[i] <-
+        0 - readr::parse_number(Transport_Data[[i]]) + readr::parse_number(max(Transport_Data[[i]], na.rm = TRUE))
+    }
+  }
+  
+  # Split into the 3 years
+  for (i in years) {
+    nam <- paste(deparse(substitute(Transport_Data)), i, sep = "_")
+    assign(nam, Transport_Data[Transport_Data$TimePeriod == i,])
+  }
+  
+  Transport_IndicatorsList <- 
+    cbind(unique(SDGIndicators$SeriesCode[SDGIndicators$SeriesCode%in%Transport_Indicators]),
+          unique(SDGIndicators$SeriesDescription[SDGIndicators$SeriesCode%in%Transport_Indicators]),
+          "Personal Transportation")
+  SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,Transport_IndicatorsList)
+  remove(Transport_Indicators,
+         Transport_Indicators_reverse,
+         Transport_Data_cols)
+  
+  GFCF_Indicators <- c(
+    # Number of automated teller machines (ATMs) per 100,000 adults
+    "FB_ATM_TOTL",
+    # Research and development expenditure as a proportion of GDP (%)
+    "GB_XPD_RSDV"
+  )
+  
+  #High is BAD#
+  GFCF_Indicators_reverse <- c(
+    # Direct agriculture loss attributed to disasters, by hazard type (millions of current United States dollars)
+    "VC_DSR_AGLH")
+  GFCF_Indicators <-
+    c(GFCF_Indicators, GFCF_Indicators_reverse)
+  
+  GFCF_Data <-
+    subset(
+      SDGIndicators,
+      SDGIndicators$SeriesCode %in% GFCF_Indicators &
+        SDGIndicators$TimePeriod %in% years
+    )
+  GFCF_Data_cols <-
+    c("SeriesCode", "GeoAreaName", "TimePeriod", "Value")
+  GFCF_Data <- GFCF_Data[GFCF_Data_cols]
+  GFCF_Data <-
+    GFCF_Data[!(GFCF_Data$GeoAreaName %in% WB_drop),]
+  GFCF_Data <-
+    dcast(GFCF_Data, GeoAreaName + TimePeriod ~ SeriesCode, value.var = 'Value')
+  # Reverse the orders for High is BAD
+  for (i in GFCF_Indicators_reverse) {
+    # The if removes the warning from the max function for when vectors are all NA
+    if (!all(is.na(GFCF_Data[[i]]))) {
+      GFCF_Data[i] <-
+        0 - readr::parse_number(GFCF_Data[[i]]) + readr::parse_number(max(GFCF_Data[[i]], na.rm = TRUE))
+    }
+  }
+  
+  # Split into the 3 years
+  for (i in years) {
+    nam <- paste(deparse(substitute(GFCF_Data)), i, sep = "_")
+    assign(nam, GFCF_Data[GFCF_Data$TimePeriod == i,])
+  }
+  
+  GFCF_IndicatorsList <- 
+    cbind(unique(SDGIndicators$SeriesCode[SDGIndicators$SeriesCode%in%GFCF_Indicators]),
+          unique(SDGIndicators$SeriesDescription[SDGIndicators$SeriesCode%in%GFCF_Indicators]),
+          "Gross Fixed Capital Formation")
+  SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,GFCF_IndicatorsList)
+  remove(GFCF_Indicators, GFCF_Indicators_reverse, GFCF_Data_cols)
+  
+  colnames(SDGIndicatorsDownloaded) <- c("indicator", "description", "CLUM")
+  
 }
 
 ## Get rid of indicators that have more NAs/NA_factor (eg. 1/2 if NA_factor is 2., .8 if NA_factor is 1.25 etc.
