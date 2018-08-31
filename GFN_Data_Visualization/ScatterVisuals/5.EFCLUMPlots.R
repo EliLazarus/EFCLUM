@@ -1,7 +1,6 @@
 library(ggplot2)
 library(grid)
 library(gridExtra)
-library(RColorBrewer)
 
 #TO DO, next
 #Stablisize the colors by continent
@@ -23,8 +22,10 @@ QScoreMin <- 4
 #Pull the data from csv files
 EFWBData <- read.csv("./GFN_Data_Visualization/ScatterVisuals/NFA_WB_2017_CLUM.csv")
 EFSDGData <- read.csv("./GFN_Data_Visualization/ScatterVisuals/NFA_SDG_2017_CLUM.csv")
+IndicatorsDownloaded <- read.csv("./GFN_Data_Visualization/ScatterVisuals/IndicatorsDownloaded.csv")
+SDGIndicatorsDownloaded <- read.csv("./GFN_Data_Visualization/ScatterVisuals/SDGIndicatorsDownloaded.csv")
 
-color.codes<-as.character(c("#3399FF", "#FF0000", "#000000"))
+#color.codes<-as.character(c("#3399FF", "#FF0000", "#000000"))
 
 #subetted data to plot
 EFWBData11 <- subset(EFWBData,(EFWBData$year == 2011 & EFWBData$QScore > QScoreMin))

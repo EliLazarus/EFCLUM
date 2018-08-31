@@ -6,13 +6,11 @@ library(httr)
 library(jsonlite)
 library(boxr)
 
-# Run to activate connection for the SDG data file on Box
-box_auth()
 
 "Set working directory to top level directory in console"
 ##eg. setwd("C:\\Users\\Eli\\GitFolders\\EFCLUM")
 "Set to use WB (WB_yes_or_no<-1) or SDG (WB_yes_or_no<-0) Indicators"
-WB_yes_or_no <- 0
+WB_yes_or_no <- 1
 
 if(WB_yes_or_no==1) {
   WB_SDG <- "WB"
@@ -60,19 +58,21 @@ if(WB_SDG =="WB"){
 }
 
 if(WB_SDG =="SDG") {
+  # Run to activate connection for the SDG data file on Box
+  box_auth()
+
   #Array of UN SDGIndicators
-  SDGIndicators <-
    #For now, I have it set up to pull the file from my Box.com cloud storage...
       SDGIndicators <- box_read("303960310729")
     # I encountered an error from the fromJSON function - didn't like the !...so I went to downloads
-  # SDG <- GET(url = 'https://unstats.un.org', path='/SDGAPI/v1/sdg/Indicator/Data')
-  # SDG.raw.content <- rawToChar(SDG$content)
-  # SDG.content <- fromJSON(SDG.raw.content)
-  # SDG.df <- do.call(what = "rbind", args = lapply(SDG.content, as.data.frame))
-  #
-  # SDGlist <- GET(url = 'https://unstats.un.org', path='/v1/sdg/Indicator/List')
-  # SDGlist.raw.content <- rawToChar(SDGlist$content)
-  # SDGlist.content <- fromJSON(SDGlist.raw.content)
+  SDG <- GET(url = 'https://unstats.un.org', path='/SDGAPI/v1/sdg/Indicator/Data')
+  SDG.raw.content <- rawToChar(SDG$content)
+  SDG.content <- fromJSON(SDG.raw.content)
+  SDG.df <- do.call(what = "rbind", args = lapply(SDG.content, as.data.frame))
+
+  SDGlist <- GET(url = 'https://unstats.un.org', path='/v1/sdg/Indicator/List')
+  SDGlist.raw.content <- rawToChar(SDGlist$content)
+  SDGlist.content <- fromJSON(SDGlist.raw.content)
 }
 
 ####List for dropping WB countries not used in correspondence before forming indicators
@@ -850,6 +850,7 @@ if (WB_SDG == "SDG") {
   remove(GFCF_Indicators, GFCF_Indicators_reverse, GFCF_Data_cols)
   
   colnames(SDGIndicatorsDownloaded) <- c("indicator", "description", "CLUM")
+  write.csv(SDGIndicatorsDownloaded, "./GFN_Data_Visualization/ScatterVisuals/SDGIndicatorsDownloaded.csv")
   
 }
 
