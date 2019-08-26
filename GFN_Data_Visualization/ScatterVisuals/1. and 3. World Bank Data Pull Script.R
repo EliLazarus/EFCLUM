@@ -6,11 +6,13 @@ library(httr)
 library(jsonlite)
 library(boxr)
 
+ptm <- proc.time()
 
 "Set working directory to top level directory in console"
-##eg. setwd("C:\\Users\\Eli\\GitFolders\\EFCLUM")
+##eg. setwd("C:\\Users\\Eli\\GitFolders\\EFCLUM\\GFN_Data_Visualization\\ScatterVisuals")
 "Set to use WB (WB_yes_or_no<-1) or SDG (WB_yes_or_no<-0) Indicators"
-WB_yes_or_no <- 1
+WB_yes_or_no <- 0
+first_run <- "yes" #or no - so you don't have to wait to re-download from the API
 
 if(WB_yes_or_no==1) {
   WB_SDG <- "WB"
@@ -28,7 +30,7 @@ years <- c(2004, 2007, 2011)
 
 
 #Array of all World Bank Indicator data
-if(WB_SDG =="WB"){
+if(WB_SDG =="WB" & first_run=="yes"){
   WBIndicators <- WDIcache()
   IndicatorList <- as.data.frame(WBIndicators[[1]], stringAsFactors=FALSE)
   WBCountries <- as.data.frame(WBIndicators[[2]])
@@ -58,22 +60,195 @@ if(WB_SDG =="WB"){
 }
 
 if(WB_SDG =="SDG") {
-  # Run to activate connection for the SDG data file on Box
-  box_auth()
-
+  
   #Array of UN SDGIndicators
-   #For now, I have it set up to pull the file from my Box.com cloud storage...
-      SDGIndicators <- box_read("303960310729")
-    # I encountered an error from the fromJSON function - didn't like the !...so I went to downloads
-  SDG <- GET(url = 'https://unstats.un.org', path='/SDGAPI/v1/sdg/Indicator/Data')
-  SDG.raw.content <- rawToChar(SDG$content)
-  SDG.content <- fromJSON(SDG.raw.content)
-  SDG.df <- do.call(what = "rbind", args = lapply(SDG.content, as.data.frame))
+# Back-up code to upload data from my Box account
+  # Run to activate connection for the SDG data file on Box
+#  box_auth()
+ # SDGIndicators <- box_read("465756736238") #~50,000 less rows than the old one...
+  
+  SDGdata<- data.frame()
+  page1 <- fromJSON("https://unstats.un.org/SDGAPI/v1/sdg/Indicator/Data?timePeriod=2004&timePeriod=2007&timePeriod=2011", flatten = TRUE)
+  perpage <- ceiling(page1$totalElements/10)
+  ptm <- proc.time()
+  for(i in 1:10){
+    DLpagetime <- proc.time()
+    SDGpage <- fromJSON(paste0("https://unstats.un.org/SDGAPI/v1/sdg/Indicator/Data?timePeriod=2004&timePeriod=2007&timePeriod=2011&pageSize=",perpage,"&page=",i), flatten = TRUE)
+    message("Retrieving page ", i, " : ", round(proc.time() - DLpagetime) [3], " seconds to retrieve.")
+   SDGdata <- rbind(SDGdata,SDGpage$data[,1:16])
+     }
+  
+  message("~",DLtime <-  round((proc.time()[3] - ptm[3])/60), " minutes to download")
+  
+  #start the clock for recast
+  recasttime <- proc.time()
+  #loop the loop the loop: by col, and by row per 1/10 rows
+  for (k in 1:3) {
+    looprecasttime <- proc.time()
+    for (i in 0:8) {
+      for (j in ((i*perpage)+1):(perpage*(i+1))) {
+        SDGdata[j,k] <- stringr::str_c(SDGdata[[j,k]], collapse = " ")
+      }
+      
+      message(round((proc.time()[3] - looprecasttime[3])), " seconds to recast 1/10th " ,i, " to ", j, ", col ",k)
+      looprecasttime <- proc.time()
+    }
+    
+    for (j in ((9*perpage)+1):page1$totalElements) {
+      SDGdata[j,k] <- paste0(SDGdata[[j,k]], collapse = " ")
+    } 
+    message(round((proc.time()[3] - looprecasttime[3])), " seconds to recast last 10th " ,i, " to ", j, ", col ",k)
+    looprecasttime <- proc.time()
+  }
+  message(round((proc.time()[3] - recasttime[3])/60), " rediculous minutes to recast")
+  # other tries
+    for (j in 1:page1$totalElements) {
+      SDGdata[j,2] <- stringr::str_c(SDGdata[[j,2]], collapse = " ")
+    }
+  message(round((proc.time()[3] - looprecasttime[3])), " seconds to recast")
+  looprecasttime <- proc.time()
+  #for (i in 1:3){
+  for (j in 1:page1$totalElements) {
+    SDGdata[j,3] <- paste(SDGdata[[j,3]])
+    #SDGdata[j,1] <- paste0(SDGdata[[j,1]], collapse = " ")
+    #SDGdata[j,2] <- paste0(SDGdata[[j,2]], collapse = " ")
+    #SDGdata[j,3] <- paste0(SDGdata[[j,3]], collapse = " ")
+  }
+  message(round((proc.time()[3] - looprecasttime[3])), " seconds to recast")
+  #}
+  
+  SDGdata[162670,2] <- stringr::str_c(SDGdata[[162670,2]], collapse = " ")
+  
+  message(RCtime <-  round((proc.time()[3] - looprecasttime[3])), " seconds to recast")
 
-  SDGlist <- GET(url = 'https://unstats.un.org', path='/v1/sdg/Indicator/List')
-  SDGlist.raw.content <- rawToChar(SDGlist$content)
-  SDGlist.content <- fromJSON(SDGlist.raw.content)
-}
+  
+  # Does not work : SDGdata[1] <- paste0(SDGdata[[1]], collapse = " ")
+  
+  # SDGdata[1] <- as.character(SDGdata[[1]])
+  # SDGdata[2] <- as.character(SDGdata[[2]])
+  # SDGdata[3] <- as.character(SDGdata[[3]])
+  # 
+  " TESTing AREA"
+  #Testing for type for columns 1-3
+  SDGTest <- fromJSON(paste0("https://unstats.un.org/SDGAPI/v1/sdg/Indicator/Data?timePeriod=2004&timePeriod=2007&timePeriod=2011&pageSize=",7000,"&page=",1), flatten = TRUE)
+  SDGTestdf <- as.data.frame(SDGTest$data[,1:16])
+
+  
+  SDGTestdf[1] <- flatten(SDGTestdf[1])
+  SDGTestdf[1] <- tidyr::unnest(SDGTestdf[1])
+#  SDGTestdf[1] <-
+  SDGTestdf[1] <- lapply(SDGTestdf[[1]], paste0)#, collapse = " ")
+  SDGTestdf[2] <- as.character(paste0(SDGTestdf[[2]], collapse = " "))
+  
+  looprecasttime <- proc.time()
+  #for (i in 1:3){
+  TestV[] <- data.frame()
+  j <- 6687
+  for (j in 1:7000) {
+    TestV <- rbind(paste0(SDGTestdf[[j,1]]),TestV)
+  }
+  
+  SDGTestdf[1] <- unlist(paste0(SDGTestdf[1], collapse = " "))#, rapply, f = c)
+  
+  lapply(paste0,SDGTestdf[[1]])#, collapse = " "))
+  SDGdata[1] <- paste0(SDGdata[[1]], collapse = " ")
+  
+  SDGTestdf[,2] <- paste0(SDGTestdf[[2]], collapse = " ")
+  
+  SDGTestdf[1] <- as.character(paste0(SDGTestdf[[1]], collapse = " "))
+  #testV <- 
+  lapply(SDGTestdf[3], paste0(SDGTestdf[[3]], collapse = " "))#,use.names = FALSE)
+  
+  SDGTestdf[3] <- do.call(paste0, list(SDGTestdf[[3]], sep = " "))
+  
+#  library(dplyr)
+# Turn list of list of characters into a list of characters
+  SDGTestdf[6686,3] <- paste0(SDGTestdf[[6686,3]], collapse = " ")
+  
+  
+  
+  SDGTestdf[,3] <- unlist(paste0(SDGTestdf[,3]),use.names=FALSE)
+  SDGTestdf[,3] <- lapply(SDGTestdf[,3], paste0(SDGTestdf[,3], collapse = " "))
+
+  
+lapply(SDGTestdf[,3],paste0(SDGTestdf[,3],collapse = " "))
+  SDGTestdf[6690:6693,3] <- paste0(SDGTestdf[6690:6693,3],collapse = " ")
+"
+  #Get number of pages from the field of the first page
+  pages <- page1$totalPages
+  SDGdata<- data.frame()
+  for(j in 1:25){
+    SDGdatarow <- rbind(page1$data[j,1:16])
+    SDGdata <- rbind(SDGdata,SDGdatarow)
+  }
+  SDGdata[1] <- as.character(SDGdata[[1]])
+  SDGdata[2] <- as.character(SDGdata[[2]])
+  SDGdata[3] <- as.character(SDGdata[[3]])
+  #pages <- page1$data
+  for(i in 2:pages){
+  " # mydata <- fromJSON(paste0(baseurl, "?page=", i), flatten=TRUE)
+   # message("Retrieving page ", i)
+    "for(j in 1:25){
+      SDGdatarow <- rbind(mydata$data[j,1:16])
+      rownames(SDGdatarow) <- as.numeric((i-1)*25+j)
+      SDGdata <- rbind.data.frame(SDGdata,SDGdatarow)
+    }
+    #pages[[i+1]] <- cbind(mydata$data)
+  }
+
+#First draft rediculous attempt at convert nested for loop to 'apply'
+  SDGdataApply<- data.frame()
+  for(j in 1:25){
+    SDGdatarow <- rbind(page1$data[j,1:16])
+    SDGdataApply <- rbind(SDGdataApply,SDGdatarow)
+  }
+  SDGdataApply[1] <- as.character(SDGdataApply[[1]])
+  SDGdataApply[2] <- as.character(SDGdataApply[[2]])
+  SDGdataApply[3] <- as.character(SDGdataApply[[3]])
+  
+  SDGdatafun <- function(x,y) { 
+"#"    mydata <- fromJSON(paste0(baseurl, "?page=", x), flatten=TRUE)
+  "  SDGdatarow <- rbind(mydata$data[y,1:16])
+    rownames(SDGdatarow) <- as.numeric((x-1)*25+y)
+    SDGdata2 <- rbind.data.frame(SDGdata2,SDGdatarow)
+    return (SDGdata2)
+  }
+  
+  testingDF <- SDGdatafun(2,7)
+# for test of sapply  dummy <- function (x,y) paste (x,y)
+  testingDF <- lapply(2:3, function (i) lapply(1:3, function (j) SDGdatafun(i,j)))
+
+PrintTest <- function(x,y){
+  list(x,y)
+}  
+  PrintTesting <- sapply(2:5, function (i) sapply(1:4, function (j) PrintTest(i,j)))
+  
+      # SDGsTest2 <- data.frame()
+  # SDGsTest <- rbind(pages[5][[1]][1:16])
+  # SDGsTest2 <- rbind(SDGsTest2,SDGsTest)
+  #   #combine all into one
+  #SDGDataJsonliteTest <- vapply(rowi <- for (i in 0:4){rbind(pages[[i]])},rbind(SDGDataJsonliteTest,rowi))
+  #SDGDataJsonliteTest <- rowi
+  #SDGDataJsonliteTest <- rbind(SDGDataJsonliteTest,rowi)
+    #check output
+  #nrow(SDGDataJsonliteTest)
+  
+  # SDGTest <- fromJSON('https://unstats.un.org/SDGAPI/v1/sdg/Indicator/Data') %>% lapply(rbind(SDGTest), as.data.frame)
+  # SDGTest <- fromJSON('https://unstats.un.org/SDGAPI/v1/sdg/Indicator/Data')
+  # SDGEmail <- ('https://unstats.un.org/SDGAPI//v1/sdg/User/EmailExist')
+  # #But still unclear what this does and how it's supposed to organise the data
+  #   SDG.df <- do.call(what = "rbind", args = lapply(SDG.content, as.data.frame))
+
+
+    SDG_df <- do.call(rbind.data.frame, lapply(SDGTest))
+
+    # SDGlist <- GET(url = 'https://unstats.un.org', path='/v1/sdg/Indicator/List')
+  # SDGlist.raw.content <- rawToChar(SDGlist$content)
+  # SDGlist.content <- fromJSON(SDGlist.raw.content)
+ "
+#NEVERMIND - all done in one line below
+    SDGlist <- fromJSON('https://unstats.un.org/SDGAPI/v1/sdg/Indicator/List')
+  }
 
 ####List for dropping WB countries not used in correspondence before forming indicators
 #drop the known and obvious country groupings in the World Bank List
@@ -92,7 +267,7 @@ WB_drop <- c("Africa", "Andean Region", "East Asia & Pacific (IBRD-only countrie
              "Europe & Central Asia (IDA-eligible countries)","IDA countries classified as Fragile Situations", 
              "Latin America & the Caribbean (IDA-eligible countries)", 
              "Middle East & North Africa (IDA-eligible countries)", 
-             "IDA countries not classified", 
+             "IDA countries not classified", "South Asia (all income levels)",
              "Arab World", "East Asia & Pacific (excluding high income)", 
              "Europe & Central Asia (excluding high income)", "South Asia", 
              "Central Europe and the Baltics", "European Union", "Fragile and conflict affected situations", 
@@ -114,7 +289,7 @@ WB_drop <- c("Africa", "Andean Region", "East Asia & Pacific (IBRD-only countrie
              "Pakistan - Lahore", "Nigeria - Kano", "Nigeria - Lagos","European Monetary Union",
              "Germany, Fed. Rep. (former)","High income: nonOECD" ,  "High income: OECD","Mexico - Mexico City",
              "Mexico - Monterrey", "India - Delhi","India - Mumbai", "China - Beijing","China - Shanghai",
-             "Brazil - Rio de Janeiro","Brazil - SÃ£o Paulo", "Bangladesh - Chittagong","Bangladesh - Dhaka",
+             "Brazil - Rio de Janeiro","Brazil - SÃ£o Paulo", "Brazil - São Paulo", "Bangladesh - Chittagong","Bangladesh - Dhaka",
              "Japan - Osaka","Japan - Tokyo","North Africa" , "Sub-Saharan Africa excluding South Africa",
              "Sub-Saharan Africa excluding South Africa and Nigeria", "United States - Los Angeles",
              "United States - New York City"," All States in India", " All Union Territories in India",
@@ -162,7 +337,7 @@ WB_drop <- c("Africa", "Andean Region", "East Asia & Pacific (IBRD-only countrie
              #Plus country GFN has but we don't want
              "World")
 # Write to file for reading in country correspondence script
-write.csv(WB_drop, file = "./GFN_Data_Visualization/ScatterVisuals/DropTheseCountries.csv", row.names = F)
+write.csv(WB_drop, file = "./DropTheseCountries.csv", row.names = F)
 
 if(WB_SDG=="WB"){
   
@@ -214,8 +389,10 @@ if(WB_SDG=="WB"){
   # Reverse the orders for High is BAD
   for (i in Food_Indicators_reverse){
     # The if removes the warning from the max function for when vectors are all NA
-    if(!all(is.na(Food_Data[i]))){
-      Food_Data[i] <- 0 - Food_Data[i] + max(Food_Data[i], na.rm = TRUE)
+    if(i %in% colnames(Food_Data)){
+      if(!all(is.na(Food_Data[i]))){
+        Food_Data[i] <- 0 - Food_Data[i] + max(Food_Data[i], na.rm = TRUE)
+      }
     }
   }
   # Split into the 3 years
@@ -440,7 +617,7 @@ if(WB_SDG=="WB"){
   # linked to http://ophi.org.uk/multidimensional-poverty-index/global-mpi-2017/mpi-data/ has asset poverty measures for many countires.
   # Food_Beverages_Tobacco <- "NV.MNF.FBTO.ZS.UN"
   # Textiles_Clothing <- "NV.MNF.TXTL.ZS.UN"
-  Goods_Data <- read.csv("./GFN_Data_Visualization/ScatterVisuals/ass_pov_final.csv")
+  Goods_Data <- read.csv("./ass_pov_final.csv")
   # Reverse the orders for High is BAD
   Goods_Data$ass_pov_extr <- 0-Goods_Data$ass_pov_extr+max(Goods_Data$ass_pov_extr, na.rm = TRUE)
   for (i in years){
@@ -464,9 +641,9 @@ if(WB_SDG=="WB"){
   Indicators_Nodownloads <- as.data.frame(names(warnings()))
   
   #Output WB Indicators info, and list of what was not downloaded at all at the end
-  write.csv(IndicatorsDownloaded,"./GFN_Data_Visualization/ScatterVisuals/IndicatorsDLed.csv")
-  cat("\n Not Downloaded (and other warnings) \n", file = "./GFN_Data_Visualization/ScatterVisuals/IndicatorsDLed.csv", append = TRUE) 
-  write.table(Indicators_Nodownloads,"./GFN_Data_Visualization/ScatterVisuals/IndicatorsDLed.csv",
+  write.csv(IndicatorsDownloaded,"./IndicatorsDLed.csv")
+  cat("\n Not Downloaded (and other warnings) \n", file = "./IndicatorsDLed.csv", append = TRUE) 
+  write.table(Indicators_Nodownloads,"./IndicatorsDLed.csv",
               append = TRUE, col.names=FALSE)
   
 }
@@ -850,7 +1027,7 @@ if (WB_SDG == "SDG") {
   remove(GFCF_Indicators, GFCF_Indicators_reverse, GFCF_Data_cols)
   
   colnames(SDGIndicatorsDownloaded) <- c("indicator", "description", "CLUM")
-  write.csv(SDGIndicatorsDownloaded, "./GFN_Data_Visualization/ScatterVisuals/SDGIndicatorsDownloaded.csv")
+  write.csv(SDGIndicatorsDownloaded, "./SDGIndicatorsDownloaded.csv")
   
 }
 
@@ -1101,12 +1278,13 @@ IndicesData <- left_join(ZScoreData, MaxMinData, by = c("country", "year", "CLUM
 
 #write.csv(IndicesData, "./World Bank Data/IndicesData.csv")
 if(WB_SDG=="WB"){
-write.csv(IndicesData, "./GFN_Data_Visualization/ScatterVisuals/IndicesDataWB.csv")
+write.csv(IndicesData, "./IndicesDataWB.csv")
 }
 if(WB_SDG=="SDG"){
-write.csv(IndicesData, "./GFN_Data_Visualization/ScatterVisuals/IndicesDataSDG.csv")
+write.csv(IndicesData, "./IndicesDataSDG.csv")
 }
 
 print ('Looks good, Run 2.Country Correspondence to make sure all countries and groupings were dealt with
        and do the GTAP weighted aggregation')
 
+proc.time() - ptm

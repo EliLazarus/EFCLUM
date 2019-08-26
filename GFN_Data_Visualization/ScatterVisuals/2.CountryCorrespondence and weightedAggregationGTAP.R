@@ -4,15 +4,18 @@ library(splitstackshape)
 library(WDI)
 
 "Set working directory to top level directory in console"
-##eg. setwd("C:\\Users\\Eli\\GitFolders\\EFCLUM")
+##eg. setwd("C:\\Users\\Eli\\GitFolders\\EFCLUM\\GFN_Data_Visualization\\ScatterVisuals")
 
 #read in previous World Bank Data to get country list from WB Data in case of other countries
 # and for GTAP group weighted Aggregation (by population) and final output
 
-if(WB_SDG =="WB"){WBData <- read.csv("./GFN_Data_Visualization/ScatterVisuals/IndicesDataWB.csv", header=TRUE, colClasses=NA)
+if(WB_SDG =="WB"){WBData <- read.csv("./IndicesDataWB.csv", header=TRUE, colClasses=NA)
 }
-if(WB_SDG =="SDG"){WBData <- read.csv("./GFN_Data_Visualization/ScatterVisuals/IndicesDataSDG.csv", header=TRUE, colClasses=NA)
+if(WB_SDG =="SDG"){WBData <- read.csv("./IndicesDataSDG.csv", header=TRUE, colClasses=NA)
 }
+
+#start timer
+ptm <- proc.time()
 
 WBData$country <- as.character(WBData$country)
 WBData$CLUM_category <- as.character(WBData$CLUM_category)
@@ -23,7 +26,13 @@ WBData$country[grepl("oire",WBData$country)] <- "Cote d'Ivoire"
 if(WB_SDG == "WB"){
   #Separate Goods bc already in GTAP codes
   GOODS_GTAP <- subset(WBData,WBData[,5]=="Goods")
-  #Take GOODS (w GTAP codes) out of the WBData before it gets mixed up in the country names and aggregation
+
+  #Get correspondence table and add fields for alt spellings
+  GFNtoGTAP <- read.csv("./GFNtoGTAP.csv", header=TRUE, colClasses = NA)
+  GFNtoGTAP$AltGFN1 <- ""; GFNtoGTAP$AltGFN2 <- ""; GFNtoGTAP$AltGFN3 <- ""; GFNtoGTAP$AltGFN4 <- ""; GFNtoGTAP$AltGFN5 <- ""
+  
+  
+    #Take GOODS (w GTAP codes) out of the WBData before it gets mixed up in the country names and aggregation
   WBData <- WBData[!(WBData[,5]=="Goods"),]
   for (i in 1:length(GOODS_GTAP[, 1])) {
     for (j in 1:length(GFNtoGTAP[,1])) {
@@ -34,15 +43,12 @@ if(WB_SDG == "WB"){
   }
 }
 
-#Get correspondence table and add fields for alt spellings
-GFNtoGTAP <- read.csv("./GFN_Data_Visualization/ScatterVisuals/GFNtoGTAP.csv", header=TRUE, colClasses = NA)
-GFNtoGTAP$AltGFN1 <- ""; GFNtoGTAP$AltGFN2 <- ""; GFNtoGTAP$AltGFN3 <- ""; GFNtoGTAP$AltGFN4 <- ""; GFNtoGTAP$AltGFN5 <- ""
 
 #Replace GTAP codes in the Goods with GTAP names for eventual integration with the rest of the indicies
 
 
 #Get GFN population to use for country aggregation weighting
-GFN_Pop <- read.csv("./GFN_Data_Visualization/ScatterVisuals/GFN_Population.csv", header=TRUE, colClasses = NA)
+GFN_Pop <- read.csv("./GFN_Population.csv", header=TRUE, colClasses = NA)
 #Deal with wierd characters in population file
 GFN_Pop$GFN_Country <- as.character(GFN_Pop$GFN_Country)
 GFN_Pop$GFN_Country[grepl("oire",GFN_Pop$GFN_Country)] <- "Cote d'Ivoire"
@@ -55,7 +61,7 @@ GFN_yr_Pop <- GFN_Pop[GFN_Pop$Year %in% years,]
 # All names in the list need to have alt spelling added as below, or added to WB_drop
 
 # Filter out countries from either list that are already in drop list
-WB_drop <- read.csv("./GFN_Data_Visualization/ScatterVisuals/DropTheseCountries.csv",
+WB_drop <- read.csv("./DropTheseCountries.csv",
                     header=TRUE, colClasses=NA)
 colnames(WB_drop) <- "country"
 
@@ -119,6 +125,8 @@ WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFN
 #GFNtoGTAP$AltGFN2[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Congo, Rep."; gfn <- "Congo"
 WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+wb <- "Congo Republic"; gfn <- "Congo"
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 #GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 # wb <- "Cote d'Ivoire"; gfn <- "Cote d'Ivoire"
 # GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
@@ -137,6 +145,8 @@ WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFN
 wb <- "Egypt, Arab Rep."; gfn <- "Egypt"
 WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 #GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+wb<- "Micronesia"; gfn <- "Micronesia, Federated States of"
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Micronesia, Fed. Sts."; gfn <- "Micronesia, Federated States of"
 WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 #GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
@@ -202,6 +212,8 @@ WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFN
 #GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Macedonia, FYR"; gfn <- "Macedonia TFYR"
 WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+wb <- "North Macedonia"; gfn <- "Macedonia TFYR"
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 #GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "The former Yugoslav Republic of Macedonia"; gfn <- "Macedonia TFYR"
 WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
@@ -218,9 +230,13 @@ WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFN
 wb <- "RÃ©union"; gfn <- "Réunion"
 WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 #GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+wb <- "São Tomé and Principe"; gfn <- "Sao Tome and Principe"
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Slovak Republic"; gfn <- "Slovakia"
 WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 #GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
+wb <- "eSwatini"; gfn <- "Swaziland" 
+WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 wb <- "Eswatini"; gfn <- "Swaziland"
 WBData$country[WBData$country==wb]<-gfn; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
 #GFNtoGTAP$AltGFN1[GFNtoGTAP$GFN_Name == gfn] <- wb; WB_notGFNlist = WB_notGFNlist[WB_notGFNlist!=wb]
@@ -283,8 +299,8 @@ ifelse(length(WB_notGFNlist) == 0 |
          #but it's being handled
          grepl('Korea, Dem',WB_notGFNlist),
        print("All present and accounted for"),
- stop(print(c('Eli says:: Error:: These countries are not dealt with: either add them to the drop list or
-the alt spelling code above, then re-run this script from beginning: \n',WB_notGFNlist))))
+ stop(print(c('Eli says:: Error:: These countries are not dealt with: either add them to the drop list in Script 1.
+or add to the alt spelling code above, then re-run this script from beginning: \n',WB_notGFNlist))))
 
 
 "Reminder for Eli: the 2 functions used to print country names to build list:
@@ -391,24 +407,25 @@ colnames(WBGFN_GTAP)[1] <- "GTAP_Region"
 #Stick 'em together
 GTAP_WBweighted <- rbind(WBGTAP_weighted,WBGFN_GTAP,if(WB_SDG == "WB") GOODS_GTAP)
 
-write.csv(GTAP_WBweighted, "./GFN_Data_Visualization/ScatterVisuals/WBIndicators_byGTAP.csv")
+write.csv(GTAP_WBweighted, "./WBIndicators_byGTAP.csv")
 
-NFA_CLUM <- read.csv("./GFN_Data_Visualization/ScatterVisuals/NFA_2017_CLUM.csv", header=TRUE, colClasses=NA)
+NFA_CLUM <- read.csv("./NFA_2017_CLUM.csv", header=TRUE, colClasses=NA)
 
 NFA_CLUM_WB <- merge(NFA_CLUM, GTAP_WBweighted, by.x = c("year", "clum7_name", "GTAP_name"), 
 by.y = c("year", "CLUM_category", "GTAP_Region"), sort = TRUE)
 
-CLUMQScore <- read.csv("./GFN_Data_Visualization/ScatterVisuals/CLUM_QScore.csv")
+CLUMQScore <- read.csv("./CLUM_QScore.csv")
 NFA_CLUM_WB$QScore <- CLUMQScore$NFA_GTAP_Qscore[match(NFA_CLUM_WB$GTAP_name,CLUMQScore$GTAP.Only)]
 NFA_CLUM_WB$Continents <- CLUMQScore$Continents[match(NFA_CLUM_WB$GTAP_name,CLUMQScore$GTAP.Only)]
 
 
 if(WB_SDG =="WB"){
-  write.csv(NFA_CLUM_WB, "./GFN_Data_Visualization/ScatterVisuals/NFA_WB_2017_CLUM.csv")
+  write.csv(NFA_CLUM_WB, "./NFA_WB_2017_CLUM.csv")
 }
 if(WB_SDG =="SDG"){
-  write.csv(NFA_CLUM_WB, "./GFN_Data_Visualization/ScatterVisuals/NFA_SDG_2017_CLUM.csv")
+  write.csv(NFA_CLUM_WB, "./NFA_SDG_2017_CLUM.csv")
 }
 
 # If new country correspondence issues came up, repeat WB data pull sripts again once they're dealt with
 print("Success: No need to run data pull sript again")
+proc.time() - ptm
