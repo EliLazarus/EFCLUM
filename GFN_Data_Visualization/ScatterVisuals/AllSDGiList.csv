@@ -1,0 +1,190 @@
+"indicator","series","seriesDescription","seriesCount","timePeriodStart"
+"1",1.1.1,SI_POV_DAY1,Proportion of population below international poverty line (%),1822,2011
+"2",1.1.1,SI_POV_DAY1,Proportion of population below international poverty line (%),1822,2004
+"3",1.1.1,SI_POV_DAY1,Proportion of population below international poverty line (%),1822,2007
+"263",1.1.1,SI_POV_EMP1,Employed population below international poverty line; by sex and age (%),9171,2011
+"272",1.1.1,SI_POV_EMP1,Employed population below international poverty line; by sex and age (%),9171,2004
+"281",1.1.1,SI_POV_EMP1,Employed population below international poverty line; by sex and age (%),9171,2007
+"1901",1.2.1,SI_POV_NAHC,Proportion of population living below the national poverty line (%),1372,2007
+"1902",1.2.1,SI_POV_NAHC,Proportion of population living below the national poverty line (%),1372,2011
+"1906",1.2.1,SI_POV_NAHC,Proportion of population living below the national poverty line (%),1372,2004
+"2153",1.3.1,SI_COV_SOCAST,[World Bank] Proportion of population covered by social assistance programs (%),339,2007
+"2154",1.3.1,SI_COV_SOCAST,[World Bank] Proportion of population covered by social assistance programs (%),339,2011
+"2174",1.3.1,SI_COV_SOCAST,[World Bank] Proportion of population covered by social assistance programs (%),339,2004
+"2216",1.3.1,SI_COV_SOCASTPQ,[World Bank] Poorest quintile covered by social assistance programs (%),339,2007
+"2217",1.3.1,SI_COV_SOCASTPQ,[World Bank] Poorest quintile covered by social assistance programs (%),339,2011
+"2237",1.3.1,SI_COV_SOCASTPQ,[World Bank] Poorest quintile covered by social assistance programs (%),339,2004
+"2279",1.3.1,SI_COV_SOCINS,[World Bank] Proportion of population covered by social insurance programs (%),322,2007
+"2280",1.3.1,SI_COV_SOCINS,[World Bank] Proportion of population covered by social insurance programs (%),322,2011
+"2293",1.3.1,SI_COV_SOCINS,[World Bank] Proportion of population covered by social insurance programs (%),322,2004
+"2338",1.3.1,SI_COV_SOCINSPQ,[World Bank] Poorest quintile covered by social insurance programs (%),322,2007
+"2339",1.3.1,SI_COV_SOCINSPQ,[World Bank] Poorest quintile covered by social insurance programs (%),322,2011
+"2352",1.3.1,SI_COV_SOCINSPQ,[World Bank] Poorest quintile covered by social insurance programs (%),322,2004
+"2397",1.3.1,SI_COV_UEMP,[ILO] Proportion of unemployed persons receiving unemployment cash benefit; by sex (%),674,2007
+"2398",1.3.1,SI_COV_UEMP,[ILO] Proportion of unemployed persons receiving unemployment cash benefit; by sex (%),674,2011
+"2422",1.3.1,SI_COV_UEMP,[ILO] Proportion of unemployed persons receiving unemployment cash benefit; by sex (%),674,2004
+"2538",1.3.1,SI_COV_WKINJRY,[ILO] Proportion of employed population covered in the event of work injury; by sex (%),54,2011
+"2539",1.3.1,SI_COV_WKINJRY,[ILO] Proportion of employed population covered in the event of work injury; by sex (%),54,2007
+"2542",1.3.1,SI_COV_WKINJRY,[ILO] Proportion of employed population covered in the event of work injury; by sex (%),54,2004
+"2544",1.3.1,SI_COV_LMKT,[World Bank] Proportion of population covered by labour market programs (%),175,2011
+"2546",1.3.1,SI_COV_LMKT,[World Bank] Proportion of population covered by labour market programs (%),175,2007
+"2551",1.3.1,SI_COV_LMKT,[World Bank] Proportion of population covered by labour market programs (%),175,2004
+"2574",1.3.1,SI_COV_LMKTPQ,[World Bank] Poorest quintile covered by labour market programs (%) ,175,2011
+"2576",1.3.1,SI_COV_LMKTPQ,[World Bank] Poorest quintile covered by labour market programs (%) ,175,2007
+"2581",1.3.1,SI_COV_LMKTPQ,[World Bank] Poorest quintile covered by labour market programs (%) ,175,2004
+"2604",1.3.1,SI_COV_PENSN,[ILO] Proportion of population above statutory pensionable age receiving a pension; by sex (%),583,2011
+"2612",1.3.1,SI_COV_PENSN,[ILO] Proportion of population above statutory pensionable age receiving a pension; by sex (%),583,2004
+"2624",1.4.1,SP_ACS_BSRVH2O,Proportion of population using basic drinking water services; by location (%),12226,2004
+"2627",1.4.1,SP_ACS_BSRVH2O,Proportion of population using basic drinking water services; by location (%),12226,2007
+"2630",1.4.1,SP_ACS_BSRVH2O,Proportion of population using basic drinking water services; by location (%),12226,2011
+"4664",1.4.1,SP_ACS_BSRVSAN,Proportion of population using basic sanitation services; by location (%),12068,2004
+"4667",1.4.1,SP_ACS_BSRVSAN,Proportion of population using basic sanitation services; by location (%),12068,2007
+"4670",1.4.1,SP_ACS_BSRVSAN,Proportion of population using basic sanitation services; by location (%),12068,2011
+"6686",1.5.1 11.5.1 13.1.1,VC_DSR_MISS,Number of missing persons due to disaster (number),343,2011
+"6687",1.5.1 11.5.1 13.1.1,VC_DSR_MISS,Number of missing persons due to disaster (number),343,2007
+"6742",1.5.1 11.5.1 13.1.1,VC_DSR_AFFCT,Number of people affected by disaster (number),941,2007
+"6743",1.5.1 11.5.1 13.1.1,VC_DSR_AFFCT,Number of people affected by disaster (number),941,2011
+"6882",1.5.1 11.5.1 13.1.1,VC_DSR_MORT,Number of deaths due to disaster (number),861,2007
+"6883",1.5.1 11.5.1 13.1.1,VC_DSR_MORT,Number of deaths due to disaster (number),861,2011
+"7014",1.5.1 11.5.1 13.1.1,VC_DSR_MTMP,Number of deaths and missing persons attributed to disasters per 100;000 population (number),867,2007
+"7015",1.5.1 11.5.1 13.1.1,VC_DSR_MTMP,Number of deaths and missing persons attributed to disasters per 100;000 population (number),867,2011
+"7147",1.5.1 11.5.1 13.1.1,VC_DSR_MTMN,Number of deaths and missing persons attributed to disasters (number),1025,2007
+"7148",1.5.1 11.5.1 13.1.1,VC_DSR_MTMN,Number of deaths and missing persons attributed to disasters (number),1025,2011
+"7301",1.5.1 11.5.1 13.1.1,VC_DSR_MMHN,Number of deaths and missing persons attributed to disasters; by hazard type (number),6482,2007
+"7311",1.5.1 11.5.1 13.1.1,VC_DSR_MMHN,Number of deaths and missing persons attributed to disasters; by hazard type (number),6482,2011
+"8570",1.5.1 11.5.1 13.1.1,VC_DSR_DAFF,Number of directly affected persons attributed to disasters per 100;000 population (number),895,2007
+"8571",1.5.1 11.5.1 13.1.1,VC_DSR_DAFF,Number of directly affected persons attributed to disasters per 100;000 population (number),895,2011
+"8701",1.5.1 11.5.1 13.1.1,VC_DSR_IJILN,Number of injured or ill people attributed to disasters (number),727,2007
+"8702",1.5.1 11.5.1 13.1.1,VC_DSR_IJILN,Number of injured or ill people attributed to disasters (number),727,2011
+"8808",1.5.1 11.5.1 13.1.1,VC_DSR_PDAN,Number of people whose damaged dwellings were attributed to disasters (number),794,2007
+"8809",1.5.1 11.5.1 13.1.1,VC_DSR_PDAN,Number of people whose damaged dwellings were attributed to disasters (number),794,2011
+"8927",1.5.1 11.5.1 13.1.1,VC_DSR_DDHN,Number damaged dwellings attributed to disasters; by hazard type (number),6482,2007
+"8937",1.5.1 11.5.1 13.1.1,VC_DSR_DDHN,Number damaged dwellings attributed to disasters; by hazard type (number),6482,2011
+"10196",1.5.1 11.5.1 13.1.1,VC_DSR_PDYN,Number of people whose destroyed dwellings were attributed to disasters (number),693,2007
+"10197",1.5.1 11.5.1 13.1.1,VC_DSR_PDYN,Number of people whose destroyed dwellings were attributed to disasters (number),693,2011
+"10297",1.5.1 11.5.1 13.1.1,VC_DSR_PDLN,Number of people whose livelihoods were disrupted or destroyed; attributed to disasters (number),119,2007
+"10298",1.5.1 11.5.1 13.1.1,VC_DSR_PDLN,Number of people whose livelihoods were disrupted or destroyed; attributed to disasters (number),119,2011
+"10304",1.5.1 11.5.1 13.1.1,VC_DSR_DYHN,Number destroyed dwellings attributed to disasters; by hazard type (number),6482,2007
+"10314",1.5.1 11.5.1 13.1.1,VC_DSR_DYHN,Number destroyed dwellings attributed to disasters; by hazard type (number),6482,2011
+"11573",1.5.2 11.5.2,VC_DSR_GDPLS,Direct economic loss attributed to disasters (millions of current United States dollars),889,2007
+"11574",1.5.2 11.5.2,VC_DSR_GDPLS,Direct economic loss attributed to disasters (millions of current United States dollars),889,2011
+"11708",1.5.2 11.5.2,VC_DSR_LSGP,Direct economic loss attributed to disasters relative to GDP (%),889,2007
+"11709",1.5.2 11.5.2,VC_DSR_LSGP,Direct economic loss attributed to disasters relative to GDP (%),889,2011
+"11843",1.5.2 11.5.2,VC_DSR_AGLN,Direct agriculture loss attributed to disasters (millions of current United States dollars),567,2007
+"11844",1.5.2 11.5.2,VC_DSR_AGLN,Direct agriculture loss attributed to disasters (millions of current United States dollars),567,2011
+"11925",1.5.2 11.5.2,VC_DSR_AGLH,Direct agriculture loss attributed to disasters; by hazard type (millions of current United States dollars),6482,2007
+"11935",1.5.2 11.5.2,VC_DSR_AGLH,Direct agriculture loss attributed to disasters; by hazard type (millions of current United States dollars),6482,2011
+"13194",1.5.2 11.5.2,VC_DSR_HOLN,Direct economic loss in the housing sector attributed to disasters (millions of current United States dollars),889,2007
+"13195",1.5.2 11.5.2,VC_DSR_HOLN,Direct economic loss in the housing sector attributed to disasters (millions of current United States dollars),889,2011
+"13329",1.5.2 11.5.2,VC_DSR_HOLH,Direct economic loss in the housing sector attributed to disasters; by hazard type (millions of current United States dollars),6482,2007
+"13339",1.5.2 11.5.2,VC_DSR_HOLH,Direct economic loss in the housing sector attributed to disasters; by hazard type (millions of current United States dollars),6482,2011
+"14598",1.5.2 11.5.2,VC_DSR_CILN,Direct economic loss resulting from damaged or destroyed critical infrastructure attributed to disasters (millions of current United States dollars),889,2007
+"14599",1.5.2 11.5.2,VC_DSR_CILN,Direct economic loss resulting from damaged or destroyed critical infrastructure attributed to disasters (millions of current United States dollars),889,2011
+"14733",1.5.2 11.5.2,VC_DSR_CHLN,Direct economic loss to cultural heritage damaged or destroyed attributed to disasters (millions of current United States dollars),889,2007
+"14734",1.5.2 11.5.2,VC_DSR_CHLN,Direct economic loss to cultural heritage damaged or destroyed attributed to disasters (millions of current United States dollars),889,2011
+"14868",1.5.2 11.5.2,VC_DSR_DDPA,Direct economic loss to other damaged or destroyed productive assets attributed to disasters (current United States dollars),889,2007
+"14869",1.5.2 11.5.2,VC_DSR_DDPA,Direct economic loss to other damaged or destroyed productive assets attributed to disasters (current United States dollars),889,2011
+"15003",1.a.2,SD_XPD_ESED,Proportion of total government spending on essential services; education (%),1866,2011
+"15004",1.a.2,SD_XPD_ESED,Proportion of total government spending on essential services; education (%),1866,2004
+"15005",1.a.2,SD_XPD_ESED,Proportion of total government spending on essential services; education (%),1866,2007
+"15329",10.4.1,SL_EMP_GTOTL,Labour share of GDP; comprising wages and social protection transfers (%),992,2004
+"15330",10.4.1,SL_EMP_GTOTL,Labour share of GDP; comprising wages and social protection transfers (%),992,2007
+"15331",10.4.1,SL_EMP_GTOTL,Labour share of GDP; comprising wages and social protection transfers (%),992,2011
+"15484",10.5.1,FI_FSI_FSANL,Non-performing loans to total gross loans (%),1319,2011
+"15488",10.5.1,FI_FSI_FSANL,Non-performing loans to total gross loans (%),1319,2007
+"15502",10.5.1,FI_FSI_FSANL,Non-performing loans to total gross loans (%),1319,2004
+"15653",10.5.1,FI_FSI_FSERA,Return on assets (%),1339,2011
+"15657",10.5.1,FI_FSI_FSERA,Return on assets (%),1339,2007
+"15670",10.5.1,FI_FSI_FSERA,Return on assets (%),1339,2004
+"15824",10.5.1,FI_FSI_FSKA,Regulatory capital to assets (%),1261,2011
+"15828",10.5.1,FI_FSI_FSKA,Regulatory capital to assets (%),1261,2007
+"15842",10.5.1,FI_FSI_FSKA,Regulatory capital to assets (%),1261,2004
+"15985",10.5.1,FI_FSI_FSKNL,Non-performing loans net of provisions to capital (%),1323,2011
+"15989",10.5.1,FI_FSI_FSKNL,Non-performing loans net of provisions to capital (%),1323,2007
+"16003",10.5.1,FI_FSI_FSKNL,Non-performing loans net of provisions to capital (%),1323,2004
+"16154",10.5.1,FI_FSI_FSKRTC,Regulatory Tier 1 capital to risk-weighted assets (%),1327,2011
+"16158",10.5.1,FI_FSI_FSKRTC,Regulatory Tier 1 capital to risk-weighted assets (%),1327,2007
+"16172",10.5.1,FI_FSI_FSKRTC,Regulatory Tier 1 capital to risk-weighted assets (%),1327,2004
+"16322",10.5.1,FI_FSI_FSLS,Liquid assets to short term liabilities (%),1233,2011
+"16326",10.5.1,FI_FSI_FSLS,Liquid assets to short term liabilities (%),1233,2007
+"16339",10.5.1,FI_FSI_FSLS,Liquid assets to short term liabilities (%),1233,2004
+"16475",10.5.1,FI_FSI_FSSNO,Net open position in foreign exchange to capital (%),1023,2011
+"16479",10.5.1,FI_FSI_FSSNO,Net open position in foreign exchange to capital (%),1023,2007
+"16490",10.5.1,FI_FSI_FSSNO,Net open position in foreign exchange to capital (%),1023,2004
+"16600",10.b.1,DC_TRF_TOTDL,Total assistance for development; by donor countries (millions of current United States dollars),740,2004
+"16601",10.b.1,DC_TRF_TOTDL,Total assistance for development; by donor countries (millions of current United States dollars),740,2007
+"16602",10.b.1,DC_TRF_TOTDL,Total assistance for development; by donor countries (millions of current United States dollars),740,2011
+"16720",10.b.1,DC_TRF_TOTL,Total assistance for development; by recipient countries (millions of current United States dollars),2673,2004
+"16721",10.b.1,DC_TRF_TOTL,Total assistance for development; by recipient countries (millions of current United States dollars),2673,2007
+"16722",10.b.1,DC_TRF_TOTL,Total assistance for development; by recipient countries (millions of current United States dollars),2673,2011
+"17168",10.b.1,DC_TRF_TFDV,Total resource flows for development; by recipient and donor countries (millions of current United States dollars),594,2004
+"17169",10.b.1,DC_TRF_TFDV,Total resource flows for development; by recipient and donor countries (millions of current United States dollars),594,2007
+"17170",10.b.1,DC_TRF_TFDV,Total resource flows for development; by recipient and donor countries (millions of current United States dollars),594,2011
+"17267",10.c.1,SI_RMT_COST,Remittance costs as a proportion of the amount remitted (%),414,2011
+"25543",11.5.2,VC_DSR_CDAN,Number of damaged critical infrastructure attributed to disasters (number),718,2007
+"25544",11.5.2,VC_DSR_CDAN,Number of damaged critical infrastructure attributed to disasters (number),718,2011
+"25656",11.5.2,VC_DSR_HFDN,Number of destroyed or damaged health facilities attributed to disasters (number),718,2007
+"25657",11.5.2,VC_DSR_HFDN,Number of destroyed or damaged health facilities attributed to disasters (number),718,2011
+"25769",11.5.2,VC_DSR_EFDN,Number of destroyed or damaged educational facilities attributed to disasters (number),718,2007
+"25770",11.5.2,VC_DSR_EFDN,Number of destroyed or damaged educational facilities attributed to disasters (number),718,2011
+"25882",11.5.2,VC_DSR_CDYN,Number of other destroyed or damaged critical infrastructure units and facilities attributed to disasters (number),1245,2007
+"25883",11.5.2,VC_DSR_CDYN,Number of other destroyed or damaged critical infrastructure units and facilities attributed to disasters (number),1245,2011
+"26057",11.5.2,VC_DSR_BSDN,Number of disruptions to basic services attributed to disasters (number),718,2007
+"26058",11.5.2,VC_DSR_BSDN,Number of disruptions to basic services attributed to disasters (number),718,2011
+"26170",11.5.2,VC_DSR_ESDN,Number of disruptions to educational services attributed to disasters (number),718,2007
+"26171",11.5.2,VC_DSR_ESDN,Number of disruptions to educational services attributed to disasters (number),718,2011
+"26283",11.5.2,VC_DSR_HSDN,Number of disruptions to health services attributed to disasters (number),718,2007
+"26284",11.5.2,VC_DSR_HSDN,Number of disruptions to health services attributed to disasters (number),718,2011
+"26396",11.5.2,VC_DSR_OBDN,Number of disruptions to other basic services attributed to disasters (number),718,2007
+"26397",11.5.2,VC_DSR_OBDN,Number of disruptions to other basic services attributed to disasters (number),718,2011
+"26644",11.6.1,EN_REF_WASCOL,Municipal Solid Waste collection coverage; by cities (%),261,2007
+"26645",11.6.1,EN_REF_WASCOL,Municipal Solid Waste collection coverage; by cities (%),261,2011
+"26652",11.6.1,EN_REF_WASCOL,Municipal Solid Waste collection coverage; by cities (%),261,2004
+"26673",12.2.1 8.4.1,EN_MAT_FTPRPG,Material footprint per unit of GDP; by type of raw material (kilograms per constant 2010 United States dollar),18,2004
+"26674",12.2.1 8.4.1,EN_MAT_FTPRPG,Material footprint per unit of GDP; by type of raw material (kilograms per constant 2010 United States dollar),18,2007
+"26675",12.2.1 8.4.1,EN_MAT_FTPRPG,Material footprint per unit of GDP; by type of raw material (kilograms per constant 2010 United States dollar),18,2011
+"26676",12.2.1 8.4.1,EN_MAT_FTPRPC,Material footprint per capita; by type of raw material (tonnes),18,2004
+"26677",12.2.1 8.4.1,EN_MAT_FTPRPC,Material footprint per capita; by type of raw material (tonnes),18,2007
+"26678",12.2.1 8.4.1,EN_MAT_FTPRPC,Material footprint per capita; by type of raw material (tonnes),18,2011
+"26679",12.2.1 8.4.1,EN_MAT_FTPRTN,Material footprint; by type of raw material (tonnes),18,2004
+"26680",12.2.1 8.4.1,EN_MAT_FTPRTN,Material footprint; by type of raw material (tonnes),18,2007
+"26681",12.2.1 8.4.1,EN_MAT_FTPRTN,Material footprint; by type of raw material (tonnes),18,2011
+"26682",12.2.2 8.4.2,EN_MAT_DOMCMPT,Domestic material consumption; by type of raw material (tonnes),58975,2004
+"26695",12.2.2 8.4.2,EN_MAT_DOMCMPT,Domestic material consumption; by type of raw material (tonnes),58975,2007
+"26708",12.2.2 8.4.2,EN_MAT_DOMCMPT,Domestic material consumption; by type of raw material (tonnes),58975,2011
+"36512",12.2.2 8.4.2,EN_MAT_DOMCMPG,Domestic material consumption per unit of GDP; by type of raw material (kilograms per constant 2010 United States dollars),58863,2004
+"36525",12.2.2 8.4.2,EN_MAT_DOMCMPG,Domestic material consumption per unit of GDP; by type of raw material (kilograms per constant 2010 United States dollars),58863,2007
+"36538",12.2.2 8.4.2,EN_MAT_DOMCMPG,Domestic material consumption per unit of GDP; by type of raw material (kilograms per constant 2010 United States dollars),58863,2011
+"46311",12.2.2 8.4.2,EN_MAT_DOMCMPC,Domestic material consumption per capita; by type of raw material (tonnes),58729,2004
+"46324",12.2.2 8.4.2,EN_MAT_DOMCMPC,Domestic material consumption per capita; by type of raw material (tonnes),58729,2007
+"46337",12.2.2 8.4.2,EN_MAT_DOMCMPC,Domestic material consumption per capita; by type of raw material (tonnes),58729,2011
+"60973",14.4.1,ER_H2O_FWTL,Proportion of fish stocks within biologically sustainable levels (not overexploited) (%),20,2004
+"60974",14.4.1,ER_H2O_FWTL,Proportion of fish stocks within biologically sustainable levels (not overexploited) (%),20,2011
+"60975",14.5.1,ER_MRN_MARINT,Protected marine area (Exclusive Economic Zones) (square kilometres),422,2004
+"60976",14.5.1,ER_MRN_MARINT,Protected marine area (Exclusive Economic Zones) (square kilometres),422,2007
+"60977",14.5.1,ER_MRN_MARINT,Protected marine area (Exclusive Economic Zones) (square kilometres),422,2011
+"61011",14.5.1,ER_MRN_MARIN,Coverage of protected areas in relation to marine areas (Exclusive Economic Zones) (%),420,2004
+"61012",14.5.1,ER_MRN_MARIN,Coverage of protected areas in relation to marine areas (Exclusive Economic Zones) (%),420,2007
+"61013",14.5.1,ER_MRN_MARIN,Coverage of protected areas in relation to marine areas (Exclusive Economic Zones) (%),420,2011
+"61047",14.5.1,ER_MRN_MPA,Average proportion of Marine Key Biodiversity Areas (KBAs) covered by protected areas (%),11343,2004
+"61050",14.5.1,ER_MRN_MPA,Average proportion of Marine Key Biodiversity Areas (KBAs) covered by protected areas (%),11343,2007
+"61053",14.5.1,ER_MRN_MPA,Average proportion of Marine Key Biodiversity Areas (KBAs) covered by protected areas (%),11343,2011
+"62838",14.a.1,ER_RDE_OSEX,National ocean science expenditure as a share of total research and development funding (%),86,2011
+"62858",15.1.2,ER_PTD_FRWRT,Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%),9348,2004
+"62861",15.1.2,ER_PTD_FRWRT,Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%),9348,2007
+"62864",15.1.2,ER_PTD_FRWRT,Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%),9348,2011
+"64334",15.1.2,ER_PTD_TERRS,Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%),14592,2004
+"64337",15.1.2,ER_PTD_TERRS,Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%),14592,2007
+"64340",15.1.2,ER_PTD_TERRS,Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%),14592,2011
+"66638",15.4.1,ER_PTD_MOTN,Average proportion of Mountain Key Biodiversity Areas (KBAs) covered by protected areas (%),11571,2004
+"66641",15.4.1,ER_PTD_MOTN,Average proportion of Mountain Key Biodiversity Areas (KBAs) covered by protected areas (%),11571,2007
+"66644",15.4.1,ER_PTD_MOTN,Average proportion of Mountain Key Biodiversity Areas (KBAs) covered by protected areas (%),11571,2011
+"68465",15.5.1,ER_RSK_LSTI,Red List Index,20007,2004
+"68468",15.5.1,ER_RSK_LSTI,Red List Index,20007,2007
+"68471",15.5.1,ER_RSK_LSTI,Red List Index,20007,2011
+"70688",15.a.1 15.b.1,DC_ODA_BDVDL,Total official development assistance for biodiversity; by donor countries (millions of constant 2017 United States dollars),378,2004
+"70689",15.a.1 15.b.1,DC_ODA_BDVDL,Total official development assistance for biodiversity; by donor countries (millions of constant 2017 United States dollars),378,2007
+"70690",15.a.1 15.b.1,DC_ODA_BDVDL,Total official development assistance for biodiversity; by donor countries (millions of constant 2017 United States dollars),378,2011
+"70755",15.a.1 15.b.1,DC_ODA_BDVL,Total official development assistance for biodiversity; by recipient countries (millions of constant 2017 United States dollars),2679,2004
+"70756",15.a.1 15.b.1,DC_ODA_BDVL,Total official development assistance for biodiversity; by recipient countries (millions of constant 2017 United States dollars),2679,2007
+"70757",15.a.1 15.b.1,DC_ODA_BDVL,Total official development assistance for biodiversity; by recipient countries (millions of constant 2017 United States dollars),2679,2011
