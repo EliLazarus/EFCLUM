@@ -8,8 +8,12 @@ library(boxr)
 
 ptm <- proc.time()
 
-"Set working directory to top level directory in console"
-#setwd("C:\\Users\\Eli\\GitFolders\\EFCLUM\\GFN_Data_Visualization\\ScatterVisuals")
+if (!grepl("ScatterVisuals",getwd())){
+  print("Set working directory to top level directory in console")
+  #setwd("C:\\Users\\Eli\\GitFolders\\EFCLUM\\GFN_Data_Visualization\\ScatterVisuals")
+  stop()
+}
+
 "Set to use WB (WB_yes_or_no<-1) or SDG (WB_yes_or_no<-0) Indicators"
 WB_yes_or_no <- 0
 
@@ -67,32 +71,62 @@ if(WB_SDG =="WB" & first_run=="yes"){
 # Array of UN SDGIndicators
 if (WB_SDG == "SDG" & first_run == "yes") {
   
-    # Back-up code to upload data from my Box account
+    " Back-up code to upload data from my Box account "
     #  Run to activate connection for the SDG data file on Box
     # box_auth()
     # SDGIndicators <- box_read("465756736238") #~50,000 less rows than the old one...
 
-    # To download a total csv - slow. Also can compare to API download
-    #  SDGdataCSV <-  read.csv("https://unstats.un.org/sdgs/indicators/database/archive/2019_Q2_AllData_Prior_20190708.csv") 
+    " To download a total csv - **VERY SLOW**. Also can compare to API download "
+# CSV_timer <- proc.time()
+#  SDGdataCSV <-  read.csv("https://unstats.un.org/sdgs/indicators/database/archive/2019_Q2_AllData_Prior_20190708.csv") 
+# CSV_time <- proc.time()- CSV_timer[3] 
+  # SDGIndicatorsCSV <- data.frame(unique(cbind(SDGdataCSV[3:5],SDGdataCSV[9:10])))
+  # 
+  # # Change commas to semi-colons so they don't mess with the csv separators
+  # SDGIndicatorsCSV[,3] <- gsub(",",";",SDGIndicatorsCSV[,3])
+  # 
+  # # Output full Indicator List to csv
+  # try(write.table(as.matrix(SDGIndicatorsCSV), "./AllSDGiListCSV.csv", sep=","))
   
-# Inititalise df, get total elements and 1/10 page size, start clock  
-  SDGdata <- data.frame()
-  page1 <-
+
+    # Get total elements and Fraaction of TotalElements for page size  
+    page1 <-
     fromJSON(
       "https://unstats.un.org/SDGAPI/v1/sdg/Indicator/Data?timePeriod=2004&timePeriod=2007&timePeriod=2011",
       flatten = TRUE
     )
-  perpage <- ceiling(page1$totalElements / 10)
-  ptm <- proc.time()
+ 
+  fractionofTotalElements <- 10  
+  perpage <- ceiling(page1$totalElements/fractionofTotalElements)
+  # start clock
+   ptm <- proc.time()
   
-  # Download from the API 1/10 at a time. 'Tries'Try' bc of connection error, but warnings trigger as well.
-    for (i in 1:10) {
+  #Inititalise df and SDGpage$data with some nrows
+  SDGdata <- data.frame()
+  SDGpage <- list(data=1)
+  SDGpage$data <- rbind(SDGpage$data,2); nrow(SDGpage$data)
+  #SDGpage#SDGpage$data <- 1
+  for (i in 1:fractionofTotalElements) {
     DLpagetime <- proc.time()
-          try(SDGpage <- fromJSON(paste0("https://unstats.un.org/SDGAPI/v1/sdg/Indicator/Data?timePeriod=2004&timePeriod=2007&timePeriod=2011&pageSize=",
-          perpage,"&page=",i), flatten=TRUE))#, error=function(DSGpage)
-      message("Retrieving page ", i," : ", round(proc.time() - DLpagetime) [3], " seconds to retrieve.")
-      SDGdata <- rbind(SDGdata, SDGpage$data[,1:16])
-        }
+    # For last section that might not have exactly 1/fractionofTotalElements rows
+    if (i==fractionofTotalElements){
+      while (nrow(SDGpage$data)<page1$totalElements-length(SDGdata$value)){ 
+        try(SDGpage <- fromJSON(paste0("https://unstats.un.org/SDGAPI/v1/sdg/Indicator/Data?timePeriod=2004&timePeriod=2007&timePeriod=2011&pageSize=",
+                                       page1$totalElements-length(SDGdata$value),"&page=",i), flatten=TRUE))        
+      }
+    }
+    #Otherwise download in Sections
+    else {
+      while (nrow(SDGpage$data)<perpage){ 
+        try(SDGpage <- fromJSON(paste0("https://unstats.un.org/SDGAPI/v1/sdg/Indicator/Data?timePeriod=2004&timePeriod=2007&timePeriod=2011&pageSize=",
+                                       perpage,"&page=",i), flatten=TRUE))
+      }
+    }
+    message("Page ", i,"/",fractionofTotalElements," : ", round(proc.time() - DLpagetime) [3], " seconds to retrieve.")
+    SDGdata <- rbind(SDGdata, SDGpage$data[,1:16])
+    SDGpage <- list(data=1)
+    SDGpage$data <- rbind(SDGpage$data,2)
+  }
   message("~", DLtime <-
             round((proc.time()[3] - ptm[3]) / 60), " minutes to download")
   
@@ -108,23 +142,29 @@ if (WB_SDG == "SDG" & first_run == "yes") {
   # Looping through *First 9/10 rows* to re cast the 1st 3 columns so they look nice
   #  loop the loop the loop: by col, and by row per 1/10 rows
   for (k in 1:3) {
-    looprecasttime <- proc.time()
-    for (i in 0:8) {
-      for (j in ((i * perpage) + 1):(perpage * (i + 1))) {
-        SDGdata[j, k] <- stringr::str_c(SDGdata[[j, k]], collapse = " ")
-        }
-      message(round((proc.time()[3] - looprecasttime[3])), " seconds to recast 1/10th " , i, " to ", j, ", col ", k)
+    j <- 0
+    for (i in 0:9) {
       looprecasttime <- proc.time()
+      l <- j + 1
+      if (i==9){
+        for (j in ((i * perpage) + 1):page1$totalElements) {
+          SDGdata[j, k] <- stringr::str_c(SDGdata[[j, k]], collapse = " ")
+        }
+      }
+      else{
+        for (j in ((i * perpage) + 1):(perpage * (i + 1) + perpage%%2)) {
+          SDGdata[j, k] <- stringr::str_c(SDGdata[[j, k]], collapse = " ")
+        }
+      }
+      
+      message(round((proc.time()[3] - looprecasttime[3])), " seconds to recast", i,"th/10 " , l, " to ", j, ", col ", k)
     }
-    
-  # Then looping the last 1/10, not to miss the single units digit
-  for (j in ((9 * perpage) + 1):nrow(SDGdata)) {
-      SDGdata[j, k] <- paste0(SDGdata[[j, k]], collapse = " ")
-    }
-  message(round((proc.time()[3] - looprecasttime[3])), " seconds to recast last 10th " , i, " to ", j, ", col ", k)
-  looprecasttime <- proc.time()
   }
-  
+  looprecasttime <- proc.time()
+
+
+SDGdata[grepl(")",SDGdata$goal),]      
+ 
   # If DL worked, mark it so it doesn't go again even if we need to re-run script
   if (nrow(SDGdata[1])==page1$totalElements){
     DLed <- "yes"

@@ -543,68 +543,68 @@
 "112062",8.3.1,SL_ISV_IFRM,Proportion of informal employment in non-agriculture employment; by sex (ILO harmonized estimates) (%),834,2011
 "112065",8.3.1,SL_ISV_IFRM,Proportion of informal employment in non-agriculture employment; by sex (ILO harmonized estimates) (%),834,2004
 "112080",8.3.1,SL_ISV_IFRM,Proportion of informal employment in non-agriculture employment; by sex (ILO harmonized estimates) (%),834,2007
-"141595",8.5.1,SL_EMP_AEARN,Average hourly earnings of managers (ISCO-08) (local currency),5205,2004
-"141598",8.5.1,SL_EMP_AEARN,Average hourly earnings of managers (ISCO-08) (local currency),5205,2007
-"141601",8.5.1,SL_EMP_AEARN,Average hourly earnings of managers (ISCO-08) (local currency),5205,2011
-"141829",8.5.2,SL_TLF_UEM,Unemployment rate; by sex and age (%),17460,2007
-"141838",8.5.2,SL_TLF_UEM,Unemployment rate; by sex and age (%),17460,2011
-"141847",8.5.2,SL_TLF_UEM,Unemployment rate; by sex and age (%),17460,2004
-"144679",8.5.2,SL_TLF_UEMDIS,Unemployment rate; by sex and disability (%),1065,2007
-"144688",8.5.2,SL_TLF_UEMDIS,Unemployment rate; by sex and disability (%),1065,2011
-"144745",8.6.1,SL_TLF_NEET,Proportion of youth not in education; employment or training; by sex and age (%),4126,2007
-"144748",8.6.1,SL_TLF_NEET,Proportion of youth not in education; employment or training; by sex and age (%),4126,2011
-"144754",8.6.1,SL_TLF_NEET,Proportion of youth not in education; employment or training; by sex and age (%),4126,2004
-"145426",8.7.1,SL_TLF_CHLDEC,Proportion of children engaged in economic activity and household chores; by sex and age (%),234,2011
-"145447",8.7.1,SL_TLF_CHLDEA,Proportion of children engaged in economic activity; by sex and age  (%),264,2011
-"145474",8.8.1,SL_EMP_FTLINJUR,Fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3358,2004
-"145476",8.8.1,SL_EMP_FTLINJUR,Fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3358,2007
-"145477",8.8.1,SL_EMP_FTLINJUR,Fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3358,2011
-"146019",8.8.1,SL_EMP_INJUR,Non-fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3353,2004
-"146021",8.8.1,SL_EMP_INJUR,Non-fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3353,2007
-"146022",8.8.1,SL_EMP_INJUR,Non-fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3353,2011
-"146561",8.a.1,DC_TOF_TRDCMDL,Total official flows (commitments) for Aid for Trade; by donor countries (millions of constant 2017 United States dollars),335,2007
-"146562",8.a.1,DC_TOF_TRDCMDL,Total official flows (commitments) for Aid for Trade; by donor countries (millions of constant 2017 United States dollars),335,2011
-"146610",8.a.1,DC_TOF_TRDDBMDL,Total official flows (disbursement) for Aid for Trade; by donor countries (millions of constant 2017 United States dollars),313,2007
-"146611",8.a.1,DC_TOF_TRDDBMDL,Total official flows (disbursement) for Aid for Trade; by donor countries (millions of constant 2017 United States dollars),313,2011
-"146659",8.a.1,DC_TOF_TRDDBML,Total official flows (disbursement) for Aid for Trade; by recipient countries (millions of constant 2017 United States dollars),1766,2007
-"146660",8.a.1,DC_TOF_TRDDBML,Total official flows (disbursement) for Aid for Trade; by recipient countries (millions of constant 2017 United States dollars),1766,2011
-"146953",8.a.1,DC_TOF_TRDCML,Total official flows (commitments) for Aid for Trade; by recipient countries (millions of constant 2017 United States dollars),1914,2007
-"146954",8.a.1,DC_TOF_TRDCML,Total official flows (commitments) for Aid for Trade; by recipient countries (millions of constant 2017 United States dollars),1914,2011
-"147247",9.2.1,NV_IND_MANFPC,Manufacturing value added per capita (constant 2010 United States dollars),4737,2004
-"147248",9.2.1,NV_IND_MANFPC,Manufacturing value added per capita (constant 2010 United States dollars),4737,2007
-"147249",9.2.1,NV_IND_MANFPC,Manufacturing value added per capita (constant 2010 United States dollars),4737,2011
-"147994",9.2.1,NV_IND_MANF,Manufacturing value added as a proportion of GDP (%),4737,2004
-"147995",9.2.1,NV_IND_MANF,Manufacturing value added as a proportion of GDP (%),4737,2007
-"147996",9.2.1,NV_IND_MANF,Manufacturing value added as a proportion of GDP (%),4737,2011
-"148741",9.2.2,SL_TLF_MANF,Manufacturing employment as a proportion of total employment (%),2108,2004
-"148742",9.2.2,SL_TLF_MANF,Manufacturing employment as a proportion of total employment (%),2108,2007
-"148743",9.2.2,SL_TLF_MANF,Manufacturing employment as a proportion of total employment (%),2108,2011
-"149094",9.3.1,NV_IND_SSIS,Proportion of small-scale industries in total industry value added (%),665,2011
-"149095",9.3.1,NV_IND_SSIS,Proportion of small-scale industries in total industry value added (%),665,2004
-"149096",9.3.1,NV_IND_SSIS,Proportion of small-scale industries in total industry value added (%),665,2007
-"149211",9.3.2,FC_ACC_SSID,Proportion of small-scale industries with a loan or line of credit (%),236,2007
-"149213",9.3.2,FC_ACC_SSID,Proportion of small-scale industries with a loan or line of credit (%),236,2011
-"149228",9.4.1,EN_ATM_CO2,Carbon dioxide emissions from fuel combustion (millions of tonnes),3094,2004
-"149229",9.4.1,EN_ATM_CO2,Carbon dioxide emissions from fuel combustion (millions of tonnes),3094,2007
-"149230",9.4.1,EN_ATM_CO2,Carbon dioxide emissions from fuel combustion (millions of tonnes),3094,2011
-"149773",9.4.1,EN_ATM_CO2MVA,Carbon dioxide emissions per unit of manufacturing value added (kilogrammes of CO2 per constant 2010 United States dollars),3059,2004
-"149774",9.4.1,EN_ATM_CO2MVA,Carbon dioxide emissions per unit of manufacturing value added (kilogrammes of CO2 per constant 2010 United States dollars),3059,2007
-"149775",9.4.1,EN_ATM_CO2MVA,Carbon dioxide emissions per unit of manufacturing value added (kilogrammes of CO2 per constant 2010 United States dollars),3059,2011
-"150312",9.4.1,EN_ATM_CO2GDP,Carbon dioxide emissions per unit of GDP (kilogrammes of CO2 per constant 2010 United States dollars),3094,2004
-"150313",9.4.1,EN_ATM_CO2GDP,Carbon dioxide emissions per unit of GDP (kilogrammes of CO2 per constant 2010 United States dollars),3094,2007
-"150314",9.4.1,EN_ATM_CO2GDP,Carbon dioxide emissions per unit of GDP (kilogrammes of CO2 per constant 2010 United States dollars),3094,2011
-"150857",9.5.1,GB_XPD_RSDV,Research and development expenditure as a proportion of GDP (%),2044,2007
-"150858",9.5.1,GB_XPD_RSDV,Research and development expenditure as a proportion of GDP (%),2044,2004
-"150862",9.5.1,GB_XPD_RSDV,Research and development expenditure as a proportion of GDP (%),2044,2011
-"151227",9.5.2,GB_POP_SCIERD,Researchers (in full-time equivalent) per million inhabitants (per 1;000;000 population),1672,2011
-"151228",9.5.2,GB_POP_SCIERD,Researchers (in full-time equivalent) per million inhabitants (per 1;000;000 population),1672,2004
-"151229",9.5.2,GB_POP_SCIERD,Researchers (in full-time equivalent) per million inhabitants (per 1;000;000 population),1672,2007
-"151526",9.a.1,DC_TOF_INFRAL,Total official flows for infrastructure; by recipient countries (millions of constant 2017 United States dollars),3214,2004
-"151527",9.a.1,DC_TOF_INFRAL,Total official flows for infrastructure; by recipient countries (millions of constant 2017 United States dollars),3214,2007
-"151528",9.a.1,DC_TOF_INFRAL,Total official flows for infrastructure; by recipient countries (millions of constant 2017 United States dollars),3214,2011
-"152068",9.b.1,NV_IND_TECH,Proportion of medium and high-tech industry value added in total value added (%),3281,2004
-"152069",9.b.1,NV_IND_TECH,Proportion of medium and high-tech industry value added in total value added (%),3281,2007
-"152070",9.b.1,NV_IND_TECH,Proportion of medium and high-tech industry value added in total value added (%),3281,2011
-"152647",9.c.1,IT_MOB_NTWK,Proportion of population covered by a mobile network; by technology (%),5652,2007
-"152648",9.c.1,IT_MOB_NTWK,Proportion of population covered by a mobile network; by technology (%),5652,2011
-"152649",9.c.1,IT_MOB_NTWK,Proportion of population covered by a mobile network; by technology (%),5652,2004
+"141604",8.5.1,SL_EMP_AEARN,Average hourly earnings of managers (ISCO-08) (local currency),5205,2004
+"141607",8.5.1,SL_EMP_AEARN,Average hourly earnings of managers (ISCO-08) (local currency),5205,2007
+"141610",8.5.1,SL_EMP_AEARN,Average hourly earnings of managers (ISCO-08) (local currency),5205,2011
+"141838",8.5.2,SL_TLF_UEM,Unemployment rate; by sex and age (%),17460,2007
+"141847",8.5.2,SL_TLF_UEM,Unemployment rate; by sex and age (%),17460,2011
+"141856",8.5.2,SL_TLF_UEM,Unemployment rate; by sex and age (%),17460,2004
+"144688",8.5.2,SL_TLF_UEMDIS,Unemployment rate; by sex and disability (%),1065,2007
+"144697",8.5.2,SL_TLF_UEMDIS,Unemployment rate; by sex and disability (%),1065,2011
+"144754",8.6.1,SL_TLF_NEET,Proportion of youth not in education; employment or training; by sex and age (%),4126,2007
+"144757",8.6.1,SL_TLF_NEET,Proportion of youth not in education; employment or training; by sex and age (%),4126,2011
+"144763",8.6.1,SL_TLF_NEET,Proportion of youth not in education; employment or training; by sex and age (%),4126,2004
+"145435",8.7.1,SL_TLF_CHLDEC,Proportion of children engaged in economic activity and household chores; by sex and age (%),234,2011
+"145456",8.7.1,SL_TLF_CHLDEA,Proportion of children engaged in economic activity; by sex and age  (%),264,2011
+"145483",8.8.1,SL_EMP_FTLINJUR,Fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3358,2004
+"145485",8.8.1,SL_EMP_FTLINJUR,Fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3358,2007
+"145486",8.8.1,SL_EMP_FTLINJUR,Fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3358,2011
+"146028",8.8.1,SL_EMP_INJUR,Non-fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3353,2004
+"146030",8.8.1,SL_EMP_INJUR,Non-fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3353,2007
+"146031",8.8.1,SL_EMP_INJUR,Non-fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3353,2011
+"146570",8.a.1,DC_TOF_TRDCMDL,Total official flows (commitments) for Aid for Trade; by donor countries (millions of constant 2017 United States dollars),335,2007
+"146571",8.a.1,DC_TOF_TRDCMDL,Total official flows (commitments) for Aid for Trade; by donor countries (millions of constant 2017 United States dollars),335,2011
+"146619",8.a.1,DC_TOF_TRDDBMDL,Total official flows (disbursement) for Aid for Trade; by donor countries (millions of constant 2017 United States dollars),313,2007
+"146620",8.a.1,DC_TOF_TRDDBMDL,Total official flows (disbursement) for Aid for Trade; by donor countries (millions of constant 2017 United States dollars),313,2011
+"146668",8.a.1,DC_TOF_TRDDBML,Total official flows (disbursement) for Aid for Trade; by recipient countries (millions of constant 2017 United States dollars),1766,2007
+"146669",8.a.1,DC_TOF_TRDDBML,Total official flows (disbursement) for Aid for Trade; by recipient countries (millions of constant 2017 United States dollars),1766,2011
+"146962",8.a.1,DC_TOF_TRDCML,Total official flows (commitments) for Aid for Trade; by recipient countries (millions of constant 2017 United States dollars),1914,2007
+"146963",8.a.1,DC_TOF_TRDCML,Total official flows (commitments) for Aid for Trade; by recipient countries (millions of constant 2017 United States dollars),1914,2011
+"147256",9.2.1,NV_IND_MANFPC,Manufacturing value added per capita (constant 2010 United States dollars),4737,2004
+"147257",9.2.1,NV_IND_MANFPC,Manufacturing value added per capita (constant 2010 United States dollars),4737,2007
+"147258",9.2.1,NV_IND_MANFPC,Manufacturing value added per capita (constant 2010 United States dollars),4737,2011
+"148003",9.2.1,NV_IND_MANF,Manufacturing value added as a proportion of GDP (%),4737,2004
+"148004",9.2.1,NV_IND_MANF,Manufacturing value added as a proportion of GDP (%),4737,2007
+"148005",9.2.1,NV_IND_MANF,Manufacturing value added as a proportion of GDP (%),4737,2011
+"148750",9.2.2,SL_TLF_MANF,Manufacturing employment as a proportion of total employment (%),2108,2004
+"148751",9.2.2,SL_TLF_MANF,Manufacturing employment as a proportion of total employment (%),2108,2007
+"148752",9.2.2,SL_TLF_MANF,Manufacturing employment as a proportion of total employment (%),2108,2011
+"149103",9.3.1,NV_IND_SSIS,Proportion of small-scale industries in total industry value added (%),665,2011
+"149104",9.3.1,NV_IND_SSIS,Proportion of small-scale industries in total industry value added (%),665,2004
+"149105",9.3.1,NV_IND_SSIS,Proportion of small-scale industries in total industry value added (%),665,2007
+"149220",9.3.2,FC_ACC_SSID,Proportion of small-scale industries with a loan or line of credit (%),236,2007
+"149222",9.3.2,FC_ACC_SSID,Proportion of small-scale industries with a loan or line of credit (%),236,2011
+"149237",9.4.1,EN_ATM_CO2,Carbon dioxide emissions from fuel combustion (millions of tonnes),3094,2004
+"149238",9.4.1,EN_ATM_CO2,Carbon dioxide emissions from fuel combustion (millions of tonnes),3094,2007
+"149239",9.4.1,EN_ATM_CO2,Carbon dioxide emissions from fuel combustion (millions of tonnes),3094,2011
+"149782",9.4.1,EN_ATM_CO2MVA,Carbon dioxide emissions per unit of manufacturing value added (kilogrammes of CO2 per constant 2010 United States dollars),3059,2004
+"149783",9.4.1,EN_ATM_CO2MVA,Carbon dioxide emissions per unit of manufacturing value added (kilogrammes of CO2 per constant 2010 United States dollars),3059,2007
+"149784",9.4.1,EN_ATM_CO2MVA,Carbon dioxide emissions per unit of manufacturing value added (kilogrammes of CO2 per constant 2010 United States dollars),3059,2011
+"150321",9.4.1,EN_ATM_CO2GDP,Carbon dioxide emissions per unit of GDP (kilogrammes of CO2 per constant 2010 United States dollars),3094,2004
+"150322",9.4.1,EN_ATM_CO2GDP,Carbon dioxide emissions per unit of GDP (kilogrammes of CO2 per constant 2010 United States dollars),3094,2007
+"150323",9.4.1,EN_ATM_CO2GDP,Carbon dioxide emissions per unit of GDP (kilogrammes of CO2 per constant 2010 United States dollars),3094,2011
+"150866",9.5.1,GB_XPD_RSDV,Research and development expenditure as a proportion of GDP (%),2044,2007
+"150867",9.5.1,GB_XPD_RSDV,Research and development expenditure as a proportion of GDP (%),2044,2004
+"150871",9.5.1,GB_XPD_RSDV,Research and development expenditure as a proportion of GDP (%),2044,2011
+"151236",9.5.2,GB_POP_SCIERD,Researchers (in full-time equivalent) per million inhabitants (per 1;000;000 population),1672,2011
+"151237",9.5.2,GB_POP_SCIERD,Researchers (in full-time equivalent) per million inhabitants (per 1;000;000 population),1672,2004
+"151238",9.5.2,GB_POP_SCIERD,Researchers (in full-time equivalent) per million inhabitants (per 1;000;000 population),1672,2007
+"151535",9.a.1,DC_TOF_INFRAL,Total official flows for infrastructure; by recipient countries (millions of constant 2017 United States dollars),3214,2004
+"151536",9.a.1,DC_TOF_INFRAL,Total official flows for infrastructure; by recipient countries (millions of constant 2017 United States dollars),3214,2007
+"151537",9.a.1,DC_TOF_INFRAL,Total official flows for infrastructure; by recipient countries (millions of constant 2017 United States dollars),3214,2011
+"152077",9.b.1,NV_IND_TECH,Proportion of medium and high-tech industry value added in total value added (%),3281,2004
+"152078",9.b.1,NV_IND_TECH,Proportion of medium and high-tech industry value added in total value added (%),3281,2007
+"152079",9.b.1,NV_IND_TECH,Proportion of medium and high-tech industry value added in total value added (%),3281,2011
+"152656",9.c.1,IT_MOB_NTWK,Proportion of population covered by a mobile network; by technology (%),5652,2007
+"152657",9.c.1,IT_MOB_NTWK,Proportion of population covered by a mobile network; by technology (%),5652,2011
+"152658",9.c.1,IT_MOB_NTWK,Proportion of population covered by a mobile network; by technology (%),5652,2004

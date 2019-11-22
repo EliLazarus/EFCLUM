@@ -148,7 +148,9 @@ ifelse(length(WB_notGFNlist) == 0 |
  stop(print(c('Eli says:: Error:: These countries are not dealt with: either add them to the drop list in Script 1.
 or add to the alt spelling code above, then re-run this script from beginning: \n',
               cat(paste(shQuote(WB_notGFNlist), collapse=", "))),
-            "/n")))
+            "/n
+            Then you potentially have to add to the Drop Countries list in script 1. /n
+            AND...you have to start from Script 1. again")))
 
 "Reminder for Eli: the function used to print singly country names to build list:
 #as a string dput(WB_notGFNlist[1]) "
