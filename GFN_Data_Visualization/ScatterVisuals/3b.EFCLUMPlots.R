@@ -30,7 +30,7 @@ SDGIndicatorsDownloaded <- read.csv("SDGIndicatorsDownloaded.csv")
 #color.codes<-as.character(c("#3399FF", "#FF0000", "#000000"))
 
 #subetted data to plot
-EFWBData11 <- subset(EFWBData,(EFWBData$year == 2011 & EFWBData$QScore > QScoreMin))
+EFWBData11 <- subset(EFWBData, (EFWBData$year == 2011 & EFWBData$QScore > QScoreMin))
 EFSDGData11 <- subset(EFSDGData,(EFSDGData$year == 2011 & EFSDGData$QScore > QScoreMin))
 
 EFWBData11.Food <- subset(EFWBData11, EFWBData11$clum7_name == "Food")
@@ -63,24 +63,27 @@ plotfunc <- function(data, title, CLUMcat, IndDL, height1, height2){
     geom_text(label = data$GTAP_name,hjust=-.2, alpha=0.55, colour="grey") +
     colScale +
     labs(title = paste(title,"CLUM category:",data$clum7_name), y = "EF per capita") +
-  theme(plot.margin = unit(c(1,2,1,1),"cm"), legend.position = c(.1,.7),
-        legend.text = element_text(colour="black", size=6),
-        legend.key.size = unit(.05,"cm"),
-        legend.background = element_rect(fill=alpha ("white",0.4))) 
-gt <- ggplot_gtable(ggplot_build(p)) 
-gt$layout$clip[gt$layout$name == "panel"] <- "off" 
-
-
-tb <- tableGrob(subset(IndDL[,3],IndDL$CLUM==CLUMcat),
-                theme = ttheme_default(base_size=8,
-                                       core = list(fg_params=list(hjust=0, x=0))))
-
-plotname <- paste("Plots/",deparse(substitute(data)),".pdf", sep ="")
-pdf(plotname,width=12,height=9,onefile = FALSE)
-dev.off
-grid.newpage()
-grid.arrange(gt, tb, nrow=2, heights = c(height1, height2))
-dev.off()
+    theme(plot.margin = unit(c(1,2,1,1),"cm"), legend.position = c(.1,.7),
+          legend.text = element_text(colour="black", size=6),
+          legend.key.size = unit(.05,"cm"),
+          legend.background = element_rect(fill=alpha ("white",0.4))) 
+  gt <- ggplot_gtable(ggplot_build(p)) 
+  gt$layout$clip[gt$layout$name == "panel"] <- "off" 
+  
+  
+  tb <- tableGrob(cbind(as.character(IndDL[,5][IndDL$CLUM==CLUMcat]),as.character(IndDL[,3][IndDL$CLUM==CLUMcat])),
+                  theme = ttheme_default(base_size=8,
+                                         core = list(fg_params=list(hjust=0, x=0))))
+  # tb <- tableGrob(cbind(subset(IndDL[,5],IndDL$CLUM==CLUMcat),subset(IndDL[,3],IndDL$CLUM==CLUMcat)),
+  #                 theme = ttheme_default(base_size=8,
+  #                                        core = list(fg_params=list(hjust=0, x=0))))
+  # 
+  plotname <- paste("Plots/",deparse(substitute(data)),".pdf", sep ="")
+  pdf(plotname,width=12,height=9,onefile = FALSE)
+  dev.off
+  grid.newpage()
+  grid.arrange(gt, tb, nrow=2, heights = c(height1, height2))
+  dev.off()
 }
 
 # change if no pause(waitlength) between charts wanted
@@ -99,7 +102,7 @@ plotfunc(EFSDGData11.Goods,"SDG Data", "Goods",SDGIndicatorsDownloaded, 1.5, .5)
 pause(waitlength)
 plotfunc(EFSDGData11.Housing,"SDG Data", "Housing", SDGIndicatorsDownloaded, 1.5, .5)
 pause(waitlength)
-plotfunc(EFSDGData11.Services,"SDG Data", "Serivces", SDGIndicatorsDownloaded, 1.5, .5)
+plotfunc(EFSDGData11.Services,"SDG Data", "Services", SDGIndicatorsDownloaded, 1.5, .5)
 pause(waitlength)
 plotfunc(EFSDGData11.PersonalTransportation,"SDG Data", "Transport", SDGIndicatorsDownloaded, 1.5, .5)
 pause(waitlength)

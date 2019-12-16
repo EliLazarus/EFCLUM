@@ -600,10 +600,14 @@ if(WB_SDG=="WB"){
 ### Funtion to select Indiactors and organise (for SDG Indicators data)
 CLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
   assign(paste(CLUMcat,"reversed", sep = "_"), "")
-  assign('All_Indicators', c(Indicators, Indicators_rev), envir = parent.frame())
+  assign('All_Indicatorsforward', Indicators, envir = parent.frame())
+  assign('All_Indicatorsreversed', Indicators_rev, envir = parent.frame())
+  All_Indicators <- c(if(!is.null(All_Indicatorsforward)){All_Indicatorsforward},
+                      if(!is.null(All_Indicatorsreversed)){All_Indicatorsreversed})
   Data <-
     subset(SDGdata,
            SDGdata$series %in% All_Indicators &
+           #SDGdata$series %in% c(All_Indicatorsforward,All_Indicatorsreversed) &
              SDGdata$timePeriodStart %in% years)
   
   Data_cols <- c("series", "geoAreaName", "timePeriodStart", "value")
@@ -616,6 +620,7 @@ CLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
   # Reverse the orders for High is BAD
   if (paste(CLUMcat,"reversed", sep = "_")!="done"){
     for (i in Indicators_rev) {
+      
       # The if removes the warning from the max function for when vectors are all NA
       if (!all(is.na(Data[[i]]))) {
         Data[i] <-
@@ -633,12 +638,18 @@ CLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
 if (WB_SDG == "SDG") {
   SDGIndicatorsDownloaded <- data.frame()
   
-  CLUMsplit("Food",c(),c("SN_ITK_DEFC","SH_STA_STUNT","SH_STA_OVRWGT"))
+  CLUMsplit("Food",
+            c(),
+            #Indicators to be Reversed
+            c("SN_ITK_DEFC","SH_STA_STUNT","SH_STA_OVRWGT"))
   # Add SDG Indicators elected to the list by CLUM category
-  IndicatorsList <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicators]),
-                          unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicators]),
-                          "Food")
-  SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,IndicatorsList)
+  IndicatorsListF <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsforward]),
+                          unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsforward]),
+                          "Food", "Fwd")
+  IndicatorsListR <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsreversed]),
+                          unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsreversed]),
+                          "Food", "Reversed")
+  SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,if(ncol(IndicatorsListF)==4){IndicatorsListF}, if(ncol(IndicatorsListR)==4){IndicatorsListR})
 
   CLUMsplit("Government",c(
     #  Proportion of population covered by labour market programs (%)
@@ -646,12 +657,18 @@ if (WB_SDG == "SDG") {
     # Countries with procedures in law or policy for participation by service users/communities in planning program in rural drinking-water supply, by level of definition in procedures (10 = Clearly defined; 5 = Not clearly defined ; 0 = NA)
     #    "ER_H2O_PRDU", not in the data for those years
     # Countries that have conducted at least one population and housing census in the last 10 years (1 = YES; 0 = NO)
-    "SG_REG_CENSUSN"),c())
+    "SG_REG_CENSUSN"),
+    #Indicators to be Reversed
+    c())
   # Add SDG Indicators elected to the list by CLUM category
-  IndicatorsList <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicators]),
-                          unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicators]),
-                          "Government")
-  SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,IndicatorsList)
+  IndicatorsListF <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsforward]),
+                           unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsforward]),
+                           "Government", "Fwd")
+  IndicatorsListR <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsreversed]),
+                           unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsreversed]),
+                           "Government", "Reversed")
+  SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,if(ncol(IndicatorsListF)==4){IndicatorsListF},
+                                    if(ncol(IndicatorsListR)==4){IndicatorsListR})
   
   CLUMsplit("Services",c(
     # Health worker density, by type of occupation (per 1,000 population)
@@ -662,8 +679,6 @@ if (WB_SDG == "SDG") {
     "SE_ACC_COMP",
     # Proportion of teachers who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country, by education level (%)
     "SE_TRA_GRDL",
-    # Proportion of population practicing open defecation, by urban/rural (%)
-    "SH_SAN_DEFECT",
     # Proportion of population with access to electricity, by urban/rural (%)
     "EG_ELC_ACCS",
     # Proportion of population covered by a mobile network, by technology (%)
@@ -671,48 +686,75 @@ if (WB_SDG == "SDG") {
     # Municipal Solid Waste collection coverage, by cities (%)
     "EN_REF_WASCOL",
     # Number of fixed Internet broadband subscriptions, by speed (number)
-    "IT_NET_BBN"),c())
+    "IT_NET_BBN"),
+    #Indicators to be Reversed
+    c(
+      # Proportion of population practicing open defecation, by urban/rural (%)
+      "SH_SAN_DEFECT"
+      
+    ))
   # Add SDG Indicators elected to the list by CLUM category
-  IndicatorsList <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicators]),
-                          unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicators]),
-                          "Serivces")
-  SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,IndicatorsList)
-
+  IndicatorsListF <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsforward]),
+                           unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsforward]),
+                           "Services", "Fwd")
+  IndicatorsListR <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsreversed]),
+                           unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsreversed]),
+                           "Services", "Reversed")
+  SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,if(ncol(IndicatorsListF)==4){IndicatorsListF},
+                                    if(ncol(IndicatorsListR)==4){IndicatorsListR})
+ 
   CLUMsplit("Goods",c(# Proportion of population using safely managed drinking water services, by urban/rural (%)
     "SH_H2O_SAFE",  # Annual growth rate of real GDP per capita (%)
     "NY_GDP_PCAP",  # Domestic material consumption per capita, by type of raw material (tonnes)
     "EN_MAT_DOMCMPC", # Internet users per 100 inhabitants
-    "IT_USE_ii99"), c())
+    "IT_USE_ii99"),
+    #Indicators to be Reversed
+    c())
   # Add SDG Indicators elected to the list by CLUM category
-  IndicatorsList <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicators]),
-                        unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicators]),
-                        "Goods")
-  SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,IndicatorsList)
 
+  IndicatorsListF <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsforward]),
+                           unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsforward]),
+                           "Goods", "Fwd")
+  IndicatorsListR <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsreversed]),
+                           unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsreversed]),
+                           "Goods", "Reversed")
+  SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,if(ncol(IndicatorsListF)==4){IndicatorsListF},
+                                    if(ncol(IndicatorsListR)==4){IndicatorsListR})
+  
   CLUMsplit("Housing", c("SP_ACS_BSRVH2O",
   #Proportion of population using basic drinking water services; by location (%)
                          "SP_ACS_BSRVSAN",
   #Proportion of population using basic sanitation services; by location (%)
                          "SH_SAN_HNDWSH"
   #Proportion of population with basic handwashing facilities on premises; by urban/rural (%)
-  ), c("SH_SAN_DEFECT"
+  ),
+  #Indicators to be Reversed
+  c("SH_SAN_DEFECT"
   #Proportion of population practicing open defecation; by urban/rural (%)
   ))
   # Add SDG Indicators elected to the list by CLUM category
-  IndicatorsList <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicators]),
-                          unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicators]),
-                          "Housing")
-  SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,IndicatorsList)
-    
+  IndicatorsListF <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsforward]),
+                           unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsforward]),
+                           "Housing", "Fwd")
+  IndicatorsListR <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsreversed]),
+                           unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsreversed]),
+                           "Housing", "Reversed")
+  SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,if(ncol(IndicatorsListF)==4){IndicatorsListF},
+                                    if(ncol(IndicatorsListR)==4){IndicatorsListR})
+  
   CLUMsplit("Transport", c(), c(# Death rate due to road traffic injuries (per 100,000 population)
     "SH_STA_TRAF"
   ))
   # Add SDG Indicators elected to the list by CLUM category
-  IndicatorsList <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicators]),
-                          unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicators]),
-                          "Transport")
-  SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,IndicatorsList)
-  
+  IndicatorsListF <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsforward]),
+                           unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsforward]),
+                           "Transport", "Fwd")
+  IndicatorsListR <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsreversed]),
+                           unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsreversed]),
+                           "Transport", "Reversed")
+  SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,if(ncol(IndicatorsListF)==4){IndicatorsListF},
+                                    if(ncol(IndicatorsListR)==4){IndicatorsListR})
+
   CLUMsplit("GFCF", c(
     # Number of automated teller machines (ATMs) per 100,000 adults
     "FB_ATM_TOTL",
@@ -723,12 +765,16 @@ if (WB_SDG == "SDG") {
     "VC_DSR_AGLH"
     ))
   # Add SDG Indicators elected to the list by CLUM category
-  IndicatorsList <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicators]),
-                          unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicators]),
-                          "GFCF")
-  SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,IndicatorsList)
-
-  colnames(SDGIndicatorsDownloaded) <- c("indicator", "description", "CLUM")
+  IndicatorsListF <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsforward]),
+                           unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsforward]),
+                           "GFCF", "Fwd")
+  IndicatorsListR <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsreversed]),
+                           unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsreversed]),
+                           "GFCF", "Reversed")
+  SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,if(ncol(IndicatorsListF)==4){IndicatorsListF},
+                                    if(ncol(IndicatorsListR)==4){IndicatorsListR})
+  
+  colnames(SDGIndicatorsDownloaded) <- c("indicator", "description", "CLUM", "Forw_Revd")
   write.csv(SDGIndicatorsDownloaded, "./SDGIndicatorsDownloaded.csv")
 }
 
