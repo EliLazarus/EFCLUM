@@ -71,7 +71,8 @@ plotfunc <- function(data, title, CLUMcat, IndDL, height1, height2){
   gt$layout$clip[gt$layout$name == "panel"] <- "off" 
   
   
-  tb <- tableGrob(cbind(as.character(IndDL[,5][IndDL$CLUM==CLUMcat]),as.character(IndDL[,3][IndDL$CLUM==CLUMcat])),
+  tb <- tableGrob(cbind(as.character(IndDL[,5][IndDL$CLUM==CLUMcat]),
+                        stringr::str_wrap(as.character(IndDL[,3][IndDL$CLUM==CLUMcat]),160)),
                   theme = ttheme_default(base_size=8,
                                          core = list(fg_params=list(hjust=0, x=0))))
   # tb <- tableGrob(cbind(subset(IndDL[,5],IndDL$CLUM==CLUMcat),subset(IndDL[,3],IndDL$CLUM==CLUMcat)),
@@ -79,10 +80,10 @@ plotfunc <- function(data, title, CLUMcat, IndDL, height1, height2){
   #                                        core = list(fg_params=list(hjust=0, x=0))))
   # 
   plotname <- paste("Plots/",deparse(substitute(data)),".pdf", sep ="")
-  pdf(plotname,width=12,height=9,onefile = FALSE)
+  pdf(plotname,width=12,height=9, onefile = FALSE)
   dev.off
   grid.newpage()
-  grid.arrange(gt, tb, nrow=2, heights = c(height1, height2))
+  grid.arrange(gt, tb, nrow=2, heights = c(height1, height2), vp=viewport(width=0.95, height=0.95))
   dev.off()
 }
 

@@ -5,6 +5,10 @@ library(dplyr)
 library(httr)
 library(jsonlite)
 library(boxr)
+library(readr)
+
+## Eli: 2019-12-16  The error is coming from the CLUMsplit for SDG function for just the reversing. The parts
+# that use readr::
 
 ptm <- proc.time()
 
@@ -597,6 +601,30 @@ if(WB_SDG=="WB"){
   
 }
 
+
+CLUMcat <- "Services"
+Indicators <- c(
+  # Health worker density, by type of occupation (per 1,000 population)
+  "SH_MED_HEAWOR",
+  #  Minimum proficiency in mathematics, by education level and sex (%)
+  "SE_MAT_PROF",
+  # Schools with access toÂ computers for pedagogical purposes, by education level (%)
+  "SE_ACC_COMP",
+  # Proportion of teachers who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country, by education level (%)
+  "SE_TRA_GRDL",
+  # Proportion of population with access to electricity, by urban/rural (%)
+  "EG_ELC_ACCS",
+  # Proportion of population covered by a mobile network, by technology (%)
+  "IT_MOB_NTWK",
+  # Municipal Solid Waste collection coverage, by cities (%)
+  "EN_REF_WASCOL",
+  # Number of fixed Internet broadband subscriptions, by speed (number)
+  "IT_NET_BBN")
+  #Indicators to be Reversed
+Indicators_rev <-   c(
+    # Proportion of population practicing open defecation, by urban/rural (%)
+    "SH_SAN_DEFECT" )
+
 ### Funtion to select Indiactors and organise (for SDG Indicators data)
 CLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
   assign(paste(CLUMcat,"reversed", sep = "_"), "")
@@ -614,8 +642,10 @@ CLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
   Data <- Data[Data_cols]
   Data <- Data[!(Data$geoAreaName %in% Region_drop),]
   #reshape to make each indicator a column
+  #setDT(Data)
+  ## Deals with the mulitple values for each country for a series in a year (but unclear why they exist)
   Data <-
-    dcast(Data, geoAreaName + timePeriodStart ~ series, value.var = 'value')
+    reshape2::dcast(Data, geoAreaName + timePeriodStart ~ series, value.var = 'value', fun.aggregate=mean)
   #return(Data)
   # Reverse the orders for High is BAD
   if (paste(CLUMcat,"reversed", sep = "_")!="done"){
@@ -624,7 +654,8 @@ CLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
       # The if removes the warning from the max function for when vectors are all NA
       if (!all(is.na(Data[[i]]))) {
         Data[i] <-
-          0 - readr::parse_number(Data[[i]]) + readr::parse_number(max(Data[[i]], na.rm = TRUE))
+        #  0 - readr::parse_number(Data[[i]]) + readr::parse_number(max(Data[[i]], na.rm = TRUE))
+          0 - (Data[[i]]) + (max(Data[[i]], na.rm = TRUE))
       }
     }
     for (i in years) {
@@ -791,8 +822,25 @@ NARemove_Fun <- function(data, NA_factor){
   return(Data_NoNAs)
 }
 
+# #TESTING
+# data <- Food_Data_2004
+# NA_factor <- 2
+# na_count <-sapply(data, function(y) sum(length(which(is.na(y)))))
+# na_count_df <- data.frame(na_count)
+# ##Remove columns where more than half of observations are NAs for all 3 years
+# na_count_df <- subset(na_count_df, na_count < nrow(data)/NA_factor)
+# rownames_tokeep <- rownames(na_count_df)
+# ##Keep columns without big number of NAs
+# Data_NoNAs <- data[rownames_tokeep]
+# return(Data_NoNAs)
+# 
+# CLUMsplit("Food",
+#           c(),
+#           #Indicators to be Reversed
+#           c("SN_ITK_DEFC","SH_STA_STUNT","SH_STA_OVRWGT"))
+
 # Drop indicators that have more than 1/NA factor proportion of NAs
-FoodData_NoNAs_2004 <- NARemove_Fun(Food_Data_2004, 2) ; remove(Food_Data_2004)
+FoodData_NoNAs_2004 <- NARemove_Fun(Food_Data_2004, 2) #; remove(Food_Data_2004)
 FoodData_NoNAs_2007 <- NARemove_Fun(Food_Data_2007, 2); remove(Food_Data_2007)
 FoodData_NoNAs_2011 <- NARemove_Fun(Food_Data_2011, 2); remove(Food_Data_2011)
 GovernmentData_NoNAs_2004 <- NARemove_Fun(Government_Data_2004, 2); remove(Government_Data_2004)

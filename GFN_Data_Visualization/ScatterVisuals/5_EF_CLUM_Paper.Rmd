@@ -106,7 +106,8 @@ plotfunc <- function(data, title, CLUMcat, IndDL, height1, height2){
   gt$layout$clip[gt$layout$name == "panel"] <- "off" 
   
   
-  tb <- tableGrob(subset(IndDL[,3],IndDL$CLUM==CLUMcat),
+  tb <- tableGrob(cbind(as.character(IndDL[,5][IndDL$CLUM==CLUMcat]),
+  stringr::str_wrap(as.character(IndDL[,3][IndDL$CLUM==CLUMcat]),400)),
                   theme = ttheme_default(base_size=8,
                                          core = list(fg_params=list(hjust=0, x=0))))
   
@@ -114,7 +115,7 @@ plotfunc <- function(data, title, CLUMcat, IndDL, height1, height2){
   # pdf(plotname,width=12,height=9,onefile = FALSE)
   # dev.off
   grid.newpage()
-  grid.arrange(gt, tb, nrow=2, heights = c(height1, height2))
+  grid.arrange(gt, tb, nrow=2, heights = c(height1, height2), vp=viewport(width=0.95, height=0.95))
   #dev.off()
 }
 ```
@@ -166,11 +167,11 @@ plotfunc(EFSDGData11.Housing,"SDG Data", "Housing", SDGIndicatorsDownloaded, 1.5
 
 For the consumption category of Housing, ...  
 
-```{r Figure 4, echo=FALSE, eval=TRUE}
+```{r Figure 4, echo=FALSE, eval=FALSE}
 
 plotfunc(EFSDGData11.Services,"SDG Data", "Serivces", SDGIndicatorsDownloaded, 1.5, .5)
 ```
-
+PLOT HAS AN ERROR RIGHT NOW RE LINE LENGTH/WRAPPINH
 For the Services consumption category, ...  
 
 ```{r Figure 5, echo=FALSE, eval=TRUE}
