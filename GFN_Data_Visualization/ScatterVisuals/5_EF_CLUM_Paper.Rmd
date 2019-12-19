@@ -1,14 +1,18 @@
 ---
-title: 'Tracking Sustainable Development: Ecological Footprint Efficiency by Consumption
-  Category'
-author:
-- affiliation: $^1$UC Berkeley, United States. $^2$Global Footprint Network, United
-    States
-  name: Eli Lazarus$^1$, Nathaniel$^1$, Scott$^1$, David Lin$^2$
+title: |
+  \LARGE Tracking Sustainable Development: Ecological Footprint Efficiency by Consumption Category
+author: |
+ | Eli Lazarus$^1$, Nathaniel Decker$^1$, Scott Kaplan$^1$, David Lin$^2$
+ | $^1$UC Berkeley, United States, $^2$Global Footprint Network, United
+## For HTML
+# author:
+# - affiliation: $^1$UC Berkeley, United States. $^2$Global Footprint Network, United States
+#   name: Eli Lazarus$^1$, Nathaniel$^1$, Scott$^1$, David Lin$^2$
 date: "`r Sys.Date()`"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
+#theme: journal
 mainfont: times
 header-includes:
 - \usepackage{titling}
@@ -23,6 +27,8 @@ knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE,fig.width=12, fig
 library(ggplot2)
 library(grid)
 library(gridExtra)
+library(knitr)
+library(kableExtra)
 ```
 
 
@@ -96,6 +102,7 @@ plotfunc <- function(data, title, CLUMcat, IndDL, height1, height2){
   p <- ggplot(data, aes(ZScore_Index, total , colour = Continents)) +
     geom_point(size = 3) +
     geom_text(label = data$GTAP_name,hjust=-.2, alpha=0.55, colour="grey") +
+    scale_x_continuous(breaks = c(min(data$ZScore_Index[!is.na(data$ZScore_Index)]),0,max(data$ZScore_Index[!is.na(data$ZScore_Index)])), labels = c("Lowest","", "Highest")) +
     colScale +
     labs(title = paste(title,"CLUM category:",data$clum7_name), y = "EF per capita") +
     theme(plot.margin = unit(c(1,2,1,1),"cm"), legend.position = c(.1,.7),
@@ -121,7 +128,7 @@ plotfunc <- function(data, title, CLUMcat, IndDL, height1, height2){
 ```
 
 
-```{r Figure 1, echo=FALSE}
+```{r Figure 1, echo=FALSE, eval = TRUE}
 plotfunc(EFSDGData11.Food,"SDG Data", "Food", SDGIndicatorsDownloaded, 1.5, .5)
 ```
 
@@ -167,11 +174,23 @@ plotfunc(EFSDGData11.Housing,"SDG Data", "Housing", SDGIndicatorsDownloaded, 1.5
 
 For the consumption category of Housing, ...  
 
-```{r Figure 4, echo=FALSE, eval=FALSE}
 
-plotfunc(EFSDGData11.Services,"SDG Data", "Serivces", SDGIndicatorsDownloaded, 1.5, .5)
+```{r Figure 4, echo=FALSE, include = TRUE, eval=TRUE}
+## PLOT HAS AN ERROR RIGHT NOW RE LINE LENGTH/WRAPPING  
+##  plotfunc(EFSDGData11.Services,"SDG Data", "Serivces", SDGIndicatorsDownloaded, 1.5, .5)
+# Working on a workaround....
+## For PDF Version use
+knitr::include_graphics("Plots/EFSDGData11.Services.pdf")
+## For HTML Version use
+#knitr::include_graphics("Plots/EFSDGData11.Services.png")
+
+
+# <img src = "./Plots/EFSDGData11Services.pdf" >
+# ![](Plots/EFSDGData11Services.pdf)
+
+
 ```
-PLOT HAS AN ERROR RIGHT NOW RE LINE LENGTH/WRAPPINH
+
 For the Services consumption category, ...  
 
 ```{r Figure 5, echo=FALSE, eval=TRUE}
@@ -194,7 +213,7 @@ For the Government category, the SDG Indicator data did not provide appropriate 
 plotfunc(EFSDGData11.GrossFixedCapitalFormation,"SDG Data", "GFCF", SDGIndicatorsDownloaded, 1.5, .5)
 ```
 
-Gross Fixed Capital Formation is a measure of investment. For this category, we 
+Gross Fixed Capital Formation is a measure of investment. For this category, we  
 ```{r Figure 8, echo=FALSE, eval=FALSE}
 #Placeholder to look at the World Bank and potential updates to the SDGI Government data
 
@@ -225,8 +244,11 @@ Additional work could …
 ## APPENDIX A
 ### Full list of SDG Indicators data available (at time of publication) for 2011  
 (some series may be sparsley populated)
-```{r Appendix A, echo=FALSE}
-#library(magrittr)
-knitr::kable(AllSDGiList[AllSDGiList$timePeriodStart==2011,1:3], row.names = FALSE) #%>%
-#  kableExtra::column_spec(3, width = "10cm")
+```{r Appendix A, echo=FALSE, eval = TRUE}
+## For PDF version USE: 
+kable(AllSDGiList[AllSDGiList$timePeriodStart==2011,1:3], row.names = FALSE, longtable = TRUE, format = "latex", booktabs = T) %>%
+## For HTML VERSION USE: 
+#kable(AllSDGiList[AllSDGiList$timePeriodStart==2011,1:3], row.names = FALSE) %>%
+  column_spec(3, width = "10cm") %>%
+  kable_styling(latex_options = c("hold_position", "repeat_header"))
 ```
