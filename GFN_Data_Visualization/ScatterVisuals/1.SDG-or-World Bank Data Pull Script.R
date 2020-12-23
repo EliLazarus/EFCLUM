@@ -18,22 +18,22 @@ if (!grepl("ScatterVisuals",getwd())){
   stop()
 }
 
-"Set to use WB (WB_yes_or_no<-1) or SDG (WB_yes_or_no<-0) Indicators"
-WB_yes_or_no <- 0
-
-if(WB_yes_or_no==1) {
-  WB_SDG <- "WB"
-} else if (WB_yes_or_no == 0) {
-  WB_SDG <- "SDG"
-} else {
-  stop(
-    print(
-      "WB_yes_or_no must be set either to 1 (for WB Indicators) or 0 (for SDG Indicators)"
-    )
-  )
-}
+# "Set to use WB (WB_yes_or_no<-1) or SDG (WB_yes_or_no<-0) Indicators"
+# WB_yes_or_no <- 0
+# 
+# if(WB_yes_or_no==1) {
+#   WB_SDG <- "WB"
+# } else if (WB_yes_or_no == 0) {
+#   WB_SDG <- "SDG"
+# } else {
+#   stop(
+#     print(
+#       "WB_yes_or_no must be set either to 1 (for WB Indicators) or 0 (for SDG Indicators)"
+#     )
+#   )
+# }
 # 'no' for first run, and then changes in the script after a successful download so other parts of script can re-run
-if (exists("DLed")){
+if (exists("SDGDLed")){
   first_run <- "no"
 } else {
   first_run <- "yes"
@@ -41,40 +41,22 @@ if (exists("DLed")){
 
 years <- c(2004, 2007, 2011) #for the World Bank data
 
-
 # Array of all World Bank Indicator data
-if(WB_SDG =="WB" & first_run=="yes"){
+if(!exists("WBDLed")){
   WBIndicators <- WDIcache()
-  IndicatorList <- as.data.frame(WBIndicators[[1]], stringAsFactors=FALSE)
+  WBIndicatorList <- as.data.frame(WBIndicators[[1]], stringAsFactors=FALSE)
   WBCountries <- as.data.frame(WBIndicators[[2]])
-  
+  WBDLed <- "yes"  
+}
+
   # look at a table of indicators based on a search for the term in the "NAME"
   # to look in the description change column vector index from 2 to 3
-  "food" -> word ;SearchWB <- IndicatorList[grep(word,IndicatorList[,2]),] 
+  "food" -> word ;SearchWB <- WBIndicatorList[grep(word,WBIndicatorList[,2]),] 
   #View(SearchWB)
   
   ######Data Pull Function
-  WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear, CLUM_endyear){
-    DataFrame <- WDI(country = "all",
-                     indicator = indicator_list,
-                     start = CLUM_startyear, end = CLUM_endyear, extra = FALSE, cache = NULL)
-    DataFrame <- subset(DataFrame, year == CLUM_startyear | year == CLUM_middleyear | year == CLUM_endyear)
-    return(DataFrame)
-  }
-  
-  #Single year pull function - Actually, better to just group in the minmax zscore
-  # WB_DataPull_Function <- function(indicator_list, Datayear){
-  #   DataFrame <- WDI(country = "all",
-  #                    indicator = indicator_list,
-  #                    start = Datayear, end = Datayear, extra = FALSE, cache = NULL) 
-  #   return(DataFrame)
-  # }
-  DLed <- "no"  
-}
-
 # Array of UN SDGIndicators
-if (WB_SDG == "SDG" & first_run == "yes") {
-  
+if (!exists("SDGDLed")){
     " Back-up code to upload data from my Box account "
     #  Run to activate connection for the SDG data file on Box
     # box_auth()
@@ -92,7 +74,6 @@ if (WB_SDG == "SDG" & first_run == "yes") {
   # # Output full Indicator List to csv
   # try(write.table(as.matrix(SDGIndicatorsCSV), "./AllSDGiListCSV.csv", sep=","))
   
-
     # Get total elements and Fraaction of TotalElements for page size  
     page1 <-
     fromJSON(
@@ -133,14 +114,21 @@ if (WB_SDG == "SDG" & first_run == "yes") {
   }
   message("~", DLtime <-
             round((proc.time()[3] - ptm[3]) / 60), " minutes to download")
+
+    # If DL worked, mark it so it doesn't go again even if we need to re-run script
+  if (nrow(SDGdata[1])==page1$totalElements){
+    SDGDLed <- "yes"}
   
   # Deal with non-digits
-  if (any(!grepl("^[<]|^[,]|^[N]|^[A]|^[0-9]|^[-]|^[.]|^[e]",SDGdata$value))){
-    stop(print("check for un-dealt with characters in SDGdata$value"))
+  if (any(!grepl("^[<]|^[,]|^[N]|^[>]|^[0-9]|^[-]|^[.]|^[e]",SDGdata$value))){
+    stop(print("check for un-dealt with characters in SDGdata$value: 
+-> Use SDGdata$value[!grepl('^[<]|^[,]|^[N]|^[A]|^[0-9]|^[-]|^[.]|^[e]',SDGdata$value)] to find them"))
   }
-  #  Turn all '<' into just their ceiling number, remove ","s, and cast as numeric so all chars "N", "NA" etc become actual NAs
-  SDGdata$value <- as.numeric(gsub("[<]|[,]","",SDGdata$value))
-  
+  # Remove NaN's and Ns from data because they're not useful and cleaner than turning to NAs with warning.
+  SDGdata <- subset(SDGdata,(!(SDGdata$value %in% c("NaN","N"))))  
+  #  Turn all '<'  and '>' into just their ceiling number, remove ","s, and cast as numeric
+  SDGdata$value <- as.numeric(gsub("[<]|[,]|[>]","",SDGdata$value))
+
   # start the clock for recast
   recasttime <- proc.time()
   # Looping through *First 9/10 rows* to re cast the 1st 3 columns so they look nice
@@ -151,7 +139,7 @@ if (WB_SDG == "SDG" & first_run == "yes") {
       looprecasttime <- proc.time()
       l <- j + 1
       if (i==9){
-        for (j in ((i * perpage) + 1):page1$totalElements) {
+        for (j in ((i * ceiling(nrow(SDGdata)/10)) + 1):nrow(SDGdata)) {
           SDGdata[j, k] <- stringr::str_c(SDGdata[[j, k]], collapse = " ")
         }
       }
@@ -169,10 +157,6 @@ if (WB_SDG == "SDG" & first_run == "yes") {
 
 SDGdata[grepl(")",SDGdata$goal),]      
  
-  # If DL worked, mark it so it doesn't go again even if we need to re-run script
-  if (nrow(SDGdata[1])==page1$totalElements){
-    DLed <- "yes"
-  }
   message(round((proc.time()[3] - recasttime[3]) / 60), " rediculous minutes to recast")
   
   # Making full Indicator List from DL, with years 
@@ -261,7 +245,8 @@ Region_drop <- c("Africa", "Andean Region", "East Asia & Pacific (IBRD-only coun
              "Resource rich Sub-Saharan Africa countries", "Southern Cone",
              "Sub-Saharan Africa", "Resource rich Sub-Saharan Africa countries, of which oil exporters",
              "Holy See", "United States Virgin Islands","Micronesia (Federated States of)",
-             "Falkland Islands (Malvinas)",
+             "Falkland Islands (Malvinas)", "Other non-specified areas in Eastern Asia", 
+             "Global Partnership for Education", "Lending category not classified",
              # British 'dependencies/juristictions', semi-independent islands in the channel, near Normandy, France
              "Jersey", "Guernsey",
              # Carribean territories of the Netherlands
@@ -291,12 +276,27 @@ Region_drop <- c("Africa", "Andean Region", "East Asia & Pacific (IBRD-only coun
 # Write to file for reading in country correspondence script
 write.csv(Region_drop, file = "./DropTheseCountries.csv", row.names = F)
 
+## WB pull and split section
+{
+WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear, CLUM_endyear){
+  DataFrame <- WDI(country = "all", indicator = indicator_list, start = CLUM_startyear, 
+                   end = CLUM_endyear, extra = FALSE, cache = NULL)
+  DataFrame <- subset(DataFrame, year == CLUM_startyear | year == CLUM_middleyear | year == CLUM_endyear)
+  return(DataFrame)
+}
+#Single year pull function - Actually, better to just group in the minmax zscore
+# WB_DataPull_Function <- function(indicator_list, Datayear){
+#   DataFrame <- WDI(country = "all",
+#                    indicator = indicator_list,
+#                    start = Datayear, end = Datayear, extra = FALSE, cache = NULL) 
+#   return(DataFrame)
+# }
+
 # Select Indicators and organising for World Bank data
-if(WB_SDG=="WB"){
-  
+#if(WB_SDG=="WB"){
   ######Food Section
   #Cereal Yield (Kg Per Hectare)
-  Food_Indicators <- c(
+  WBFood_Indicators <- c(
     "AG.YLD.CREL.KG", #High is good, low is bad#
     # Agriculture Value Added Per Worker (Constant 2010 US$)
     "EA.PRD.AGRI.KD", #High is good, low is bad# #No download/data available 6/10/18
@@ -314,21 +314,20 @@ if(WB_SDG=="WB"){
   
   #High is BAD#
   #how many calories would be needed to lift the undernourished from their status, everything else being constant.
-  Food_Indicators_reverse <- c(
+  WBFood_Indicators_reverse <- c(
     "SN.ITK.DFCT", #High is BAD
     #Malnourished Children (Underweight, -2SD) (% Of Children Under 5): Q1 (Lowest)
     "SH.STA.MALN.ZS", #High is BAD
     # Fish Species, Threatened. number of species classified by the IUCN as endangered, vulnerable, rare, indeterminate, out of danger, or insufficiently known
     "EN.FSH.THRD.NO" #High is BAD  #Only 2017 data 6/10/18
   )
-  Food_Indicators <- c(Food_Indicators,Food_Indicators_reverse)
+  WBFood_Indicators <- c(WBFood_Indicators,WBFood_Indicators_reverse)
   
-  IndicatorsDownloaded <- subset(IndicatorList,IndicatorList$indicator %in% Food_Indicators)
-  IndicatorsDownloaded$CLUM <- "Food"
+  WBIndicatorsDownloaded <- subset(WBIndicatorList,WBIndicatorList$indicator %in% WBFood_Indicators)
+  WBIndicatorsDownloaded$CLUM <- "Food"
   
   #Actually better to separate just for the minmax and z-score
-  
-  #for (i in years){nam <- paste("Food_Data", i, sep = "_"); assign(nam,
+    #for (i in years){nam <- paste("Food_Data", i, sep = "_"); assign(nam,
   #                                                                 WB_DataPull_Function(Food_Indicators, i))
   #Drop the countries from the Region_drop list
   #assign(print(paste("Food_Data", i, sep="_")),
@@ -336,28 +335,29 @@ if(WB_SDG=="WB"){
   #                                                       i, sep="_")))$country %in% Region_drop),])
   #}
   
-  Food_Data <- WB_DataPull_Function(Food_Indicators, 2004, 2007, 2011)
-  Food_Data <- Food_Data[!(Food_Data$country %in% Region_drop),]
-  Food_Data$iso2c <- NULL
+  WBFood_Data <- WB_DataPull_Function(WBFood_Indicators, 2004, 2007, 2011)
+  #Filter out regions from the compiled list of non-NFA countries/regions
+  WBFood_Data <- WBFood_Data[!(WBFood_Data$country %in% Region_drop),]
+  WBFood_Data$iso2c <- NULL
   # Reverse the orders for High is BAD
-  for (i in Food_Indicators_reverse){
+  for (i in WBFood_Indicators_reverse){
     # The if removes the warning from the max function for when vectors are all NA
-    if(i %in% colnames(Food_Data)){
-      if(!all(is.na(Food_Data[i]))){
-        Food_Data[i] <- 0 - Food_Data[i] + max(Food_Data[i], na.rm = TRUE)
+    if(i %in% colnames(WBFood_Data)){
+      if(!all(is.na(WBFood_Data[i]))){
+        WBFood_Data[i] <- 0 - WBFood_Data[i] + max(WBFood_Data[i], na.rm = TRUE)
       }
     }
   }
   # Split into the 3 years
   for (i in years){
-    nam <- paste(deparse(substitute(Food_Data)), i, sep = "_") 
-    assign(nam, Food_Data[Food_Data$year==i,])
+    nam <- paste(deparse(substitute(WBFood_Data)), i, sep = "_") 
+    assign(nam, WBFood_Data[WBFood_Data$year==i,])
   }
   
-  remove(Food_Indicators, Food_Indicators_reverse, Food_Data)
+  remove(WBFood_Indicators, WBFood_Indicators_reverse, WBFood_Data)
   
   ######Government Section
-  Government_Indicators <- c(
+  WBGovernment_Indicators <- c(
     #School Enrollment, Primary And Secondary (Gross), Gender Parity Index (GPI) Gender parity index for gross enrollment ratio in primary and secondary education is the ratio of girls to boys enrolled at primary and secondary levels in public and private schools.
     "SE.ENR.PRSC.FM.ZS", #High is good, low is bad#
     #People Using Basic Sanitation Services (% Of Population)
@@ -390,7 +390,7 @@ if(WB_SDG=="WB"){
     "IQ.CPA.STRC.XQ" #High is good, low is bad#
     #Central Government Debt, Total (% Of GDP). Debt is the entire stock of direct government fixed-term contractual obligations to others outstanding on a particular date. It includes domestic and foreign liabilities such as currency and money deposits, securities other...
   )
-  Government_Indicators_reverse <- c(
+  WBGovernment_Indicators_reverse <- c(
     #High is BAD
     "GC.DOD.TOTL.GD.ZS", #High is BAD
     #Unemployment, Total (% Of Total Labor Force) (National Estimate)
@@ -401,26 +401,26 @@ if(WB_SDG=="WB"){
     "FP.CPI.TOTL.ZG" #High is BAD
   )  
   
-  Government_Indicators <- c(Government_Indicators, Government_Indicators_reverse)
+  WBGovernment_Indicators <- c(WBGovernment_Indicators, WBGovernment_Indicators_reverse)
   
-  IndicatorsDownloaded <- rbind(cbind(subset(IndicatorList,IndicatorList$indicator %in% Government_Indicators),
-                                      CLUM="Government"),IndicatorsDownloaded)
-  Government_Data <- WB_DataPull_Function(Government_Indicators, 2004, 2007, 2011)
-  Government_Data <- Government_Data[!(Government_Data$country %in% Region_drop),]
-  Government_Data$iso2c <- NULL
+  WBIndicatorsDownloaded <- rbind(cbind(subset(WBIndicatorList,WBIndicatorList$indicator %in% WBGovernment_Indicators),
+                                      CLUM="Government"),WBIndicatorsDownloaded)
+  WBGovernment_Data <- WB_DataPull_Function(WBGovernment_Indicators, 2004, 2007, 2011)
+  WBBovernment_Data <- WBGovernment_Data[!(WBGovernment_Data$country %in% Region_drop),]
+  WBGovernment_Data$iso2c <- NULL
   # Reverse the orders for High is BAD
-  for (i in Government_Indicators_reverse){Government_Data[i] <- 0 - Government_Data[i] + max(Government_Data[i], na.rm = TRUE)
+  for (i in WBGovernment_Indicators_reverse){WBGovernment_Data[i] <- 0 - WBGovernment_Data[i] + max(WBGovernment_Data[i], na.rm = TRUE)
   }
   
   for (i in years){
-    nam <- paste(deparse(substitute(Government_Data)), i, sep = "_") 
-    assign(nam, Government_Data[Government_Data$year==i,])
+    nam <- paste(deparse(substitute(WBGovernment_Data)), i, sep = "_") 
+    assign(nam, WBGovernment_Data[WBGovernment_Data$year==i,])
   }
   
-  remove(Government_Indicators, Government_Indicators_reverse, Government_Data)
+  remove(WBGovernment_Indicators, WBGovernment_Indicators_reverse, WBGovernment_Data)
   
   ##Services Metrics
-  Services_Indicators <- c(
+  WBServices_Indicators <- c(
     # School enrollment, primary and secondary (gross), gender parity index (GPI) 
     "SE.ENR.PRSC.FM.ZS",
     # Hospital beds (per 1,000 people) .  Hospital beds include inpatient beds available in public, private, general, and specialized hospitals and rehabilitation centers. In most cases beds for both acute and chronic care are included. 
@@ -454,7 +454,7 @@ if(WB_SDG=="WB"){
     # CPIA financial sector rating (1=low to 6=high) .  Financial sector assesses the structure of the financial sector and the policies and regulations that affect it. 
     "IQ.CPA.FINS.XQ"
   )
-  Services_Indicators_reverse <- c(
+  WBServices_Indicators_reverse <- c(
     #High is BAD
     # Pupil-teacher ratio, preprimary .  Preprimary school pupil-teacher ratio is the average number of pupils per teacher in preprimary school. 
     "SE.PRE.ENRL.TC.ZS", #High is BAD
@@ -462,26 +462,26 @@ if(WB_SDG=="WB"){
     "SE.PRM.ENRL.TC.ZS" #High is BAD
   )
   
-  Services_Indicators <- c(Services_Indicators, Services_Indicators_reverse)
+  WBServices_Indicators <- c(WBServices_Indicators, WBServices_Indicators_reverse)
   
-  IndicatorsDownloaded <- rbind(cbind(subset(IndicatorList,IndicatorList$indicator %in% Services_Indicators),
-                                      CLUM="Services"),IndicatorsDownloaded)
-  Services_Data <- WB_DataPull_Function(Services_Indicators, 2004, 2007, 2011)
-  Services_Data <- Services_Data[!(Services_Data$country %in% Region_drop),]
-  Services_Data$iso2c <- NULL
+  WBIndicatorsDownloaded <- rbind(cbind(subset(WBIndicatorList,WBIndicatorList$indicator %in% WBServices_Indicators),
+                                      CLUM="Services"),WBIndicatorsDownloaded)
+  WBServices_Data <- WB_DataPull_Function(WBServices_Indicators, 2004, 2007, 2011)
+  WBServices_Data <- WBServices_Data[!(WBServices_Data$country %in% Region_drop),]
+  WBServices_Data$iso2c <- NULL
   # Reverse the orders for High is BAD
-  for (i in Services_Indicators_reverse){Services_Data[i] <- 0 - Services_Data[i] + max(Services_Data[i], na.rm = TRUE)
+  for (i in WBServices_Indicators_reverse){WBServices_Data[i] <- 0 - WBServices_Data[i] + max(WBServices_Data[i], na.rm = TRUE)
   }
   
   for (i in years){
-    nam <- paste(deparse(substitute(Services_Data)), i, sep = "_") 
-    assign(nam, Services_Data[Services_Data$year==i,])
+    nam <- paste(deparse(substitute(WBServices_Data)), i, sep = "_") 
+    assign(nam, WBServices_Data[WBServices_Data$year==i,])
   }
   
-  remove(Services_Indicators, Services_Indicators_reverse, Services_Data)
+  remove(WBServices_Indicators, WBServices_Indicators_reverse, WBServices_Data)
   
   ######Personal Transportation Section
-  Transport_Indicators <- c(
+  WBTransport_Indicators <- c(
     # Urban Road Density (KMs Per 1000 Population) .  Urban roads density is measured in KMs of Urban roads in the area (State, District) divided by population in thousands in that area (State, District). Urban roads are roads within a limits of a Municipality, Military Cantonment, Port o a Railway Authority. 
     "IN.TRANSPORT.URBNRD.DENSIT",
     # Rural Road Density (KMs/1000 Population) .  Rural roads density is measured in KMs of rural roads in the area (State, District) divided by population in thousands in that area (State, District). Rural roads are roads within a district for which the specifications are lower than for district roads.  
@@ -496,37 +496,35 @@ if(WB_SDG=="WB"){
     "IS.ROD.PSGR.K6",
     # Roads, paved (% of total roads) .  Paved roads are those surfaced with crushed stone (macadam) and hydrocarbon binder or bituminized agents, with concrete, or with cobblestones, as a percentage of all the country's roads, measured in length. 
     "IS.ROD.PAVE.ZS",
-    # Air transport, passengers carried .  Air passengers carried include both domestic and international aircraft passengers of air carriers registered in the country. 
-    "IS.AIR.PSGR",
+    #No per cap so outlier for high population countries    # Air transport, passengers carried .  Air passengers carried include both domestic and international aircraft passengers of air carriers registered in the country. 
+                # "IS.AIR.PSGR",
     # Mortality caused by road traffic injury (per 100,000 people) .  Mortality caused by road traffic injury is estimated road traffic fatal injury deaths per 100,000 population. 
     "SH.STA.TRAF.P5"
   )
   
-  # Transport_Indicators_reverse <- c(
-  #)
-  # Transport_Indicators <- c(Transport_Indicators,Transport_Indicators_reverse)
+  WBTransport_Indicators_reverse <- c(
+  )
   
-  IndicatorsDownloaded <- rbind(cbind(subset(IndicatorList,IndicatorList$indicator %in% Transport_Indicators),
-                                      CLUM="Personal Transportation"),IndicatorsDownloaded)
-  Transport_Data <- WB_DataPull_Function(Transport_Indicators, 2004, 2007, 2011)
+  WBTransport_Indicators <- c(WBTransport_Indicators,WBTransport_Indicators_reverse)
   
-  Transport_Data <- Transport_Data[!(Transport_Data$country %in% Region_drop),]
-  Transport_Data$iso2c <- NULL
+  WBIndicatorsDownloaded <- rbind(cbind(subset(WBIndicatorList,WBIndicatorList$indicator %in% WBTransport_Indicators),
+                                      CLUM="Personal Transportation"),WBIndicatorsDownloaded)
+  WBTransport_Data <- WB_DataPull_Function(WBTransport_Indicators, 2004, 2007, 2011)
+  
+  WBTransport_Data <- WBTransport_Data[!(WBTransport_Data$country %in% Region_drop),]
+  WBTransport_Data$iso2c <- NULL
+  
   # Reverse the orders for High is BAD
-  #for (i in Government_Indicators_reverse){Government_Data[i] <- 0 - Government_Data[i] + max(Government_Data[i], na.rm = TRUE)
-  #}
-  
   for (i in years){
-    nam <- paste(deparse(substitute(Transport_Data)), i, sep = "_") 
-    assign(nam, Transport_Data[Transport_Data$year==i,])
+    nam <- paste(deparse(substitute(WBTransport_Data)), i, sep = "_") 
+    assign(nam, WBTransport_Data[WBTransport_Data$year==i,])
   }
   
-  remove(Transport_Indicators, Transport_Data)
-  #,Transport_Indicators_reverse
+  remove(WBTransport_Indicators, WBTransport_Data, WBTransport_Indicators_reverse)
   
   
   ####Housing Section
-  Housing_Indicators <- c(
+  WBHousing_Indicators <- c(
     ##Households With Water On The Premises (%)
     "SG.H2O.PRMS.HH.ZS", #High is good#
     ##Number Of Water Insufficiencies In A Typical Month
@@ -544,24 +542,29 @@ if(WB_SDG=="WB"){
     ##Main Cooking Fuel: LPG/Natural Gas/Biogas (% Of Households)
     "SG.COK.LPGN.ZS" #High is good, low is bad#
   )
-  # Leave out: Percentage of households who do their cooking inside the house # Looks like a gender-health indicator#
-  "SG.COK.HOUS.ZS" #High is NOT good Only 5 countries in dataset. 
+  WBHousing_Indicators_reverse <- c(
   
-  IndicatorsDownloaded <- rbind(cbind(subset(IndicatorList,IndicatorList$indicator %in% Housing_Indicators),
-                                      CLUM="Housing"),IndicatorsDownloaded)
-  Housing_Data <- WB_DataPull_Function(Housing_Indicators, 2004, 2007, 2011)
+    )
+  
+  WBHousing_Indicators <- c(WBHousing_Indicators,WBHousing_Indicators_reverse)
+  
+  WBIndicatorsDownloaded <- rbind(cbind(subset(WBIndicatorList,WBIndicatorList$indicator %in% WBHousing_Indicators),
+                                      CLUM="Housing"),WBIndicatorsDownloaded)
+  WBHousing_Data <- WB_DataPull_Function(WBHousing_Indicators, 2004, 2007, 2011)
   #Housing_Data$country <- trimws(Housing_Data$country, which = c("both", "left", "right"))
-  Housing_Data <- Housing_Data[!(Housing_Data$country %in% as.character(Region_drop)),]
-  Housing_Data$iso2c <- NULL
+  
+  #Filter out regions on the non-NFA country/region list
+  WBHousing_Data <- WBHousing_Data[!(WBHousing_Data$country %in% as.character(Region_drop)),]
+  #Drop iso column
+  WBHousing_Data$iso2c <- NULL
   # Reverse the orders for High is BAD
-  ##Housing (none)
   
   for (i in years){
-    nam <- paste(deparse(substitute(Housing_Data)), i, sep = "_") 
-    assign(nam, Housing_Data[Housing_Data$year==i,])
+    nam <- paste(deparse(substitute(WBHousing_Data)), i, sep = "_") 
+    assign(nam, WBHousing_Data[WBHousing_Data$year==i,])
   }
   
-  remove(Housing_Indicators, Housing_Data)
+  remove(WBHousing_Indicators, WBHousing_Indicators_reverse, WBHousing_Data)
   
   ## Goods is now from different data source - in ass_pov_final.csv
   ##Goods Metrics (Prelminary from Scott) 
@@ -570,16 +573,16 @@ if(WB_SDG=="WB"){
   # linked to http://ophi.org.uk/multidimensional-poverty-index/global-mpi-2017/mpi-data/ has asset poverty measures for many countires.
   # Food_Beverages_Tobacco <- "NV.MNF.FBTO.ZS.UN"
   # Textiles_Clothing <- "NV.MNF.TXTL.ZS.UN"
-  Goods_Data <- read.csv("./ass_pov_final.csv")
+  WBGoods_Data <- read.csv("./ass_pov_final.csv")
   # Reverse the orders for High is BAD
-  Goods_Data$ass_pov_extr <- 0-Goods_Data$ass_pov_extr+max(Goods_Data$ass_pov_extr, na.rm = TRUE)
+  WBGoods_Data$ass_pov_extr <- 0-WBGoods_Data$ass_pov_extr+max(WBGoods_Data$ass_pov_extr, na.rm = TRUE)
   for (i in years){
-    nam <- paste(deparse(substitute(Goods_Data)), i, sep = "_") 
-    assign(nam, Goods_Data[Goods_Data$year ==i,])
+    nam <- paste(deparse(substitute(WBGoods_Data)), i, sep = "_") 
+    assign(nam, WBGoods_Data[WBGoods_Data$year ==i,])
   }
   
   #Add a row for Goods Data, including that it's needed for the plot function
-  GoodsDL <- cbind.data.frame(
+  WBGoodsDL <- cbind.data.frame(
     "No.Code",
     "Percentage of population experiencing 'asset poverty'",
     "People not owning a radio, TV, telephone, bicycle, motorbike, or
@@ -588,56 +591,34 @@ if(WB_SDG=="WB"){
     "Oxford University",
     "Goods"
   )
-  colnames(GoodsDL) <- colnames(IndicatorsDownloaded)
-  IndicatorsDownloaded <- rbind(IndicatorsDownloaded,GoodsDL)
+  colnames(WBGoodsDL) <- colnames(WBIndicatorsDownloaded)
+  WBIndicatorsDownloaded <- rbind(WBIndicatorsDownloaded,WBGoodsDL)
   
-  Indicators_Nodownloads <- as.data.frame(names(warnings()))
+  # Collect Warnings (listing series not DLoaded) to include in file
+  WBIndicators_Nodownloads <- as.data.frame(names(warnings()))
   
   #Output WB Indicators info, and list of what was not downloaded at all at the end
-  write.csv(IndicatorsDownloaded,"./IndicatorsDLed.csv")
-  cat("\n Not Downloaded (and other warnings) \n", file = "./IndicatorsDLed.csv", append = TRUE) 
-  write.table(Indicators_Nodownloads,"./IndicatorsDLed.csv",
+  write.csv(WBIndicatorsDownloaded,"./WBIndicatorsDLed.csv")
+  cat("\n Not Downloaded (and other warnings) \n", file = "./WBIndicatorsDLed.csv", append = TRUE) 
+  write.table(WBIndicators_Nodownloads,"./WBIndicatorsDLed.csv",
               append = TRUE, col.names=FALSE)
-  
+#From if WB  
+#}
 }
-
-
-CLUMcat <- "Services"
-Indicators <- c(
-  # Health worker density, by type of occupation (per 1,000 population)
-  "SH_MED_HEAWOR",
-  #  Minimum proficiency in mathematics, by education level and sex (%)
-  "SE_MAT_PROF",
-  # Schools with access toÂ computers for pedagogical purposes, by education level (%)
-  "SE_ACC_COMP",
-  # Proportion of teachers who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country, by education level (%)
-  "SE_TRA_GRDL",
-  # Proportion of population with access to electricity, by urban/rural (%)
-  "EG_ELC_ACCS",
-  # Proportion of population covered by a mobile network, by technology (%)
-  "IT_MOB_NTWK",
-  # Municipal Solid Waste collection coverage, by cities (%)
-  "EN_REF_WASCOL",
-  # Number of fixed Internet broadband subscriptions, by speed (number)
-  "IT_NET_BBN")
-  #Indicators to be Reversed
-Indicators_rev <-   c(
-    # Proportion of population practicing open defecation, by urban/rural (%)
-    "SH_SAN_DEFECT" )
-
+# SDG Data split section
+{
 ### Funtion to select Indiactors and organise (for SDG Indicators data)
-CLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
+SDGCLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
+  # Just making variable names for each CLUM category list of series
   assign(paste(CLUMcat,"reversed", sep = "_"), "")
   assign('All_Indicatorsforward', Indicators, envir = parent.frame())
   assign('All_Indicatorsreversed', Indicators_rev, envir = parent.frame())
   All_Indicators <- c(if(!is.null(All_Indicatorsforward)){All_Indicatorsforward},
                       if(!is.null(All_Indicatorsreversed)){All_Indicatorsreversed})
-  Data <-
-    subset(SDGdata,
+  Data <- subset(SDGdata,
            SDGdata$series %in% All_Indicators &
            #SDGdata$series %in% c(All_Indicatorsforward,All_Indicatorsreversed) &
              SDGdata$timePeriodStart %in% years)
-  
   Data_cols <- c("series", "geoAreaName", "timePeriodStart", "value")
   Data <- Data[Data_cols]
   Data <- Data[!(Data$geoAreaName %in% Region_drop),]
@@ -645,7 +626,19 @@ CLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
   #setDT(Data)
   ## Deals with the mulitple values for each country for a series in a year (but unclear why they exist)
   Data <-
-    reshape2::dcast(Data, geoAreaName + timePeriodStart ~ series, value.var = 'value', fun.aggregate=mean)
+    try(reshape2::dcast(Data, geoAreaName + timePeriodStart ~ series, value.var = 'value', fun.aggregate=mean))
+  # A try to give a message if none of the data series exist
+  if(class(Data) == "try-error"){
+    error_type <- attr(Data,"condition")
+  #  print(class(error_type))
+  #  print(error_type$message)
+    if(error_type$message == "dims [product 1] do not match the length of object [0]"){
+    #   cat("***None of the listed data series exist: you need to look for other data series with\n
+    # View(SDGIndicators)\n
+    #       or***\n")
+      cat("***None of the listed data series exist: you need to look for other data series with\n View(SDGIndicators)\n or in the AllSDGiList.csv ***\n")
+    }
+  }
   #return(Data)
   # Reverse the orders for High is BAD
   if (paste(CLUMcat,"reversed", sep = "_")!="done"){
@@ -659,39 +652,46 @@ CLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
       }
     }
     for (i in years) {
-      nam <- paste(CLUMcat,"Data", i, sep = "_")
+      nam <- paste("SDG",CLUMcat,"Data", i, sep = "_")
       assign(nam, Data[Data$timePeriodStart == i,], envir = parent.frame())
     }
     assign(paste(CLUMcat,"reversed", sep = "_"), "done", envir = parent.frame())
   }
 }
 
-if (WB_SDG == "SDG") {
+#if (WB_SDG == "SDG") {
+# Initialise the dataframe for holding the data
   SDGIndicatorsDownloaded <- data.frame()
   
-  CLUMsplit("Food",
+  # Organise data series by CLUM category with CLUMsplit function, and add to separate lists for reference
+  ####
+  
+  SDGCLUMsplit("Food",
             c(),
             #Indicators to be Reversed
             c("SN_ITK_DEFC","SH_STA_STUNT","SH_STA_OVRWGT"))
-  # Add SDG Indicators elected to the list by CLUM category
+  # Add SDG Indicators selected to the list by CLUM category, but only if they are IN the CURRENT data
   IndicatorsListF <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsforward]),
                           unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsforward]),
                           "Food", "Fwd")
   IndicatorsListR <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsreversed]),
                           unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsreversed]),
                           "Food", "Reversed")
-  SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,if(ncol(IndicatorsListF)==4){IndicatorsListF}, if(ncol(IndicatorsListR)==4){IndicatorsListR})
+  SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,
+                                    if(ncol(IndicatorsListF)==4){IndicatorsListF}, 
+                                    if(ncol(IndicatorsListR)==4){IndicatorsListR})
 
-  CLUMsplit("Government",c(
+  
+  SDGCLUMsplit("Government",c(
     #  Proportion of population covered by labour market programs (%)
     "SI_COV_LMKT",
-    # Countries with procedures in law or policy for participation by service users/communities in planning program in rural drinking-water supply, by level of definition in procedures (10 = Clearly defined; 5 = Not clearly defined ; 0 = NA)
-    #    "ER_H2O_PRDU", not in the data for those years
+          # Countries with procedures in law or policy for participation by service users/communities in planning program in rural drinking-water supply, by level of definition in procedures (10 = Clearly defined; 5 = Not clearly defined ; 0 = NA)
+          #    "ER_H2O_PRDU", not in the data for those years
     # Countries that have conducted at least one population and housing census in the last 10 years (1 = YES; 0 = NO)
     "SG_REG_CENSUSN"),
     #Indicators to be Reversed
     c())
-  # Add SDG Indicators elected to the list by CLUM category
+  # Add SDG Indicators selected to the list by CLUM category, but only if they are IN the CURRENT data
   IndicatorsListF <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsforward]),
                            unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsforward]),
                            "Government", "Fwd")
@@ -701,7 +701,7 @@ if (WB_SDG == "SDG") {
   SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,if(ncol(IndicatorsListF)==4){IndicatorsListF},
                                     if(ncol(IndicatorsListR)==4){IndicatorsListR})
   
-  CLUMsplit("Services",c(
+  SDGCLUMsplit("Services",c(
     # Health worker density, by type of occupation (per 1,000 population)
     "SH_MED_HEAWOR",
     #  Minimum proficiency in mathematics, by education level and sex (%)
@@ -722,9 +722,8 @@ if (WB_SDG == "SDG") {
     c(
       # Proportion of population practicing open defecation, by urban/rural (%)
       "SH_SAN_DEFECT"
-      
     ))
-  # Add SDG Indicators elected to the list by CLUM category
+  # Add SDG Indicators selected to the list by CLUM category, but only if they are IN the CURRENT data
   IndicatorsListF <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsforward]),
                            unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsforward]),
                            "Services", "Fwd")
@@ -734,7 +733,7 @@ if (WB_SDG == "SDG") {
   SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,if(ncol(IndicatorsListF)==4){IndicatorsListF},
                                     if(ncol(IndicatorsListR)==4){IndicatorsListR})
  
-  CLUMsplit("Goods",c(# Proportion of population using safely managed drinking water services, by urban/rural (%)
+  SDGCLUMsplit("Goods",c(# Proportion of population using safely managed drinking water services, by urban/rural (%)
     "SH_H2O_SAFE",  # Annual growth rate of real GDP per capita (%)
     "NY_GDP_PCAP",  # Domestic material consumption per capita, by type of raw material (tonnes)
     "EN_MAT_DOMCMPC", # Internet users per 100 inhabitants
@@ -752,18 +751,18 @@ if (WB_SDG == "SDG") {
   SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,if(ncol(IndicatorsListF)==4){IndicatorsListF},
                                     if(ncol(IndicatorsListR)==4){IndicatorsListR})
   
-  CLUMsplit("Housing", c("SP_ACS_BSRVH2O",
+  SDGCLUMsplit("Housing", c("SP_ACS_BSRVH2O",
   #Proportion of population using basic drinking water services; by location (%)
-                         "SP_ACS_BSRVSAN",
+  "SP_ACS_BSRVSAN",
   #Proportion of population using basic sanitation services; by location (%)
-                         "SH_SAN_HNDWSH"
+  "SH_SAN_HNDWSH"
   #Proportion of population with basic handwashing facilities on premises; by urban/rural (%)
   ),
   #Indicators to be Reversed
   c("SH_SAN_DEFECT"
   #Proportion of population practicing open defecation; by urban/rural (%)
   ))
-  # Add SDG Indicators elected to the list by CLUM category
+  # Add SDG Indicators selected to the list by CLUM category, but only if they are IN the CURRENT data
   IndicatorsListF <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsforward]),
                            unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsforward]),
                            "Housing", "Fwd")
@@ -773,10 +772,17 @@ if (WB_SDG == "SDG") {
   SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,if(ncol(IndicatorsListF)==4){IndicatorsListF},
                                     if(ncol(IndicatorsListR)==4){IndicatorsListR})
   
-  CLUMsplit("Transport", c(), c(# Death rate due to road traffic injuries (per 100,000 population)
-    "SH_STA_TRAF"
+  SDGCLUMsplit("Transport",
+            c(
+              #Proportion of the rural population who live within 2 km of an all-season road
+              "SP_ROD_R2KM"
+            ),
+            c(
+              # Death rate due to road traffic injuries (per 100,000 population)
+              #####No longer available as of 12/20/2020 
+              "SH_STA_TRAF"
   ))
-  # Add SDG Indicators elected to the list by CLUM category
+  # Add SDG Indicators selected to the list by CLUM category, but only if they are IN the CURRENT data
   IndicatorsListF <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsforward]),
                            unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsforward]),
                            "Transport", "Fwd")
@@ -786,7 +792,7 @@ if (WB_SDG == "SDG") {
   SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,if(ncol(IndicatorsListF)==4){IndicatorsListF},
                                     if(ncol(IndicatorsListR)==4){IndicatorsListR})
 
-  CLUMsplit("GFCF", c(
+  SDGCLUMsplit("GFCF", c(
     # Number of automated teller machines (ATMs) per 100,000 adults
     "FB_ATM_TOTL",
     # Research and development expenditure as a proportion of GDP (%)
@@ -795,7 +801,7 @@ if (WB_SDG == "SDG") {
     # Direct agriculture loss attributed to disasters, by hazard type (millions of current United States dollars)
     "VC_DSR_AGLH"
     ))
-  # Add SDG Indicators elected to the list by CLUM category
+  # Add SDG Indicators selected to the list by CLUM category, but only if they are IN the CURRENT data
   IndicatorsListF <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsforward]),
                            unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsforward]),
                            "GFCF", "Fwd")
@@ -807,9 +813,13 @@ if (WB_SDG == "SDG") {
   
   colnames(SDGIndicatorsDownloaded) <- c("indicator", "description", "CLUM", "Forw_Revd")
   write.csv(SDGIndicatorsDownloaded, "./SDGIndicatorsDownloaded.csv")
+#From if SDG
+#  }
 }
 
+######
 ## Get rid of indicators that have more NAs/NA_factor (eg. 1/2 if NA_factor is 2., .8 if NA_factor is 1.25 etc.
+######
 NARemove_Fun <- function(data, NA_factor){
   ##Count NAs by column to remove columns with lots of NAs
   na_count <-sapply(data, function(y) sum(length(which(is.na(y)))))
@@ -839,31 +849,48 @@ NARemove_Fun <- function(data, NA_factor){
 #           #Indicators to be Reversed
 #           c("SN_ITK_DEFC","SH_STA_STUNT","SH_STA_OVRWGT"))
 
-# Drop indicators that have more than 1/NA factor proportion of NAs
-FoodData_NoNAs_2004 <- NARemove_Fun(Food_Data_2004, 2) #; remove(Food_Data_2004)
-FoodData_NoNAs_2007 <- NARemove_Fun(Food_Data_2007, 2); remove(Food_Data_2007)
-FoodData_NoNAs_2011 <- NARemove_Fun(Food_Data_2011, 2); remove(Food_Data_2011)
-GovernmentData_NoNAs_2004 <- NARemove_Fun(Government_Data_2004, 2); remove(Government_Data_2004)
-GovernmentData_NoNAs_2007 <- NARemove_Fun(Government_Data_2007, 2); remove(Government_Data_2007)
-GovernmentData_NoNAs_2011 <- NARemove_Fun(Government_Data_2011, 2); remove(Government_Data_2011)
-ServicesData_NoNAs_2004 <- NARemove_Fun(Services_Data_2004, 2); remove(Services_Data_2004)
-ServicesData_NoNAs_2007 <- NARemove_Fun(Services_Data_2007, 2); remove(Services_Data_2007)
-ServicesData_NoNAs_2011 <- NARemove_Fun(Services_Data_2011, 2); remove(Services_Data_2011)
-TransportData_NoNAs_2004 <- NARemove_Fun(Transport_Data_2004, 1.25); remove(Transport_Data_2004)
-TransportData_NoNAs_2007 <- NARemove_Fun(Transport_Data_2007, 1.25); remove(Transport_Data_2007)
-TransportData_NoNAs_2011 <- NARemove_Fun(Transport_Data_2011, 1.25); remove(Transport_Data_2011)
-HousingData_NoNAs_2004 <- NARemove_Fun(Housing_Data_2004, 1.25); remove(Housing_Data_2004)
-HousingData_NoNAs_2007 <- NARemove_Fun(Housing_Data_2007, 1.25); remove(Housing_Data_2007)
-HousingData_NoNAs_2011 <- NARemove_Fun(Housing_Data_2011, 1.25); remove(Housing_Data_2011)
-Goods_Data_NoNAs_2004 <- NARemove_Fun(Goods_Data_2004, 2); remove(Goods_Data_2004)
-Goods_Data_NoNAs_2007 <- NARemove_Fun(Goods_Data_2007, 2); remove(Goods_Data_2007)
-Goods_Data_NoNAs_2011 <- NARemove_Fun(Goods_Data_2011, 2); remove(Goods_Data_2011)
+# Drop indicators that have more than 1/NA factor proportion of NAs for World Bank (and goods) data
+WBFoodData_NoNAs_2004 <- NARemove_Fun(WBFood_Data_2004, 2); remove(WBFood_Data_2004)
+WBFoodData_NoNAs_2007 <- NARemove_Fun(WBFood_Data_2007, 2); remove(WBFood_Data_2007)
+WBFoodData_NoNAs_2011 <- NARemove_Fun(WBFood_Data_2011, 2); remove(WBFood_Data_2011)
+WBGovernmentData_NoNAs_2004 <- NARemove_Fun(WBGovernment_Data_2004, 2); remove(WBGovernment_Data_2004)
+WBGovernmentData_NoNAs_2007 <- NARemove_Fun(WBGovernment_Data_2007, 2); remove(WBGovernment_Data_2007)
+WBGovernmentData_NoNAs_2011 <- NARemove_Fun(WBGovernment_Data_2011, 2); remove(WBGovernment_Data_2011)
+WBServicesData_NoNAs_2004 <- NARemove_Fun(WBServices_Data_2004, 2); remove(WBServices_Data_2004)
+WBServicesData_NoNAs_2007 <- NARemove_Fun(WBServices_Data_2007, 2); remove(WBServices_Data_2007)
+WBServicesData_NoNAs_2011 <- NARemove_Fun(WBServices_Data_2011, 2); remove(WBServices_Data_2011)
+WBTransportData_NoNAs_2004 <- NARemove_Fun(WBTransport_Data_2004, 1.25); remove(WBTransport_Data_2004)
+WBTransportData_NoNAs_2007 <- NARemove_Fun(WBTransport_Data_2007, 1.25); remove(WBTransport_Data_2007)
+WBTransportData_NoNAs_2011 <- NARemove_Fun(WBTransport_Data_2011, 1.25); remove(WBTransport_Data_2011)
+WBHousingData_NoNAs_2004 <- NARemove_Fun(WBHousing_Data_2004, 1.25); remove(WBHousing_Data_2004)
+WBHousingData_NoNAs_2007 <- NARemove_Fun(WBHousing_Data_2007, 1.25); remove(WBHousing_Data_2007)
+WBHousingData_NoNAs_2011 <- NARemove_Fun(WBHousing_Data_2011, 1.25); remove(WBHousing_Data_2011)
+WBGoods_Data_NoNAs_2004 <- NARemove_Fun(WBGoods_Data_2004, 2); remove(WBGoods_Data_2004)
+WBGoods_Data_NoNAs_2007 <- NARemove_Fun(WBGoods_Data_2007, 2); remove(WBGoods_Data_2007)
+WBGoods_Data_NoNAs_2011 <- NARemove_Fun(WBGoods_Data_2011, 2); remove(WBGoods_Data_2011)
 
-if (WB_SDG == "SDG") {
-  GFCF_Data_NoNAs_2004 <- NARemove_Fun(GFCF_Data_2004, 2); remove(GFCF_Data_2004)
-  GFCF_Data_NoNAs_2007 <- NARemove_Fun(GFCF_Data_2007, 2); remove(GFCF_Data_2007)
-  GFCF_Data_NoNAs_2011 <- NARemove_Fun(GFCF_Data_2011, 2); remove(GFCF_Data_2011)
-}
+# Drop indicators that have more than 1/NA factor proportion of NAs for SDG data
+SDGFoodData_NoNAs_2004 <- NARemove_Fun(SDG_Food_Data_2004, 2) ; remove(SDG_Food_Data_2004)
+SDGFoodData_NoNAs_2007 <- NARemove_Fun(SDG_Food_Data_2007, 2); remove(SDG_Food_Data_2007)
+SDGFoodData_NoNAs_2011 <- NARemove_Fun(SDG_Food_Data_2011, 2); remove(SDG_Food_Data_2011)
+SDGGovernmentData_NoNAs_2004 <- NARemove_Fun(SDG_Government_Data_2004, 2); remove(SDG_Government_Data_2004)
+SDGGovernmentData_NoNAs_2007 <- NARemove_Fun(SDG_Government_Data_2007, 2); remove(SDG_Government_Data_2007)
+SDGGovernmentData_NoNAs_2011 <- NARemove_Fun(SDG_Government_Data_2011, 2); remove(SDG_Government_Data_2011)
+SDGServicesData_NoNAs_2004 <- NARemove_Fun(SDG_Services_Data_2004, 2); remove(SDG_Services_Data_2004)
+SDGServicesData_NoNAs_2007 <- NARemove_Fun(SDG_Services_Data_2007, 2); remove(SDG_Services_Data_2007)
+SDGServicesData_NoNAs_2011 <- NARemove_Fun(SDG_Services_Data_2011, 2); remove(SDG_Services_Data_2011)
+SDGTransportData_NoNAs_2004 <- NARemove_Fun(SDG_Transport_Data_2004, 1.25); remove(SDG_Transport_Data_2004)
+SDGTransportData_NoNAs_2007 <- NARemove_Fun(SDG_Transport_Data_2007, 1.25); remove(SDG_Transport_Data_2007)
+SDGTransportData_NoNAs_2011 <- NARemove_Fun(SDG_Transport_Data_2011, 1.25); remove(SDG_Transport_Data_2011)
+SDGHousingData_NoNAs_2004 <- NARemove_Fun(SDG_Housing_Data_2004, 1.25); remove(SDG_Housing_Data_2004)
+SDGHousingData_NoNAs_2007 <- NARemove_Fun(SDG_Housing_Data_2007, 1.25); remove(SDG_Housing_Data_2007)
+SDGHousingData_NoNAs_2011 <- NARemove_Fun(SDG_Housing_Data_2011, 1.25); remove(SDG_Housing_Data_2011)
+SDGGoods_Data_NoNAs_2004 <- NARemove_Fun(SDG_Goods_Data_2004, 2); remove(SDG_Goods_Data_2004)
+SDGGoods_Data_NoNAs_2007 <- NARemove_Fun(SDG_Goods_Data_2007, 2); remove(SDG_Goods_Data_2007)
+SDGGoods_Data_NoNAs_2011 <- NARemove_Fun(SDG_Goods_Data_2011, 2); remove(SDG_Goods_Data_2011)
+SDGGFCF_Data_NoNAs_2004 <- NARemove_Fun(SDG_GFCF_Data_2004, 2); remove(SDG_GFCF_Data_2004)
+SDGGFCF_Data_NoNAs_2007 <- NARemove_Fun(SDG_GFCF_Data_2007, 2); remove(SDG_GFCF_Data_2007)
+SDGGFCF_Data_NoNAs_2011 <- NARemove_Fun(SDG_GFCF_Data_2011, 2); remove(SDG_GFCF_Data_2011)
 
 #Create a min-max range version of all remaining data to normalize btw 0 and 1, then aggregate with Averaging
 ####Max/Min function calculation####
@@ -899,65 +926,26 @@ MaxMin_Fun <- function(data, category){
 # datamatrix$NAPercent <- (rowSums(is.na(datamatrix))/max(rowSums(is.na(datamatrix))))*100
 # datamatrix <- datamatrix[,c(1:2,(ncol(datamatrix)-2):ncol(datamatrix))]
 
-FoodData_MaxMin_2004 <- MaxMin_Fun(FoodData_NoNAs_2004, "Food")
-FoodData_MaxMin_2007 <- MaxMin_Fun(FoodData_NoNAs_2007, "Food")
-FoodData_MaxMin_2011 <- MaxMin_Fun(FoodData_NoNAs_2011, "Food")
-FoodData_MaxMin <- rbind(FoodData_MaxMin_2004,FoodData_MaxMin_2007,FoodData_MaxMin_2011)
-remove(FoodData_MaxMin_2004,FoodData_MaxMin_2007,FoodData_MaxMin_2011)
-GovernmentData_MaxMin_2004 <- MaxMin_Fun(GovernmentData_NoNAs_2004, "Government")
-GovernmentData_MaxMin_2007 <- MaxMin_Fun(GovernmentData_NoNAs_2007, "Government")
-GovernmentData_MaxMin_2011 <- MaxMin_Fun(GovernmentData_NoNAs_2011, "Government")
-GovernmentData_MaxMin <- rbind(GovernmentData_MaxMin_2004,GovernmentData_MaxMin_2007,GovernmentData_MaxMin_2011)
-remove(GovernmentData_MaxMin_2004,GovernmentData_MaxMin_2007,GovernmentData_MaxMin_2011)
-ServicesData_MaxMin_2004 <- MaxMin_Fun(ServicesData_NoNAs_2004, "Services")
-ServicesData_MaxMin_2007 <- MaxMin_Fun(ServicesData_NoNAs_2007, "Services")
-ServicesData_MaxMin_2011 <- MaxMin_Fun(ServicesData_NoNAs_2011, "Services")
-ServicesData_MaxMin <- rbind(ServicesData_MaxMin_2004,ServicesData_MaxMin_2007,ServicesData_MaxMin_2011)
-remove(ServicesData_MaxMin_2004,ServicesData_MaxMin_2007,ServicesData_MaxMin_2011)
-TransportData_MaxMin_2004 <- MaxMin_Fun(TransportData_NoNAs_2004, "Personal Transportation")
-TransportData_MaxMin_2007 <- MaxMin_Fun(TransportData_NoNAs_2007, "Personal Transportation")
-TransportData_MaxMin_2011 <- MaxMin_Fun(TransportData_NoNAs_2011, "Personal Transportation")
-TransportData_MaxMin <- rbind(TransportData_MaxMin_2004,TransportData_MaxMin_2007, TransportData_MaxMin_2011)
-remove(TransportData_MaxMin_2004,TransportData_MaxMin_2007, TransportData_MaxMin_2011)
-if (WB_SDG == "SDG") {
-#  HousingData_MaxMin_2004 <- MaxMin_Fun(HousingData_NoNAs_2004, "Housing")
-  HousingData_MaxMin_2007 <- MaxMin_Fun(HousingData_NoNAs_2007, "Housing")
-  HousingData_MaxMin_2011 <- MaxMin_Fun(HousingData_NoNAs_2011, "Housing")
-  HousingData_MaxMin <- rbind(
-    #HousingData_MaxMin_2004,
-    HousingData_MaxMin_2007, HousingData_MaxMin_2011)
-  remove(
-#    HousingData_MaxMin_2004,
-    HousingData_MaxMin_2007, HousingData_MaxMin_2011)
-  Goods_Data_MaxMin_2004 <- MaxMin_Fun(Goods_Data_NoNAs_2004, "Goods")
-  Goods_Data_MaxMin_2007 <- MaxMin_Fun(Goods_Data_NoNAs_2007, "Goods")
-  Goods_Data_MaxMin_2011 <- MaxMin_Fun(Goods_Data_NoNAs_2011, "Goods")
-  Goods_Data_MaxMin <- rbind(Goods_Data_MaxMin_2004,Goods_Data_MaxMin_2007, Goods_Data_MaxMin_2011)
-  remove(Goods_Data_MaxMin_2004,Goods_Data_MaxMin_2007, Goods_Data_MaxMin_2011)
-  GFCF_Data_MaxMin_2004 <- MaxMin_Fun(GFCF_Data_NoNAs_2004, "Gross Fixed Capital Formation")
-  GFCF_Data_MaxMin_2007 <- MaxMin_Fun(GFCF_Data_NoNAs_2007, "Gross Fixed Capital Formation")
-  GFCF_Data_MaxMin_2011 <- MaxMin_Fun(GFCF_Data_NoNAs_2011, "Gross Fixed Capital Formation")
-  GFCF_Data_MaxMin <- rbind(GFCF_Data_MaxMin_2004,GFCF_Data_MaxMin_2007, GFCF_Data_MaxMin_2011)
-  remove(GFCF_Data_MaxMin_2004,GFCF_Data_MaxMin_2007, GFCF_Data_MaxMin_2011)
-}  
-  
-if (WB_SDG == "WB") {
-##For Housing data, only one column and already 0 to 100
-
-HousingData_MaxMin <- rbind(HousingData_NoNAs_2004,HousingData_NoNAs_2007,HousingData_NoNAs_2011)
-colnames(HousingData_MaxMin) <- c("country", "year", "MaxMin_Index")
-HousingData_MaxMin$MaxMin_Index <- HousingData_MaxMin$MaxMin_Index/100
-HousingData_MaxMin$CLUM_category <- "Housing"
-HousingData_MaxMin$NAPercent <- (rowSums(is.na(HousingData_MaxMin))/max(rowSums(is.na(HousingData_MaxMin))))*100
-
-##For Goods Data, just rename column
-Goods_Data_MaxMin <- Goods_Data
-colnames(Goods_Data_MaxMin) <- c("country", "year", "MaxMin_Index")
-Goods_Data_MaxMin$MaxMin_Index <- Goods_Data_MaxMin$MaxMin_Index/
-  max(Goods_Data_MaxMin$MaxMin_Index, na.rm = TRUE)
-Goods_Data_MaxMin$CLUM_category <- "Goods"
-Goods_Data_MaxMin$NAPercent <- (rowSums(is.na(Goods_Data))/max(rowSums(is.na(Goods_Data))))*100
-
+WBFoodData_MaxMin_2004 <- MaxMin_Fun(WBFoodData_NoNAs_2004, "Food")
+WBFoodData_MaxMin_2007 <- MaxMin_Fun(WBFoodData_NoNAs_2007, "Food")
+WBFoodData_MaxMin_2011 <- MaxMin_Fun(WBFoodData_NoNAs_2011, "Food")
+WBFoodData_MaxMin <- rbind(WBFoodData_MaxMin_2004,WBFoodData_MaxMin_2007,WBFoodData_MaxMin_2011)
+remove(WBFoodData_MaxMin_2004,WBFoodData_MaxMin_2007,WBFoodData_MaxMin_2011)
+WBGovernmentData_MaxMin_2004 <- MaxMin_Fun(WBGovernmentData_NoNAs_2004, "Government")
+WBGovernmentData_MaxMin_2007 <- MaxMin_Fun(WBGovernmentData_NoNAs_2007, "Government")
+WBGovernmentData_MaxMin_2011 <- MaxMin_Fun(WBGovernmentData_NoNAs_2011, "Government")
+WBGovernmentData_MaxMin <- rbind(WBGovernmentData_MaxMin_2004,WBGovernmentData_MaxMin_2007,WBGovernmentData_MaxMin_2011)
+remove(WBGovernmentData_MaxMin_2004,WBGovernmentData_MaxMin_2007,WBGovernmentData_MaxMin_2011)
+WBServicesData_MaxMin_2004 <- MaxMin_Fun(WBServicesData_NoNAs_2004, "Services")
+WBServicesData_MaxMin_2007 <- MaxMin_Fun(WBServicesData_NoNAs_2007, "Services")
+WBServicesData_MaxMin_2011 <- MaxMin_Fun(WBServicesData_NoNAs_2011, "Services")
+WBServicesData_MaxMin <- rbind(WBServicesData_MaxMin_2004,WBServicesData_MaxMin_2007,WBServicesData_MaxMin_2011)
+remove(WBServicesData_MaxMin_2004,WBServicesData_MaxMin_2007,WBServicesData_MaxMin_2011)
+WBTransportData_MaxMin_2004 <- MaxMin_Fun(WBTransportData_NoNAs_2004, "Personal Transportation")
+WBTransportData_MaxMin_2007 <- MaxMin_Fun(WBTransportData_NoNAs_2007, "Personal Transportation")
+WBTransportData_MaxMin_2011 <- MaxMin_Fun(WBTransportData_NoNAs_2011, "Personal Transportation")
+WBTransportData_MaxMin <- rbind(WBTransportData_MaxMin_2004,WBTransportData_MaxMin_2007, WBTransportData_MaxMin_2011)
+remove(WBTransportData_MaxMin_2004,WBTransportData_MaxMin_2007, WBTransportData_MaxMin_2011)
 #Single column version
 ######  Transport if there is only 1 column (eg. if the NA_Factor for Transport is 2)
 # colnames(TransportData_NoNAs) <- c("iso2c", "country", "MaxMin_Index", "year")
@@ -965,16 +953,72 @@ Goods_Data_MaxMin$NAPercent <- (rowSums(is.na(Goods_Data))/max(rowSums(is.na(Goo
 # TransportData_NoNAs$CLUM_category <- "Personal Transportation"
 # TransportData_NoNAs$NAPercent <- (rowSums(is.na(TransportData_NoNAs))/max(rowSums(is.na(TransportData_NoNAs))))*100
 # TransportData_MaxMin <- TransportData_NoNAs[,c(2:6)]
-}
+
+##For WB Housing data, only one column and already 0 to 100
+WBHousingData_MaxMin <- rbind(WBHousingData_NoNAs_2004,WBHousingData_NoNAs_2007,WBHousingData_NoNAs_2011)
+colnames(WBHousingData_MaxMin) <- c("country", "year", "MaxMin_Index")
+WBHousingData_MaxMin$MaxMin_Index <- WBHousingData_MaxMin$MaxMin_Index/100
+WBHousingData_MaxMin$CLUM_category <- "Housing"
+WBHousingData_MaxMin$NAPercent <- (rowSums(is.na(WBHousingData_MaxMin))/max(rowSums(is.na(WBHousingData_MaxMin))))*100
+##For Goods Data, just rename column
+WBGoods_Data_MaxMin <- WBGoods_Data
+colnames(WBGoods_Data_MaxMin) <- c("country", "year", "MaxMin_Index")
+WBGoods_Data_MaxMin$MaxMin_Index <- WBGoods_Data_MaxMin$MaxMin_Index/
+  max(WBGoods_Data_MaxMin$MaxMin_Index, na.rm = TRUE)
+WBGoods_Data_MaxMin$CLUM_category <- "Goods"
+WBGoods_Data_MaxMin$NAPercent <- (rowSums(is.na(WBGoods_Data))/max(rowSums(is.na(WBGoods_Data))))*100
+
+SDGFoodData_MaxMin_2004 <- MaxMin_Fun(SDGFoodData_NoNAs_2004, "Food")
+SDGFoodData_MaxMin_2007 <- MaxMin_Fun(SDGFoodData_NoNAs_2007, "Food")
+SDGFoodData_MaxMin_2011 <- MaxMin_Fun(SDGFoodData_NoNAs_2011, "Food")
+SDGFoodData_MaxMin <- rbind(SDGFoodData_MaxMin_2004,SDGFoodData_MaxMin_2007, SDGFoodData_MaxMin_2011)
+  remove(SDGFoodData_MaxMin_2004,SDGFoodData_MaxMin_2007,SDGFoodData_MaxMin_2011)
+SDGGovernmentData_MaxMin_2004 <- MaxMin_Fun(SDGGovernmentData_NoNAs_2004, "Government")
+SDGGovernmentData_MaxMin_2007 <- MaxMin_Fun(SDGGovernmentData_NoNAs_2007, "Government")
+SDGGovernmentData_MaxMin_2011 <- MaxMin_Fun(SDGGovernmentData_NoNAs_2011, "Government")
+SDGGovernmentData_MaxMin <- rbind(SDGGovernmentData_MaxMin_2004,SDGGovernmentData_MaxMin_2007, SDGGovernmentData_MaxMin_2011)
+  remove(SDGGovernmentData_MaxMin_2004,SDGGovernmentData_MaxMin_2007,SDGGovernmentData_MaxMin_2011)
+SDGServicesData_MaxMin_2004 <- MaxMin_Fun(SDGServicesData_NoNAs_2004, "Services")
+SDGServicesData_MaxMin_2007 <- MaxMin_Fun(SDGServicesData_NoNAs_2007, "Services")
+SDGServicesData_MaxMin_2011 <- MaxMin_Fun(SDGServicesData_NoNAs_2011, "Services")
+SDGServicesData_MaxMin <- rbind(SDGServicesData_MaxMin_2004,SDGServicesData_MaxMin_2007,SDGServicesData_MaxMin_2011)
+  remove(SDGServicesData_MaxMin_2004,SDGServicesData_MaxMin_2007,SDGServicesData_MaxMin_2011)
+#Temp fix to ignore 2004 and 2007 Transport because there is not data right now
+try(SDGTransportData_MaxMin_2004 <- MaxMin_Fun(SDGTransportData_NoNAs_2004, "Personal Transportation"))
+try(SDGTransportData_MaxMin_2007 <- MaxMin_Fun(SDGTransportData_NoNAs_2007, "Personal Transportation"))
+SDGTransportData_MaxMin_2011 <- MaxMin_Fun(SDGTransportData_NoNAs_2011, "Personal Transportation")
+SDGTransportData_MaxMin <- rbind(if(exists("SDGTransportData_MaxMin_2004")){SDGTransportData_MaxMin_2004},
+                                 if(exists("SDGTransportData_MaxMin_2007")){SDGTransportData_MaxMin_2007},
+                                 SDGTransportData_MaxMin_2011)
+  remove(SDGTransportData_MaxMin_2004,SDGTransportData_MaxMin_2007, SDGTransportData_MaxMin_2011)
+SDGHousingData_MaxMin_2004 <- MaxMin_Fun(SDGHousingData_NoNAs_2004, "Housing")
+SDGHousingData_MaxMin_2007 <- MaxMin_Fun(SDGHousingData_NoNAs_2007, "Housing")
+SDGHousingData_MaxMin_2011 <- MaxMin_Fun(SDGHousingData_NoNAs_2011, "Housing")
+SDGHousingData_MaxMin <- rbind(SDGHousingData_MaxMin_2004, SDGHousingData_MaxMin_2007, SDGHousingData_MaxMin_2011)
+  remove(SDGHousingData_MaxMin_2004,SDGHousingData_MaxMin_2007, SDGHousingData_MaxMin_2011)
+SDGGoods_Data_MaxMin_2004 <- MaxMin_Fun(SDGGoods_Data_NoNAs_2004, "Goods")
+SDGGoods_Data_MaxMin_2007 <- MaxMin_Fun(SDGGoods_Data_NoNAs_2007, "Goods")
+SDGGoods_Data_MaxMin_2011 <- MaxMin_Fun(SDGGoods_Data_NoNAs_2011, "Goods")
+SDGGoods_Data_MaxMin <- rbind(SDGGoods_Data_MaxMin_2004,SDGGoods_Data_MaxMin_2007, SDGGoods_Data_MaxMin_2011)
+  remove(SDGGoods_Data_MaxMin_2004,SDGGoods_Data_MaxMin_2007, SDGGoods_Data_MaxMin_2011)
+SDGGFCF_Data_MaxMin_2004 <- MaxMin_Fun(SDGGFCF_Data_NoNAs_2004, "Gross Fixed Capital Formation")
+SDGGFCF_Data_MaxMin_2007 <- MaxMin_Fun(SDGGFCF_Data_NoNAs_2007, "Gross Fixed Capital Formation")
+SDGGFCF_Data_MaxMin_2011 <- MaxMin_Fun(SDGGFCF_Data_NoNAs_2011, "Gross Fixed Capital Formation")
+SDGGFCF_Data_MaxMin <- rbind(SDGGFCF_Data_MaxMin_2004,SDGGFCF_Data_MaxMin_2007, SDGGFCF_Data_MaxMin_2011)
+  remove(SDGGFCF_Data_MaxMin_2004,SDGGFCF_Data_MaxMin_2007, SDGGFCF_Data_MaxMin_2011)
 
 ##Binding Data together for single spreadsheet
-MaxMinData <- rbind(FoodData_MaxMin, GovernmentData_MaxMin, ServicesData_MaxMin, 
-                    TransportData_MaxMin, HousingData_MaxMin, Goods_Data_MaxMin, 
-                    if (WB_SDG=="SDG") GFCF_Data_MaxMin)
-colnames(MaxMinData) <- c("country", "year", "MaxMin_Index", "CLUM_category", "NAPercent")
+WBMaxMinData <- rbind(WBFoodData_MaxMin, WBGovernmentData_MaxMin, WBServicesData_MaxMin, 
+                      WBTransportData_MaxMin, WBHousingData_MaxMin, WBGoods_Data_MaxMin)
+colnames(WBMaxMinData) <- c("country", "year", "MaxMin_Index", "CLUM_category", "NAPercent")
+
+SDGMaxMinData <- rbind(SDGFoodData_MaxMin, SDGGovernmentData_MaxMin, SDGServicesData_MaxMin, 
+                       SDGTransportData_MaxMin, SDGHousingData_MaxMin, SDGGoods_Data_MaxMin, 
+                       SDGGFCF_Data_MaxMin)
+colnames(SDGMaxMinData) <- c("country", "year", "MaxMin_Index", "CLUM_category", "NAPercent")
 
 ########Now for z-score stuff
-####Max/Min function calculation####
+#### Z-Zcore function calculation####
 ZScore_Fun <- function(data, category){
   colnames_important <- as.data.frame(data[,-c(1:2)])
   datamatrix <- matrix(ncol = ncol(colnames_important), nrow = nrow(data))
@@ -1006,79 +1050,100 @@ ZScore_Fun <- function(data, category){
 # datamatrix <- datamatrix[,c(1:2,(ncol(datamatrix)-1):ncol(datamatrix))]
 
 
-FoodData_ZScore_2004 <- ZScore_Fun(FoodData_NoNAs_2004, "Food")
-FoodData_ZScore_2007 <- ZScore_Fun(FoodData_NoNAs_2007, "Food")
-FoodData_ZScore_2011 <- ZScore_Fun(FoodData_NoNAs_2011, "Food")
-FoodData_ZScore <- rbind(FoodData_ZScore_2004, FoodData_ZScore_2007, FoodData_ZScore_2011)
-remove(FoodData_ZScore_2004, FoodData_ZScore_2007, FoodData_ZScore_2011)
-GovernmentData_ZScore_2004 <- ZScore_Fun(GovernmentData_NoNAs_2004, "Government")
-GovernmentData_ZScore_2007 <- ZScore_Fun(GovernmentData_NoNAs_2007, "Government")
-GovernmentData_ZScore_2011 <- ZScore_Fun(GovernmentData_NoNAs_2011, "Government")
-GovernmentData_ZScore <- rbind(GovernmentData_ZScore_2004, GovernmentData_ZScore_2007, GovernmentData_ZScore_2011)
-remove(GovernmentData_ZScore_2004, GovernmentData_ZScore_2007, GovernmentData_ZScore_2011)
-TransportData_ZScore_2004 <- ZScore_Fun(TransportData_NoNAs_2004, "Personal Transportation")
-TransportData_ZScore_2007 <- ZScore_Fun(TransportData_NoNAs_2007, "Personal Transportation")
-TransportData_ZScore_2011 <- ZScore_Fun(TransportData_NoNAs_2011, "Personal Transportation")
-TransportData_ZScore <- rbind(TransportData_ZScore_2004, TransportData_ZScore_2007, TransportData_ZScore_2011)
-remove(TransportData_ZScore_2004, TransportData_ZScore_2007, TransportData_ZScore_2011)
-ServicesData_ZScore_2004 <- ZScore_Fun(ServicesData_NoNAs_2004, "Services")
-ServicesData_ZScore_2007 <- ZScore_Fun(ServicesData_NoNAs_2007, "Services")
-ServicesData_ZScore_2011 <- ZScore_Fun(ServicesData_NoNAs_2011, "Services")
-ServicesData_ZScore <- rbind(ServicesData_ZScore_2004, ServicesData_ZScore_2007, ServicesData_ZScore_2011)
-remove(ServicesData_ZScore_2004, ServicesData_ZScore_2007, ServicesData_ZScore_2011)
-if (WB_SDG=="SDG"){
-  #HousingData_ZScore_2004 <- ZScore_Fun(HousingData_NoNAs_2004, "Housing"). # No data
-  HousingData_ZScore_2007 <- ZScore_Fun(HousingData_NoNAs_2007, "Housing")
-  HousingData_ZScore_2011 <- ZScore_Fun(HousingData_NoNAs_2011, "Housing")
-  HousingData_ZScore <- rbind(
-  # HousingData_ZScore_2004, # No data
-     HousingData_ZScore_2007, HousingData_ZScore_2011)
-  remove(
-  # HousingData_ZScore_2004, # No data
-    HousingData_ZScore_2007, HousingData_ZScore_2011)
-  Goods_Data_ZScore_2004 <- ZScore_Fun(Goods_Data_NoNAs_2004, "Goods")
-  Goods_Data_ZScore_2007 <- ZScore_Fun(Goods_Data_NoNAs_2007, "Goods")
-  Goods_Data_ZScore_2011 <- ZScore_Fun(Goods_Data_NoNAs_2011, "Goods")
-  Goods_Data_ZScore <- rbind(Goods_Data_ZScore_2004, Goods_Data_ZScore_2007, Goods_Data_ZScore_2011)
-  remove(Goods_Data_ZScore_2004, Goods_Data_ZScore_2007, Goods_Data_ZScore_2011)
-  GFCF_Data_ZScore_2004 <- ZScore_Fun(GFCF_Data_NoNAs_2004, "Gross Fixed Capital Formation")
-  GFCF_Data_ZScore_2007 <- ZScore_Fun(GFCF_Data_NoNAs_2007, "Gross Fixed Capital Formation")
-  GFCF_Data_ZScore_2011 <- ZScore_Fun(GFCF_Data_NoNAs_2011, "Gross Fixed Capital Formation")
-  GFCF_Data_ZScore <- rbind(GFCF_Data_ZScore_2004, GFCF_Data_ZScore_2007, GFCF_Data_ZScore_2011)
-  remove(GFCF_Data_ZScore_2004, GFCF_Data_ZScore_2007, GFCF_Data_ZScore_2011)
-}
+WBFoodData_ZScore_2004 <- ZScore_Fun(WBFoodData_NoNAs_2004, "Food")
+WBFoodData_ZScore_2007 <- ZScore_Fun(WBFoodData_NoNAs_2007, "Food")
+WBFoodData_ZScore_2011 <- ZScore_Fun(WBFoodData_NoNAs_2011, "Food")
+WBFoodData_ZScore <- rbind(WBFoodData_ZScore_2004, WBFoodData_ZScore_2007, WBFoodData_ZScore_2011)
+remove(WBFoodData_ZScore_2004, WBFoodData_ZScore_2007, WBFoodData_ZScore_2011)
+WBGovernmentData_ZScore_2004 <- ZScore_Fun(WBGovernmentData_NoNAs_2004, "Government")
+WBGovernmentData_ZScore_2007 <- ZScore_Fun(WBGovernmentData_NoNAs_2007, "Government")
+WBGovernmentData_ZScore_2011 <- ZScore_Fun(WBGovernmentData_NoNAs_2011, "Government")
+WBGovernmentData_ZScore <- rbind(WBGovernmentData_ZScore_2004, WBGovernmentData_ZScore_2007, WBGovernmentData_ZScore_2011)
+remove(WBGovernmentData_ZScore_2004, WBGovernmentData_ZScore_2007, WBGovernmentData_ZScore_2011)
+WBTransportData_ZScore_2004 <- ZScore_Fun(WBTransportData_NoNAs_2004, "Personal Transportation")
+WBTransportData_ZScore_2007 <- ZScore_Fun(WBTransportData_NoNAs_2007, "Personal Transportation")
+WBTransportData_ZScore_2011 <- ZScore_Fun(WBTransportData_NoNAs_2011, "Personal Transportation")
+WBTransportData_ZScore <- rbind(WBTransportData_ZScore_2004, WBTransportData_ZScore_2007, WBTransportData_ZScore_2011)
+remove(WBTransportData_ZScore_2004, WBTransportData_ZScore_2007, WBTransportData_ZScore_2011)
+WBServicesData_ZScore_2004 <- ZScore_Fun(WBServicesData_NoNAs_2004, "Services")
+WBServicesData_ZScore_2007 <- ZScore_Fun(WBServicesData_NoNAs_2007, "Services")
+WBServicesData_ZScore_2011 <- ZScore_Fun(WBServicesData_NoNAs_2011, "Services")
+WBServicesData_ZScore <- rbind(WBServicesData_ZScore_2004, WBServicesData_ZScore_2007, WBServicesData_ZScore_2011)
+remove(WBServicesData_ZScore_2004, WBServicesData_ZScore_2007, WBServicesData_ZScore_2011)
+##For Housing data, only one column and already 0 to 1
+###HousingData_ZScore <- ZScore_Fun(HousingData_NoNAs, "Housing")
+WBZScore_Index <- scale(WBHousingData_MaxMin$MaxMin_Index)
+WBHousingData_ZScore <- cbind(WBHousingData_MaxMin[,c(1,2)], WBZScore_Index, WBHousingData_MaxMin[,4])
+colnames(WBHousingData_ZScore) <- c("country", "year", "ZScore_Index", "CLUM_category")
+##For Goods Data, just rename column
+WBZScore_Index <- scale(WBGoods_Data_MaxMin$MaxMin_Index)
+WBGoods_Data_ZScore <- cbind(WBGoods_Data_MaxMin[,c(1:2)], WBZScore_Index,WBGoods_Data_MaxMin[,4])
+colnames(WBGoods_Data_ZScore) <- c("country", "year", "ZScore_Index", "CLUM_category")
 
-if (WB_SDG=="WB"){
-  ##For Housing data, only one column and already 0 to 1
-  ###HousingData_ZScore <- ZScore_Fun(HousingData_NoNAs, "Housing")
-  ZScore_Index <- scale(HousingData_MaxMin$MaxMin_Index)
-  HousingData_ZScore <- cbind(HousingData_MaxMin[,c(1,2)], ZScore_Index, HousingData_MaxMin[,4])
-  colnames(HousingData_ZScore) <- c("country", "year", "ZScore_Index", "CLUM_category")
-  
-  ##For Goods Data, just rename column
-  ZScore_Index <- scale(Goods_Data_MaxMin$MaxMin_Index)
-  Goods_Data_ZScore <- cbind(Goods_Data_MaxMin[,c(1:2)], ZScore_Index,Goods_Data_MaxMin[,4])
-  colnames(Goods_Data_ZScore) <- c("country", "year", "ZScore_Index", "CLUM_category")
-}
 
 ##Binding Data together for single spreadsheet
-ZScoreData <- rbind(FoodData_ZScore, GovernmentData_ZScore, ServicesData_ZScore, 
-                    TransportData_ZScore, HousingData_ZScore, Goods_Data_ZScore,
-                    if (WB_SDG=="SDG") GFCF_Data_ZScore)
-colnames(ZScoreData) <- c("country", "year", "ZScore_Index", "CLUM_category")
+WBZScoreData <- rbind(WBFoodData_ZScore, WBGovernmentData_ZScore, WBServicesData_ZScore, 
+                      WBTransportData_ZScore, WBHousingData_ZScore, WBGoods_Data_ZScore)
+colnames(WBZScoreData) <- c("country", "year", "ZScore_Index", "CLUM_category")
 
 ##Combining MaxMin and Z-score datasets
-IndicesData <- left_join(ZScoreData, MaxMinData, by = c("country", "year", "CLUM_category"))
+WBIndicesData <- left_join(WBZScoreData, WBMaxMinData, by = c("country", "year", "CLUM_category"))
 
 #write.csv(IndicesData, "./World Bank Data/IndicesData.csv")
-if(WB_SDG=="WB"){
-write.csv(IndicesData, "./IndicesDataWB.csv")
-}
-if(WB_SDG=="SDG"){
-write.csv(IndicesData, "./IndicesDataSDG.csv")
-}
+write.csv(WBIndicesData, "./IndicesDataWB.csv")
 
-print ('Looks good, Run 2.Country Correspondence to make sure all countries and groupings were dealt with
-       and do the GTAP weighted aggregation')
+#SDG Z-score and combine with MinMax
+SDGFoodData_ZScore_2004 <- ZScore_Fun(SDGFoodData_NoNAs_2004, "Food")
+SDGFoodData_ZScore_2007 <- ZScore_Fun(SDGFoodData_NoNAs_2007, "Food")
+SDGFoodData_ZScore_2011 <- ZScore_Fun(SDGFoodData_NoNAs_2011, "Food")
+SDGFoodData_ZScore <- rbind(SDGFoodData_ZScore_2004, SDGFoodData_ZScore_2007, SDGFoodData_ZScore_2011)
+remove(SDGFoodData_ZScore_2004, SDGFoodData_ZScore_2007, SDGFoodData_ZScore_2011)
+SDGGovernmentData_ZScore_2004 <- ZScore_Fun(SDGGovernmentData_NoNAs_2004, "Government")
+SDGGovernmentData_ZScore_2007 <- ZScore_Fun(SDGGovernmentData_NoNAs_2007, "Government")
+SDGGovernmentData_ZScore_2011 <- ZScore_Fun(SDGGovernmentData_NoNAs_2011, "Government")
+SDGGovernmentData_ZScore <- rbind(SDGGovernmentData_ZScore_2004, SDGGovernmentData_ZScore_2007, SDGGovernmentData_ZScore_2011)
+remove(SDGGovernmentData_ZScore_2004, SDGGovernmentData_ZScore_2007, SDGGovernmentData_ZScore_2011)
+# Temp fix for no data in 2004 or 2007 as of 12/22/2020
+try(SDGTransportData_ZScore_2004 <- ZScore_Fun(SDGTransportData_NoNAs_2004, "Personal Transportation"))
+try(SDGTransportData_ZScore_2007 <- ZScore_Fun(SDGTransportData_NoNAs_2007, "Personal Transportation"))
+SDGTransportData_ZScore_2011 <- ZScore_Fun(SDGTransportData_NoNAs_2011, "Personal Transportation")
+SDGTransportData_ZScore <- rbind(
+  if(exists("SDGTransportData_ZScore_2004")){SDGTransportData_ZScore_2004},
+  if(exists("SDGTransportData_ZScore_2007")){SDGTransportData_ZScore_2007},
+  SDGTransportData_ZScore_2011)
+remove(SDGTransportData_ZScore_2004, SDGTransportData_ZScore_2007, SDGTransportData_ZScore_2011)
+SDGServicesData_ZScore_2004 <- ZScore_Fun(SDGServicesData_NoNAs_2004, "Services")
+SDGServicesData_ZScore_2007 <- ZScore_Fun(SDGServicesData_NoNAs_2007, "Services")
+SDGServicesData_ZScore_2011 <- ZScore_Fun(SDGServicesData_NoNAs_2011, "Services")
+SDGServicesData_ZScore <- rbind(SDGServicesData_ZScore_2004, SDGServicesData_ZScore_2007, SDGServicesData_ZScore_2011)
+remove(SDGServicesData_ZScore_2004, SDGServicesData_ZScore_2007, SDGServicesData_ZScore_2011)
+SDGHousingData_ZScore_2004 <- ZScore_Fun(SDGHousingData_NoNAs_2004, "Housing") # No data
+SDGHousingData_ZScore_2007 <- ZScore_Fun(SDGHousingData_NoNAs_2007, "Housing")
+SDGHousingData_ZScore_2011 <- ZScore_Fun(SDGHousingData_NoNAs_2011, "Housing")
+SDGHousingData_ZScore <- rbind(SDGHousingData_ZScore_2004, SDGHousingData_ZScore_2007, SDGHousingData_ZScore_2011)
+  remove(SDGHousingData_ZScore_2004, SDGHousingData_ZScore_2007, SDGHousingData_ZScore_2011)
+SDGGoods_Data_ZScore_2004 <- ZScore_Fun(SDGGoods_Data_NoNAs_2004, "Goods")
+SDGGoods_Data_ZScore_2007 <- ZScore_Fun(SDGGoods_Data_NoNAs_2007, "Goods")
+SDGGoods_Data_ZScore_2011 <- ZScore_Fun(SDGGoods_Data_NoNAs_2011, "Goods")
+SDGGoods_Data_ZScore <- rbind(SDGGoods_Data_ZScore_2004, SDGGoods_Data_ZScore_2007, SDGGoods_Data_ZScore_2011)
+  remove(SDGGoods_Data_ZScore_2004, SDGGoods_Data_ZScore_2007, SDGGoods_Data_ZScore_2011)
+SDGGFCF_Data_ZScore_2004 <- ZScore_Fun(SDGGFCF_Data_NoNAs_2004, "Gross Fixed Capital Formation")
+SDGGFCF_Data_ZScore_2007 <- ZScore_Fun(SDGGFCF_Data_NoNAs_2007, "Gross Fixed Capital Formation")
+SDGGFCF_Data_ZScore_2011 <- ZScore_Fun(SDGGFCF_Data_NoNAs_2011, "Gross Fixed Capital Formation")
+SDGGFCF_Data_ZScore <- rbind(SDGGFCF_Data_ZScore_2004, SDGGFCF_Data_ZScore_2007, SDGGFCF_Data_ZScore_2011)
+  remove(SDGGFCF_Data_ZScore_2004, SDGGFCF_Data_ZScore_2007, SDGGFCF_Data_ZScore_2011)
+
+##Binding Data together for single spreadsheet
+SDGZScoreData <- rbind(SDGFoodData_ZScore, SDGGovernmentData_ZScore, SDGServicesData_ZScore, 
+                       SDGTransportData_ZScore, SDGHousingData_ZScore, SDGGoods_Data_ZScore)
+colnames(SDGZScoreData) <- c("country", "year", "ZScore_Index", "CLUM_category")
+
+##Combining MaxMin and Z-score datasets
+SDGIndicesData <- left_join(SDGZScoreData, SDGMaxMinData, by = c("country", "year", "CLUM_category"))
+
+write.csv(SDGIndicesData, "./IndicesDataSDG.csv")
+
+cat('Looks good, Run 2.Country Correspondence to make sure all countries and groupings were dealt with\n 
+    and do the GTAP weighted aggregation')
 
 proc.time() - ptm

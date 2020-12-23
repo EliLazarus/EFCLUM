@@ -39,6 +39,10 @@ library(kableExtra)
 The Ecological Footprint (EF) measures human demand and supply of renewable biological resources, but does not give information on the quality of services provided as a result of that demand.    
 Low demand can be due to high efficiency or low quality of life...  
 Combining national Ecological Footprint results with the UN's Human Development Index (HDI) combined with the Ecological Footprint gives an overview into the global pattern of the provision of human welfare mapped against this demand for renewable resources.    
+
+```{r HDI-EF graph, include=FALSE}
+knitr::include_graphics
+```
 ...(MRIO-FA) accounts use (EE-MRIO) to provide EF results related to activities.  (Brief description of MRIO This breaks down the total results in a way that differentiates that areas of life which are associated with different biocapcity demands by residents of different nations). Comparing across countries shows the range of demand for biocapacity by activity, but ...  
 (Hypothesise that while x and y country have similar EF per capita for Food, one is likely more efficient with a high quality of food, while the other may be demanding less resources because there is a lack of sufficient quantity or quality of food for the residents).  
 The Sustainable Development Goals (SDG) are…. An initiative to track nations’ progress toward these goals is the Sustainable Development Goals Indicators project (SDGI). The SDGI collect and organise available data which is relevant to the progress toward and achievement of these goals. Using these data, we identified….  

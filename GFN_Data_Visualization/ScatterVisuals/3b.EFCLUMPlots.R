@@ -48,7 +48,7 @@ EFSDGData11.Housing <- subset(EFSDGData11, EFSDGData11$clum7_name == "Housing")
 EFSDGData11.PersonalTransportation <- subset(EFSDGData11, EFSDGData11$clum7_name == "Personal Transportation")
 EFSDGData11.Services <- subset(EFSDGData11, EFSDGData11$clum7_name == "Services")
 
-if (file.exists("Plots/")){
+if (file.exists("Plots")){print("Plots directory already exists")
 } else {
   dir.create("Plots/")
 }

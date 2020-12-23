@@ -1,610 +1,715 @@
 "indicator","series","seriesDescription","seriesCount","timePeriodStart"
-"1",1.1.1,SI_POV_DAY1,Proportion of population below international poverty line (%),1822,2011
-"2",1.1.1,SI_POV_DAY1,Proportion of population below international poverty line (%),1822,2004
-"3",1.1.1,SI_POV_DAY1,Proportion of population below international poverty line (%),1822,2007
-"263",1.1.1,SI_POV_EMP1,Employed population below international poverty line; by sex and age (%),9171,2011
-"272",1.1.1,SI_POV_EMP1,Employed population below international poverty line; by sex and age (%),9171,2004
-"281",1.1.1,SI_POV_EMP1,Employed population below international poverty line; by sex and age (%),9171,2007
-"1901",1.2.1,SI_POV_NAHC,Proportion of population living below the national poverty line (%),1372,2007
-"1902",1.2.1,SI_POV_NAHC,Proportion of population living below the national poverty line (%),1372,2011
-"1906",1.2.1,SI_POV_NAHC,Proportion of population living below the national poverty line (%),1372,2004
-"2153",1.3.1,SI_COV_SOCAST,[World Bank] Proportion of population covered by social assistance programs (%),339,2007
-"2154",1.3.1,SI_COV_SOCAST,[World Bank] Proportion of population covered by social assistance programs (%),339,2011
-"2174",1.3.1,SI_COV_SOCAST,[World Bank] Proportion of population covered by social assistance programs (%),339,2004
-"2216",1.3.1,SI_COV_SOCASTPQ,[World Bank] Poorest quintile covered by social assistance programs (%),339,2007
-"2217",1.3.1,SI_COV_SOCASTPQ,[World Bank] Poorest quintile covered by social assistance programs (%),339,2011
-"2237",1.3.1,SI_COV_SOCASTPQ,[World Bank] Poorest quintile covered by social assistance programs (%),339,2004
-"2279",1.3.1,SI_COV_SOCINS,[World Bank] Proportion of population covered by social insurance programs (%),322,2007
-"2280",1.3.1,SI_COV_SOCINS,[World Bank] Proportion of population covered by social insurance programs (%),322,2011
-"2293",1.3.1,SI_COV_SOCINS,[World Bank] Proportion of population covered by social insurance programs (%),322,2004
-"2338",1.3.1,SI_COV_SOCINSPQ,[World Bank] Poorest quintile covered by social insurance programs (%),322,2007
-"2339",1.3.1,SI_COV_SOCINSPQ,[World Bank] Poorest quintile covered by social insurance programs (%),322,2011
-"2352",1.3.1,SI_COV_SOCINSPQ,[World Bank] Poorest quintile covered by social insurance programs (%),322,2004
-"2397",1.3.1,SI_COV_UEMP,[ILO] Proportion of unemployed persons receiving unemployment cash benefit; by sex (%),674,2007
-"2398",1.3.1,SI_COV_UEMP,[ILO] Proportion of unemployed persons receiving unemployment cash benefit; by sex (%),674,2011
-"2422",1.3.1,SI_COV_UEMP,[ILO] Proportion of unemployed persons receiving unemployment cash benefit; by sex (%),674,2004
-"2538",1.3.1,SI_COV_WKINJRY,[ILO] Proportion of employed population covered in the event of work injury; by sex (%),54,2011
-"2539",1.3.1,SI_COV_WKINJRY,[ILO] Proportion of employed population covered in the event of work injury; by sex (%),54,2007
-"2542",1.3.1,SI_COV_WKINJRY,[ILO] Proportion of employed population covered in the event of work injury; by sex (%),54,2004
-"2544",1.3.1,SI_COV_LMKT,[World Bank] Proportion of population covered by labour market programs (%),175,2011
-"2546",1.3.1,SI_COV_LMKT,[World Bank] Proportion of population covered by labour market programs (%),175,2007
-"2551",1.3.1,SI_COV_LMKT,[World Bank] Proportion of population covered by labour market programs (%),175,2004
-"2574",1.3.1,SI_COV_LMKTPQ,[World Bank] Poorest quintile covered by labour market programs (%) ,175,2011
-"2576",1.3.1,SI_COV_LMKTPQ,[World Bank] Poorest quintile covered by labour market programs (%) ,175,2007
-"2581",1.3.1,SI_COV_LMKTPQ,[World Bank] Poorest quintile covered by labour market programs (%) ,175,2004
-"2604",1.3.1,SI_COV_PENSN,[ILO] Proportion of population above statutory pensionable age receiving a pension; by sex (%),583,2011
-"2612",1.3.1,SI_COV_PENSN,[ILO] Proportion of population above statutory pensionable age receiving a pension; by sex (%),583,2004
-"2624",1.4.1,SP_ACS_BSRVH2O,Proportion of population using basic drinking water services; by location (%),12226,2004
-"2627",1.4.1,SP_ACS_BSRVH2O,Proportion of population using basic drinking water services; by location (%),12226,2007
-"2630",1.4.1,SP_ACS_BSRVH2O,Proportion of population using basic drinking water services; by location (%),12226,2011
-"4664",1.4.1,SP_ACS_BSRVSAN,Proportion of population using basic sanitation services; by location (%),12068,2004
-"4667",1.4.1,SP_ACS_BSRVSAN,Proportion of population using basic sanitation services; by location (%),12068,2007
-"4670",1.4.1,SP_ACS_BSRVSAN,Proportion of population using basic sanitation services; by location (%),12068,2011
-"6686",1.5.1 11.5.1 13.1.1,VC_DSR_MISS,Number of missing persons due to disaster (number),343,2011
-"6687",1.5.1 11.5.1 13.1.1,VC_DSR_MISS,Number of missing persons due to disaster (number),343,2007
-"6742",1.5.1 11.5.1 13.1.1,VC_DSR_AFFCT,Number of people affected by disaster (number),941,2007
-"6743",1.5.1 11.5.1 13.1.1,VC_DSR_AFFCT,Number of people affected by disaster (number),941,2011
-"6882",1.5.1 11.5.1 13.1.1,VC_DSR_MORT,Number of deaths due to disaster (number),860,2007
-"6883",1.5.1 11.5.1 13.1.1,VC_DSR_MORT,Number of deaths due to disaster (number),860,2011
-"7013",1.5.1 11.5.1 13.1.1,VC_DSR_MTMP,Number of deaths and missing persons attributed to disasters per 100;000 population (number),867,2007
-"7014",1.5.1 11.5.1 13.1.1,VC_DSR_MTMP,Number of deaths and missing persons attributed to disasters per 100;000 population (number),867,2011
-"7146",1.5.1 11.5.1 13.1.1,VC_DSR_MTMN,Number of deaths and missing persons attributed to disasters (number),1025,2007
-"7147",1.5.1 11.5.1 13.1.1,VC_DSR_MTMN,Number of deaths and missing persons attributed to disasters (number),1025,2011
-"7300",1.5.1 11.5.1 13.1.1,VC_DSR_DAFF,Number of directly affected persons attributed to disasters per 100;000 population (number),939,2007
-"7301",1.5.1 11.5.1 13.1.1,VC_DSR_DAFF,Number of directly affected persons attributed to disasters per 100;000 population (number),939,2011
-"7440",1.5.1 11.5.1 13.1.1,VC_DSR_IJILN,Number of injured or ill people attributed to disasters (number),727,2007
-"7441",1.5.1 11.5.1 13.1.1,VC_DSR_IJILN,Number of injured or ill people attributed to disasters (number),727,2011
-"7547",1.5.1 11.5.1 13.1.1,VC_DSR_PDAN,Number of people whose damaged dwellings were attributed to disasters (number),794,2007
-"7548",1.5.1 11.5.1 13.1.1,VC_DSR_PDAN,Number of people whose damaged dwellings were attributed to disasters (number),794,2011
-"7666",1.5.1 11.5.1 13.1.1,VC_DSR_PDYN,Number of people whose destroyed dwellings were attributed to disasters (number),692,2007
-"7667",1.5.1 11.5.1 13.1.1,VC_DSR_PDYN,Number of people whose destroyed dwellings were attributed to disasters (number),692,2011
-"7767",1.5.1 11.5.1 13.1.1,VC_DSR_PDLN,Number of people whose livelihoods were disrupted or destroyed; attributed to disasters (number),119,2007
-"7768",1.5.1 11.5.1 13.1.1,VC_DSR_PDLN,Number of people whose livelihoods were disrupted or destroyed; attributed to disasters (number),119,2011
-"7774",1.5.2 11.5.2,VC_DSR_GDPLS,Direct economic loss attributed to disasters (current United States dollars),889,2007
-"7775",1.5.2 11.5.2,VC_DSR_GDPLS,Direct economic loss attributed to disasters (current United States dollars),889,2011
-"7909",1.5.2 11.5.2,VC_DSR_LSGP,Direct economic loss attributed to disasters relative to GDP (%),889,2007
-"7910",1.5.2 11.5.2,VC_DSR_LSGP,Direct economic loss attributed to disasters relative to GDP (%),889,2011
-"8044",1.5.2 11.5.2,VC_DSR_AGLN,Direct agriculture loss attributed to disasters (current United States dollars),889,2007
-"8045",1.5.2 11.5.2,VC_DSR_AGLN,Direct agriculture loss attributed to disasters (current United States dollars),889,2011
-"8179",1.5.2 11.5.2,VC_DSR_HOLN,Direct economic loss in the housing sector attributed to disasters (current United States dollars),889,2007
-"8180",1.5.2 11.5.2,VC_DSR_HOLN,Direct economic loss in the housing sector attributed to disasters (current United States dollars),889,2011
-"8314",1.5.2 11.5.2,VC_DSR_CILN,Direct economic loss resulting from damaged or destroyed critical infrastructure attributed to disasters (current United States dollars),889,2007
-"8315",1.5.2 11.5.2,VC_DSR_CILN,Direct economic loss resulting from damaged or destroyed critical infrastructure attributed to disasters (current United States dollars),889,2011
-"8449",1.5.2 11.5.2,VC_DSR_CHLN,Direct economic loss to cultural heritage damaged or destroyed attributed to disasters (millions of current United States dollars),889,2007
-"8450",1.5.2 11.5.2,VC_DSR_CHLN,Direct economic loss to cultural heritage damaged or destroyed attributed to disasters (millions of current United States dollars),889,2011
-"8584",1.5.2 11.5.2,VC_DSR_DDPA,Direct economic loss to other damaged or destroyed productive assets attributed to disasters (current United States dollars),889,2007
-"8585",1.5.2 11.5.2,VC_DSR_DDPA,Direct economic loss to other damaged or destroyed productive assets attributed to disasters (current United States dollars),889,2011
-"8719",1.a.2,SD_XPD_ESED,Proportion of total government spending on essential services; education (%),1866,2011
-"8720",1.a.2,SD_XPD_ESED,Proportion of total government spending on essential services; education (%),1866,2004
-"8721",1.a.2,SD_XPD_ESED,Proportion of total government spending on essential services; education (%),1866,2007
-"9045",10.4.1,SL_EMP_GTOTL,Labour share of GDP; comprising wages and social protection transfers (%),992,2004
-"9046",10.4.1,SL_EMP_GTOTL,Labour share of GDP; comprising wages and social protection transfers (%),992,2007
-"9047",10.4.1,SL_EMP_GTOTL,Labour share of GDP; comprising wages and social protection transfers (%),992,2011
-"9200",10.5.1,FI_FSI_FSANL,Non-performing loans to total gross loans (%),1319,2011
-"9204",10.5.1,FI_FSI_FSANL,Non-performing loans to total gross loans (%),1319,2007
-"9218",10.5.1,FI_FSI_FSANL,Non-performing loans to total gross loans (%),1319,2004
-"9369",10.5.1,FI_FSI_FSERA,Return on assets (%),1339,2011
-"9373",10.5.1,FI_FSI_FSERA,Return on assets (%),1339,2007
-"9386",10.5.1,FI_FSI_FSERA,Return on assets (%),1339,2004
-"9540",10.5.1,FI_FSI_FSKA,Regulatory capital to assets (%),1261,2011
-"9544",10.5.1,FI_FSI_FSKA,Regulatory capital to assets (%),1261,2007
-"9558",10.5.1,FI_FSI_FSKA,Regulatory capital to assets (%),1261,2004
-"9701",10.5.1,FI_FSI_FSKNL,Non-performing loans net of provisions to capital (%),1323,2011
-"9705",10.5.1,FI_FSI_FSKNL,Non-performing loans net of provisions to capital (%),1323,2007
-"9719",10.5.1,FI_FSI_FSKNL,Non-performing loans net of provisions to capital (%),1323,2004
-"9870",10.5.1,FI_FSI_FSKRTC,Regulatory Tier 1 capital to risk-weighted assets (%),1327,2011
-"9874",10.5.1,FI_FSI_FSKRTC,Regulatory Tier 1 capital to risk-weighted assets (%),1327,2007
-"9888",10.5.1,FI_FSI_FSKRTC,Regulatory Tier 1 capital to risk-weighted assets (%),1327,2004
-"10038",10.5.1,FI_FSI_FSLS,Liquid assets to short term liabilities (%),1233,2011
-"10042",10.5.1,FI_FSI_FSLS,Liquid assets to short term liabilities (%),1233,2007
-"10055",10.5.1,FI_FSI_FSLS,Liquid assets to short term liabilities (%),1233,2004
-"10191",10.5.1,FI_FSI_FSSNO,Net open position in foreign exchange to capital (%),1023,2011
-"10195",10.5.1,FI_FSI_FSSNO,Net open position in foreign exchange to capital (%),1023,2007
-"10206",10.5.1,FI_FSI_FSSNO,Net open position in foreign exchange to capital (%),1023,2004
-"10316",10.b.1,DC_TRF_TOTDL,Total assistance for development; by donor countries (millions of current United States dollars),740,2004
-"10317",10.b.1,DC_TRF_TOTDL,Total assistance for development; by donor countries (millions of current United States dollars),740,2007
-"10318",10.b.1,DC_TRF_TOTDL,Total assistance for development; by donor countries (millions of current United States dollars),740,2011
-"10436",10.b.1,DC_TRF_TOTL,Total assistance for development; by recipient countries (millions of current United States dollars),2673,2004
-"10437",10.b.1,DC_TRF_TOTL,Total assistance for development; by recipient countries (millions of current United States dollars),2673,2007
-"10438",10.b.1,DC_TRF_TOTL,Total assistance for development; by recipient countries (millions of current United States dollars),2673,2011
-"10884",10.b.1,DC_TRF_TFDV,Total resource flows for development; by recipient and donor countries (millions of current United States dollars),594,2004
-"10885",10.b.1,DC_TRF_TFDV,Total resource flows for development; by recipient and donor countries (millions of current United States dollars),594,2007
-"10886",10.b.1,DC_TRF_TFDV,Total resource flows for development; by recipient and donor countries (millions of current United States dollars),594,2011
-"10983",10.c.1,SI_RMT_COST,Remittance costs as a proportion of the amount remitted (%),414,2011
-"12975",11.5.2,VC_DSR_CDAN,Number of damaged critical infrastructure attributed to disasters (number),718,2007
-"12976",11.5.2,VC_DSR_CDAN,Number of damaged critical infrastructure attributed to disasters (number),718,2011
-"13088",11.5.2,VC_DSR_HFDN,Number of destroyed or damaged health facilities attributed to disasters (number),718,2007
-"13089",11.5.2,VC_DSR_HFDN,Number of destroyed or damaged health facilities attributed to disasters (number),718,2011
-"13201",11.5.2,VC_DSR_EFDN,Number of destroyed or damaged educational facilities attributed to disasters (number),718,2007
-"13202",11.5.2,VC_DSR_EFDN,Number of destroyed or damaged educational facilities attributed to disasters (number),718,2011
-"13314",11.5.2,VC_DSR_CDYN,Number of other destroyed or damaged critical infrastructure units and facilities attributed to disasters (number),718,2007
-"13315",11.5.2,VC_DSR_CDYN,Number of other destroyed or damaged critical infrastructure units and facilities attributed to disasters (number),718,2011
-"13427",11.5.2,VC_DSR_BSDN,Number of disruptions to basic services attributed to disasters (number),718,2007
-"13428",11.5.2,VC_DSR_BSDN,Number of disruptions to basic services attributed to disasters (number),718,2011
-"13540",11.5.2,VC_DSR_ESDN,Number of disruptions to educational services attributed to disasters (number),718,2007
-"13541",11.5.2,VC_DSR_ESDN,Number of disruptions to educational services attributed to disasters (number),718,2011
-"13653",11.5.2,VC_DSR_HSDN,Number of disruptions to health services attributed to disasters (number),718,2007
-"13654",11.5.2,VC_DSR_HSDN,Number of disruptions to health services attributed to disasters (number),718,2011
-"13766",11.5.2,VC_DSR_OBDN,Number of disruptions to other basic services attributed to disasters (number),718,2007
-"13767",11.5.2,VC_DSR_OBDN,Number of disruptions to other basic services attributed to disasters (number),718,2011
-"14014",11.6.1,EN_REF_WASCOL,Municipal Solid Waste collection coverage; by cities (%),261,2007
-"14015",11.6.1,EN_REF_WASCOL,Municipal Solid Waste collection coverage; by cities (%),261,2011
-"14022",11.6.1,EN_REF_WASCOL,Municipal Solid Waste collection coverage; by cities (%),261,2004
-"14043",12.2.1 8.4.1,EN_MAT_FTPRPG,Material footprint per unit of GDP; by type of raw material (kilograms per constant 2010 United States dollar),18,2004
-"14044",12.2.1 8.4.1,EN_MAT_FTPRPG,Material footprint per unit of GDP; by type of raw material (kilograms per constant 2010 United States dollar),18,2007
-"14045",12.2.1 8.4.1,EN_MAT_FTPRPG,Material footprint per unit of GDP; by type of raw material (kilograms per constant 2010 United States dollar),18,2011
-"14046",12.2.1 8.4.1,EN_MAT_FTPRPC,Material footprint per capita; by type of raw material (tonnes),18,2004
-"14047",12.2.1 8.4.1,EN_MAT_FTPRPC,Material footprint per capita; by type of raw material (tonnes),18,2007
-"14048",12.2.1 8.4.1,EN_MAT_FTPRPC,Material footprint per capita; by type of raw material (tonnes),18,2011
-"14049",12.2.1 8.4.1,EN_MAT_FTPRTN,Material footprint; by type of raw material (tonnes),18,2004
-"14050",12.2.1 8.4.1,EN_MAT_FTPRTN,Material footprint; by type of raw material (tonnes),18,2007
-"14051",12.2.1 8.4.1,EN_MAT_FTPRTN,Material footprint; by type of raw material (tonnes),18,2011
-"14052",12.2.2 8.4.2,EN_MAT_DOMCMPT,Domestic material consumption; by type of raw material (tonnes),58975,2004
-"14065",12.2.2 8.4.2,EN_MAT_DOMCMPT,Domestic material consumption; by type of raw material (tonnes),58975,2007
-"14078",12.2.2 8.4.2,EN_MAT_DOMCMPT,Domestic material consumption; by type of raw material (tonnes),58975,2011
-"23882",12.2.2 8.4.2,EN_MAT_DOMCMPG,Domestic material consumption per unit of GDP; by type of raw material (kilograms per constant 2010 United States dollars),58863,2004
-"23895",12.2.2 8.4.2,EN_MAT_DOMCMPG,Domestic material consumption per unit of GDP; by type of raw material (kilograms per constant 2010 United States dollars),58863,2007
-"23908",12.2.2 8.4.2,EN_MAT_DOMCMPG,Domestic material consumption per unit of GDP; by type of raw material (kilograms per constant 2010 United States dollars),58863,2011
-"33681",12.2.2 8.4.2,EN_MAT_DOMCMPC,Domestic material consumption per capita; by type of raw material (tonnes),58729,2004
-"33694",12.2.2 8.4.2,EN_MAT_DOMCMPC,Domestic material consumption per capita; by type of raw material (tonnes),58729,2007
-"33707",12.2.2 8.4.2,EN_MAT_DOMCMPC,Domestic material consumption per capita; by type of raw material (tonnes),58729,2011
-"44544",14.4.1,ER_H2O_FWTL,Proportion of fish stocks within biologically sustainable levels (not overexploited) (%),20,2004
-"44545",14.4.1,ER_H2O_FWTL,Proportion of fish stocks within biologically sustainable levels (not overexploited) (%),20,2011
-"44546",14.5.1,ER_MRN_MARINT,Protected marine area (Exclusive Economic Zones) (square kilometres),422,2004
-"44547",14.5.1,ER_MRN_MARINT,Protected marine area (Exclusive Economic Zones) (square kilometres),422,2007
-"44548",14.5.1,ER_MRN_MARINT,Protected marine area (Exclusive Economic Zones) (square kilometres),422,2011
-"44582",14.5.1,ER_MRN_MARIN,Coverage of protected areas in relation to marine areas (Exclusive Economic Zones) (%),420,2004
-"44583",14.5.1,ER_MRN_MARIN,Coverage of protected areas in relation to marine areas (Exclusive Economic Zones) (%),420,2007
-"44584",14.5.1,ER_MRN_MARIN,Coverage of protected areas in relation to marine areas (Exclusive Economic Zones) (%),420,2011
-"44618",14.5.1,ER_MRN_MPA,Average proportion of Marine Key Biodiversity Areas (KBAs) covered by protected areas (%),11343,2004
-"44619",14.5.1,ER_MRN_MPA,Average proportion of Marine Key Biodiversity Areas (KBAs) covered by protected areas (%),11343,2007
-"44620",14.5.1,ER_MRN_MPA,Average proportion of Marine Key Biodiversity Areas (KBAs) covered by protected areas (%),11343,2011
-"45215",14.a.1,ER_RDE_OSEX,National ocean science expenditure as a share of total research and development funding (%),86,2011
-"45235",15.1.2,ER_PTD_FRWRT,Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%),9348,2004
-"45236",15.1.2,ER_PTD_FRWRT,Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%),9348,2007
-"45237",15.1.2,ER_PTD_FRWRT,Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%),9348,2011
-"45727",15.1.2,ER_PTD_TERRS,Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%),14592,2004
-"45728",15.1.2,ER_PTD_TERRS,Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%),14592,2007
-"45729",15.1.2,ER_PTD_TERRS,Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%),14592,2011
-"46495",15.4.1,ER_PTD_MOTN,Average proportion of Mountain Key Biodiversity Areas (KBAs) covered by protected areas (%),11571,2004
-"46496",15.4.1,ER_PTD_MOTN,Average proportion of Mountain Key Biodiversity Areas (KBAs) covered by protected areas (%),11571,2007
-"46497",15.4.1,ER_PTD_MOTN,Average proportion of Mountain Key Biodiversity Areas (KBAs) covered by protected areas (%),11571,2011
-"47104",15.5.1,ER_RSK_LSTI,Red List Index,20007,2004
-"47105",15.5.1,ER_RSK_LSTI,Red List Index,20007,2007
-"47106",15.5.1,ER_RSK_LSTI,Red List Index,20007,2011
-"47845",15.a.1 15.b.1,DC_ODA_BDVDL,Total official development assistance for biodiversity; by donor countries (millions of constant 2017 United States dollars),378,2004
-"47846",15.a.1 15.b.1,DC_ODA_BDVDL,Total official development assistance for biodiversity; by donor countries (millions of constant 2017 United States dollars),378,2007
-"47847",15.a.1 15.b.1,DC_ODA_BDVDL,Total official development assistance for biodiversity; by donor countries (millions of constant 2017 United States dollars),378,2011
-"47912",15.a.1 15.b.1,DC_ODA_BDVL,Total official development assistance for biodiversity; by recipient countries (millions of constant 2017 United States dollars),2679,2004
-"47913",15.a.1 15.b.1,DC_ODA_BDVL,Total official development assistance for biodiversity; by recipient countries (millions of constant 2017 United States dollars),2679,2007
-"47914",15.a.1 15.b.1,DC_ODA_BDVL,Total official development assistance for biodiversity; by recipient countries (millions of constant 2017 United States dollars),2679,2011
-"48961",16.1.1,VC_IHR_PSRC,Number of victims of intentional homicide per 100;000 population; by sex (victims per 100;000 population),2706,2011
-"48981",16.1.1,VC_IHR_PSRC,Number of victims of intentional homicide per 100;000 population; by sex (victims per 100;000 population),2706,2004
-"48982",16.1.1,VC_IHR_PSRC,Number of victims of intentional homicide per 100;000 population; by sex (victims per 100;000 population),2706,2007
-"49349",16.1.1,VC_IHR_PSRCN,Number of victims of intentional homicide; by sex (number),2544,2011
-"49710",16.1.3,VC_VOV_PHYL,Proportion of population subjected to physical violence in the previous 12 months; by sex (%),201,2011
-"49714",16.1.3,VC_VOV_PHYL,Proportion of population subjected to physical violence in the previous 12 months; by sex (%),201,2004
-"49715",16.1.3,VC_VOV_PHYL,Proportion of population subjected to physical violence in the previous 12 months; by sex (%),201,2007
-"49730",16.1.3,VC_VOV_ROBB,Proportion of population subjected to robbery in the previous 12 months; by sex (%),436,2011
-"49734",16.1.3,VC_VOV_ROBB,Proportion of population subjected to robbery in the previous 12 months; by sex (%),436,2004
-"49735",16.1.3,VC_VOV_ROBB,Proportion of population subjected to robbery in the previous 12 months; by sex (%),436,2007
-"49797",16.1.3,VC_VOV_SEXL,Proportion of population subjected to sexual violence in the previous 12 months; by sex (%),265,2011
-"49801",16.1.3,VC_VOV_SEXL,Proportion of population subjected to sexual violence in the previous 12 months; by sex (%),265,2004
-"49803",16.1.3,VC_VOV_SEXL,Proportion of population subjected to sexual violence in the previous 12 months; by sex (%),265,2007
-"49829",16.2.1,VC_VAW_PHYPYV,Proportion of children aged 1-14 years who experienced physical punishment and/or psychological aggression by caregivers in last month (% of children aged 1-14 years),93,2011
-"49833",16.2.1,VC_VAW_PHYPYV,Proportion of children aged 1-14 years who experienced physical punishment and/or psychological aggression by caregivers in last month (% of children aged 1-14 years),93,2007
-"49836",16.2.2,VC_HTF_DETVFL,Detected victims of human trafficking for forced labour; servitude and slavery; by age and sex (number),2035,2004
-"49843",16.2.2,VC_HTF_DETVFL,Detected victims of human trafficking for forced labour; servitude and slavery; by age and sex (number),2035,2007
-"49864",16.2.2,VC_HTF_DETVFL,Detected victims of human trafficking for forced labour; servitude and slavery; by age and sex (number),2035,2011
-"50049",16.2.2,VC_HTF_DETVOP,Detected victims of human trafficking for other purposes; by age and sex (number),1664,2004
-"50056",16.2.2,VC_HTF_DETVOP,Detected victims of human trafficking for other purposes; by age and sex (number),1664,2007
-"50063",16.2.2,VC_HTF_DETVOP,Detected victims of human trafficking for other purposes; by age and sex (number),1664,2011
-"50240",16.2.2,VC_HTF_DETVOG,Detected victims of human trafficking for removal of organ; by age and sex (number),860,2004
-"50247",16.2.2,VC_HTF_DETVOG,Detected victims of human trafficking for removal of organ; by age and sex (number),860,2007
-"50268",16.2.2,VC_HTF_DETVOG,Detected victims of human trafficking for removal of organ; by age and sex (number),860,2011
-"50373",16.2.2,VC_HTF_DETVSX,Detected victims of human trafficking for sexual exploitaton; by age and sex (number),2275,2004
-"50380",16.2.2,VC_HTF_DETVSX,Detected victims of human trafficking for sexual exploitaton; by age and sex (number),2275,2007
-"50401",16.2.2,VC_HTF_DETVSX,Detected victims of human trafficking for sexual exploitaton; by age and sex (number),2275,2011
-"50600",16.2.2,VC_HTF_DETV,Detected victims of human trafficking; by age and sex (number),998,2004
-"50601",16.2.2,VC_HTF_DETV,Detected victims of human trafficking; by age and sex (number),998,2007
-"50602",16.2.2,VC_HTF_DETV,Detected victims of human trafficking; by age and sex (number),998,2011
-"50749",16.2.3,VC_VAW_SXVLN,Proportion of population aged 18-29 years who experienced sexual violence by age 18; by sex (% of population aged 18-29),61,2011
-"50751",16.2.3,VC_VAW_SXVLN,Proportion of population aged 18-29 years who experienced sexual violence by age 18; by sex (% of population aged 18-29),61,2007
-"50753",16.3.1,VC_PRR_PHYV,Police reporting rate for physical assault; by sex (%),95,2011
-"50758",16.3.1,VC_PRR_SEXV,Police reporting rate for sexual assault; by sex (%),83,2011
-"50759",16.3.1,VC_PRR_SEXV,Police reporting rate for sexual assault; by sex (%),83,2004
-"50761",16.3.1,VC_PRR_SEXV,Police reporting rate for sexual assault; by sex (%),83,2007
-"50770",16.3.1,VC_PRR_ROBB,Police reporting rate for robbery; by sex (%),162,2011
-"50772",16.3.1,VC_PRR_ROBB,Police reporting rate for robbery; by sex (%),162,2004
-"50773",16.3.1,VC_PRR_ROBB,Police reporting rate for robbery; by sex (%),162,2007
-"50794",16.5.1,IU_COR_BRIB,Prevalence rate of bribery; by sex (%),114,2007
-"50795",16.5.1,IU_COR_BRIB,Prevalence rate of bribery; by sex (%),114,2011
-"50796",16.5.1,IU_COR_BRIB,Prevalence rate of bribery; by sex (%),114,2004
-"50810",16.5.2,IC_FRM_BRIB,Bribery incidence (% of firms experiencing at least one bribe payment request),286,2007
-"50813",16.5.2,IC_FRM_BRIB,Bribery incidence (% of firms experiencing at least one bribe payment request),286,2011
-"50829",16.6.1,GF_XPD_GBPC,Primary government expenditures as a proportion of original approved budget (%),649,2007
-"50830",16.6.1,GF_XPD_GBPC,Primary government expenditures as a proportion of original approved budget (%),649,2011
-"50865",16.6.1,GF_XPD_GBPC,Primary government expenditures as a proportion of original approved budget (%),649,2004
-"50963",16.9.1,SG_REG_BRTH,Proportion of children under 5 years of age whose births have been registered with a civil authority (% of children under 5 years of age),191,2011
-"50967",16.9.1,SG_REG_BRTH,Proportion of children under 5 years of age whose births have been registered with a civil authority (% of children under 5 years of age),191,2007
-"50970",17.1.1,GR_G14_GDP,Total government revenue (budgetary central government) as a proportion of GDP (%),1844,2004
-"50971",17.1.1,GR_G14_GDP,Total government revenue (budgetary central government) as a proportion of GDP (%),1844,2007
-"50972",17.1.1,GR_G14_GDP,Total government revenue (budgetary central government) as a proportion of GDP (%),1844,2011
-"51286",17.11.1,TX_IMP_GBMRCH,Developing countries’ and least developed countries’ share of global merchandise imports (%),810,2004
-"51287",17.11.1,TX_IMP_GBMRCH,Developing countries’ and least developed countries’ share of global merchandise imports (%),810,2007
-"51288",17.11.1,TX_IMP_GBMRCH,Developing countries’ and least developed countries’ share of global merchandise imports (%),810,2011
-"51421",17.11.1,TX_EXP_GBMRCH,Developing countries’ and least developed countries’ share of global merchandise exports (%),810,2004
-"51422",17.11.1,TX_EXP_GBMRCH,Developing countries’ and least developed countries’ share of global merchandise exports (%),810,2007
-"51423",17.11.1,TX_EXP_GBMRCH,Developing countries’ and least developed countries’ share of global merchandise exports (%),810,2011
-"51556",17.11.1,TX_EXP_GBSVR,Developing countries’ and least developed countries’ share of global services exports (%),810,2004
-"51557",17.11.1,TX_EXP_GBSVR,Developing countries’ and least developed countries’ share of global services exports (%),810,2007
-"51558",17.11.1,TX_EXP_GBSVR,Developing countries’ and least developed countries’ share of global services exports (%),810,2011
-"51691",17.11.1,TX_IMP_GBSVR,Developing countries’ and least developed countries’ share of global services imports (%),810,2004
-"51692",17.11.1,TX_IMP_GBSVR,Developing countries’ and least developed countries’ share of global services imports (%),810,2007
-"51693",17.11.1,TX_IMP_GBSVR,Developing countries’ and least developed countries’ share of global services imports (%),810,2011
-"51826",17.12.1,TM_TAX_ATRFD,Average tariff applied by developed countries; by type of product (%),20016,2011
-"53828",17.19.1,SG_STT_CAPTY,Dollar value of all resources made available to strengthen statistical capacity in developing countries (current United States dollars),1634,2007
-"53829",17.19.1,SG_STT_CAPTY,Dollar value of all resources made available to strengthen statistical capacity in developing countries (current United States dollars),1634,2011
-"54140",17.19.2,SG_REG_CENSUSN,Countries that have conducted at least one population and housing census in the last 10 years (1 = YES; 0 = NO),233,2011
-"54202",17.2.1,DC_ODA_SIDSG,Net official development assistance (ODA) to small island states (SIDS) as a percentage of OECD-DAC donors' GNI; by donor countries (%),507,2004
-"54203",17.2.1,DC_ODA_SIDSG,Net official development assistance (ODA) to small island states (SIDS) as a percentage of OECD-DAC donors' GNI; by donor countries (%),507,2007
-"54204",17.2.1,DC_ODA_SIDSG,Net official development assistance (ODA) to small island states (SIDS) as a percentage of OECD-DAC donors' GNI; by donor countries (%),507,2011
-"54287",17.2.1,DC_ODA_LDCG,Net official development assistance (ODA) to LDCs as a percentage of OECD-DAC donors' GNI; by donor countries (%),507,2004
-"54288",17.2.1,DC_ODA_LDCG,Net official development assistance (ODA) to LDCs as a percentage of OECD-DAC donors' GNI; by donor countries (%),507,2007
-"54289",17.2.1,DC_ODA_LDCG,Net official development assistance (ODA) to LDCs as a percentage of OECD-DAC donors' GNI; by donor countries (%),507,2011
-"54372",17.2.1,DC_ODA_LLDC,Net official development assistance (ODA) to landlocked developing countries from OECD-DAC countries; by donor countries (millions of constant 2017 United States dollars),509,2004
-"54373",17.2.1,DC_ODA_LLDC,Net official development assistance (ODA) to landlocked developing countries from OECD-DAC countries; by donor countries (millions of constant 2017 United States dollars),509,2007
-"54374",17.2.1,DC_ODA_LLDC,Net official development assistance (ODA) to landlocked developing countries from OECD-DAC countries; by donor countries (millions of constant 2017 United States dollars),509,2011
-"54457",17.2.1,DC_ODA_SIDS,Net official development assistance (ODA) to small island states (SIDS) from OECD-DAC countries; by donor countries (millions of constant 2017 United States dollars),509,2004
-"54458",17.2.1,DC_ODA_SIDS,Net official development assistance (ODA) to small island states (SIDS) from OECD-DAC countries; by donor countries (millions of constant 2017 United States dollars),509,2007
-"54459",17.2.1,DC_ODA_SIDS,Net official development assistance (ODA) to small island states (SIDS) from OECD-DAC countries; by donor countries (millions of constant 2017 United States dollars),509,2011
-"54542",17.2.1,DC_ODA_LDCS,Net official development assistance (ODA) to LDCs from OECD-DAC countries; by donor countries (millions of constant 2017 United States dollars),509,2004
-"54543",17.2.1,DC_ODA_LDCS,Net official development assistance (ODA) to LDCs from OECD-DAC countries; by donor countries (millions of constant 2017 United States dollars),509,2007
-"54544",17.2.1,DC_ODA_LDCS,Net official development assistance (ODA) to LDCs from OECD-DAC countries; by donor countries (millions of constant 2017 United States dollars),509,2011
-"54627",17.2.1,DC_ODA_LLDCG,Net official development assistance (ODA) to landlocked developing countries as a percentage of OECD-DAC donors' GNI; by donor countries (%),507,2004
-"54628",17.2.1,DC_ODA_LLDCG,Net official development assistance (ODA) to landlocked developing countries as a percentage of OECD-DAC donors' GNI; by donor countries (%),507,2007
-"54629",17.2.1,DC_ODA_LLDCG,Net official development assistance (ODA) to landlocked developing countries as a percentage of OECD-DAC donors' GNI; by donor countries (%),507,2011
-"54712",17.2.1,DC_ODA_TOTG,Net official development assistance (ODA) as a percentage of OECD-DAC donors' GNI; by donor countries (%),541,2004
-"54713",17.2.1,DC_ODA_TOTG,Net official development assistance (ODA) as a percentage of OECD-DAC donors' GNI; by donor countries (%),541,2007
-"54714",17.2.1,DC_ODA_TOTG,Net official development assistance (ODA) as a percentage of OECD-DAC donors' GNI; by donor countries (%),541,2011
-"54798",17.2.1,DC_ODA_TOTL,Net official development assistance (ODA) from OECD-DAC countries; by donor countries (millions of constant 2017 United States dollars),562,2004
-"54799",17.2.1,DC_ODA_TOTL,Net official development assistance (ODA) from OECD-DAC countries; by donor countries (millions of constant 2017 United States dollars),562,2007
-"54800",17.2.1,DC_ODA_TOTL,Net official development assistance (ODA) from OECD-DAC countries; by donor countries (millions of constant 2017 United States dollars),562,2011
-"54887",17.3.2,BX_TRF_PWKR,Volume of remittances (in United States dollars) as a proportion of total GDP (%),5366,2011
-"54888",17.3.2,BX_TRF_PWKR,Volume of remittances (in United States dollars) as a proportion of total GDP (%),5366,2004
-"54889",17.3.2,BX_TRF_PWKR,Volume of remittances (in United States dollars) as a proportion of total GDP (%),5366,2007
-"55516",17.4.1,DT_TDS_DECT,Debt service as a proportion of exports of goods and services (%),3430,2011
-"55517",17.4.1,DT_TDS_DECT,Debt service as a proportion of exports of goods and services (%),3430,2004
-"55518",17.4.1,DT_TDS_DECT,Debt service as a proportion of exports of goods and services (%),3430,2007
-"55901",17.6.2,IT_NET_BBN,Number of fixed Internet broadband subscriptions; by speed (number),6129,2004
-"55902",17.6.2,IT_NET_BBN,Number of fixed Internet broadband subscriptions; by speed (number),6129,2007
-"55904",17.6.2,IT_NET_BBN,Number of fixed Internet broadband subscriptions; by speed (number),6129,2011
-"56755",17.6.2,IT_NET_BBP,Fixed Internet broadband subscriptions per 100 inhabitants; by speed (per 100 inhabitants),6502,2004
-"56756",17.6.2,IT_NET_BBP,Fixed Internet broadband subscriptions per 100 inhabitants; by speed (per 100 inhabitants),6502,2007
-"56758",17.6.2,IT_NET_BBP,Fixed Internet broadband subscriptions per 100 inhabitants; by speed (per 100 inhabitants),6502,2011
-"57608",17.8.1,IT_USE_ii99,Internet users per 100 inhabitants,4271,2004
-"57609",17.8.1,IT_USE_ii99,Internet users per 100 inhabitants,4271,2007
-"57610",17.8.1,IT_USE_ii99,Internet users per 100 inhabitants,4271,2011
-"58331",17.9.1,DC_FTA_TOTAL,Total official development assistance (gross disbursement) for technical cooperation (millions of 2017 United States dollars),3259,2004
-"58332",17.9.1,DC_FTA_TOTAL,Total official development assistance (gross disbursement) for technical cooperation (millions of 2017 United States dollars),3259,2007
-"58333",17.9.1,DC_FTA_TOTAL,Total official development assistance (gross disbursement) for technical cooperation (millions of 2017 United States dollars),3259,2011
-"58878",2.1.1,SN_ITK_DEFC,Prevalence of undernourishment (%),5045,2004
-"58879",2.1.1,SN_ITK_DEFC,Prevalence of undernourishment (%),5045,2007
-"58880",2.1.1,SN_ITK_DEFC,Prevalence of undernourishment (%),5045,2011
-"59760",2.1.1,SN_ITK_DEFCN,Number of undernourish people (millions),5045,2004
-"59761",2.1.1,SN_ITK_DEFCN,Number of undernourish people (millions),5045,2007
-"59762",2.1.1,SN_ITK_DEFCN,Number of undernourish people (millions),5045,2011
-"60642",2.2.1,SH_STA_STUNT,Proportion of children moderately or severely stunted (%),770,2004
-"60643",2.2.1,SH_STA_STUNT,Proportion of children moderately or severely stunted (%),770,2007
-"60645",2.2.1,SH_STA_STUNT,Proportion of children moderately or severely stunted (%),770,2011
-"60729",2.2.1,SH_STA_STUNTN,Children moderately or severely stunted (millions),769,2004
-"60730",2.2.1,SH_STA_STUNTN,Children moderately or severely stunted (millions),769,2007
-"60732",2.2.1,SH_STA_STUNTN,Children moderately or severely stunted (millions),769,2011
-"60815",2.2.2,SH_STA_WASTE,Proportion of children moderately or severely wasted (%),584,2004
-"60816",2.2.2,SH_STA_WASTE,Proportion of children moderately or severely wasted (%),584,2007
-"60818",2.2.2,SH_STA_WASTE,Proportion of children moderately or severely wasted (%),584,2011
-"60902",2.2.2,SH_STA_WASTEN,Children moderately or severely wasted (millions),583,2004
-"60903",2.2.2,SH_STA_WASTEN,Children moderately or severely wasted (millions),583,2007
-"60905",2.2.2,SH_STA_WASTEN,Children moderately or severely wasted (millions),583,2011
-"60989",2.2.2,SH_STA_OVRWGT,Proportion of children moderately or severely overweight (%),735,2004
-"60990",2.2.2,SH_STA_OVRWGT,Proportion of children moderately or severely overweight (%),735,2007
-"60991",2.2.2,SH_STA_OVRWGT,Proportion of children moderately or severely overweight (%),735,2011
-"61070",2.3.1,PD_AGR_SSFP,Productivity of small-scale food producers (agricultural output per labour day; PPP) (constant 2011 international $),2223,2011
-"61317",2.3.2,SI_AGR_SSFP,Average income of small-scale food producers; PPP (constant 2011 international $),3211,2004
-"61318",2.3.2,SI_AGR_SSFP,Average income of small-scale food producers; PPP (constant 2011 international $),3211,2007
-"61319",2.3.2,SI_AGR_SSFP,Average income of small-scale food producers; PPP (constant 2011 international $),3211,2011
-"62058",2.5.2,ER_RSK_LBREDS,Proportion of local breeds classified as being at risk as a share of local breeds with known level of extinction risk (%),5780,2004
-"62059",2.5.2,ER_RSK_LBREDS,Proportion of local breeds classified as being at risk as a share of local breeds with known level of extinction risk (%),5780,2007
-"62060",2.5.2,ER_RSK_LBREDS,Proportion of local breeds classified as being at risk as a share of local breeds with known level of extinction risk (%),5780,2011
-"62925",2.a.1,AG_PRD_ORTIND,Agriculture orientation index for government expenditures,5202,2004
-"62926",2.a.1,AG_PRD_ORTIND,Agriculture orientation index for government expenditures,5202,2007
-"62927",2.a.1,AG_PRD_ORTIND,Agriculture orientation index for government expenditures,5202,2011
-"63792",2.a.1,AG_PRD_AGVAS,Agriculture value added share of GDP (%),5202,2004
-"63793",2.a.1,AG_PRD_AGVAS,Agriculture value added share of GDP (%),5202,2007
-"63794",2.a.1,AG_PRD_AGVAS,Agriculture value added share of GDP (%),5202,2011
-"64659",2.a.1,AG_XPD_AGSGB,Agriculture share of Government Expenditure (%),5202,2004
-"64660",2.a.1,AG_XPD_AGSGB,Agriculture share of Government Expenditure (%),5202,2007
-"64661",2.a.1,AG_XPD_AGSGB,Agriculture share of Government Expenditure (%),5202,2011
-"65526",2.a.2,DC_TOF_AGRL,Total official flows (disbursements) for agriculture; by recipient countries (millions of constant 2017 United States dollars),3201,2004
-"65527",2.a.2,DC_TOF_AGRL,Total official flows (disbursements) for agriculture; by recipient countries (millions of constant 2017 United States dollars),3201,2007
-"65528",2.a.2,DC_TOF_AGRL,Total official flows (disbursements) for agriculture; by recipient countries (millions of constant 2017 United States dollars),3201,2011
-"66060",2.b.1,AG_PRD_XSUBDY,Agricultural export subsidies (millions of current United States dollars),66,2004
-"66061",2.b.1,AG_PRD_XSUBDY,Agricultural export subsidies (millions of current United States dollars),66,2007
-"66062",2.b.1,AG_PRD_XSUBDY,Agricultural export subsidies (millions of current United States dollars),66,2011
-"66069",3.1.1,SH_STA_MMR,Maternal mortality ratio,17034,2004
-"66070",3.1.1,SH_STA_MMR,Maternal mortality ratio,17034,2007
-"66071",3.1.1,SH_STA_MMR,Maternal mortality ratio,17034,2011
-"66723",3.1.2,SH_STA_BRTC,Proportion of births attended by skilled health personnel (%),1820,2011
-"66724",3.1.2,SH_STA_BRTC,Proportion of births attended by skilled health personnel (%),1820,2007
-"66725",3.1.2,SH_STA_BRTC,Proportion of births attended by skilled health personnel (%),1820,2004
-"67019",3.2.1,SH_DYN_IMRTN,Infant deaths (number),11115,2004
-"67022",3.2.1,SH_DYN_IMRTN,Infant deaths (number),11115,2007
-"67025",3.2.1,SH_DYN_IMRTN,Infant deaths (number),11115,2011
-"68774",3.2.1,SH_DYN_MORT,Under-five mortality rate; by sex (deaths per 1;000 live births),12333,2004
-"68777",3.2.1,SH_DYN_MORT,Under-five mortality rate; by sex (deaths per 1;000 live births),12333,2007
-"68780",3.2.1,SH_DYN_MORT,Under-five mortality rate; by sex (deaths per 1;000 live births),12333,2011
-"70655",3.2.1,SH_DYN_IMRT,Infant mortality rate (deaths per 1;000 live births),12333,2004
-"70658",3.2.1,SH_DYN_IMRT,Infant mortality rate (deaths per 1;000 live births),12333,2007
-"70661",3.2.1,SH_DYN_IMRT,Infant mortality rate (deaths per 1;000 live births),12333,2011
-"72536",3.2.1,SH_DYN_MORTN,Under-five deaths (number),11115,2004
-"72539",3.2.1,SH_DYN_MORTN,Under-five deaths (number),11115,2007
-"72542",3.2.1,SH_DYN_MORTN,Under-five deaths (number),11115,2011
-"74291",3.2.2,SH_DYN_NMRTN,Neonatal deaths (number),3705,2004
-"74292",3.2.2,SH_DYN_NMRTN,Neonatal deaths (number),3705,2007
-"74293",3.2.2,SH_DYN_NMRTN,Neonatal deaths (number),3705,2011
-"74876",3.2.2,SH_DYN_NMRT,Neonatal mortality rate (deaths per 1;000 live births),4503,2004
-"74877",3.2.2,SH_DYN_NMRT,Neonatal mortality rate (deaths per 1;000 live births),4503,2007
-"74878",3.2.2,SH_DYN_NMRT,Neonatal mortality rate (deaths per 1;000 live births),4503,2011
-"75587",3.3.1,SH_HIV_INCD,Number of new HIV infections per 1;000 uninfected population; by sex and age (per 1;000 uninfected population),33626,2004
-"75599",3.3.1,SH_HIV_INCD,Number of new HIV infections per 1;000 uninfected population; by sex and age (per 1;000 uninfected population),33626,2007
-"75611",3.3.1,SH_HIV_INCD,Number of new HIV infections per 1;000 uninfected population; by sex and age (per 1;000 uninfected population),33626,2011
-"81189",3.3.2,SH_TBS_INCID,Tuberculosis incidence (per 100;000 population),12684,2004
-"81190",3.3.2,SH_TBS_INCID,Tuberculosis incidence (per 100;000 population),12684,2007
-"81191",3.3.2,SH_TBS_INCID,Tuberculosis incidence (per 100;000 population),12684,2011
-"81893",3.3.3,SH_STA_MALR,Malaria incidence per 1;000 population at risk (per 1;000 population),1539,2011
-"82047",3.3.5,SH_TRP_INTVN,Number of people requiring interventions against neglected tropical diseases (number),1648,2011
-"82253",3.6.1,SH_STA_TRAF,Death rate due to road traffic injuries (per 100;000 population),0,2004
-"82254",3.6.1,SH_STA_TRAF,Death rate due to road traffic injuries (per 100;000 population),0,2007
-"82255",3.6.1,SH_STA_TRAF,Death rate due to road traffic injuries (per 100;000 population),0,2011
-"82841",3.7.1,SH_FPL_MTMM,Proportion of women of reproductive age (aged 15-49 years) who have their need for family planning satisfied with modern methods (% of women aged 15-49 years),470,2004
-"82842",3.7.1,SH_FPL_MTMM,Proportion of women of reproductive age (aged 15-49 years) who have their need for family planning satisfied with modern methods (% of women aged 15-49 years),470,2007
-"82843",3.7.1,SH_FPL_MTMM,Proportion of women of reproductive age (aged 15-49 years) who have their need for family planning satisfied with modern methods (% of women aged 15-49 years),470,2011
-"82904",3.7.2,SP_DYN_ADKL,Adolescent birth rate (per 1;000 women aged 15-19 years),2414,2007
-"82905",3.7.2,SP_DYN_ADKL,Adolescent birth rate (per 1;000 women aged 15-19 years),2414,2011
-"82906",3.7.2,SP_DYN_ADKL,Adolescent birth rate (per 1;000 women aged 15-19 years),2414,2004
-"83313",3.8.2,SH_XPD_EARN25,Proportion of population with large household expenditures on health (greater than 25%) as a share of total household expenditure or income (%),635,2007
-"83314",3.8.2,SH_XPD_EARN25,Proportion of population with large household expenditures on health (greater than 25%) as a share of total household expenditure or income (%),635,2004
-"83317",3.8.2,SH_XPD_EARN25,Proportion of population with large household expenditures on health (greater than 25%) as a share of total household expenditure or income (%),635,2011
-"83433",3.8.2,SH_XPD_EARN10,Proportion of population with large household expenditures on health (greater than 10%) as a share of total household expenditure or income (%),635,2007
-"83434",3.8.2,SH_XPD_EARN10,Proportion of population with large household expenditures on health (greater than 10%) as a share of total household expenditure or income (%),635,2004
-"83437",3.8.2,SH_XPD_EARN10,Proportion of population with large household expenditures on health (greater than 10%) as a share of total household expenditure or income (%),635,2011
-"83553",3.b.1,SH_ACS_DTP3,Proportion of the target population with access to 3 doses of diphtheria-tetanus-pertussis (DTP3) (%),4301,2004
-"83554",3.b.1,SH_ACS_DTP3,Proportion of the target population with access to 3 doses of diphtheria-tetanus-pertussis (DTP3) (%),4301,2007
-"83555",3.b.1,SH_ACS_DTP3,Proportion of the target population with access to 3 doses of diphtheria-tetanus-pertussis (DTP3) (%),4301,2011
-"84270",3.b.1,SH_ACS_MCV2,Proportion of the target population with access to measles-containing-vaccine second-dose (MCV2) (%),2948,2004
-"84271",3.b.1,SH_ACS_MCV2,Proportion of the target population with access to measles-containing-vaccine second-dose (MCV2) (%),2948,2007
-"84272",3.b.1,SH_ACS_MCV2,Proportion of the target population with access to measles-containing-vaccine second-dose (MCV2) (%),2948,2011
-"84745",3.b.1,SH_ACS_PCV3,Proportion of the target population with access to pneumococcal conjugate 3rd dose (PCV3) (%),1263,2011
-"84854",3.b.2,DC_TOF_HLTHNT,Total official development assistance to medical research and basic heath sectors; net disbursement; by recipient countries (millions of constant 2017 United States dollars),1397,2011
-"85030",3.b.2,DC_TOF_HLTHL,Total official development assistance to medical research and basic heath sectors; gross disbursement; by recipient countries (millions of constant 2017 United States dollars),3068,2004
-"85031",3.b.2,DC_TOF_HLTHL,Total official development assistance to medical research and basic heath sectors; gross disbursement; by recipient countries (millions of constant 2017 United States dollars),3068,2007
-"85032",3.b.2,DC_TOF_HLTHL,Total official development assistance to medical research and basic heath sectors; gross disbursement; by recipient countries (millions of constant 2017 United States dollars),3068,2011
-"85547",3.c.1,SH_MED_HEAWOR,Health worker density; by type of occupation (per 10;000 population),4948,2007
-"85551",3.c.1,SH_MED_HEAWOR,Health worker density; by type of occupation (per 10;000 population),4948,2011
-"85559",3.c.1,SH_MED_HEAWOR,Health worker density; by type of occupation (per 10;000 population),4948,2004
-"86486",3.d.1,SH_IHR_CAPS,International Health Regulations (IHR) capacity; by type of IHR capacity (%),17517,2011
-"88527",4.1.1,SE_MAT_PROF,Minimum proficiency in mathematics; by education level and sex (%),2423,2007
-"88539",4.1.1,SE_MAT_PROF,Minimum proficiency in mathematics; by education level and sex (%),2423,2011
-"89124",4.1.1,SE_REA_PROF,Minimum proficiency in reading; by education level and sex (%),1978,2011
-"89235",4.1.1,SE_REA_PROF,Minimum proficiency in reading; by education level and sex (%),1978,2007
-"89292",4.2.1,SE_DEV_ONTRK,Proportion of children aged 36-59 months who are developmentally on track in at least three of the following domains: literacy-numeracy; physical development; social-emotional development; and learning (% of children aged 36-59 months),75,2011
-"89297",4.2.2,SE_PRE_PARTN,Participation rate in organized learning (one year before the official primary entry age); by sex (%),5634,2004
-"89300",4.2.2,SE_PRE_PARTN,Participation rate in organized learning (one year before the official primary entry age); by sex (%),5634,2011
-"89306",4.2.2,SE_PRE_PARTN,Participation rate in organized learning (one year before the official primary entry age); by sex (%),5634,2007
-"90197",4.3.1,SE_ADT_EDUCTRN,Participation rate in formal and non-formal education and training; by sex (%),327,2007
-"90200",4.3.1,SE_ADT_EDUCTRN,Participation rate in formal and non-formal education and training; by sex (%),327,2011
-"90380",4.4.1,SE_ADT_ACTS,Proportion of youth and adults with information and communications technology (ICT) skills; by sex and type of skill (%),3738,2011
-"90385",4.5.1,SE_PRE_GPIPARTN,Gender parity index for participation rate in organized learning (one year before the official primary entry age); (ratio),1857,2004
-"90386",4.5.1,SE_PRE_GPIPARTN,Gender parity index for participation rate in organized learning (one year before the official primary entry age); (ratio),1857,2011
-"90388",4.5.1,SE_PRE_GPIPARTN,Gender parity index for participation rate in organized learning (one year before the official primary entry age); (ratio),1857,2007
-"90682",4.5.1,SE_GPI_MATACH,Gender parity index for achievement in mathematics; by education level (ratio),765,2007
-"90686",4.5.1,SE_GPI_MATACH,Gender parity index for achievement in mathematics; by education level (ratio),765,2011
-"90875",4.5.1,SE_GPI_REAACH,Gender parity index for achievement in reading; by education level (ratio),612,2011
-"90924",4.5.1,SE_GPI_TRATEA,Gender parity index of trained teachers; by education level (ratio),2398,2004
-"90925",4.5.1,SE_GPI_TRATEA,Gender parity index of trained teachers; by education level (ratio),2398,2007
-"90928",4.5.1,SE_GPI_TRATEA,Gender parity index of trained teachers; by education level (ratio),2398,2011
-"91326",4.5.1,SE_SEP_MATACH,Low to high socio-economic parity status index for achievement in mathematics; by education level (ratio),504,2011
-"91332",4.5.1,SE_SEP_MATACH,Low to high socio-economic parity status index for achievement in mathematics; by education level (ratio),504,2007
-"91414",4.5.1,SE_SEP_REAACH,Low to high socio-economic parity status index for achievement in reading; by education level (ratio),484,2011
-"91457",4.5.1,SE_URP_MATACH,Rural to urban parity index for achievement in mathematics; by education level (ratio),668,2007
-"91461",4.5.1,SE_URP_MATACH,Rural to urban parity index for achievement in mathematics; by education level (ratio),668,2011
-"91642",4.5.1,SE_URP_REAACH,Rural to urban parity index for achievement in reading; by education level (ratio),505,2011
-"91687",4.5.1,SE_GPI_PART,Gender parity index for participation rate in formal and non-formal education and training (ratio),109,2007
-"91688",4.5.1,SE_GPI_PART,Gender parity index for participation rate in formal and non-formal education and training (ratio),109,2011
-"91748",4.5.1,SE_LGP_ACHIRE,Language test parity index for achievement in reading; by education level (ratio),496,2011
-"91791",4.5.1,SE_LGP_ACHIMA,Language test parity index for achievement in mathematics; by education level (ratio),652,2007
-"91795",4.5.1,SE_LGP_ACHIMA,Language test parity index for achievement in mathematics; by education level (ratio),652,2011
-"91972",4.6.1,SE_ADT_FUNS,Proportion of population achieving at least a fixed level of proficiency in functional skills; by sex; age and type of skill (%),223,2011
-"91981",4.6.1,SE_ADT_FUNS,Proportion of population achieving at least a fixed level of proficiency in functional skills; by sex; age and type of skill (%),223,2007
-"91983",4.a.1,SE_ACC_COMP,Schools with access to computers for pedagogical purposes; by education level (%),1414,2004
-"91986",4.a.1,SE_ACC_COMP,Schools with access to computers for pedagogical purposes; by education level (%),1414,2007
-"91989",4.a.1,SE_ACC_COMP,Schools with access to computers for pedagogical purposes; by education level (%),1414,2011
-"92137",4.a.1,SE_ACC_DWAT,Schools with access to basic drinking water; by education level (%),1491,2004
-"92140",4.a.1,SE_ACC_DWAT,Schools with access to basic drinking water; by education level (%),1491,2007
-"92143",4.a.1,SE_ACC_DWAT,Schools with access to basic drinking water; by education level (%),1491,2011
-"92319",4.a.1,SE_ACC_ELEC,Schools with access to electricity; by education level (%),1893,2004
-"92322",4.a.1,SE_ACC_ELEC,Schools with access to electricity; by education level (%),1893,2007
-"92325",4.a.1,SE_ACC_ELEC,Schools with access to electricity; by education level (%),1893,2011
-"92548",4.a.1,SE_ACC_HNWA,Schools with basic handwashing facilities; by education level (%),1433,2004
-"92551",4.a.1,SE_ACC_HNWA,Schools with basic handwashing facilities; by education level (%),1433,2007
-"92554",4.a.1,SE_ACC_HNWA,Schools with basic handwashing facilities; by education level (%),1433,2011
-"92726",4.a.1,SE_ACC_INTN,Schools with access to the internet for pedagogical purposes; by education level (%),1318,2004
-"92729",4.a.1,SE_ACC_INTN,Schools with access to the internet for pedagogical purposes; by education level (%),1318,2007
-"92732",4.a.1,SE_ACC_INTN,Schools with access to the internet for pedagogical purposes; by education level (%),1318,2011
-"92877",4.a.1,SE_ACC_SANI,Schools with access to access to single-sex basic sanitation; by education level (%),1404,2004
-"92880",4.a.1,SE_ACC_SANI,Schools with access to access to single-sex basic sanitation; by education level (%),1404,2007
-"92883",4.a.1,SE_ACC_SANI,Schools with access to access to single-sex basic sanitation; by education level (%),1404,2011
-"93049",4.a.1,SE_INF_DSBL,Proportion of schools with access to adapted infrastructure and materials for students with disabilities; by education level (%),252,2004
-"93052",4.a.1,SE_INF_DSBL,Proportion of schools with access to adapted infrastructure and materials for students with disabilities; by education level (%),252,2007
-"93055",4.a.1,SE_INF_DSBL,Proportion of schools with access to adapted infrastructure and materials for students with disabilities; by education level (%),252,2011
-"93058",4.b.1,DC_TOF_SCHIPSL,Total official flows for scholarships; by recipient countries (millions of constant 2017 United States dollars),2091,2007
-"93059",4.b.1,DC_TOF_SCHIPSL,Total official flows for scholarships; by recipient countries (millions of constant 2017 United States dollars),2091,2011
-"93402",4.c.1,SE_TRA_GRDL,Proportion of teachers who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country; by sex and education level (%),13279,2004
-"93405",4.c.1,SE_TRA_GRDL,Proportion of teachers who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country; by sex and education level (%),13279,2007
-"93414",4.c.1,SE_TRA_GRDL,Proportion of teachers who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country; by sex and education level (%),13279,2011
-"95573",5.2.1,VC_VAW_MARR,Proportion of ever-partnered women and girls subjected to physical and/or sexual violence by a current or former intimate partner in the previous 12 months; by age (%),577,2011
-"95587",5.2.1,VC_VAW_MARR,Proportion of ever-partnered women and girls subjected to physical and/or sexual violence by a current or former intimate partner in the previous 12 months; by age (%),577,2007
-"95604",5.3.1,SP_DYN_MRBF18,Proportion of women aged 20-24 years who were married or in a union before age 18 (%),178,2011
-"95608",5.3.1,SP_DYN_MRBF18,Proportion of women aged 20-24 years who were married or in a union before age 18 (%),178,2007
-"95614",5.3.1,SP_DYN_MRBF15,Proportion of women aged 20-24 years who were married or in a union before age 15 (%),178,2011
-"95618",5.3.1,SP_DYN_MRBF15,Proportion of women aged 20-24 years who were married or in a union before age 15 (%),178,2007
-"95624",5.3.2,SH_STA_FGMS,Proportion of girls and women aged 15-49 years who have undergone female genital mutilation/cutting; by age (%),37,2004
-"95625",5.3.2,SH_STA_FGMS,Proportion of girls and women aged 15-49 years who have undergone female genital mutilation/cutting; by age (%),37,2011
-"95626",5.4.1,SL_DOM_TSPDCW,Proportion of time spent on unpaid care work; by sex; age and location (%),2026,2011
-"95638",5.4.1,SL_DOM_TSPDCW,Proportion of time spent on unpaid care work; by sex; age and location (%),2026,2004
-"95640",5.4.1,SL_DOM_TSPDCW,Proportion of time spent on unpaid care work; by sex; age and location (%),2026,2007
-"95834",5.4.1,SL_DOM_TSPDDC,Proportion of time spent on unpaid domestic chores; by sex; age and location (%),2053,2011
-"95846",5.4.1,SL_DOM_TSPDDC,Proportion of time spent on unpaid domestic chores; by sex; age and location (%),2053,2004
-"95848",5.4.1,SL_DOM_TSPDDC,Proportion of time spent on unpaid domestic chores; by sex; age and location (%),2053,2007
-"96044",5.4.1,SL_DOM_TSPD,Proportion of time spent on unpaid domestic chores and care work; by sex; age and location (%),2217,2011
-"96056",5.4.1,SL_DOM_TSPD,Proportion of time spent on unpaid domestic chores and care work; by sex; age and location (%),2217,2004
-"96058",5.4.1,SL_DOM_TSPD,Proportion of time spent on unpaid domestic chores and care work; by sex; age and location (%),2217,2007
-"96266",5.5.1,SG_GEN_PARLN,Number of seats held by women in national parliaments (number),4545,2007
-"96267",5.5.1,SG_GEN_PARLN,Number of seats held by women in national parliaments (number),4545,2011
-"96268",5.5.1,SG_GEN_PARLN,Number of seats held by women in national parliaments (number),4545,2004
-"96942",5.5.1,SG_GEN_PARLNT,Number of seats in national parliaments (number),4548,2007
-"96943",5.5.1,SG_GEN_PARLNT,Number of seats in national parliaments (number),4548,2011
-"96944",5.5.1,SG_GEN_PARLNT,Number of seats in national parliaments (number),4548,2004
-"97618",5.5.1,SG_GEN_PARL,Proportion of seats held by women in national parliaments (% of total number of seats),4545,2007
-"97619",5.5.1,SG_GEN_PARL,Proportion of seats held by women in national parliaments (% of total number of seats),4545,2011
-"97620",5.5.1,SG_GEN_PARL,Proportion of seats held by women in national parliaments (% of total number of seats),4545,2004
-"98294",5.5.2,IC_GEN_MGTL,Proportion of women in managerial positions (%),1909,2007
-"98295",5.5.2,IC_GEN_MGTL,Proportion of women in managerial positions (%),1909,2004
-"98297",5.5.2,IC_GEN_MGTL,Proportion of women in managerial positions (%),1909,2011
-"98606",5.5.2,IC_GEN_MGTN,Proportion of women in senior and middle management positions (%),838,2007
-"98607",5.5.2,IC_GEN_MGTN,Proportion of women in senior and middle management positions (%),838,2004
-"98608",5.5.2,IC_GEN_MGTN,Proportion of women in senior and middle management positions (%),838,2011
-"98743",5.6.1,SH_FPL_INFM,Proportion of women who make their own informed decisions regarding sexual relations; contraceptive use and reproductive health care (% of women aged 15-49 years),105,2011
-"98744",5.6.1,SH_FPL_INFM,Proportion of women who make their own informed decisions regarding sexual relations; contraceptive use and reproductive health care (% of women aged 15-49 years),105,2007
-"98756",5.6.1,SH_FPL_INFMSR,Proportion of women who make their own informed decisions regarding sexual relations (% of women aged 15-49 years),78,2011
-"98757",5.6.1,SH_FPL_INFMSR,Proportion of women who make their own informed decisions regarding sexual relations (% of women aged 15-49 years),78,2007
-"98769",5.6.1,SH_FPL_INFMCU,Proportion of women who make their own informed decisions regarding contraceptive use (% of women aged 15-49 years),78,2011
-"98770",5.6.1,SH_FPL_INFMCU,Proportion of women who make their own informed decisions regarding contraceptive use (% of women aged 15-49 years),78,2007
-"98782",5.6.1,SH_FPL_INFMRH,Proportion of women who make their own informed decisions regarding reproductive health care (% of women aged 15-49 years),78,2011
-"98783",5.6.1,SH_FPL_INFMRH,Proportion of women who make their own informed decisions regarding reproductive health care (% of women aged 15-49 years),78,2007
-"98795",6.1.1,SH_H2O_SAFE,Proportion of population using safely managed drinking water services; by urban/rural (%),4692,2004
-"98796",6.1.1,SH_H2O_SAFE,Proportion of population using safely managed drinking water services; by urban/rural (%),4692,2007
-"98797",6.1.1,SH_H2O_SAFE,Proportion of population using safely managed drinking water services; by urban/rural (%),4692,2011
-"99577",6.2.1,SH_SAN_HNDWSH,Proportion of population with basic handwashing facilities on premises; by urban/rural (%),3203,2007
-"99580",6.2.1,SH_SAN_HNDWSH,Proportion of population with basic handwashing facilities on premises; by urban/rural (%),3203,2011
-"99586",6.2.1,SH_SAN_HNDWSH,Proportion of population with basic handwashing facilities on premises; by urban/rural (%),3203,2004
-"100034",6.2.1,SH_SAN_SAFE,Proportion of population using safely managed sanitation services; by urban/rural (%),4931,2004
-"100037",6.2.1,SH_SAN_SAFE,Proportion of population using safely managed sanitation services; by urban/rural (%),4931,2007
-"100040",6.2.1,SH_SAN_SAFE,Proportion of population using safely managed sanitation services; by urban/rural (%),4931,2011
-"100858",6.2.1,SH_SAN_DEFECT,Proportion of population practicing open defecation; by urban/rural (%),11978,2004
-"100861",6.2.1,SH_SAN_DEFECT,Proportion of population practicing open defecation; by urban/rural (%),11978,2007
-"100864",6.2.1,SH_SAN_DEFECT,Proportion of population practicing open defecation; by urban/rural (%),11978,2011
-"102866",6.6.1,EN_WBE_PMPR,Water body extent (permanent) (% of total land area),3240,2007
-"102867",6.6.1,EN_WBE_PMPR,Water body extent (permanent) (% of total land area),3240,2011
-"103406",6.6.1,EN_WBE_PMNR,Water body extent (permanent) (square kilometres),3240,2007
-"103407",6.6.1,EN_WBE_PMNR,Water body extent (permanent) (square kilometres),3240,2011
-"103946",6.6.1,EN_WBE_PMPP,Water body extent (permanent and maybe permanent) (% of total land area),3240,2007
-"103947",6.6.1,EN_WBE_PMPP,Water body extent (permanent and maybe permanent) (% of total land area),3240,2011
-"104486",6.6.1,EN_WBE_PMPN,Water body extent (permanent and maybe permanent) (square kilometres),3240,2007
-"104487",6.6.1,EN_WBE_PMPN,Water body extent (permanent and maybe permanent) (square kilometres),3240,2011
-"105026",6.a.1,DC_TOF_WASHL,Total official development assistance (gross disbursement) for water supply and sanitation; by recipient countries (millions of constant 2017 United States dollars),3096,2004
-"105027",6.a.1,DC_TOF_WASHL,Total official development assistance (gross disbursement) for water supply and sanitation; by recipient countries (millions of constant 2017 United States dollars),3096,2007
-"105028",6.a.1,DC_TOF_WASHL,Total official development assistance (gross disbursement) for water supply and sanitation; by recipient countries (millions of constant 2017 United States dollars),3096,2011
-"105550",7.1.1,EG_ELC_ACCS,Proportion of population with access to electricity; by urban/rural (%),18375,2004
-"105553",7.1.1,EG_ELC_ACCS,Proportion of population with access to electricity; by urban/rural (%),18375,2007
-"105556",7.1.1,EG_ELC_ACCS,Proportion of population with access to electricity; by urban/rural (%),18375,2011
-"107485",7.2.1,EG_FEC_RNEW,Renewable energy share in the total final energy consumption (%),4624,2004
-"107486",7.2.1,EG_FEC_RNEW,Renewable energy share in the total final energy consumption (%),4624,2007
-"107487",7.2.1,EG_FEC_RNEW,Renewable energy share in the total final energy consumption (%),4624,2011
-"108300",7.3.1,EG_EGY_PRIM,Energy intensity level of primary energy (megajoules per constant 2011 purchasing power parity GDP),4032,2004
-"108301",7.3.1,EG_EGY_PRIM,Energy intensity level of primary energy (megajoules per constant 2011 purchasing power parity GDP),4032,2007
-"108302",7.3.1,EG_EGY_PRIM,Energy intensity level of primary energy (megajoules per constant 2011 purchasing power parity GDP),4032,2011
-"109010",7.a.1,EG_IFF_RANDN,International financial flows to developing countries in support of clean energy research and development and renewable energy production; including in hybrid systems (millions of constant 2016 United States dollars),1632,2007
-"109011",7.a.1,EG_IFF_RANDN,International financial flows to developing countries in support of clean energy research and development and renewable energy production; including in hybrid systems (millions of constant 2016 United States dollars),1632,2011
-"109012",7.a.1,EG_IFF_RANDN,International financial flows to developing countries in support of clean energy research and development and renewable energy production; including in hybrid systems (millions of constant 2016 United States dollars),1632,2004
-"109286",8.1.1,NY_GDP_PCAP,Annual growth rate of real GDP per capita (%),4470,2004
-"109287",8.1.1,NY_GDP_PCAP,Annual growth rate of real GDP per capita (%),4470,2007
-"109288",8.1.1,NY_GDP_PCAP,Annual growth rate of real GDP per capita (%),4470,2011
-"110031",8.10.1,FB_ATM_TOTL,Number of automated teller machines (ATMs) per 100;000 adults,2311,2004
-"110032",8.10.1,FB_ATM_TOTL,Number of automated teller machines (ATMs) per 100;000 adults,2311,2007
-"110033",8.10.1,FB_ATM_TOTL,Number of automated teller machines (ATMs) per 100;000 adults,2311,2011
-"110492",8.10.1,FB_CBK_BRCH,Number of commercial bank branches per 100;000 adults,2480,2004
-"110493",8.10.1,FB_CBK_BRCH,Number of commercial bank branches per 100;000 adults,2480,2007
-"110494",8.10.1,FB_CBK_BRCH,Number of commercial bank branches per 100;000 adults,2480,2011
-"111009",8.10.2,FB_BNK_ACCSS,Proportion of adults (15 years and older) with an account at a financial institution or mobile-money-service provider; by sex (% of adults aged 15 years and older),1338,2011
-"111438",8.2.1,SL_EMP_PCAP,Annual growth rate of real GDP per employed person (%),3952,2004
-"111439",8.2.1,SL_EMP_PCAP,Annual growth rate of real GDP per employed person (%),3952,2007
-"111440",8.2.1,SL_EMP_PCAP,Annual growth rate of real GDP per employed person (%),3952,2011
-"112062",8.3.1,SL_ISV_IFRM,Proportion of informal employment in non-agriculture employment; by sex (ILO harmonized estimates) (%),834,2011
-"112065",8.3.1,SL_ISV_IFRM,Proportion of informal employment in non-agriculture employment; by sex (ILO harmonized estimates) (%),834,2004
-"112080",8.3.1,SL_ISV_IFRM,Proportion of informal employment in non-agriculture employment; by sex (ILO harmonized estimates) (%),834,2007
-"141604",8.5.1,SL_EMP_AEARN,Average hourly earnings of managers (ISCO-08) (local currency),5205,2004
-"141607",8.5.1,SL_EMP_AEARN,Average hourly earnings of managers (ISCO-08) (local currency),5205,2007
-"141610",8.5.1,SL_EMP_AEARN,Average hourly earnings of managers (ISCO-08) (local currency),5205,2011
-"141838",8.5.2,SL_TLF_UEM,Unemployment rate; by sex and age (%),17460,2007
-"141847",8.5.2,SL_TLF_UEM,Unemployment rate; by sex and age (%),17460,2011
-"141856",8.5.2,SL_TLF_UEM,Unemployment rate; by sex and age (%),17460,2004
-"144688",8.5.2,SL_TLF_UEMDIS,Unemployment rate; by sex and disability (%),1065,2007
-"144697",8.5.2,SL_TLF_UEMDIS,Unemployment rate; by sex and disability (%),1065,2011
-"144754",8.6.1,SL_TLF_NEET,Proportion of youth not in education; employment or training; by sex and age (%),4126,2007
-"144757",8.6.1,SL_TLF_NEET,Proportion of youth not in education; employment or training; by sex and age (%),4126,2011
-"144763",8.6.1,SL_TLF_NEET,Proportion of youth not in education; employment or training; by sex and age (%),4126,2004
-"145435",8.7.1,SL_TLF_CHLDEC,Proportion of children engaged in economic activity and household chores; by sex and age (%),234,2011
-"145456",8.7.1,SL_TLF_CHLDEA,Proportion of children engaged in economic activity; by sex and age  (%),264,2011
-"145483",8.8.1,SL_EMP_FTLINJUR,Fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3358,2004
-"145485",8.8.1,SL_EMP_FTLINJUR,Fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3358,2007
-"145486",8.8.1,SL_EMP_FTLINJUR,Fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3358,2011
-"146028",8.8.1,SL_EMP_INJUR,Non-fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3353,2004
-"146030",8.8.1,SL_EMP_INJUR,Non-fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3353,2007
-"146031",8.8.1,SL_EMP_INJUR,Non-fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3353,2011
-"146570",8.a.1,DC_TOF_TRDCMDL,Total official flows (commitments) for Aid for Trade; by donor countries (millions of constant 2017 United States dollars),335,2007
-"146571",8.a.1,DC_TOF_TRDCMDL,Total official flows (commitments) for Aid for Trade; by donor countries (millions of constant 2017 United States dollars),335,2011
-"146619",8.a.1,DC_TOF_TRDDBMDL,Total official flows (disbursement) for Aid for Trade; by donor countries (millions of constant 2017 United States dollars),313,2007
-"146620",8.a.1,DC_TOF_TRDDBMDL,Total official flows (disbursement) for Aid for Trade; by donor countries (millions of constant 2017 United States dollars),313,2011
-"146668",8.a.1,DC_TOF_TRDDBML,Total official flows (disbursement) for Aid for Trade; by recipient countries (millions of constant 2017 United States dollars),1766,2007
-"146669",8.a.1,DC_TOF_TRDDBML,Total official flows (disbursement) for Aid for Trade; by recipient countries (millions of constant 2017 United States dollars),1766,2011
-"146962",8.a.1,DC_TOF_TRDCML,Total official flows (commitments) for Aid for Trade; by recipient countries (millions of constant 2017 United States dollars),1914,2007
-"146963",8.a.1,DC_TOF_TRDCML,Total official flows (commitments) for Aid for Trade; by recipient countries (millions of constant 2017 United States dollars),1914,2011
-"147256",9.2.1,NV_IND_MANFPC,Manufacturing value added per capita (constant 2010 United States dollars),4737,2004
-"147257",9.2.1,NV_IND_MANFPC,Manufacturing value added per capita (constant 2010 United States dollars),4737,2007
-"147258",9.2.1,NV_IND_MANFPC,Manufacturing value added per capita (constant 2010 United States dollars),4737,2011
-"148003",9.2.1,NV_IND_MANF,Manufacturing value added as a proportion of GDP (%),4737,2004
-"148004",9.2.1,NV_IND_MANF,Manufacturing value added as a proportion of GDP (%),4737,2007
-"148005",9.2.1,NV_IND_MANF,Manufacturing value added as a proportion of GDP (%),4737,2011
-"148750",9.2.2,SL_TLF_MANF,Manufacturing employment as a proportion of total employment (%),2108,2004
-"148751",9.2.2,SL_TLF_MANF,Manufacturing employment as a proportion of total employment (%),2108,2007
-"148752",9.2.2,SL_TLF_MANF,Manufacturing employment as a proportion of total employment (%),2108,2011
-"149103",9.3.1,NV_IND_SSIS,Proportion of small-scale industries in total industry value added (%),665,2011
-"149104",9.3.1,NV_IND_SSIS,Proportion of small-scale industries in total industry value added (%),665,2004
-"149105",9.3.1,NV_IND_SSIS,Proportion of small-scale industries in total industry value added (%),665,2007
-"149220",9.3.2,FC_ACC_SSID,Proportion of small-scale industries with a loan or line of credit (%),236,2007
-"149222",9.3.2,FC_ACC_SSID,Proportion of small-scale industries with a loan or line of credit (%),236,2011
-"149237",9.4.1,EN_ATM_CO2,Carbon dioxide emissions from fuel combustion (millions of tonnes),3094,2004
-"149238",9.4.1,EN_ATM_CO2,Carbon dioxide emissions from fuel combustion (millions of tonnes),3094,2007
-"149239",9.4.1,EN_ATM_CO2,Carbon dioxide emissions from fuel combustion (millions of tonnes),3094,2011
-"149782",9.4.1,EN_ATM_CO2MVA,Carbon dioxide emissions per unit of manufacturing value added (kilogrammes of CO2 per constant 2010 United States dollars),3059,2004
-"149783",9.4.1,EN_ATM_CO2MVA,Carbon dioxide emissions per unit of manufacturing value added (kilogrammes of CO2 per constant 2010 United States dollars),3059,2007
-"149784",9.4.1,EN_ATM_CO2MVA,Carbon dioxide emissions per unit of manufacturing value added (kilogrammes of CO2 per constant 2010 United States dollars),3059,2011
-"150321",9.4.1,EN_ATM_CO2GDP,Carbon dioxide emissions per unit of GDP (kilogrammes of CO2 per constant 2010 United States dollars),3094,2004
-"150322",9.4.1,EN_ATM_CO2GDP,Carbon dioxide emissions per unit of GDP (kilogrammes of CO2 per constant 2010 United States dollars),3094,2007
-"150323",9.4.1,EN_ATM_CO2GDP,Carbon dioxide emissions per unit of GDP (kilogrammes of CO2 per constant 2010 United States dollars),3094,2011
-"150866",9.5.1,GB_XPD_RSDV,Research and development expenditure as a proportion of GDP (%),2044,2007
-"150867",9.5.1,GB_XPD_RSDV,Research and development expenditure as a proportion of GDP (%),2044,2004
-"150871",9.5.1,GB_XPD_RSDV,Research and development expenditure as a proportion of GDP (%),2044,2011
-"151236",9.5.2,GB_POP_SCIERD,Researchers (in full-time equivalent) per million inhabitants (per 1;000;000 population),1672,2011
-"151237",9.5.2,GB_POP_SCIERD,Researchers (in full-time equivalent) per million inhabitants (per 1;000;000 population),1672,2004
-"151238",9.5.2,GB_POP_SCIERD,Researchers (in full-time equivalent) per million inhabitants (per 1;000;000 population),1672,2007
-"151535",9.a.1,DC_TOF_INFRAL,Total official flows for infrastructure; by recipient countries (millions of constant 2017 United States dollars),3214,2004
-"151536",9.a.1,DC_TOF_INFRAL,Total official flows for infrastructure; by recipient countries (millions of constant 2017 United States dollars),3214,2007
-"151537",9.a.1,DC_TOF_INFRAL,Total official flows for infrastructure; by recipient countries (millions of constant 2017 United States dollars),3214,2011
-"152077",9.b.1,NV_IND_TECH,Proportion of medium and high-tech industry value added in total value added (%),3281,2004
-"152078",9.b.1,NV_IND_TECH,Proportion of medium and high-tech industry value added in total value added (%),3281,2007
-"152079",9.b.1,NV_IND_TECH,Proportion of medium and high-tech industry value added in total value added (%),3281,2011
-"152656",9.c.1,IT_MOB_NTWK,Proportion of population covered by a mobile network; by technology (%),5652,2007
-"152657",9.c.1,IT_MOB_NTWK,Proportion of population covered by a mobile network; by technology (%),5652,2011
-"152658",9.c.1,IT_MOB_NTWK,Proportion of population covered by a mobile network; by technology (%),5652,2004
+"1",1.1.1,SI_POV_DAY1,Proportion of population below international poverty line (%),2053,2011
+"4",1.1.1,SI_POV_DAY1,Proportion of population below international poverty line (%),2053,2004
+"5",1.1.1,SI_POV_DAY1,Proportion of population below international poverty line (%),2053,2007
+"263",1.1.1,SI_POV_EMP1,Employed population below international poverty line; by sex and age (%),9531,2011
+"272",1.1.1,SI_POV_EMP1,Employed population below international poverty line; by sex and age (%),9531,2004
+"281",1.1.1,SI_POV_EMP1,Employed population below international poverty line; by sex and age (%),9531,2007
+"1892",1.2.1,SI_POV_NAHC,Proportion of population living below the national poverty line (%),1372,2007
+"1893",1.2.1,SI_POV_NAHC,Proportion of population living below the national poverty line (%),1372,2011
+"1897",1.2.1,SI_POV_NAHC,Proportion of population living below the national poverty line (%),1372,2004
+"2144",1.2.2,SD_MDP_MUHC,Proportion of population living in multidimensional poverty (%),1190,2011
+"2272",1.2.2,SD_MDP_ANDI,Average proportion of deprivations for people multidimensionally poor (%),79,2011
+"2280",1.2.2,SD_MDP_MUHHC,Proportion of households living in multidimensional poverty (%),49,2011
+"2285",1.3.1,SI_COV_SOCAST,[World Bank] Proportion of population covered by social assistance programs (%),678,2007
+"2287",1.3.1,SI_COV_SOCAST,[World Bank] Proportion of population covered by social assistance programs (%),678,2011
+"2327",1.3.1,SI_COV_SOCAST,[World Bank] Proportion of population covered by social assistance programs (%),678,2004
+"2411",1.3.1,SI_COV_SOCINS,[World Bank] Proportion of population covered by social insurance programs (%),644,2007
+"2413",1.3.1,SI_COV_SOCINS,[World Bank] Proportion of population covered by social insurance programs (%),644,2011
+"2439",1.3.1,SI_COV_SOCINS,[World Bank] Proportion of population covered by social insurance programs (%),644,2004
+"2529",1.3.1,SI_COV_UEMP,[ILO] Proportion of unemployed persons receiving unemployment cash benefit; by sex (%),691,2007
+"2530",1.3.1,SI_COV_UEMP,[ILO] Proportion of unemployed persons receiving unemployment cash benefit; by sex (%),691,2011
+"2554",1.3.1,SI_COV_UEMP,[ILO] Proportion of unemployed persons receiving unemployment cash benefit; by sex (%),691,2004
+"2670",1.3.1,SI_COV_WKINJRY,[ILO] Proportion of employed population covered in the event of work injury; by sex (%),178,2011
+"2671",1.3.1,SI_COV_WKINJRY,[ILO] Proportion of employed population covered in the event of work injury; by sex (%),178,2007
+"2674",1.3.1,SI_COV_WKINJRY,[ILO] Proportion of employed population covered in the event of work injury; by sex (%),178,2004
+"2675",1.3.1,SI_COV_LMKT,[World Bank] Proportion of population covered by labour market programs (%),350,2011
+"2679",1.3.1,SI_COV_LMKT,[World Bank] Proportion of population covered by labour market programs (%),350,2007
+"2689",1.3.1,SI_COV_LMKT,[World Bank] Proportion of population covered by labour market programs (%),350,2004
+"2735",1.3.1,SI_COV_PENSN,[ILO] Proportion of population above statutory pensionable age receiving a pension; by sex (%),669,2011
+"2743",1.3.1,SI_COV_PENSN,[ILO] Proportion of population above statutory pensionable age receiving a pension; by sex (%),669,2004
+"2745",1.3.1,SI_COV_PENSN,[ILO] Proportion of population above statutory pensionable age receiving a pension; by sex (%),669,2007
+"2756",1.4.1,SP_ACS_BSRVH2O,Proportion of population using basic drinking water services; by location (%),12226,2004
+"2759",1.4.1,SP_ACS_BSRVH2O,Proportion of population using basic drinking water services; by location (%),12226,2007
+"2762",1.4.1,SP_ACS_BSRVH2O,Proportion of population using basic drinking water services; by location (%),12226,2011
+"4796",1.4.1,SP_ACS_BSRVSAN,Proportion of population using basic sanitation services; by location (%),12068,2004
+"4799",1.4.1,SP_ACS_BSRVSAN,Proportion of population using basic sanitation services; by location (%),12068,2007
+"4802",1.4.1,SP_ACS_BSRVSAN,Proportion of population using basic sanitation services; by location (%),12068,2011
+"6818",1.4.2,SP_LGL_LNDDOC,Proportion of people with legally recognized documentation of their rights to land out of total adult population; by sex (%),64,2011
+"6827",1.4.2,SP_LGL_LNDSEC,Proportion of people who perceive their rights to land as secure out of total adult population; by sex (%),22,2011
+"6832",1.4.2,SP_LGL_LNDSTR,Proportion of people with secure tenure rights to land out of total adult population; by sex (%),44,2011
+"6836",1.5.1 11.5.1 13.1.1,VC_DSR_MISS,Number of missing persons due to disaster (number),394,2011
+"6837",1.5.1 11.5.1 13.1.1,VC_DSR_MISS,Number of missing persons due to disaster (number),394,2007
+"6894",1.5.1 11.5.1 13.1.1,VC_DSR_AFFCT,Number of people affected by disaster (number),1218,2007
+"6895",1.5.1 11.5.1 13.1.1,VC_DSR_AFFCT,Number of people affected by disaster (number),1218,2011
+"7067",1.5.1 11.5.1 13.1.1,VC_DSR_MORT,Number of deaths due to disaster (number),1191,2007
+"7068",1.5.1 11.5.1 13.1.1,VC_DSR_MORT,Number of deaths due to disaster (number),1191,2011
+"7240",1.5.1 11.5.1 13.1.1,VC_DSR_MTMP,Number of deaths and missing persons attributed to disasters per 100;000 population (number),1196,2007
+"7241",1.5.1 11.5.1 13.1.1,VC_DSR_MTMP,Number of deaths and missing persons attributed to disasters per 100;000 population (number),1196,2011
+"7414",1.5.1 11.5.1 13.1.1,VC_DSR_MMHN,Number of deaths and missing persons attributed to disasters (number),1196,2007
+"7415",1.5.1 11.5.1 13.1.1,VC_DSR_MMHN,Number of deaths and missing persons attributed to disasters (number),1196,2011
+"7588",1.5.1 11.5.1 13.1.1,VC_DSR_DAFF,Number of directly affected persons attributed to disasters per 100;000 population (number),1218,2007
+"7589",1.5.1 11.5.1 13.1.1,VC_DSR_DAFF,Number of directly affected persons attributed to disasters per 100;000 population (number),1218,2011
+"7761",1.5.1 11.5.1 13.1.1,VC_DSR_IJILN,Number of injured or ill people attributed to disasters (number),970,2007
+"7762",1.5.1 11.5.1 13.1.1,VC_DSR_IJILN,Number of injured or ill people attributed to disasters (number),970,2011
+"7897",1.5.1 11.5.1 13.1.1,VC_DSR_PDAN,Number of people whose damaged dwellings were attributed to disasters (number),999,2007
+"7898",1.5.1 11.5.1 13.1.1,VC_DSR_PDAN,Number of people whose damaged dwellings were attributed to disasters (number),999,2011
+"8038",1.5.1 11.5.1 13.1.1,VC_DSR_PDYN,Number of people whose destroyed dwellings were attributed to disasters (number),851,2007
+"8039",1.5.1 11.5.1 13.1.1,VC_DSR_PDYN,Number of people whose destroyed dwellings were attributed to disasters (number),851,2011
+"8157",1.5.1 11.5.1 13.1.1,VC_DSR_PDLN,Number of people whose livelihoods were disrupted or destroyed; attributed to disasters (number),656,2007
+"8158",1.5.1 11.5.1 13.1.1,VC_DSR_PDLN,Number of people whose livelihoods were disrupted or destroyed; attributed to disasters (number),656,2011
+"8250",1.5.2 11.5.2,VC_DSR_GDPLS,Direct economic loss attributed to disasters (current United States dollars),1059,2007
+"8251",1.5.2 11.5.2,VC_DSR_GDPLS,Direct economic loss attributed to disasters (current United States dollars),1059,2011
+"8402",1.5.2 11.5.2,VC_DSR_LSGP,Direct economic loss attributed to disasters relative to GDP (%),1049,2007
+"8403",1.5.2 11.5.2,VC_DSR_LSGP,Direct economic loss attributed to disasters relative to GDP (%),1049,2011
+"8554",1.5.2 11.5.2,VC_DSR_AGLH,Direct agriculture loss attributed to disasters (current United States dollars),564,2007
+"8555",1.5.2 11.5.2,VC_DSR_AGLH,Direct agriculture loss attributed to disasters (current United States dollars),564,2011
+"8628",1.5.2 11.5.2,VC_DSR_HOLH,Direct economic loss in the housing sector attributed to disasters (current United States dollars),957,2007
+"8629",1.5.2 11.5.2,VC_DSR_HOLH,Direct economic loss in the housing sector attributed to disasters (current United States dollars),957,2011
+"8767",1.5.2 11.5.2,VC_DSR_CILN,Direct economic loss resulting from damaged or destroyed critical infrastructure attributed to disasters (current United States dollars),555,2007
+"8768",1.5.2 11.5.2,VC_DSR_CILN,Direct economic loss resulting from damaged or destroyed critical infrastructure attributed to disasters (current United States dollars),555,2011
+"8843",1.5.2 11.5.2,VC_DSR_CHLN,Direct economic loss to cultural heritage damaged or destroyed attributed to disasters (millions of current United States dollars),41,2007
+"8844",1.5.2 11.5.2,VC_DSR_CHLN,Direct economic loss to cultural heritage damaged or destroyed attributed to disasters (millions of current United States dollars),41,2011
+"8846",1.5.2 11.5.2,VC_DSR_DDPA,Direct economic loss to other damaged or destroyed productive assets attributed to disasters (current United States dollars),103,2007
+"8847",1.5.2 11.5.2,VC_DSR_DDPA,Direct economic loss to other damaged or destroyed productive assets attributed to disasters (current United States dollars),103,2011
+"8857",1.a.1,DC_ODA_POVLG,Official development assistance grants for poverty reduction; by recipient countries (percentage of GNI),2547,2011
+"8858",1.a.1,DC_ODA_POVLG,Official development assistance grants for poverty reduction; by recipient countries (percentage of GNI),2547,2004
+"8859",1.a.1,DC_ODA_POVLG,Official development assistance grants for poverty reduction; by recipient countries (percentage of GNI),2547,2007
+"9264",1.a.1,DC_ODA_POVDLG,Official development assistance grants for poverty reduction; by donor countries (percentage of GNI),510,2004
+"9265",1.a.1,DC_ODA_POVDLG,Official development assistance grants for poverty reduction; by donor countries (percentage of GNI),510,2007
+"9266",1.a.1,DC_ODA_POVDLG,Official development assistance grants for poverty reduction; by donor countries (percentage of GNI),510,2011
+"9335",1.a.1,DC_ODA_POVG,Official development assistance grants for poverty reduction (percentage of GNI),589,2004
+"9336",1.a.1,DC_ODA_POVG,Official development assistance grants for poverty reduction (percentage of GNI),589,2007
+"9337",1.a.1,DC_ODA_POVG,Official development assistance grants for poverty reduction (percentage of GNI),589,2011
+"9428",1.a.2,SD_XPD_ESED,Proportion of total government spending on essential services; education (%),2044,2011
+"9429",1.a.2,SD_XPD_ESED,Proportion of total government spending on essential services; education (%),2044,2004
+"9430",1.a.2,SD_XPD_ESED,Proportion of total government spending on essential services; education (%),2044,2007
+"9765",10.2.1,SI_POV_50MI,Proportion of people living below 50 percent of median income (%),1715,2011
+"9766",10.2.1,SI_POV_50MI,Proportion of people living below 50 percent of median income (%),1715,2004
+"9767",10.2.1,SI_POV_50MI,Proportion of people living below 50 percent of median income (%),1715,2007
+"9984",10.4.1,SL_EMP_GTOTL,Labour share of GDP (%),2926,2004
+"9985",10.4.1,SL_EMP_GTOTL,Labour share of GDP (%),2926,2007
+"9986",10.4.1,SL_EMP_GTOTL,Labour share of GDP (%),2926,2011
+"10611",10.5.1,FI_FSI_FSANL,Non-performing loans to total gross loans (%),1426,2011
+"10615",10.5.1,FI_FSI_FSANL,Non-performing loans to total gross loans (%),1426,2007
+"10629",10.5.1,FI_FSI_FSANL,Non-performing loans to total gross loans (%),1426,2004
+"10779",10.5.1,FI_FSI_FSERA,Return on assets (%),1452,2011
+"10783",10.5.1,FI_FSI_FSERA,Return on assets (%),1452,2007
+"10796",10.5.1,FI_FSI_FSERA,Return on assets (%),1452,2004
+"10949",10.5.1,FI_FSI_FSKA,Regulatory capital to assets (%),1371,2011
+"10953",10.5.1,FI_FSI_FSKA,Regulatory capital to assets (%),1371,2007
+"10967",10.5.1,FI_FSI_FSKA,Regulatory capital to assets (%),1371,2004
+"11109",10.5.1,FI_FSI_FSKNL,Non-performing loans net of provisions to capital (%),1429,2011
+"11113",10.5.1,FI_FSI_FSKNL,Non-performing loans net of provisions to capital (%),1429,2007
+"11127",10.5.1,FI_FSI_FSKNL,Non-performing loans net of provisions to capital (%),1429,2004
+"11277",10.5.1,FI_FSI_FSKRTC,Regulatory Tier 1 capital to risk-weighted assets (%),1427,2011
+"11281",10.5.1,FI_FSI_FSKRTC,Regulatory Tier 1 capital to risk-weighted assets (%),1427,2007
+"11295",10.5.1,FI_FSI_FSKRTC,Regulatory Tier 1 capital to risk-weighted assets (%),1427,2004
+"11443",10.5.1,FI_FSI_FSLS,Liquid assets to short term liabilities (%),1343,2011
+"11447",10.5.1,FI_FSI_FSLS,Liquid assets to short term liabilities (%),1343,2007
+"11460",10.5.1,FI_FSI_FSLS,Liquid assets to short term liabilities (%),1343,2004
+"11595",10.5.1,FI_FSI_FSSNO,Net open position in foreign exchange to capital (%),1120,2011
+"11599",10.5.1,FI_FSI_FSSNO,Net open position in foreign exchange to capital (%),1120,2007
+"11610",10.5.1,FI_FSI_FSSNO,Net open position in foreign exchange to capital (%),1120,2004
+"11720",10.7.4,SM_POP_REFG_OR,Proportion of the population who are refugees; by country of origin (%),5880,2004
+"11721",10.7.4,SM_POP_REFG_OR,Proportion of the population who are refugees; by country of origin (%),5880,2007
+"11722",10.7.4,SM_POP_REFG_OR,Proportion of the population who are refugees; by country of origin (%),5880,2011
+"12602",10.b.1,DC_TRF_TOTDL,Total assistance for development; by donor countries (millions of current United States dollars),787,2004
+"12603",10.b.1,DC_TRF_TOTDL,Total assistance for development; by donor countries (millions of current United States dollars),787,2007
+"12604",10.b.1,DC_TRF_TOTDL,Total assistance for development; by donor countries (millions of current United States dollars),787,2011
+"12722",10.b.1,DC_TRF_TOTL,Total assistance for development; by recipient countries (millions of current United States dollars),2814,2004
+"12723",10.b.1,DC_TRF_TOTL,Total assistance for development; by recipient countries (millions of current United States dollars),2814,2007
+"12724",10.b.1,DC_TRF_TOTL,Total assistance for development; by recipient countries (millions of current United States dollars),2814,2011
+"13170",10.b.1,DC_TRF_TFDV,Total resource flows for development; by recipient and donor countries (millions of current United States dollars),627,2004
+"13171",10.b.1,DC_TRF_TFDV,Total resource flows for development; by recipient and donor countries (millions of current United States dollars),627,2007
+"13172",10.b.1,DC_TRF_TFDV,Total resource flows for development; by recipient and donor countries (millions of current United States dollars),627,2011
+"13269",10.c.1,SI_RMT_COST,Remittance costs as a proportion of the amount remitted (%),529,2011
+"15373",11.5.2,VC_DSR_CDAN,Number of damaged critical infrastructure attributed to disasters (number),481,2007
+"15374",11.5.2,VC_DSR_CDAN,Number of damaged critical infrastructure attributed to disasters (number),481,2011
+"15441",11.5.2,VC_DSR_HFDN,Number of destroyed or damaged health facilities attributed to disasters (number),291,2011
+"15442",11.5.2,VC_DSR_HFDN,Number of destroyed or damaged health facilities attributed to disasters (number),291,2007
+"15484",11.5.2,VC_DSR_EFDN,Number of destroyed or damaged educational facilities attributed to disasters (number),409,2007
+"15485",11.5.2,VC_DSR_EFDN,Number of destroyed or damaged educational facilities attributed to disasters (number),409,2011
+"15537",11.5.2,VC_DSR_CDYN,Number of other destroyed or damaged critical infrastructure units and facilities attributed to disasters (number),149,2007
+"15539",11.5.2,VC_DSR_CDYN,Number of other destroyed or damaged critical infrastructure units and facilities attributed to disasters (number),149,2011
+"15550",11.5.2,VC_DSR_BSDN,Number of disruptions to basic services attributed to disasters (number),650,2007
+"15551",11.5.2,VC_DSR_BSDN,Number of disruptions to basic services attributed to disasters (number),650,2011
+"15642",11.5.2,VC_DSR_ESDN,Number of disruptions to educational services attributed to disasters (number),570,2007
+"15643",11.5.2,VC_DSR_ESDN,Number of disruptions to educational services attributed to disasters (number),570,2011
+"15722",11.5.2,VC_DSR_HSDN,Number of disruptions to health services attributed to disasters (number),490,2007
+"15723",11.5.2,VC_DSR_HSDN,Number of disruptions to health services attributed to disasters (number),490,2011
+"15796",11.5.2,VC_DSR_OBDN,Number of disruptions to other basic services attributed to disasters (number),911,2007
+"15797",11.5.2,VC_DSR_OBDN,Number of disruptions to other basic services attributed to disasters (number),911,2011
+"15913",11.6.1,EN_REF_WASCOL,Municipal Solid Waste collection coverage; by cities (%),261,2007
+"15914",11.6.1,EN_REF_WASCOL,Municipal Solid Waste collection coverage; by cities (%),261,2011
+"15921",11.6.1,EN_REF_WASCOL,Municipal Solid Waste collection coverage; by cities (%),261,2004
+"15942",12.2.1 8.4.1,EN_MAT_FTPRPG,Material footprint per unit of GDP; by type of raw material (kilograms per constant 2010 United States dollar),18,2004
+"15943",12.2.1 8.4.1,EN_MAT_FTPRPG,Material footprint per unit of GDP; by type of raw material (kilograms per constant 2010 United States dollar),18,2007
+"15944",12.2.1 8.4.1,EN_MAT_FTPRPG,Material footprint per unit of GDP; by type of raw material (kilograms per constant 2010 United States dollar),18,2011
+"15945",12.2.1 8.4.1,EN_MAT_FTPRPC,Material footprint per capita; by type of raw material (tonnes),18,2004
+"15946",12.2.1 8.4.1,EN_MAT_FTPRPC,Material footprint per capita; by type of raw material (tonnes),18,2007
+"15947",12.2.1 8.4.1,EN_MAT_FTPRPC,Material footprint per capita; by type of raw material (tonnes),18,2011
+"15948",12.2.1 8.4.1,EN_MAT_FTPRTN,Material footprint; by type of raw material (tonnes),18,2004
+"15949",12.2.1 8.4.1,EN_MAT_FTPRTN,Material footprint; by type of raw material (tonnes),18,2007
+"15950",12.2.1 8.4.1,EN_MAT_FTPRTN,Material footprint; by type of raw material (tonnes),18,2011
+"15951",12.2.2 8.4.2,EN_MAT_DOMCMPT,Domestic material consumption; by type of raw material (tonnes),59595,2004
+"15966",12.2.2 8.4.2,EN_MAT_DOMCMPT,Domestic material consumption; by type of raw material (tonnes),59595,2007
+"15981",12.2.2 8.4.2,EN_MAT_DOMCMPT,Domestic material consumption; by type of raw material (tonnes),59595,2011
+"25862",12.2.2 8.4.2,EN_MAT_DOMCMPG,Domestic material consumption per unit of GDP; by type of raw material (kilograms per constant 2010 United States dollars),59497,2004
+"25877",12.2.2 8.4.2,EN_MAT_DOMCMPG,Domestic material consumption per unit of GDP; by type of raw material (kilograms per constant 2010 United States dollars),59497,2007
+"25892",12.2.2 8.4.2,EN_MAT_DOMCMPG,Domestic material consumption per unit of GDP; by type of raw material (kilograms per constant 2010 United States dollars),59497,2011
+"35756",12.2.2 8.4.2,EN_MAT_DOMCMPC,Domestic material consumption per capita; by type of raw material (tonnes),59497,2004
+"35771",12.2.2 8.4.2,EN_MAT_DOMCMPC,Domestic material consumption per capita; by type of raw material (tonnes),59497,2007
+"35786",12.2.2 8.4.2,EN_MAT_DOMCMPC,Domestic material consumption per capita; by type of raw material (tonnes),59497,2011
+"45650",12.4.2,EN_EWT_GENV,Electronic waste generated (Tonnes),4220,2004
+"45651",12.4.2,EN_EWT_GENV,Electronic waste generated (Tonnes),4220,2007
+"45652",12.4.2,EN_EWT_GENV,Electronic waste generated (Tonnes),4220,2011
+"46283",12.4.2,EN_EWT_GENPCAP,Electronic waste generated; per capita (Kg),4220,2004
+"46284",12.4.2,EN_EWT_GENPCAP,Electronic waste generated; per capita (Kg),4220,2007
+"46285",12.4.2,EN_EWT_GENPCAP,Electronic waste generated; per capita (Kg),4220,2011
+"46916",12.4.2 12.5.1,EN_EWT_RCYV,Electronic waste recycling (Tonnes),660,2011
+"46965",12.4.2 12.5.1,EN_EWT_RCYR,Electronic waste recycling; rate (%),141,2011
+"46972",12.4.2 12.5.1,EN_EWT_RCYPCAP,Electronic waste recycling; per capita (Kg),660,2011
+"47021",12.4.2,EN_HAZ_GENV,Hazardous waste generated (Tonnes),768,2007
+"47022",12.4.2,EN_HAZ_GENV,Hazardous waste generated (Tonnes),768,2004
+"47024",12.4.2,EN_HAZ_GENV,Hazardous waste generated (Tonnes),768,2011
+"47146",12.4.2,EN_HAZ_PCAP,Hazardous waste generated; per capita (Kg),769,2007
+"47147",12.4.2,EN_HAZ_PCAP,Hazardous waste generated; per capita (Kg),769,2004
+"47149",12.4.2,EN_HAZ_PCAP,Hazardous waste generated; per capita (Kg),769,2011
+"47272",12.4.2,EN_HAZ_GENGDP,Hazardous waste generated; per unit of GDP (kilograms per constant 2015 United States dollars),680,2007
+"47273",12.4.2,EN_HAZ_GENGDP,Hazardous waste generated; per unit of GDP (kilograms per constant 2015 United States dollars),680,2004
+"47275",12.4.2,EN_HAZ_GENGDP,Hazardous waste generated; per unit of GDP (kilograms per constant 2015 United States dollars),680,2011
+"47386",12.4.2,EN_HAZ_TREATV,Hazardous waste treated; by type of treatment (Tonnes),1410,2007
+"47387",12.4.2,EN_HAZ_TREATV,Hazardous waste treated; by type of treatment (Tonnes),1410,2011
+"47388",12.4.2,EN_HAZ_TREATV,Hazardous waste treated; by type of treatment (Tonnes),1410,2004
+"47598",12.4.2,EN_HAZ_TRTDISR,Hazardous waste treated or disposed; rate (%),582,2004
+"47599",12.4.2,EN_HAZ_TRTDISR,Hazardous waste treated or disposed; rate (%),582,2007
+"47600",12.4.2,EN_HAZ_TRTDISR,Hazardous waste treated or disposed; rate (%),582,2011
+"47690",12.4.2,EN_HAZ_TRTDISV,Hazardous waste treated or disposed (Tonnes),618,2004
+"47692",12.4.2,EN_HAZ_TRTDISV,Hazardous waste treated or disposed (Tonnes),618,2007
+"47693",12.4.2,EN_HAZ_TRTDISV,Hazardous waste treated or disposed (Tonnes),618,2011
+"47893",7.b.1 12.a.1,EG_EGY_RNEW,Installed renewable electricity-generating capacity (watts per capita),3952,2004
+"47894",7.b.1 12.a.1,EG_EGY_RNEW,Installed renewable electricity-generating capacity (watts per capita),3952,2007
+"47895",7.b.1 12.a.1,EG_EGY_RNEW,Installed renewable electricity-generating capacity (watts per capita),3952,2011
+"48517",12.b.1,ST_EEV_STDACCT,Implementation of standard accounting tools to monitor the economic and environmental aspects of tourism (number of tables),1232,2011
+"48629",12.b.1,ST_EEV_ACCSEEA,Implementation of standard accounting tools to monitor the economic and environmental aspects of tourism (SEEA tables),1232,2011
+"48741",12.b.1,ST_EEV_ACCTSA,Implementation of standard accounting tools to monitor the economic and environmental aspects of tourism (Tourism Satellite Account tables),1232,2011
+"50267",13.2.2,EN_ATM_GHGT_AIP,Total greenhouse gas emissions without LULUCF for Annex I Parties (Mt CO2 equivalent),1247,2004
+"50268",13.2.2,EN_ATM_GHGT_AIP,Total greenhouse gas emissions without LULUCF for Annex I Parties (Mt CO2 equivalent),1247,2007
+"50269",13.2.2,EN_ATM_GHGT_AIP,Total greenhouse gas emissions without LULUCF for Annex I Parties (Mt CO2 equivalent),1247,2011
+"50396",13.2.2,EN_ATM_GHGT_NAIP,Total greenhouse gas emissions without LULUCF for non-Annex I Parties (Mt CO2 equivalent),543,2004
+"50397",13.2.2,EN_ATM_GHGT_NAIP,Total greenhouse gas emissions without LULUCF for non-Annex I Parties (Mt CO2 equivalent),543,2007
+"50400",13.2.2,EN_ATM_GHGT_NAIP,Total greenhouse gas emissions without LULUCF for non-Annex I Parties (Mt CO2 equivalent),543,2011
+"50477",14.1.1,EN_MAR_CHLDEV,Chlorophyll-a deviations; remote sensing (%),3128,2007
+"50478",14.1.1,EN_MAR_CHLDEV,Chlorophyll-a deviations; remote sensing (%),3128,2011
+"50890",14.3.1,ER_OAW_MNACD,Average marine acidity (pH) measured at agreed suite of representative sampling stations,130,2011
+"50897",14.4.1,ER_H2O_FWTL,Proportion of fish stocks within biologically sustainable levels (not overexploited) (%),51,2004
+"50898",14.4.1,ER_H2O_FWTL,Proportion of fish stocks within biologically sustainable levels (not overexploited) (%),51,2011
+"50899",14.5.1,ER_MRN_MARINT,Protected marine area (Exclusive Economic Zones) (square kilometres),434,2004
+"50900",14.5.1,ER_MRN_MARINT,Protected marine area (Exclusive Economic Zones) (square kilometres),434,2007
+"50901",14.5.1,ER_MRN_MARINT,Protected marine area (Exclusive Economic Zones) (square kilometres),434,2011
+"50935",14.5.1,ER_MRN_MARIN,Coverage of protected areas in relation to marine areas (Exclusive Economic Zones) (%),432,2004
+"50936",14.5.1,ER_MRN_MARIN,Coverage of protected areas in relation to marine areas (Exclusive Economic Zones) (%),432,2007
+"50937",14.5.1,ER_MRN_MARIN,Coverage of protected areas in relation to marine areas (Exclusive Economic Zones) (%),432,2011
+"50971",14.5.1,ER_MRN_MPA,Average proportion of Marine Key Biodiversity Areas (KBAs) covered by protected areas (%),3800,2004
+"50972",14.5.1,ER_MRN_MPA,Average proportion of Marine Key Biodiversity Areas (KBAs) covered by protected areas (%),3800,2007
+"50973",14.5.1,ER_MRN_MPA,Average proportion of Marine Key Biodiversity Areas (KBAs) covered by protected areas (%),3800,2011
+"51546",14.7.1,EN_SCP_FSHGDP,Sustainable fisheries as a proportion of GDP,5292,2011
+"52423",15.1.2,ER_PTD_FRHWTR,Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%),3540,2004
+"52424",15.1.2,ER_PTD_FRHWTR,Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%),3540,2007
+"52425",15.1.2,ER_PTD_FRHWTR,Average proportion of Freshwater Key Biodiversity Areas (KBAs) covered by protected areas (%),3540,2011
+"52954",15.1.2,ER_PTD_TERR,Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%),4820,2004
+"52955",15.1.2,ER_PTD_TERR,Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%),4820,2007
+"52956",15.1.2,ER_PTD_TERR,Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%),4820,2011
+"53677",15.4.1,ER_PTD_MTN,Average proportion of Mountain Key Biodiversity Areas (KBAs) covered by protected areas (%),3940,2004
+"53678",15.4.1,ER_PTD_MTN,Average proportion of Mountain Key Biodiversity Areas (KBAs) covered by protected areas (%),3940,2007
+"53679",15.4.1,ER_PTD_MTN,Average proportion of Mountain Key Biodiversity Areas (KBAs) covered by protected areas (%),3940,2011
+"54268",15.5.1,ER_RSK_LST,Red List Index,6916,2004
+"54269",15.5.1,ER_RSK_LST,Red List Index,6916,2007
+"54270",15.5.1,ER_RSK_LST,Red List Index,6916,2011
+"55009",15.a.1 15.b.1,DC_ODA_BDVDL,Total official development assistance for biodiversity; by donor countries (millions of constant 2018 United States dollars),966,2004
+"55010",15.a.1 15.b.1,DC_ODA_BDVDL,Total official development assistance for biodiversity; by donor countries (millions of constant 2018 United States dollars),966,2007
+"55011",15.a.1 15.b.1,DC_ODA_BDVDL,Total official development assistance for biodiversity; by donor countries (millions of constant 2018 United States dollars),966,2011
+"55175",15.a.1 15.b.1,DC_ODA_BDVL,Total official development assistance for biodiversity; by recipient countries (millions of constant 2018 United States dollars),2292,2004
+"55176",15.a.1 15.b.1,DC_ODA_BDVL,Total official development assistance for biodiversity; by recipient countries (millions of constant 2018 United States dollars),2292,2007
+"55177",15.a.1 15.b.1,DC_ODA_BDVL,Total official development assistance for biodiversity; by recipient countries (millions of constant 2018 United States dollars),2292,2011
+"56125",16.1.1,VC_IHR_PSRC,Number of victims of intentional homicide per 100;000 population; by sex (victims per 100;000 population),5040,2004
+"56127",16.1.1,VC_IHR_PSRC,Number of victims of intentional homicide per 100;000 population; by sex (victims per 100;000 population),5040,2007
+"56129",16.1.1,VC_IHR_PSRC,Number of victims of intentional homicide per 100;000 population; by sex (victims per 100;000 population),5040,2011
+"56769",16.1.1,VC_IHR_PSRCN,Number of victims of intentional homicide; by sex (number),5145,2004
+"56771",16.1.1,VC_IHR_PSRCN,Number of victims of intentional homicide; by sex (number),5145,2007
+"56773",16.1.1,VC_IHR_PSRCN,Number of victims of intentional homicide; by sex (number),5145,2011
+"57425",16.1.3,VC_VOV_PHYL,Proportion of population subjected to physical violence in the previous 12 months; by sex (%),267,2011
+"57429",16.1.3,VC_VOV_PHYL,Proportion of population subjected to physical violence in the previous 12 months; by sex (%),267,2004
+"57430",16.1.3,VC_VOV_PHYL,Proportion of population subjected to physical violence in the previous 12 months; by sex (%),267,2007
+"57444",16.1.3,VC_VOV_ROBB,Proportion of population subjected to robbery in the previous 12 months; by sex (%),489,2011
+"57448",16.1.3,VC_VOV_ROBB,Proportion of population subjected to robbery in the previous 12 months; by sex (%),489,2004
+"57450",16.1.3,VC_VOV_ROBB,Proportion of population subjected to robbery in the previous 12 months; by sex (%),489,2007
+"57513",16.1.3,VC_VOV_SEXL,Proportion of population subjected to sexual violence in the previous 12 months; by sex (%),305,2011
+"57517",16.1.3,VC_VOV_SEXL,Proportion of population subjected to sexual violence in the previous 12 months; by sex (%),305,2004
+"57521",16.1.3,VC_VOV_SEXL,Proportion of population subjected to sexual violence in the previous 12 months; by sex (%),305,2007
+"57541",16.2.1,VC_VAW_PHYPYV,Proportion of children aged 1-14 years who experienced physical punishment and/or psychological aggression by caregivers in last month (% of children aged 1-14 years),92,2011
+"57545",16.2.1,VC_VAW_PHYPYV,Proportion of children aged 1-14 years who experienced physical punishment and/or psychological aggression by caregivers in last month (% of children aged 1-14 years),92,2007
+"57548",16.2.2,VC_HTF_DETVFL,Detected victims of human trafficking for forced labour; servitude and slavery; by age and sex (number),1945,2004
+"57554",16.2.2,VC_HTF_DETVFL,Detected victims of human trafficking for forced labour; servitude and slavery; by age and sex (number),1945,2007
+"57572",16.2.2,VC_HTF_DETVFL,Detected victims of human trafficking for forced labour; servitude and slavery; by age and sex (number),1945,2011
+"57672",16.2.2,VC_HTF_DETVOP,Detected victims of human trafficking for other purposes; by age and sex (number),1664,2004
+"57679",16.2.2,VC_HTF_DETVOP,Detected victims of human trafficking for other purposes; by age and sex (number),1664,2007
+"57686",16.2.2,VC_HTF_DETVOP,Detected victims of human trafficking for other purposes; by age and sex (number),1664,2011
+"57863",16.2.2,VC_HTF_DETVOG,Detected victims of human trafficking for removal of organ; by age and sex (number),1143,2004
+"57869",16.2.2,VC_HTF_DETVOG,Detected victims of human trafficking for removal of organ; by age and sex (number),1143,2007
+"57887",16.2.2,VC_HTF_DETVOG,Detected victims of human trafficking for removal of organ; by age and sex (number),1143,2011
+"57971",16.2.2,VC_HTF_DETVSX,Detected victims of human trafficking for sexual exploitaton; by age and sex (number),386,2004
+"57977",16.2.2,VC_HTF_DETVSX,Detected victims of human trafficking for sexual exploitaton; by age and sex (number),386,2007
+"57995",16.2.2,VC_HTF_DETVSX,Detected victims of human trafficking for sexual exploitaton; by age and sex (number),386,2011
+"58021",16.2.2,VC_HTF_DETV,Detected victims of human trafficking; by age and sex (number),998,2004
+"58022",16.2.2,VC_HTF_DETV,Detected victims of human trafficking; by age and sex (number),998,2007
+"58023",16.2.2,VC_HTF_DETV,Detected victims of human trafficking; by age and sex (number),998,2011
+"58170",16.2.3,VC_VAW_SXVLN,Proportion of population aged 18-29 years who experienced sexual violence by age 18; by sex (% of population aged 18-29),69,2011
+"58172",16.2.3,VC_VAW_SXVLN,Proportion of population aged 18-29 years who experienced sexual violence by age 18; by sex (% of population aged 18-29),69,2007
+"58174",16.3.1,VC_PRR_PHYV,Police reporting rate for physical assault; by sex (%),142,2011
+"58179",16.3.1,VC_PRR_SEXV,Police reporting rate for sexual assault; by sex (%),95,2011
+"58180",16.3.1,VC_PRR_SEXV,Police reporting rate for sexual assault; by sex (%),95,2004
+"58182",16.3.1,VC_PRR_SEXV,Police reporting rate for sexual assault; by sex (%),95,2007
+"58190",16.3.1,VC_PRR_ROBB,Police reporting rate for robbery; by sex (%),192,2011
+"58192",16.3.1,VC_PRR_ROBB,Police reporting rate for robbery; by sex (%),192,2004
+"58193",16.3.1,VC_PRR_ROBB,Police reporting rate for robbery; by sex (%),192,2007
+"58215",16.5.1,IU_COR_BRIB,Prevalence rate of bribery; by sex (%),123,2007
+"58216",16.5.1,IU_COR_BRIB,Prevalence rate of bribery; by sex (%),123,2011
+"58217",16.5.1,IU_COR_BRIB,Prevalence rate of bribery; by sex (%),123,2004
+"58231",16.5.2,IC_FRM_BRIB,Bribery incidence (% of firms experiencing at least one bribe payment request),286,2007
+"58234",16.5.2,IC_FRM_BRIB,Bribery incidence (% of firms experiencing at least one bribe payment request),286,2011
+"58250",16.6.1,GF_XPD_GBPC,Primary government expenditures as a proportion of original approved budget (%),649,2007
+"58251",16.6.1,GF_XPD_GBPC,Primary government expenditures as a proportion of original approved budget (%),649,2011
+"58286",16.6.1,GF_XPD_GBPC,Primary government expenditures as a proportion of original approved budget (%),649,2004
+"58384",16.9.1,SG_REG_BRTH,Proportion of children under 5 years of age whose births have been registered with a civil authority (% of children under 5 years of age),196,2011
+"58388",16.9.1,SG_REG_BRTH,Proportion of children under 5 years of age whose births have been registered with a civil authority (% of children under 5 years of age),196,2007
+"58391",17.1.1,GR_G14_GDP,Total government revenue (budgetary central government) as a proportion of GDP (%),3241,2004
+"58392",17.1.1,GR_G14_GDP,Total government revenue (budgetary central government) as a proportion of GDP (%),3241,2007
+"58393",17.1.1,GR_G14_GDP,Total government revenue (budgetary central government) as a proportion of GDP (%),3241,2011
+"58910",17.1.1,GR_G14_XDC,Total government revenue; in local currency,2640,2004
+"58911",17.1.1,GR_G14_XDC,Total government revenue; in local currency,2640,2007
+"58912",17.1.1,GR_G14_XDC,Total government revenue; in local currency,2640,2011
+"59335",17.1.2,GC_GOB_TAXD,Proportion of domestic budget funded by domestic taxes (% of GDP),3200,2004
+"59336",17.1.2,GC_GOB_TAXD,Proportion of domestic budget funded by domestic taxes (% of GDP),3200,2007
+"59337",17.1.2,GC_GOB_TAXD,Proportion of domestic budget funded by domestic taxes (% of GDP),3200,2011
+"59847",17.11.1,TX_IMP_GBMRCH,Developing countries’ and least developed countries’ share of global merchandise imports (%),855,2004
+"59848",17.11.1,TX_IMP_GBMRCH,Developing countries’ and least developed countries’ share of global merchandise imports (%),855,2007
+"59849",17.11.1,TX_IMP_GBMRCH,Developing countries’ and least developed countries’ share of global merchandise imports (%),855,2011
+"59982",17.11.1,TX_EXP_GBMRCH,Developing countries’ and least developed countries’ share of global merchandise exports (%),855,2004
+"59983",17.11.1,TX_EXP_GBMRCH,Developing countries’ and least developed countries’ share of global merchandise exports (%),855,2007
+"59984",17.11.1,TX_EXP_GBMRCH,Developing countries’ and least developed countries’ share of global merchandise exports (%),855,2011
+"60117",17.11.1,TX_EXP_GBSVR,Developing countries’ and least developed countries’ share of global services exports (%),855,2004
+"60118",17.11.1,TX_EXP_GBSVR,Developing countries’ and least developed countries’ share of global services exports (%),855,2007
+"60119",17.11.1,TX_EXP_GBSVR,Developing countries’ and least developed countries’ share of global services exports (%),855,2011
+"60252",17.11.1,TX_IMP_GBSVR,Developing countries’ and least developed countries’ share of global services imports (%),855,2004
+"60253",17.11.1,TX_IMP_GBSVR,Developing countries’ and least developed countries’ share of global services imports (%),855,2007
+"60254",17.11.1,TX_IMP_GBSVR,Developing countries’ and least developed countries’ share of global services imports (%),855,2011
+"60387",17.12.1,TM_TAX_DMFN,Average tariff applied by developed countries; most-favored nation status; by type of product (%),11005,2011
+"61388",17.12.1,TM_TAX_DPRF,Average tariff applied by developed countries; preferential status; by type of product (%),11005,2011
+"62389",17.17.1,GF_COM_PPPI,Amount of United States dollars committed to public-private partnerships for infrastructure; million USD nominal,2580,2004
+"62390",17.17.1,GF_COM_PPPI,Amount of United States dollars committed to public-private partnerships for infrastructure; million USD nominal,2580,2007
+"62391",17.17.1,GF_COM_PPPI,Amount of United States dollars committed to public-private partnerships for infrastructure; million USD nominal,2580,2011
+"62776",17.17.1,GF_COM_PPPI_KD,Amount of United States dollars committed to public-private partnerships for infrastructure; million USD real,2580,2004
+"62777",17.17.1,GF_COM_PPPI_KD,Amount of United States dollars committed to public-private partnerships for infrastructure; million USD real,2580,2007
+"62778",17.17.1,GF_COM_PPPI_KD,Amount of United States dollars committed to public-private partnerships for infrastructure; million USD real,2580,2011
+"63163",17.19.2,SG_REG_CENSUSN,Countries that have conducted at least one population and housing census in the last 10 years (1 = YES; 0 = NO),214,2011
+"63226",17.2.1,DC_ODA_SIDSG,Net official development assistance (ODA) to small island states (SIDS) as a percentage of OECD-DAC donors' GNI; by donor countries (%),536,2004
+"63227",17.2.1,DC_ODA_SIDSG,Net official development assistance (ODA) to small island states (SIDS) as a percentage of OECD-DAC donors' GNI; by donor countries (%),536,2007
+"63228",17.2.1,DC_ODA_SIDSG,Net official development assistance (ODA) to small island states (SIDS) as a percentage of OECD-DAC donors' GNI; by donor countries (%),536,2011
+"63311",17.2.1,DC_ODA_LDCG,Net official development assistance (ODA) to LDCs as a percentage of OECD-DAC donors' GNI; by donor countries (%),536,2004
+"63312",17.2.1,DC_ODA_LDCG,Net official development assistance (ODA) to LDCs as a percentage of OECD-DAC donors' GNI; by donor countries (%),536,2007
+"63313",17.2.1,DC_ODA_LDCG,Net official development assistance (ODA) to LDCs as a percentage of OECD-DAC donors' GNI; by donor countries (%),536,2011
+"63396",17.2.1,DC_ODA_LLDC,Net official development assistance (ODA) to landlocked developing countries from OECD-DAC countries; by donor countries (millions of constant 2018 United States dollars),551,2004
+"63397",17.2.1,DC_ODA_LLDC,Net official development assistance (ODA) to landlocked developing countries from OECD-DAC countries; by donor countries (millions of constant 2018 United States dollars),551,2007
+"63398",17.2.1,DC_ODA_LLDC,Net official development assistance (ODA) to landlocked developing countries from OECD-DAC countries; by donor countries (millions of constant 2018 United States dollars),551,2011
+"63483",17.2.1,DC_ODA_SIDS,Net official development assistance (ODA) to small island states (SIDS) from OECD-DAC countries; by donor countries (millions of constant 2018 United States dollars),551,2004
+"63484",17.2.1,DC_ODA_SIDS,Net official development assistance (ODA) to small island states (SIDS) from OECD-DAC countries; by donor countries (millions of constant 2018 United States dollars),551,2007
+"63485",17.2.1,DC_ODA_SIDS,Net official development assistance (ODA) to small island states (SIDS) from OECD-DAC countries; by donor countries (millions of constant 2018 United States dollars),551,2011
+"63570",17.2.1,DC_ODA_LDCS,Net official development assistance (ODA) to LDCs from OECD-DAC countries; by donor countries (millions of constant 2018 United States dollars),551,2004
+"63571",17.2.1,DC_ODA_LDCS,Net official development assistance (ODA) to LDCs from OECD-DAC countries; by donor countries (millions of constant 2018 United States dollars),551,2007
+"63572",17.2.1,DC_ODA_LDCS,Net official development assistance (ODA) to LDCs from OECD-DAC countries; by donor countries (millions of constant 2018 United States dollars),551,2011
+"63657",17.2.1,DC_ODA_LLDCG,Net official development assistance (ODA) to landlocked developing countries as a percentage of OECD-DAC donors' GNI; by donor countries (%),536,2004
+"63658",17.2.1,DC_ODA_LLDCG,Net official development assistance (ODA) to landlocked developing countries as a percentage of OECD-DAC donors' GNI; by donor countries (%),536,2007
+"63659",17.2.1,DC_ODA_LLDCG,Net official development assistance (ODA) to landlocked developing countries as a percentage of OECD-DAC donors' GNI; by donor countries (%),536,2011
+"63742",17.2.1,DC_ODA_TOTG,Net official development assistance (ODA) as a percentage of OECD-DAC donors' GNI; by donor countries (%),512,2004
+"63743",17.2.1,DC_ODA_TOTG,Net official development assistance (ODA) as a percentage of OECD-DAC donors' GNI; by donor countries (%),512,2007
+"63744",17.2.1,DC_ODA_TOTG,Net official development assistance (ODA) as a percentage of OECD-DAC donors' GNI; by donor countries (%),512,2011
+"63828",17.2.1,DC_ODA_TOTL,Net official development assistance (ODA) from OECD-DAC countries; by donor countries (millions of constant 2018 United States dollars),591,2004
+"63829",17.2.1,DC_ODA_TOTL,Net official development assistance (ODA) from OECD-DAC countries; by donor countries (millions of constant 2018 United States dollars),591,2007
+"63830",17.2.1,DC_ODA_TOTL,Net official development assistance (ODA) from OECD-DAC countries; by donor countries (millions of constant 2018 United States dollars),591,2011
+"63917",17.3.1,GF_FRN_FDI,Foreign direct investment (FDI) inflows (millions of US dollars),6368,2004
+"63918",17.3.1,GF_FRN_FDI,Foreign direct investment (FDI) inflows (millions of US dollars),6368,2007
+"63919",17.3.1,GF_FRN_FDI,Foreign direct investment (FDI) inflows (millions of US dollars),6368,2011
+"64591",17.3.2,BX_TRF_PWKR,Volume of remittances (in United States dollars) as a proportion of total GDP (%),5614,2011
+"64592",17.3.2,BX_TRF_PWKR,Volume of remittances (in United States dollars) as a proportion of total GDP (%),5614,2004
+"64593",17.3.2,BX_TRF_PWKR,Volume of remittances (in United States dollars) as a proportion of total GDP (%),5614,2007
+"65222",17.4.1,DT_TDS_DECT,Debt service as a proportion of exports of goods and services (%),3574,2011
+"65223",17.4.1,DT_TDS_DECT,Debt service as a proportion of exports of goods and services (%),3574,2004
+"65224",17.4.1,DT_TDS_DECT,Debt service as a proportion of exports of goods and services (%),3574,2007
+"65610",17.6.1,IT_NET_BBNDN,Number of fixed Internet broadband subscriptions; by speed (number),6750,2004
+"65611",17.6.1,IT_NET_BBNDN,Number of fixed Internet broadband subscriptions; by speed (number),6750,2007
+"65613",17.6.1,IT_NET_BBNDN,Number of fixed Internet broadband subscriptions; by speed (number),6750,2011
+"66464",17.6.1,IT_NET_BBND,Fixed Internet broadband subscriptions per 100 inhabitants; by speed (per 100 inhabitants),7272,2004
+"66465",17.6.1,IT_NET_BBND,Fixed Internet broadband subscriptions per 100 inhabitants; by speed (per 100 inhabitants),7272,2007
+"66467",17.6.1,IT_NET_BBND,Fixed Internet broadband subscriptions per 100 inhabitants; by speed (per 100 inhabitants),7272,2011
+"67318",17.8.1,IT_USE_ii99,Internet users per 100 inhabitants,4440,2004
+"67319",17.8.1,IT_USE_ii99,Internet users per 100 inhabitants,4440,2007
+"67320",17.8.1,IT_USE_ii99,Internet users per 100 inhabitants,4440,2011
+"68050",17.9.1,DC_FTA_TOTAL,Total official development assistance (gross disbursement) for technical cooperation (millions of 2018 United States dollars),3433,2004
+"68051",17.9.1,DC_FTA_TOTAL,Total official development assistance (gross disbursement) for technical cooperation (millions of 2018 United States dollars),3433,2007
+"68052",17.9.1,DC_FTA_TOTAL,Total official development assistance (gross disbursement) for technical cooperation (millions of 2018 United States dollars),3433,2011
+"68597",2.1.1,SN_ITK_DEFC,Prevalence of undernourishment (%),5386,2004
+"68598",2.1.1,SN_ITK_DEFC,Prevalence of undernourishment (%),5386,2007
+"68599",2.1.1,SN_ITK_DEFC,Prevalence of undernourishment (%),5386,2011
+"69479",2.1.1,SN_ITK_DEFCN,Number of undernourish people (millions),5386,2004
+"69480",2.1.1,SN_ITK_DEFCN,Number of undernourish people (millions),5386,2007
+"69481",2.1.1,SN_ITK_DEFCN,Number of undernourish people (millions),5386,2011
+"70361",2.2.1,SH_STA_STNT,Proportion of children moderately or severely stunted (%),687,2004
+"70362",2.2.1,SH_STA_STNT,Proportion of children moderately or severely stunted (%),687,2007
+"70364",2.2.1,SH_STA_STNT,Proportion of children moderately or severely stunted (%),687,2011
+"70452",2.2.1,SH_STA_STNTN,Children moderately or severely stunted (thousands),687,2004
+"70453",2.2.1,SH_STA_STNTN,Children moderately or severely stunted (thousands),687,2007
+"70455",2.2.1,SH_STA_STNTN,Children moderately or severely stunted (thousands),687,2011
+"70543",2.2.2,SH_STA_WAST,Proportion of children moderately or severely wasted (%),616,2004
+"70544",2.2.2,SH_STA_WAST,Proportion of children moderately or severely wasted (%),616,2007
+"70546",2.2.2,SH_STA_WAST,Proportion of children moderately or severely wasted (%),616,2011
+"70634",2.2.2,SH_STA_WASTN,Children moderately or severely wasted (thousands),616,2004
+"70635",2.2.2,SH_STA_WASTN,Children moderately or severely wasted (thousands),616,2007
+"70637",2.2.2,SH_STA_WASTN,Children moderately or severely wasted (thousands),616,2011
+"70725",2.2.2,SN_STA_OVWGT,Proportion of children moderately or severely overweight (%),657,2004
+"70726",2.2.2,SN_STA_OVWGT,Proportion of children moderately or severely overweight (%),657,2007
+"70727",2.2.2,SN_STA_OVWGT,Proportion of children moderately or severely overweight (%),657,2011
+"70810",2.2.2,SN_STA_OVWGTN,Children moderately or severely overweight (thousands),657,2004
+"70811",2.2.2,SN_STA_OVWGTN,Children moderately or severely overweight (thousands),657,2007
+"70812",2.2.2,SN_STA_OVWGTN,Children moderately or severely overweight (thousands),657,2011
+"71027",2.3.1,PD_AGR_SSFP,Productivity of small-scale food producers (agricultural output per labour day; PPP) (constant 2011 international $),2223,2011
+"71242",2.3.2,SI_AGR_SSFP,Average income of small-scale food producers; PPP (constant 2011 international $),3211,2007
+"71426",2.3.2,SI_AGR_SSFP,Average income of small-scale food producers; PPP (constant 2011 international $),3211,2011
+"71538",2.3.2,SI_AGR_SSFP,Average income of small-scale food producers; PPP (constant 2011 international $),3211,2004
+"71892",2.5.1,ER_GRF_ANIMRCNTN,Number of local breeds for which sufficient genetic resources are stored for reconstitution,3113,2011
+"72172",2.5.2,ER_RSK_LBREDS,Proportion of local breeds classified as being at risk as a share of local breeds with known level of extinction risk (%),5650,2004
+"72173",2.5.2,ER_RSK_LBREDS,Proportion of local breeds classified as being at risk as a share of local breeds with known level of extinction risk (%),5650,2007
+"72174",2.5.2,ER_RSK_LBREDS,Proportion of local breeds classified as being at risk as a share of local breeds with known level of extinction risk (%),5650,2011
+"73015",2.a.1,AG_PRD_ORTIND,Agriculture orientation index for government expenditures,2542,2004
+"73016",2.a.1,AG_PRD_ORTIND,Agriculture orientation index for government expenditures,2542,2007
+"73017",2.a.1,AG_PRD_ORTIND,Agriculture orientation index for government expenditures,2542,2011
+"73440",2.a.1,AG_PRD_AGVAS,Agriculture value added share of GDP (%),2542,2004
+"73441",2.a.1,AG_PRD_AGVAS,Agriculture value added share of GDP (%),2542,2007
+"73442",2.a.1,AG_PRD_AGVAS,Agriculture value added share of GDP (%),2542,2011
+"73865",2.a.1,AG_XPD_AGSGB,Agriculture share of Government Expenditure (%),2542,2004
+"73866",2.a.1,AG_XPD_AGSGB,Agriculture share of Government Expenditure (%),2542,2007
+"73867",2.a.1,AG_XPD_AGSGB,Agriculture share of Government Expenditure (%),2542,2011
+"74290",2.a.2,DC_TOF_AGRL,Total official flows (disbursements) for agriculture; by recipient countries (millions of constant 2018 United States dollars),3376,2004
+"74291",2.a.2,DC_TOF_AGRL,Total official flows (disbursements) for agriculture; by recipient countries (millions of constant 2018 United States dollars),3376,2007
+"74292",2.a.2,DC_TOF_AGRL,Total official flows (disbursements) for agriculture; by recipient countries (millions of constant 2018 United States dollars),3376,2011
+"74824",2.b.1,AG_PRD_XSUBDY,Agricultural export subsidies (millions of current United States dollars),1344,2004
+"74825",2.b.1,AG_PRD_XSUBDY,Agricultural export subsidies (millions of current United States dollars),1344,2007
+"74826",2.b.1,AG_PRD_XSUBDY,Agricultural export subsidies (millions of current United States dollars),1344,2011
+"74993",3.1.1,SH_STA_MORT,Maternal mortality ratio,3960,2004
+"74994",3.1.1,SH_STA_MORT,Maternal mortality ratio,3960,2007
+"74995",3.1.1,SH_STA_MORT,Maternal mortality ratio,3960,2011
+"75653",3.1.2,SH_STA_BRTC,Proportion of births attended by skilled health personnel (%),2535,2011
+"75654",3.1.2,SH_STA_BRTC,Proportion of births attended by skilled health personnel (%),2535,2007
+"75655",3.1.2,SH_STA_BRTC,Proportion of births attended by skilled health personnel (%),2535,2004
+"75973",3.2.1,SH_DYN_IMRTN,Infant deaths (number),11700,2004
+"75976",3.2.1,SH_DYN_IMRTN,Infant deaths (number),11700,2007
+"75979",3.2.1,SH_DYN_IMRTN,Infant deaths (number),11700,2011
+"77728",3.2.1,SH_DYN_MORT,Under-five mortality rate; by sex (deaths per 1;000 live births),14220,2004
+"77731",3.2.1,SH_DYN_MORT,Under-five mortality rate; by sex (deaths per 1;000 live births),14220,2007
+"77734",3.2.1,SH_DYN_MORT,Under-five mortality rate; by sex (deaths per 1;000 live births),14220,2011
+"79861",3.2.1,SH_DYN_IMRT,Infant mortality rate (deaths per 1;000 live births),14220,2004
+"79864",3.2.1,SH_DYN_IMRT,Infant mortality rate (deaths per 1;000 live births),14220,2007
+"79867",3.2.1,SH_DYN_IMRT,Infant mortality rate (deaths per 1;000 live births),14220,2011
+"81994",3.2.1,SH_DYN_MORTN,Under-five deaths (number),11700,2004
+"81997",3.2.1,SH_DYN_MORTN,Under-five deaths (number),11700,2007
+"82000",3.2.1,SH_DYN_MORTN,Under-five deaths (number),11700,2011
+"83749",3.2.2,SH_DYN_NMRTN,Neonatal deaths (number),3900,2004
+"83750",3.2.2,SH_DYN_NMRTN,Neonatal deaths (number),3900,2007
+"83751",3.2.2,SH_DYN_NMRTN,Neonatal deaths (number),3900,2011
+"84334",3.2.2,SH_DYN_NMRT,Neonatal mortality rate (deaths per 1;000 live births),4740,2004
+"84335",3.2.2,SH_DYN_NMRT,Neonatal mortality rate (deaths per 1;000 live births),4740,2007
+"84336",3.2.2,SH_DYN_NMRT,Neonatal mortality rate (deaths per 1;000 live births),4740,2011
+"85045",3.3.1,SH_HIV_INCD,Number of new HIV infections per 1;000 uninfected population; by sex and age (per 1;000 uninfected population),36068,2004
+"85058",3.3.1,SH_HIV_INCD,Number of new HIV infections per 1;000 uninfected population; by sex and age (per 1;000 uninfected population),36068,2007
+"85071",3.3.1,SH_HIV_INCD,Number of new HIV infections per 1;000 uninfected population; by sex and age (per 1;000 uninfected population),36068,2011
+"90742",3.3.2,SH_TBS_INCD,Tuberculosis incidence (per 100;000 population),4439,2004
+"90743",3.3.2,SH_TBS_INCD,Tuberculosis incidence (per 100;000 population),4439,2007
+"90744",3.3.2,SH_TBS_INCD,Tuberculosis incidence (per 100;000 population),4439,2011
+"91441",3.3.3,SH_STA_MALR,Malaria incidence per 1;000 population at risk (per 1;000 population),1705,2011
+"91596",3.3.5,SH_TRP_INTVN,Number of people requiring interventions against neglected tropical diseases (number),1854,2011
+"91802",3.7.1,SH_FPL_MTMM,Proportion of women of reproductive age (aged 15-49 years) who have their need for family planning satisfied with modern methods (% of women aged 15-49 years),493,2004
+"91803",3.7.1,SH_FPL_MTMM,Proportion of women of reproductive age (aged 15-49 years) who have their need for family planning satisfied with modern methods (% of women aged 15-49 years),493,2007
+"91804",3.7.1,SH_FPL_MTMM,Proportion of women of reproductive age (aged 15-49 years) who have their need for family planning satisfied with modern methods (% of women aged 15-49 years),493,2011
+"91865",3.7.2,SP_DYN_ADKL,Adolescent birth rate (per 1;000 women aged 15-19 years),2626,2007
+"91866",3.7.2,SP_DYN_ADKL,Adolescent birth rate (per 1;000 women aged 15-19 years),2626,2011
+"91867",3.7.2,SP_DYN_ADKL,Adolescent birth rate (per 1;000 women aged 15-19 years),2626,2004
+"92283",3.8.2,SH_XPD_EARN25,Proportion of population with large household expenditures on health (greater than 25%) as a share of total household expenditure or income (%),635,2007
+"92284",3.8.2,SH_XPD_EARN25,Proportion of population with large household expenditures on health (greater than 25%) as a share of total household expenditure or income (%),635,2004
+"92287",3.8.2,SH_XPD_EARN25,Proportion of population with large household expenditures on health (greater than 25%) as a share of total household expenditure or income (%),635,2011
+"92403",3.8.2,SH_XPD_EARN10,Proportion of population with large household expenditures on health (greater than 10%) as a share of total household expenditure or income (%),635,2007
+"92404",3.8.2,SH_XPD_EARN10,Proportion of population with large household expenditures on health (greater than 10%) as a share of total household expenditure or income (%),635,2004
+"92407",3.8.2,SH_XPD_EARN10,Proportion of population with large household expenditures on health (greater than 10%) as a share of total household expenditure or income (%),635,2011
+"92523",3.b.1,SH_ACS_DTP3,Proportion of the target population with access to 3 doses of diphtheria-tetanus-pertussis (DTP3) (%),4541,2004
+"92524",3.b.1,SH_ACS_DTP3,Proportion of the target population with access to 3 doses of diphtheria-tetanus-pertussis (DTP3) (%),4541,2007
+"92525",3.b.1,SH_ACS_DTP3,Proportion of the target population with access to 3 doses of diphtheria-tetanus-pertussis (DTP3) (%),4541,2011
+"93240",3.b.1,SH_ACS_MCV2,Proportion of the target population with access to measles-containing-vaccine second-dose (MCV2) (%),3180,2004
+"93241",3.b.1,SH_ACS_MCV2,Proportion of the target population with access to measles-containing-vaccine second-dose (MCV2) (%),3180,2007
+"93242",3.b.1,SH_ACS_MCV2,Proportion of the target population with access to measles-containing-vaccine second-dose (MCV2) (%),3180,2011
+"93718",3.b.1,SH_ACS_PCV3,Proportion of the target population with access to pneumococcal conjugate 3rd dose (PCV3) (%),1451,2011
+"93827",3.b.1,SH_ACS_HPV,Proportion of the target population with access to affordable medicines and vaccines on a sustainable basis; human papillomavirus (HPV) (%),791,2011
+"93893",3.b.2,DC_TOF_HLTHNT,Total official development assistance to medical research and basic heath sectors; net disbursement; by recipient countries (millions of constant 2018 United States dollars),1569,2011
+"94069",3.b.2,DC_TOF_HLTHL,Total official development assistance to medical research and basic heath sectors; gross disbursement; by recipient countries (millions of constant 2018 United States dollars),3242,2004
+"94070",3.b.2,DC_TOF_HLTHL,Total official development assistance to medical research and basic heath sectors; gross disbursement; by recipient countries (millions of constant 2018 United States dollars),3242,2007
+"94071",3.b.2,DC_TOF_HLTHL,Total official development assistance to medical research and basic heath sectors; gross disbursement; by recipient countries (millions of constant 2018 United States dollars),3242,2011
+"94586",3.b.3,SH_HLF_EMED,Proportion of health facilities that have a core set of relevant essential medicines available and affordable on a sustainable basis (%),37,2011
+"94587",3.b.3,SH_HLF_EMED,Proportion of health facilities that have a core set of relevant essential medicines available and affordable on a sustainable basis (%),37,2004
+"94592",3.c.1,SH_MED_DEN,Health worker density; by type of occupation (per 10;000 population),7349,2007
+"94596",3.c.1,SH_MED_DEN,Health worker density; by type of occupation (per 10;000 population),7349,2011
+"94598",3.c.1,SH_MED_DEN,Health worker density; by type of occupation (per 10;000 population),7349,2004
+"95858",3.c.1,SH_MED_HWRKDIS,Health worker distribution; by sex and type of occupation (%),2428,2004
+"95860",3.c.1,SH_MED_HWRKDIS,Health worker distribution; by sex and type of occupation (%),2428,2007
+"95862",3.c.1,SH_MED_HWRKDIS,Health worker distribution; by sex and type of occupation (%),2428,2011
+"96148",3.d.1,SH_IHR_CAPS,International Health Regulations (IHR) capacity; by type of IHR capacity (%),20156,2011
+"98202",4.1.1,SE_TOT_PRFL,Proportion of children and young people achieving a minimum proficiency level in reading and mathematics (%),3989,2007
+"98211",4.1.1,SE_TOT_PRFL,Proportion of children and young people achieving a minimum proficiency level in reading and mathematics (%),3989,2011
+"98458",4.1.1,SE_TOT_PRFL,Proportion of children and young people achieving a minimum proficiency level in reading and mathematics (%),3989,2004
+"98696",4.1.2,SE_TOT_CPLR,Completion rate; by sex; location; wealth quintile and education level (%),76428,2011
+"98858",4.1.2,SE_TOT_CPLR,Completion rate; by sex; location; wealth quintile and education level (%),76428,2004
+"98912",4.1.2,SE_TOT_CPLR,Completion rate; by sex; location; wealth quintile and education level (%),76428,2007
+"110859",4.2.1,SE_DEV_ONTRK,Proportion of children aged 36-59 months who are developmentally on track in at least three of the following domains: literacy-numeracy; physical development; social-emotional development; and learning (% of children aged 36-59 months),81,2011
+"110864",4.2.2,SE_PRE_PARTN,Participation rate in organized learning (one year before the official primary entry age); by sex (%),5883,2004
+"110867",4.2.2,SE_PRE_PARTN,Participation rate in organized learning (one year before the official primary entry age); by sex (%),5883,2011
+"110876",4.2.2,SE_PRE_PARTN,Participation rate in organized learning (one year before the official primary entry age); by sex (%),5883,2007
+"111745",4.3.1,SE_ADT_EDUCTRN,Participation rate in formal and non-formal education and training; by sex (%),1009,2007
+"111748",4.3.1,SE_ADT_EDUCTRN,Participation rate in formal and non-formal education and training; by sex (%),1009,2004
+"111751",4.3.1,SE_ADT_EDUCTRN,Participation rate in formal and non-formal education and training; by sex (%),1009,2011
+"112033",4.5.1,SE_GPI_PTNPRE,Gender parity index for participation rate in organized learning (one year before the official primary entry age); (ratio),1663,2004
+"112034",4.5.1,SE_GPI_PTNPRE,Gender parity index for participation rate in organized learning (one year before the official primary entry age); (ratio),1663,2011
+"112037",4.5.1,SE_GPI_PTNPRE,Gender parity index for participation rate in organized learning (one year before the official primary entry age); (ratio),1663,2007
+"112283",4.5.1,SE_GPI_TCAQ,Gender parity index of trained teachers; by education level (ratio),4046,2004
+"112284",4.5.1,SE_GPI_TCAQ,Gender parity index of trained teachers; by education level (ratio),4046,2007
+"112287",4.5.1,SE_GPI_TCAQ,Gender parity index of trained teachers; by education level (ratio),4046,2011
+"112891",4.5.1,SE_GPI_PART,Gender parity index for participation rate in formal and non-formal education and training (ratio),321,2007
+"112892",4.5.1,SE_GPI_PART,Gender parity index for participation rate in formal and non-formal education and training (ratio),321,2004
+"112893",4.5.1,SE_GPI_PART,Gender parity index for participation rate in formal and non-formal education and training (ratio),321,2011
+"112985",4.5.1,SE_NAP_ACHI,Native parity index for achievement (ratio),864,2007
+"112987",4.5.1,SE_NAP_ACHI,Native parity index for achievement (ratio),864,2011
+"113038",4.5.1,SE_LGP_ACHI,Language test parity index for achievement (ratio),1035,2007
+"113043",4.5.1,SE_LGP_ACHI,Language test parity index for achievement (ratio),1035,2011
+"113162",4.5.1,SE_TOT_GPI,Gender parity index for achievement (ratio),1411,2007
+"113165",4.5.1,SE_TOT_GPI,Gender parity index for achievement (ratio),1411,2011
+"113326",4.5.1,SE_TOT_SESPI,Low to high socio-economic parity status index for achievement (ratio),1193,2007
+"113329",4.5.1,SE_TOT_SESPI,Low to high socio-economic parity status index for achievement (ratio),1193,2011
+"113486",4.5.1,SE_TOT_RUPI,Rural to urban parity index for achievement (ratio),930,2007
+"113489",4.5.1,SE_TOT_RUPI,Rural to urban parity index for achievement (ratio),930,2011
+"113619",4.5.1,SE_ALP_CPLR,Adjusted location parity index for completion rate; by sex; location; wealth quintile and education level,23538,2011
+"113728",4.5.1,SE_ALP_CPLR,Adjusted location parity index for completion rate; by sex; location; wealth quintile and education level,23538,2004
+"113731",4.5.1,SE_ALP_CPLR,Adjusted location parity index for completion rate; by sex; location; wealth quintile and education level,23538,2007
+"117344",4.5.1,SE_AWP_CPRA,Adjusted wealth parity index for completion rate; by sex; location; wealth quintile and education level,12237,2011
+"117370",4.5.1,SE_AWP_CPRA,Adjusted wealth parity index for completion rate; by sex; location; wealth quintile and education level,12237,2004
+"117379",4.5.1,SE_AWP_CPRA,Adjusted wealth parity index for completion rate; by sex; location; wealth quintile and education level,12237,2007
+"119292",4.5.1,SE_AGP_CPRA,Adjusted gender parity index for completion rate; by sex; location; wealth quintile and education level,24282,2011
+"119346",4.5.1,SE_AGP_CPRA,Adjusted gender parity index for completion rate; by sex; location; wealth quintile and education level,24282,2004
+"119364",4.5.1,SE_AGP_CPRA,Adjusted gender parity index for completion rate; by sex; location; wealth quintile and education level,24282,2007
+"123149",4.6.1,SE_ADT_FUNS,Proportion of population achieving at least a fixed level of proficiency in functional skills; by sex; age and type of skill (%),237,2011
+"123158",4.6.1,SE_ADT_FUNS,Proportion of population achieving at least a fixed level of proficiency in functional skills; by sex; age and type of skill (%),237,2007
+"123160",4.a.1,SE_ACS_CMPTR,Schools with access to computers for pedagogical purposes; by education level (%),1557,2004
+"123163",4.a.1,SE_ACS_CMPTR,Schools with access to computers for pedagogical purposes; by education level (%),1557,2007
+"123166",4.a.1,SE_ACS_CMPTR,Schools with access to computers for pedagogical purposes; by education level (%),1557,2011
+"123304",4.a.1,SE_ACS_H2O,Schools with access to basic drinking water; by education level (%),1742,2004
+"123307",4.a.1,SE_ACS_H2O,Schools with access to basic drinking water; by education level (%),1742,2007
+"123310",4.a.1,SE_ACS_H2O,Schools with access to basic drinking water; by education level (%),1742,2011
+"123489",4.a.1,SE_ACS_ELECT,Schools with access to electricity; by education level (%),2163,2004
+"123492",4.a.1,SE_ACS_ELECT,Schools with access to electricity; by education level (%),2163,2007
+"123495",4.a.1,SE_ACS_ELECT,Schools with access to electricity; by education level (%),2163,2011
+"123710",4.a.1,SE_ACC_HNDWSH,Schools with basic handwashing facilities; by education level (%),1668,2004
+"123713",4.a.1,SE_ACC_HNDWSH,Schools with basic handwashing facilities; by education level (%),1668,2007
+"123716",4.a.1,SE_ACC_HNDWSH,Schools with basic handwashing facilities; by education level (%),1668,2011
+"123889",4.a.1,SE_ACS_INTNT,Schools with access to the internet for pedagogical purposes; by education level (%),1470,2004
+"123892",4.a.1,SE_ACS_INTNT,Schools with access to the internet for pedagogical purposes; by education level (%),1470,2007
+"123895",4.a.1,SE_ACS_INTNT,Schools with access to the internet for pedagogical purposes; by education level (%),1470,2011
+"124034",4.a.1,SE_ACS_SANIT,Schools with access to access to single-sex basic sanitation; by education level (%),1611,2004
+"124037",4.a.1,SE_ACS_SANIT,Schools with access to access to single-sex basic sanitation; by education level (%),1611,2007
+"124040",4.a.1,SE_ACS_SANIT,Schools with access to access to single-sex basic sanitation; by education level (%),1611,2011
+"124208",4.a.1,SE_INF_DSBL,Proportion of schools with access to adapted infrastructure and materials for students with disabilities; by education level (%),335,2004
+"124211",4.a.1,SE_INF_DSBL,Proportion of schools with access to adapted infrastructure and materials for students with disabilities; by education level (%),335,2007
+"124214",4.a.1,SE_INF_DSBL,Proportion of schools with access to adapted infrastructure and materials for students with disabilities; by education level (%),335,2011
+"124217",4.b.1,DC_TOF_SCHIPSL,Total official flows for scholarships; by recipient countries (millions of constant 2018 United States dollars),2276,2007
+"124218",4.b.1,DC_TOF_SCHIPSL,Total official flows for scholarships; by recipient countries (millions of constant 2018 United States dollars),2276,2011
+"124561",4.c.1,SE_TRA_GRDL,Proportion of teachers who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country; by sex and education level (%),13535,2004
+"124564",4.c.1,SE_TRA_GRDL,Proportion of teachers who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country; by sex and education level (%),13535,2007
+"124573",4.c.1,SE_TRA_GRDL,Proportion of teachers who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country; by sex and education level (%),13535,2011
+"126622",5.2.1,VC_VAW_MARR,Proportion of ever-partnered women and girls subjected to physical and/or sexual violence by a current or former intimate partner in the previous 12 months; by age (%),577,2011
+"126636",5.2.1,VC_VAW_MARR,Proportion of ever-partnered women and girls subjected to physical and/or sexual violence by a current or former intimate partner in the previous 12 months; by age (%),577,2007
+"126653",5.3.1,SP_DYN_MRBF18,Proportion of women aged 20-24 years who were married or in a union before age 18 (%),178,2011
+"126654",5.3.1,SP_DYN_MRBF18,Proportion of women aged 20-24 years who were married or in a union before age 18 (%),178,2004
+"126661",5.3.1,SP_DYN_MRBF18,Proportion of women aged 20-24 years who were married or in a union before age 18 (%),178,2007
+"126675",5.3.1,SP_DYN_MRBF15,Proportion of women aged 20-24 years who were married or in a union before age 15 (%),178,2011
+"126676",5.3.1,SP_DYN_MRBF15,Proportion of women aged 20-24 years who were married or in a union before age 15 (%),178,2004
+"126683",5.3.1,SP_DYN_MRBF15,Proportion of women aged 20-24 years who were married or in a union before age 15 (%),178,2007
+"126697",5.3.2,SH_STA_FGMS,Proportion of girls and women aged 15-49 years who have undergone female genital mutilation/cutting; by age (%),42,2004
+"126698",5.3.2,SH_STA_FGMS,Proportion of girls and women aged 15-49 years who have undergone female genital mutilation/cutting; by age (%),42,2011
+"126702",5.4.1,SL_DOM_TSPDCW,Proportion of time spent on unpaid care work; by sex; age and location (%),2048,2011
+"126714",5.4.1,SL_DOM_TSPDCW,Proportion of time spent on unpaid care work; by sex; age and location (%),2048,2004
+"126716",5.4.1,SL_DOM_TSPDCW,Proportion of time spent on unpaid care work; by sex; age and location (%),2048,2007
+"126910",5.4.1,SL_DOM_TSPDDC,Proportion of time spent on unpaid domestic chores; by sex; age and location (%),2075,2011
+"126922",5.4.1,SL_DOM_TSPDDC,Proportion of time spent on unpaid domestic chores; by sex; age and location (%),2075,2004
+"126924",5.4.1,SL_DOM_TSPDDC,Proportion of time spent on unpaid domestic chores; by sex; age and location (%),2075,2007
+"127120",5.4.1,SL_DOM_TSPD,Proportion of time spent on unpaid domestic chores and care work; by sex; age and location (%),2297,2011
+"127132",5.4.1,SL_DOM_TSPD,Proportion of time spent on unpaid domestic chores and care work; by sex; age and location (%),2297,2004
+"127134",5.4.1,SL_DOM_TSPD,Proportion of time spent on unpaid domestic chores and care work; by sex; age and location (%),2297,2007
+"127342",5.5.1,SG_GEN_PARLN,Number of seats held by women in national parliaments (number),4774,2007
+"127343",5.5.1,SG_GEN_PARLN,Number of seats held by women in national parliaments (number),4774,2011
+"127344",5.5.1,SG_GEN_PARLN,Number of seats held by women in national parliaments (number),4774,2004
+"128018",5.5.1,SG_GEN_PARLNT,Number of seats in national parliaments (number),4777,2007
+"128019",5.5.1,SG_GEN_PARLNT,Number of seats in national parliaments (number),4777,2011
+"128020",5.5.1,SG_GEN_PARLNT,Number of seats in national parliaments (number),4777,2004
+"128694",5.5.1,SG_GEN_PARL,Proportion of seats held by women in national parliaments (% of total number of seats),4774,2007
+"128695",5.5.1,SG_GEN_PARL,Proportion of seats held by women in national parliaments (% of total number of seats),4774,2011
+"128696",5.5.1,SG_GEN_PARL,Proportion of seats held by women in national parliaments (% of total number of seats),4774,2004
+"129370",5.5.1,SG_GEN_LOCGELS,Proportion of elected seats held by women in deliberative bodies of local government (%),194,2011
+"129371",5.5.2,IC_GEN_MGTL,Proportion of women in managerial positions (%),2008,2007
+"129372",5.5.2,IC_GEN_MGTL,Proportion of women in managerial positions (%),2008,2004
+"129374",5.5.2,IC_GEN_MGTL,Proportion of women in managerial positions (%),2008,2011
+"129678",5.5.2,IC_GEN_MGTN,Proportion of women in senior and middle management positions (%),922,2007
+"129679",5.5.2,IC_GEN_MGTN,Proportion of women in senior and middle management positions (%),922,2004
+"129680",5.5.2,IC_GEN_MGTN,Proportion of women in senior and middle management positions (%),922,2011
+"129815",5.6.1,SH_FPL_INFM,Proportion of women who make their own informed decisions regarding sexual relations; contraceptive use and reproductive health care (% of women aged 15-49 years),109,2011
+"129816",5.6.1,SH_FPL_INFM,Proportion of women who make their own informed decisions regarding sexual relations; contraceptive use and reproductive health care (% of women aged 15-49 years),109,2007
+"129828",5.6.1,SH_FPL_INFMSR,Proportion of women who make their own informed decisions regarding sexual relations (% of women aged 15-49 years),109,2011
+"129829",5.6.1,SH_FPL_INFMSR,Proportion of women who make their own informed decisions regarding sexual relations (% of women aged 15-49 years),109,2007
+"129841",5.6.1,SH_FPL_INFMCU,Proportion of women who make their own informed decisions regarding contraceptive use (% of women aged 15-49 years),109,2011
+"129842",5.6.1,SH_FPL_INFMCU,Proportion of women who make their own informed decisions regarding contraceptive use (% of women aged 15-49 years),109,2007
+"129854",5.6.1,SH_FPL_INFMRH,Proportion of women who make their own informed decisions regarding reproductive health care (% of women aged 15-49 years),109,2011
+"129855",5.6.1,SH_FPL_INFMRH,Proportion of women who make their own informed decisions regarding reproductive health care (% of women aged 15-49 years),109,2007
+"129867",6.1.1,SH_H2O_SAFE,Proportion of population using safely managed drinking water services; by urban/rural (%),4692,2004
+"129868",6.1.1,SH_H2O_SAFE,Proportion of population using safely managed drinking water services; by urban/rural (%),4692,2007
+"129869",6.1.1,SH_H2O_SAFE,Proportion of population using safely managed drinking water services; by urban/rural (%),4692,2011
+"130649",6.2.1,SH_SAN_HNDWSH,Proportion of population with basic handwashing facilities on premises; by urban/rural (%),3203,2007
+"130652",6.2.1,SH_SAN_HNDWSH,Proportion of population with basic handwashing facilities on premises; by urban/rural (%),3203,2011
+"130658",6.2.1,SH_SAN_HNDWSH,Proportion of population with basic handwashing facilities on premises; by urban/rural (%),3203,2004
+"131106",6.2.1,SH_SAN_SAFE,Proportion of population using safely managed sanitation services; by urban/rural (%),4931,2004
+"131109",6.2.1,SH_SAN_SAFE,Proportion of population using safely managed sanitation services; by urban/rural (%),4931,2007
+"131112",6.2.1,SH_SAN_SAFE,Proportion of population using safely managed sanitation services; by urban/rural (%),4931,2011
+"131930",6.2.1,SH_SAN_DEFECT,Proportion of population practicing open defecation; by urban/rural (%),11978,2004
+"131933",6.2.1,SH_SAN_DEFECT,Proportion of population practicing open defecation; by urban/rural (%),11978,2007
+"131936",6.2.1,SH_SAN_DEFECT,Proportion of population practicing open defecation; by urban/rural (%),11978,2011
+"133938",6.4.1,ER_H2O_WUEYST,Water Use Efficiency (United States dollars per cubic meter),2360,2004
+"133939",6.4.1,ER_H2O_WUEYST,Water Use Efficiency (United States dollars per cubic meter),2360,2007
+"133942",6.4.1,ER_H2O_WUEYST,Water Use Efficiency (United States dollars per cubic meter),2360,2011
+"134349",6.4.2,ER_H2O_STRESS,Level of water stress: freshwater withdrawal as a proportion of available freshwater resources (%),3623,2004
+"134350",6.4.2,ER_H2O_STRESS,Level of water stress: freshwater withdrawal as a proportion of available freshwater resources (%),3623,2007
+"134354",6.4.2,ER_H2O_STRESS,Level of water stress: freshwater withdrawal as a proportion of available freshwater resources (%),3623,2011
+"134886",6.6.1,EN_WBE_PMPR,Water body extent (permanent) (% of total land area),3466,2007
+"134887",6.6.1,EN_WBE_PMPR,Water body extent (permanent) (% of total land area),3466,2011
+"135380",6.6.1,EN_WBE_PMNR,Water body extent (permanent) (square kilometres),3524,2007
+"135381",6.6.1,EN_WBE_PMNR,Water body extent (permanent) (square kilometres),3524,2011
+"135882",6.6.1,EN_WBE_PMPP,Water body extent (permanent and maybe permanent) (% of total land area),3501,2007
+"135883",6.6.1,EN_WBE_PMPP,Water body extent (permanent and maybe permanent) (% of total land area),3501,2011
+"136382",6.6.1,EN_WBE_PMPN,Water body extent (permanent and maybe permanent) (square kilometres),3559,2007
+"136383",6.6.1,EN_WBE_PMPN,Water body extent (permanent and maybe permanent) (square kilometres),3559,2011
+"136890",6.a.1,DC_TOF_WASHL,Total official development assistance (gross disbursement) for water supply and sanitation; by recipient countries (millions of constant 2018 United States dollars),3248,2004
+"136891",6.a.1,DC_TOF_WASHL,Total official development assistance (gross disbursement) for water supply and sanitation; by recipient countries (millions of constant 2018 United States dollars),3248,2007
+"136892",6.a.1,DC_TOF_WASHL,Total official development assistance (gross disbursement) for water supply and sanitation; by recipient countries (millions of constant 2018 United States dollars),3248,2011
+"137416",7.1.1,EG_ACS_ELEC,Proportion of population with access to electricity; by urban/rural (%),18375,2007
+"137419",7.1.1,EG_ACS_ELEC,Proportion of population with access to electricity; by urban/rural (%),18375,2011
+"137422",7.1.1,EG_ACS_ELEC,Proportion of population with access to electricity; by urban/rural (%),18375,2004
+"139348",7.1.2,EG_EGY_CLEAN,Proportion of population with primary reliance on clean fuels and technology (%),4028,2004
+"139349",7.1.2,EG_EGY_CLEAN,Proportion of population with primary reliance on clean fuels and technology (%),4028,2007
+"139350",7.1.2,EG_EGY_CLEAN,Proportion of population with primary reliance on clean fuels and technology (%),4028,2011
+"139984",7.2.1,EG_FEC_RNEW,Renewable energy share in the total final energy consumption (%),4914,2004
+"139985",7.2.1,EG_FEC_RNEW,Renewable energy share in the total final energy consumption (%),4914,2007
+"139986",7.2.1,EG_FEC_RNEW,Renewable energy share in the total final energy consumption (%),4914,2011
+"140803",7.3.1,EG_EGY_PRIM,Energy intensity level of primary energy (megajoules per constant 2011 purchasing power parity GDP),4291,2004
+"140804",7.3.1,EG_EGY_PRIM,Energy intensity level of primary energy (megajoules per constant 2011 purchasing power parity GDP),4291,2007
+"140805",7.3.1,EG_EGY_PRIM,Energy intensity level of primary energy (megajoules per constant 2011 purchasing power parity GDP),4291,2011
+"141517",7.a.1,EG_IFF_RANDN,International financial flows to developing countries in support of clean energy research and development and renewable energy production; including in hybrid systems (millions of constant 2017 United States dollars),1849,2007
+"141518",7.a.1,EG_IFF_RANDN,International financial flows to developing countries in support of clean energy research and development and renewable energy production; including in hybrid systems (millions of constant 2017 United States dollars),1849,2011
+"141519",7.a.1,EG_IFF_RANDN,International financial flows to developing countries in support of clean energy research and development and renewable energy production; including in hybrid systems (millions of constant 2017 United States dollars),1849,2004
+"142431",8.1.1,NY_GDP_PCAP,Annual growth rate of real GDP per capita (%),4769,2004
+"142432",8.1.1,NY_GDP_PCAP,Annual growth rate of real GDP per capita (%),4769,2007
+"142433",8.1.1,NY_GDP_PCAP,Annual growth rate of real GDP per capita (%),4769,2011
+"143184",8.10.1,FB_ATM_TOTL,Number of automated teller machines (ATMs) per 100;000 adults,2461,2004
+"143185",8.10.1,FB_ATM_TOTL,Number of automated teller machines (ATMs) per 100;000 adults,2461,2007
+"143186",8.10.1,FB_ATM_TOTL,Number of automated teller machines (ATMs) per 100;000 adults,2461,2011
+"143637",8.10.1,FB_CBK_BRCH,Number of commercial bank branches per 100;000 adults,2608,2004
+"143638",8.10.1,FB_CBK_BRCH,Number of commercial bank branches per 100;000 adults,2608,2007
+"143639",8.10.1,FB_CBK_BRCH,Number of commercial bank branches per 100;000 adults,2608,2011
+"144144",8.10.2,FB_BNK_ACCSS,Proportion of adults (15 years and older) with an account at a financial institution or mobile-money-service provider; by sex (% of adults aged 15 years and older),1338,2011
+"144573",8.2.1,SL_EMP_PCAP,Annual growth rate of real GDP per employed person (%),4180,2004
+"144574",8.2.1,SL_EMP_PCAP,Annual growth rate of real GDP per employed person (%),4180,2007
+"144575",8.2.1,SL_EMP_PCAP,Annual growth rate of real GDP per employed person (%),4180,2011
+"145200",8.3.1,SL_ISV_IFEM,Proportion of informal employment; by sector and sex (ILO harmonized estimates) (%),3213,2004
+"145209",8.3.1,SL_ISV_IFEM,Proportion of informal employment; by sector and sex (ILO harmonized estimates) (%),3213,2011
+"145254",8.3.1,SL_ISV_IFEM,Proportion of informal employment; by sector and sex (ILO harmonized estimates) (%),3213,2007
+"175340",8.5.1,SL_EMP_EARN,Average hourly earnings of employees by sex and occupation (local currency),5776,2004
+"175343",8.5.1,SL_EMP_EARN,Average hourly earnings of employees by sex and occupation (local currency),5776,2007
+"175346",8.5.1,SL_EMP_EARN,Average hourly earnings of employees by sex and occupation (local currency),5776,2011
+"175571",8.5.2,SL_TLF_UEM,Unemployment rate; by sex and age (%),18279,2007
+"175580",8.5.2,SL_TLF_UEM,Unemployment rate; by sex and age (%),18279,2011
+"175589",8.5.2,SL_TLF_UEM,Unemployment rate; by sex and age (%),18279,2004
+"178330",8.5.2,SL_TLF_UEMDIS,Unemployment rate; by sex and disability (%),1134,2007
+"178339",8.5.2,SL_TLF_UEMDIS,Unemployment rate; by sex and disability (%),1134,2011
+"178384",8.6.1,SL_TLF_NEET,Proportion of youth not in education; employment or training; by sex and age (%),4585,2007
+"178387",8.6.1,SL_TLF_NEET,Proportion of youth not in education; employment or training; by sex and age (%),4585,2011
+"178393",8.6.1,SL_TLF_NEET,Proportion of youth not in education; employment or training; by sex and age (%),4585,2004
+"179077",8.7.1,SL_TLF_CHLDEC,Proportion of children engaged in economic activity and household chores; by sex and age (%),249,2011
+"179089",8.7.1,SL_TLF_CHLDEA,Proportion of children engaged in economic activity; by sex and age  (%),273,2011
+"179104",8.8.1,SL_EMP_FTLINJUR,Fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3416,2004
+"179106",8.8.1,SL_EMP_FTLINJUR,Fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3416,2007
+"179107",8.8.1,SL_EMP_FTLINJUR,Fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3416,2011
+"179637",8.8.1,SL_EMP_INJUR,Non-fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3478,2004
+"179639",8.8.1,SL_EMP_INJUR,Non-fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3478,2007
+"179640",8.8.1,SL_EMP_INJUR,Non-fatal occupational injuries among employees; by sex and migrant status (per 100;000 employees),3478,2011
+"180182",8.9.1,ST_GDP_ZS,Tourism direct GDP as a proportion of total GDP (%),557,2011
+"180237",8.a.1,DC_TOF_TRDCMDL,Total official flows (commitments) for Aid for Trade; by donor countries (millions of constant 2018 United States dollars),364,2007
+"180238",8.a.1,DC_TOF_TRDCMDL,Total official flows (commitments) for Aid for Trade; by donor countries (millions of constant 2018 United States dollars),364,2011
+"180286",8.a.1,DC_TOF_TRDDBMDL,Total official flows (disbursement) for Aid for Trade; by donor countries (millions of constant 2018 United States dollars),342,2007
+"180287",8.a.1,DC_TOF_TRDDBMDL,Total official flows (disbursement) for Aid for Trade; by donor countries (millions of constant 2018 United States dollars),342,2011
+"180335",8.a.1,DC_TOF_TRDDBML,Total official flows (disbursement) for Aid for Trade; by recipient countries (millions of constant 2018 United States dollars),2303,2007
+"180336",8.a.1,DC_TOF_TRDDBML,Total official flows (disbursement) for Aid for Trade; by recipient countries (millions of constant 2018 United States dollars),2303,2011
+"180689",8.a.1,DC_TOF_TRDCML,Total official flows (commitments) for Aid for Trade; by recipient countries (millions of constant 2018 United States dollars),2479,2007
+"180690",8.a.1,DC_TOF_TRDCML,Total official flows (commitments) for Aid for Trade; by recipient countries (millions of constant 2018 United States dollars),2479,2011
+"181043",9.1.1,SP_ROD_R2KM,Proportion of the rural population who live within 2 km of an all-season road,24,2011
+"181044",9.1.2,IS_RDP_PORFVOL,Container port traffic; maritime transport (twenty-foot equivalent units - TEUs),1224,2011
+"181180",9.2.1,NV_IND_MANFPC,Manufacturing value added per capita (constant 2015 United States dollars),4996,2004
+"181181",9.2.1,NV_IND_MANFPC,Manufacturing value added per capita (constant 2015 United States dollars),4996,2007
+"181182",9.2.1,NV_IND_MANFPC,Manufacturing value added per capita (constant 2015 United States dollars),4996,2011
+"181927",9.2.1,NV_IND_MANF,Manufacturing value added as a proportion of GDP (%),4996,2004
+"181928",9.2.1,NV_IND_MANF,Manufacturing value added as a proportion of GDP (%),4996,2007
+"181929",9.2.1,NV_IND_MANF,Manufacturing value added as a proportion of GDP (%),4996,2011
+"182674",9.2.2,SL_TLF_MANF,Manufacturing employment as a proportion of total employment (%),2177,2007
+"182675",9.2.2,SL_TLF_MANF,Manufacturing employment as a proportion of total employment (%),2177,2011
+"182676",9.2.2,SL_TLF_MANF,Manufacturing employment as a proportion of total employment (%),2177,2004
+"183016",9.3.1,NV_IND_SSIS,Proportion of small-scale industries in total industry value added (%),729,2011
+"183017",9.3.1,NV_IND_SSIS,Proportion of small-scale industries in total industry value added (%),729,2004
+"183020",9.3.1,NV_IND_SSIS,Proportion of small-scale industries in total industry value added (%),729,2007
+"183133",9.3.2,FC_ACC_SSID,Proportion of small-scale industries with a loan or line of credit (%),258,2007
+"183135",9.3.2,FC_ACC_SSID,Proportion of small-scale industries with a loan or line of credit (%),258,2011
+"183150",9.4.1,EN_ATM_CO2,Carbon dioxide emissions from fuel combustion (millions of tonnes),3438,2004
+"183151",9.4.1,EN_ATM_CO2,Carbon dioxide emissions from fuel combustion (millions of tonnes),3438,2007
+"183152",9.4.1,EN_ATM_CO2,Carbon dioxide emissions from fuel combustion (millions of tonnes),3438,2011
+"183723",9.4.1,EN_ATM_CO2MVA,Carbon dioxide emissions per unit of manufacturing value added (kilogrammes of CO2 per constant 2010 United States dollars),3243,2004
+"183724",9.4.1,EN_ATM_CO2MVA,Carbon dioxide emissions per unit of manufacturing value added (kilogrammes of CO2 per constant 2010 United States dollars),3243,2007
+"183725",9.4.1,EN_ATM_CO2MVA,Carbon dioxide emissions per unit of manufacturing value added (kilogrammes of CO2 per constant 2010 United States dollars),3243,2011
+"184261",9.4.1,EN_ATM_CO2GDP,Carbon dioxide emissions per unit of GDP (kilogrammes of CO2 per constant 2010 United States dollars),3348,2004
+"184262",9.4.1,EN_ATM_CO2GDP,Carbon dioxide emissions per unit of GDP (kilogrammes of CO2 per constant 2010 United States dollars),3348,2007
+"184263",9.4.1,EN_ATM_CO2GDP,Carbon dioxide emissions per unit of GDP (kilogrammes of CO2 per constant 2010 United States dollars),3348,2011
+"184819",9.5.1,GB_XPD_RSDV,Research and development expenditure as a proportion of GDP (%),2173,2007
+"184820",9.5.1,GB_XPD_RSDV,Research and development expenditure as a proportion of GDP (%),2173,2004
+"184824",9.5.1,GB_XPD_RSDV,Research and development expenditure as a proportion of GDP (%),2173,2011
+"185189",9.5.2,GB_POP_SCIERD,Researchers (in full-time equivalent) per million inhabitants (per 1;000;000 population),1797,2004
+"185190",9.5.2,GB_POP_SCIERD,Researchers (in full-time equivalent) per million inhabitants (per 1;000;000 population),1797,2011
+"185192",9.5.2,GB_POP_SCIERD,Researchers (in full-time equivalent) per million inhabitants (per 1;000;000 population),1797,2007
+"185491",9.a.1,DC_TOF_INFRAL,Total official flows for infrastructure; by recipient countries (millions of constant 2018 United States dollars),3397,2004
+"185492",9.a.1,DC_TOF_INFRAL,Total official flows for infrastructure; by recipient countries (millions of constant 2018 United States dollars),3397,2007
+"185493",9.a.1,DC_TOF_INFRAL,Total official flows for infrastructure; by recipient countries (millions of constant 2018 United States dollars),3397,2011
+"186033",9.b.1,NV_IND_TECH,Proportion of medium and high-tech industry value added in total value added (%),3492,2004
+"186034",9.b.1,NV_IND_TECH,Proportion of medium and high-tech industry value added in total value added (%),3492,2007
+"186035",9.b.1,NV_IND_TECH,Proportion of medium and high-tech industry value added in total value added (%),3492,2011
+"186615",9.c.1,IT_MOB_2GNTWK,Proportion of population covered by at least a 2G mobile network (%),3244,2007
+"186616",9.c.1,IT_MOB_2GNTWK,Proportion of population covered by at least a 2G mobile network (%),3244,2011
+"186617",9.c.1,IT_MOB_2GNTWK,Proportion of population covered by at least a 2G mobile network (%),3244,2004
+"187107",9.c.1,IT_MOB_3GNTWK,Proportion of population covered by at least a 3G mobile network (%),1791,2011
+"187113",9.c.1,IT_MOB_3GNTWK,Proportion of population covered by at least a 3G mobile network (%),1791,2007
