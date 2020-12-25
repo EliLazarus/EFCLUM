@@ -1,16 +1,21 @@
-library(data.table)
+  library(data.table)
 #library(dplyr)
 library(splitstackshape)
 library(WDI)
 
 "Set working directory to top level directory in console"
 ##eg. setwd("C:\\Users\\Eli\\GitFolders\\EFCLUM\\GFN_Data_Visualization\\ScatterVisuals")
+"Set to run either for World Bank or SDG results (then run again for the other)"
+WB_SDG <- "SDG"
+# WB_SDG <- "WB"
 
 #read in previous World Bank and SDG Indicator data to get country list in case of unhandled countries
 # and for GTAP group weighted Aggregation (by population) and final output
 
 if(WB_SDG =="WB"){WBData <- read.csv("./IndicesDataWB.csv", header=TRUE, colClasses=NA)}
 if(WB_SDG =="SDG"){WBData <- read.csv("./IndicesDataSDG.csv", header=TRUE, colClasses=NA)}
+#IndDataWB <- read.csv("./IndicesDataWB.csv", header=TRUE, colClasses=NA)
+#IndDataSDG <- read.csv("./IndicesDataSDG.csv", header=TRUE, colClasses=NA)
 
 #start timer
 ptm <- proc.time()
@@ -33,6 +38,7 @@ GFN_Pop$GFN_Country[grepl("R",GFN_Pop$GFN_Country) & grepl("union",GFN_Pop$GFN_C
 #Subset population table for just years included in case
 years <- c(2004,2007,2011)
 GFN_yr_Pop <- GFN_Pop[GFN_Pop$Year %in% years,]
+
 
 if(WB_SDG == "WB"){
   #Separate Goods bc already in GTAP codes
@@ -231,12 +237,13 @@ CLUMQScore <- read.csv("./CLUM_QScore.csv")
 NFA_CLUM_WB$QScore <- CLUMQScore$NFA_GTAP_Qscore[match(NFA_CLUM_WB$GTAP_name,CLUMQScore$GTAP.Only)]
 NFA_CLUM_WB$Continents <- CLUMQScore$Continents[match(NFA_CLUM_WB$GTAP_name,CLUMQScore$GTAP.Only)]
 
-
+# file with indicator results (min-max and z-score) by GTAP country with all EF CLUM results
 if(WB_SDG =="WB"){
-  write.csv(NFA_CLUM_WB, "./NFA_WB_2017_CLUM.csv")
+  write.csv(NFA_CLUM_WB, "./2017_GTAPCLUM_WB.csv")
 }
+# file with indicator results (min-max and z-score) by GTAP country with all EF CLUM results
 if(WB_SDG =="SDG"){
-  write.csv(NFA_CLUM_WB, "./NFA_SDG_2017_CLUM.csv")
+  write.csv(NFA_CLUM_WB, "./2017_GTAPCLUM_SDG.csv")
 }
 
 # If new country correspondence issues came up, repeat WB data pull sripts again once they're dealt with

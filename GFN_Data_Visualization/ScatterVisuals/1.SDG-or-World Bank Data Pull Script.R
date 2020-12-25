@@ -7,9 +7,11 @@ library(jsonlite)
 library(boxr)
 library(readr)
 
-## Eli: 2019-12-16  The error is coming from the CLUMsplit for SDG function for just the reversing. The parts
-# that use readr::
+###NOTES TO DO
+# 2020-12-23 At this point, data series which have multiple values for the same year from the same
+# data series (eg. split by sex, urban/rural/All) are just averaged
 
+# Start the clock for the timing
 ptm <- proc.time()
 
 if (!grepl("ScatterVisuals",getwd())){
@@ -45,6 +47,8 @@ years <- c(2004, 2007, 2011) #for the World Bank data
 if(!exists("WBDLed")){
   WBIndicators <- WDIcache()
   WBIndicatorList <- as.data.frame(WBIndicators[[1]], stringAsFactors=FALSE)
+  # Output full Indicator List to csv
+  try(write.table(as.matrix(WBIndicatorList), "./AllWBiList.csv", sep=","))
   WBCountries <- as.data.frame(WBIndicators[[2]])
   WBDLed <- "yes"  
 }
@@ -83,8 +87,8 @@ if (!exists("SDGDLed")){
  
   fractionofTotalElements <- 10  
   perpage <- ceiling(page1$totalElements/fractionofTotalElements)
-  # start clock
-   ptm <- proc.time()
+  # start clock for SDG download and recast
+  DLtm <- proc.time()
   
   #Inititalise df and SDGpage$data with some nrows
   SDGdata <- data.frame()
@@ -113,7 +117,7 @@ if (!exists("SDGDLed")){
     SDGpage$data <- rbind(SDGpage$data,2)
   }
   message("~", DLtime <-
-            round((proc.time()[3] - ptm[3]) / 60), " minutes to download")
+            round((proc.time()[3] - DLtm[3]) / 60), " minutes to download")
 
     # If DL worked, mark it so it doesn't go again even if we need to re-run script
   if (nrow(SDGdata[1])==page1$totalElements){
@@ -247,6 +251,8 @@ Region_drop <- c("Africa", "Andean Region", "East Asia & Pacific (IBRD-only coun
              "Holy See", "United States Virgin Islands","Micronesia (Federated States of)",
              "Falkland Islands (Malvinas)", "Other non-specified areas in Eastern Asia", 
              "Global Partnership for Education", "Lending category not classified",
+             "United Kingdom (England and Wales)", "United Kingdom (Scotland)", "United Kingdom (Northern Ireland)",
+             "Iraq (Central Iraq)", "Iraq (Kurdistan Region)",
              # British 'dependencies/juristictions', semi-independent islands in the channel, near Normandy, France
              "Jersey", "Guernsey",
              # Carribean territories of the Netherlands
@@ -669,7 +675,17 @@ SDGCLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
   SDGCLUMsplit("Food",
             c(),
             #Indicators to be Reversed
-            c("SN_ITK_DEFC","SH_STA_STUNT","SH_STA_OVRWGT"))
+            c(
+              # Proportion of children moderately or severely stunted (%)
+              "SH_STA_STNT",
+              "SH_STA_STUNT",
+              #	Prevalence of undernourishment (%)
+              "SN_ITK_DEFC",
+              #	Proportion of children moderately or severely wasted (%)
+              "SH_STA_WAST",
+              #	Proportion of children moderately or severely overweight (%)
+              "SN_STA_OVWGT",
+              "SH_STA_OVRWGT"))
   # Add SDG Indicators selected to the list by CLUM category, but only if they are IN the CURRENT data
   IndicatorsListF <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsforward]),
                           unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsforward]),
@@ -688,9 +704,22 @@ SDGCLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
           # Countries with procedures in law or policy for participation by service users/communities in planning program in rural drinking-water supply, by level of definition in procedures (10 = Clearly defined; 5 = Not clearly defined ; 0 = NA)
           #    "ER_H2O_PRDU", not in the data for those years
     # Countries that have conducted at least one population and housing census in the last 10 years (1 = YES; 0 = NO)
-    "SG_REG_CENSUSN"),
+    "SG_REG_CENSUSN",
+    # [World Bank] Proportion of population covered by social assistance programs (%)
+    "SI_COV_SOCAST",
+    # [World Bank] Proportion of population covered by social insurance programs (%)
+    "SI_COV_SOCINS",
+    #	Proportion of total government spending on essential services; education (%)
+    "SD_XPD_ESED"),
     #Indicators to be Reversed
-    c())
+    c(
+      #	Number of victims of intentional homicide per 100;000 population; by sex (victims per 100;000 population)
+      "VC_IHR_PSRC",
+      #	Proportion of population subjected to physical violence in the previous 12 months; by sex (%)
+      "VC_VOV_PHYL",
+      #	Proportion of population subjected to sexual violence in the previous 12 months; by sex (%)
+      "VC_VOV_SEXL"
+    ))
   # Add SDG Indicators selected to the list by CLUM category, but only if they are IN the CURRENT data
   IndicatorsListF <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsforward]),
                            unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsforward]),
@@ -717,7 +746,19 @@ SDGCLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
     # Municipal Solid Waste collection coverage, by cities (%)
     "EN_REF_WASCOL",
     # Number of fixed Internet broadband subscriptions, by speed (number)
-    "IT_NET_BBN"),
+    # Removed bc not % #"IT_NET_BBN"),
+    #	Fixed Internet broadband subscriptions per 100 inhabitants; by speed (per 100 inhabitants)
+    "IT_NET_BBND",
+    #	Installed renewable electricity-generating capacity (watts per capita)
+    "EG_EGY_RNEW",
+    #	Proportion of population using safely managed sanitation services; by urban/rural (%)
+    "SH_SAN_SAFE",
+    #	Proportion of population covered by at least a 2G mobile network (%)
+    "IT_MOB_2GNTWK",
+    #	Proportion of population covered by at least a 3G mobile network (%)
+    "IT_MOB_3GNTWK",
+    #	Proportion of women of reproductive age (aged 15-49 years) who have their need for family planning satisfied with modern methods (% of women aged 15-49 years)
+    "SH_FPL_MTMM"),
     #Indicators to be Reversed
     c(
       # Proportion of population practicing open defecation, by urban/rural (%)
@@ -795,11 +836,16 @@ SDGCLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
   SDGCLUMsplit("GFCF", c(
     # Number of automated teller machines (ATMs) per 100,000 adults
     "FB_ATM_TOTL",
+    #	Proportion of population with access to electricity; by urban/rural (%)
+    "EG_ACS_ELEC",
     # Research and development expenditure as a proportion of GDP (%)
     "GB_XPD_RSDV"), 
+    
+    #Indicators to be reversed
     c(
-    # Direct agriculture loss attributed to disasters, by hazard type (millions of current United States dollars)
-    "VC_DSR_AGLH"
+    #Removed bc not a proportion
+      # Direct agriculture loss attributed to disasters, by hazard type (millions of current United States dollars)
+    #"VC_DSR_AGLH"
     ))
   # Add SDG Indicators selected to the list by CLUM category, but only if they are IN the CURRENT data
   IndicatorsListF <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsforward]),
@@ -812,7 +858,7 @@ SDGCLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
                                     if(ncol(IndicatorsListR)==4){IndicatorsListR})
   
   colnames(SDGIndicatorsDownloaded) <- c("indicator", "description", "CLUM", "Forw_Revd")
-  write.csv(SDGIndicatorsDownloaded, "./SDGIndicatorsDownloaded.csv")
+  
 #From if SDG
 #  }
 }
@@ -832,18 +878,18 @@ NARemove_Fun <- function(data, NA_factor){
   return(Data_NoNAs)
 }
 
-# #TESTING
-# data <- Food_Data_2004
-# NA_factor <- 2
-# na_count <-sapply(data, function(y) sum(length(which(is.na(y)))))
+#TESTING
+# data <- SDG_Government_Data_2004
+# NA_factor <- 1.02
+# na_count <-sapply(SDG_Government_Data_2004, function(y) sum(length(which(is.na(y)))))
 # na_count_df <- data.frame(na_count)
 # ##Remove columns where more than half of observations are NAs for all 3 years
-# na_count_df <- subset(na_count_df, na_count < nrow(data)/NA_factor)
+# na_count_df <- subset(na_count_df, na_count < nrow(SDG_Government_Data_2004)/NA_factor)
 # rownames_tokeep <- rownames(na_count_df)
 # ##Keep columns without big number of NAs
 # Data_NoNAs <- data[rownames_tokeep]
 # return(Data_NoNAs)
-# 
+# # 
 # CLUMsplit("Food",
 #           c(),
 #           #Indicators to be Reversed
@@ -870,28 +916,43 @@ WBGoods_Data_NoNAs_2007 <- NARemove_Fun(WBGoods_Data_2007, 2); remove(WBGoods_Da
 WBGoods_Data_NoNAs_2011 <- NARemove_Fun(WBGoods_Data_2011, 2); remove(WBGoods_Data_2011)
 
 # Drop indicators that have more than 1/NA factor proportion of NAs for SDG data
-SDGFoodData_NoNAs_2004 <- NARemove_Fun(SDG_Food_Data_2004, 2) ; remove(SDG_Food_Data_2004)
-SDGFoodData_NoNAs_2007 <- NARemove_Fun(SDG_Food_Data_2007, 2); remove(SDG_Food_Data_2007)
-SDGFoodData_NoNAs_2011 <- NARemove_Fun(SDG_Food_Data_2011, 2); remove(SDG_Food_Data_2011)
-SDGGovernmentData_NoNAs_2004 <- NARemove_Fun(SDG_Government_Data_2004, 2); remove(SDG_Government_Data_2004)
-SDGGovernmentData_NoNAs_2007 <- NARemove_Fun(SDG_Government_Data_2007, 2); remove(SDG_Government_Data_2007)
-SDGGovernmentData_NoNAs_2011 <- NARemove_Fun(SDG_Government_Data_2011, 2); remove(SDG_Government_Data_2011)
-SDGServicesData_NoNAs_2004 <- NARemove_Fun(SDG_Services_Data_2004, 2); remove(SDG_Services_Data_2004)
-SDGServicesData_NoNAs_2007 <- NARemove_Fun(SDG_Services_Data_2007, 2); remove(SDG_Services_Data_2007)
-SDGServicesData_NoNAs_2011 <- NARemove_Fun(SDG_Services_Data_2011, 2); remove(SDG_Services_Data_2011)
-SDGTransportData_NoNAs_2004 <- NARemove_Fun(SDG_Transport_Data_2004, 1.25); remove(SDG_Transport_Data_2004)
-SDGTransportData_NoNAs_2007 <- NARemove_Fun(SDG_Transport_Data_2007, 1.25); remove(SDG_Transport_Data_2007)
-SDGTransportData_NoNAs_2011 <- NARemove_Fun(SDG_Transport_Data_2011, 1.25); remove(SDG_Transport_Data_2011)
-SDGHousingData_NoNAs_2004 <- NARemove_Fun(SDG_Housing_Data_2004, 1.25); remove(SDG_Housing_Data_2004)
-SDGHousingData_NoNAs_2007 <- NARemove_Fun(SDG_Housing_Data_2007, 1.25); remove(SDG_Housing_Data_2007)
-SDGHousingData_NoNAs_2011 <- NARemove_Fun(SDG_Housing_Data_2011, 1.25); remove(SDG_Housing_Data_2011)
-SDGGoods_Data_NoNAs_2004 <- NARemove_Fun(SDG_Goods_Data_2004, 2); remove(SDG_Goods_Data_2004)
-SDGGoods_Data_NoNAs_2007 <- NARemove_Fun(SDG_Goods_Data_2007, 2); remove(SDG_Goods_Data_2007)
-SDGGoods_Data_NoNAs_2011 <- NARemove_Fun(SDG_Goods_Data_2011, 2); remove(SDG_Goods_Data_2011)
-SDGGFCF_Data_NoNAs_2004 <- NARemove_Fun(SDG_GFCF_Data_2004, 2); remove(SDG_GFCF_Data_2004)
-SDGGFCF_Data_NoNAs_2007 <- NARemove_Fun(SDG_GFCF_Data_2007, 2); remove(SDG_GFCF_Data_2007)
-SDGGFCF_Data_NoNAs_2011 <- NARemove_Fun(SDG_GFCF_Data_2011, 2); remove(SDG_GFCF_Data_2011)
+SDGFoodData_NoNAs_2004 <- NARemove_Fun(SDG_Food_Data_2004, 1.05) #; remove(SDG_Food_Data_2004)
+SDGFoodData_NoNAs_2007 <- NARemove_Fun(SDG_Food_Data_2007, 1.05)#; remove(SDG_Food_Data_2007)
+SDGFoodData_NoNAs_2011 <- NARemove_Fun(SDG_Food_Data_2011, 1.05)#; remove(SDG_Food_Data_2011)
+SDGGovernmentData_NoNAs_2004 <- NARemove_Fun(SDG_Government_Data_2004, 1.025)#; remove(SDG_Government_Data_2004)
+SDGGovernmentData_NoNAs_2007 <- NARemove_Fun(SDG_Government_Data_2007, 1.025)#; remove(SDG_Government_Data_2007)
+SDGGovernmentData_NoNAs_2011 <- NARemove_Fun(SDG_Government_Data_2011, 1.025)#; remove(SDG_Government_Data_2011)
+SDGServicesData_NoNAs_2004 <- NARemove_Fun(SDG_Services_Data_2004, 2)#; remove(SDG_Services_Data_2004)
+SDGServicesData_NoNAs_2007 <- NARemove_Fun(SDG_Services_Data_2007, 2)#; remove(SDG_Services_Data_2007)
+SDGServicesData_NoNAs_2011 <- NARemove_Fun(SDG_Services_Data_2011, 2)#; remove(SDG_Services_Data_2011)
+SDGTransportData_NoNAs_2004 <- NARemove_Fun(SDG_Transport_Data_2004, 1.25)#; remove(SDG_Transport_Data_2004)
+SDGTransportData_NoNAs_2007 <- NARemove_Fun(SDG_Transport_Data_2007, 1.25)#; remove(SDG_Transport_Data_2007)
+SDGTransportData_NoNAs_2011 <- NARemove_Fun(SDG_Transport_Data_2011, 1.25)#; remove(SDG_Transport_Data_2011)
+SDGHousingData_NoNAs_2004 <- NARemove_Fun(SDG_Housing_Data_2004, 1.25)#; remove(SDG_Housing_Data_2004)
+SDGHousingData_NoNAs_2007 <- NARemove_Fun(SDG_Housing_Data_2007, 1.25)#; remove(SDG_Housing_Data_2007)
+SDGHousingData_NoNAs_2011 <- NARemove_Fun(SDG_Housing_Data_2011, 1.25)#; remove(SDG_Housing_Data_2011)
+SDGGoods_Data_NoNAs_2004 <- NARemove_Fun(SDG_Goods_Data_2004, 2)#; remove(SDG_Goods_Data_2004)
+SDGGoods_Data_NoNAs_2007 <- NARemove_Fun(SDG_Goods_Data_2007, 2)#; remove(SDG_Goods_Data_2007)
+SDGGoods_Data_NoNAs_2011 <- NARemove_Fun(SDG_Goods_Data_2011, 2)#; remove(SDG_Goods_Data_2011)
+SDGGFCF_Data_NoNAs_2004 <- NARemove_Fun(SDG_GFCF_Data_2004, 2)#; remove(SDG_GFCF_Data_2004)
+SDGGFCF_Data_NoNAs_2007 <- NARemove_Fun(SDG_GFCF_Data_2007, 2)#; remove(SDG_GFCF_Data_2007)
+SDGGFCF_Data_NoNAs_2011 <- NARemove_Fun(SDG_GFCF_Data_2011, 2)#; remove(SDG_GFCF_Data_2011)
 
+#
+SDGIndicatorsDownloadedNoNAs <- SDGIndicatorsDownloaded[SDGIndicatorsDownloaded$indicator %in%
+                                                     unique(c(colnames(SDGFoodData_NoNAs_2004[,-(1:2)]),
+      colnames(SDGFoodData_NoNAs_2007[,-(1:2)]), colnames(SDGFoodData_NoNAs_2011[,-(1:2)]),
+      colnames(SDGGovernmentData_NoNAs_2004[,-(1:2)]),      colnames(SDGGovernmentData_NoNAs_2007[,-(1:2)]),
+      colnames(SDGGovernmentData_NoNAs_2011[,-(1:2)]),      colnames(SDGServicesData_NoNAs_2004[,-(1:2)]),
+      colnames(SDGServicesData_NoNAs_2007[,-(1:2)]),      colnames(SDGServicesData_NoNAs_2011[,-(1:2)]),
+      colnames(SDGTransportData_NoNAs_2004[,-(1:2)]),      colnames(SDGTransportData_NoNAs_2007[,-(1:2)]),
+      colnames(SDGTransportData_NoNAs_2011[,-(1:2)]),      colnames(SDGHousingData_NoNAs_2004[,-(1:2)]),
+      colnames(SDGHousingData_NoNAs_2007[,-(1:2)]),      colnames(SDGHousingData_NoNAs_2011[,-(1:2)]),
+      colnames(SDGGoods_Data_NoNAs_2004[,-(1:2)]),      colnames(SDGGoods_Data_NoNAs_2007[,-(1:2)]),
+      colnames(SDGGoods_Data_NoNAs_2011[,-(1:2)]),      colnames(SDGGFCF_Data_NoNAs_2004[,-(1:2)]),
+      colnames(SDGGFCF_Data_NoNAs_2007[,-(1:2)]),      colnames(SDGGFCF_Data_NoNAs_2011[,-(1:2)]))),]
+
+write.csv(SDGIndicatorsDownloadedNoNAs, "./SDGIndicatorsDownloaded.csv")
 #Create a min-max range version of all remaining data to normalize btw 0 and 1, then aggregate with Averaging
 ####Max/Min function calculation####
 MaxMin_Fun <- function(data, category){
@@ -1135,7 +1196,7 @@ SDGGFCF_Data_ZScore <- rbind(SDGGFCF_Data_ZScore_2004, SDGGFCF_Data_ZScore_2007,
 
 ##Binding Data together for single spreadsheet
 SDGZScoreData <- rbind(SDGFoodData_ZScore, SDGGovernmentData_ZScore, SDGServicesData_ZScore, 
-                       SDGTransportData_ZScore, SDGHousingData_ZScore, SDGGoods_Data_ZScore)
+                       SDGTransportData_ZScore, SDGHousingData_ZScore, SDGGFCF_Data_ZScore, SDGGoods_Data_ZScore)
 colnames(SDGZScoreData) <- c("country", "year", "ZScore_Index", "CLUM_category")
 
 ##Combining MaxMin and Z-score datasets

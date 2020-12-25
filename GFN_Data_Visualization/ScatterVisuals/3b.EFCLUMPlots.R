@@ -2,23 +2,13 @@ library(ggplot2)
 library(grid)
 library(gridExtra)
 
-#DONE, as a table on the graphic!!!!
-#add data indicators used (probably just in powerpoint slides)
-# move to function for plots (started at bottom)
-# filter by quality score
-# CLEAN UP!! (but could do more (eg. spellings w/o loop...))
-# color points (by continent?)
-# export for Powerpoint
-#colours the same as EF
-#Stablisize the colors by continent
-
 "Set the minimum QScore to be included in the data"
 QScoreMin <- 4
 
 #Pull the data from csv files
 EFWBData <- read.csv("NFA_WB_2017_CLUM.csv")
-EFSDGData <- read.csv("NFA_SDG_2017_CLUM.csv")
-IndicatorsDownloaded <- read.csv("IndicatorsDLed.csv")
+EFSDGData <- read.csv("2017_GTAPCLUM_SDG.csv")
+IndicatorsDownloaded <- read.csv("WBIndicatorsDLed.csv")
 SDGIndicatorsDownloaded <- read.csv("SDGIndicatorsDownloaded.csv")
 
 #Pull the data from csv files
@@ -29,9 +19,10 @@ SDGIndicatorsDownloaded <- read.csv("SDGIndicatorsDownloaded.csv")
 
 #color.codes<-as.character(c("#3399FF", "#FF0000", "#000000"))
 
-#subetted data to plot
-EFWBData11 <- subset(EFWBData, (EFWBData$year == 2011 & EFWBData$QScore > QScoreMin))
-EFSDGData11 <- subset(EFSDGData,(EFSDGData$year == 2011 & EFSDGData$QScore > QScoreMin))
+#subet data by year and QScore to plot
+Year = 2011
+EFWBData11 <- subset(EFWBData, (EFWBData$year == Year & EFWBData$QScore > QScoreMin))
+EFSDGData11 <- subset(EFSDGData,(EFSDGData$year == Year & EFSDGData$QScore > QScoreMin))
 
 EFWBData11.Food <- subset(EFWBData11, EFWBData11$clum7_name == "Food")
 EFWBData11.Goods <- subset(EFWBData11, EFWBData11$clum7_name == "Goods")
@@ -89,7 +80,7 @@ plotfunc <- function(data, title, CLUMcat, IndDL, height1, height2){
 
 # change if no pause(waitlength) between charts wanted
 peruse <- "no"
-waitlength <- 6
+waitlength <- 1
 pause <- function (secs){
   if (peruse=="yes"){Sys.sleep(secs)
   } else {
@@ -105,7 +96,7 @@ plotfunc(EFSDGData11.Housing,"SDG Data", "Housing", SDGIndicatorsDownloaded, 1.5
 pause(waitlength)
 plotfunc(EFSDGData11.Services,"SDG Data", "Services", SDGIndicatorsDownloaded, 1.5, .5)
 pause(waitlength)
-plotfunc(EFSDGData11.PersonalTransportation,"SDG Data", "Transport", SDGIndicatorsDownloaded, 1.5, .5)
+try(plotfunc(EFSDGData11.PersonalTransportation,"SDG Data", "Transport", SDGIndicatorsDownloaded, 1.5, .5))
 pause(waitlength)
 plotfunc(EFSDGData11.Government,"SDG Data", "Government", SDGIndicatorsDownloaded, 1.5, .5)
 pause(waitlength)
