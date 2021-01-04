@@ -278,17 +278,139 @@ Region_drop <- c("Africa", "Andean Region", "East Asia & Pacific (IBRD-only coun
              "Southern Asia (excluding India)", "Southern Europe", "Sub-Saharan Africa (inc. Sudan)",
              "Svalbard and Jan Mayen Islands", "United States Minor Outlying Islands", "Western Africa", "Western Asia",
              "Western Asia (exc. Armenia, Azerbaijan, Cyprus, Israel and Georgia)", "Western Europe", "Latin America",
-             "Other non-specified areas")
+             "Other non-specified areas",
+             "Central America (excluding high income)", "South America (excluding high income)",
+             # A bunch of Indonesian provinces I think
+             "Aceh Barat Daya, Kab.", "Aceh Barat, Kab.", "Aceh Besar, Kab.", "Aceh Jaya, Kab.", "Aceh Selatan, Kab.",
+             "Aceh Singkil, Kab.", "Aceh Tamiang, Kab.", "Aceh Tengah, Kab.", "Aceh Tenggara, Kab.", "Aceh Timur, Kab.",
+             "Aceh Utara, Kab.", "Adm. Kepulauan Seribu, Kab.", "Agam, Kab.", "Alor, Kab.", "Ambon, Kota", "Asahan, Kab.",
+             "Asmat, Kab.", "Badung, Kab.", "Balangan, Kab.", "Bali, Prop.", "Balikpapan, Kota", "Banda Aceh, Kota",
+             "Bandar Lampung, Kota", "Bandung Barat, Kab.", "Bandung, Kab.", "Bandung, Kota", "Banggai Kepulauan, Kab.",
+             "Banggai Laut, Kab.", "Banggai, Kab.", "Bangka Barat, Kab.", "Bangka Selatan, Kab.", "Bangka Tengah, Kab.",
+             "Bangka, Kab.", "Bangkalan, Kab.", "Bangli, Kab.", "Banjar Baru, Kota", "Banjar, Kab.", "Banjar, Kota",
+             "Banjarmasin, Kota", "Banjarnegara, Kab.", "Bantaeng, Kab.", "Banten, Prop.", "Bantul, Kab.", "Banyuasin, Kab.",
+             "Banyumas, Kab.", "Banyuwangi, Kab.", "Barito Kuala, Kab.", "Barito Selatan, Kab.", "Barito Timur, Kab.",
+             "Barito Utara, Kab.", "Barru, Kab.", "Batam, Kota", "Batang Hari, Kab.", "Batang, Kab.", "Batu Bara, Kab.",
+             "Batu, Kota", "Bau-Bau, Kota", "Bekasi, Kab.", "Bekasi, Kota", "Belitung Timur, Kab.", "Belitung, Kab.",
+             "Belu, Kab.", "Bener Meriah, Kab.", "Bengkalis, Kab.", "Bengkayang, Kab.", "Bengkulu Selatan, Kab.",
+             "Bengkulu Tengah, Kab.", "Bengkulu Utara, Kab.", "Bengkulu, Kota", "Bengkulu, Prop.", "Berau, Kab.",
+             "Biak Numfor, Kab.", "Bima, Kab.", "Bima, Kota", "Binjai, Kota", "Bintan, Kab.", "Bireuen, Kab.", "Bitung, Kota",
+             "Blitar, Kab.", "Blitar, Kota", "Blora, Kab.", "Boalemo, Kab.", "Bogor, Kab.", "Bogor, Kota", "Bojonegoro, Kab.",
+             "Bolaang Mongondow Selatan, Kab.", "Bolaang Mongondow Timur, Kab.", "Bolaang Mongondow Utara, Kab.", 
+             "Bolaang Mongondow, Kab.", "Bombana, Kab.", "Bondowoso, Kab.", "Bone Bolango, Kab.", "Bone, Kab.", "Bontang, Kota",
+             "Boven Digoel, Kab.", "Boyolali, Kab.", "Brebes, Kab.", "Bukittinggi, Kota", "Buleleng, Kab.", "Bulukumba, Kab.",
+             "Bulungan, Kab.", "Bungo, Kab.", "Buol, Kab.", "Buru Selatan, Kab.", "Buru, Kab.", "Buton Selatan, Kab.",
+             "Buton Tengah, Kab.", "Buton Utara, Kab.", "Buton, Kab.", "Ciamis, Kab.", "Cianjur, Kab.", "Cilacap, Kab.",
+             "Cilegon, Kota", "Cimahi, Kota", "Cirebon, Kab.", "Cirebon, Kota", "Dairi, Kab.", "Deiyai, Kab.",
+             "Deli Serdang, Kab.", "Demak, Kab.", "Denpasar, Kota", "Depok, Kota", "Dharmasraya, Kab.", "DI Yogyakarta,
+             Prop.", "DKI Jakarta, Prop.", "Dogiyai, Kab.", "Dompu, Kab.", "Donggala, Kab.", "Dumai, Kota", "Empat Lawang,
+             Kab.", "Ende, Kab.", "Enrekang, Kab.", "Fakfak, Kab.", "Flores Timur, Kab.", "Garut, Kab.", "Gayo Lues, Kab.",
+             "Gianyar, Kab.", "Gorontalo Utara, Kab.", "Gorontalo, Kab.", "Gorontalo, Kota", "Gorontalo, Prop.", "Gowa, Kab.",
+             "Gresik, Kab.", "Grobogan, Kab.", "Gunung Kidul, Kab.", "Gunung Mas, Kab.", "Gunung Sitoli, Kota",
+             "Halmahera Barat, Kab.", "Halmahera Selatan, Kab.", "Halmahera Tengah, Kab.", "Halmahera Timur, Kab.",
+             "Halmahera Utara, Kab.", "Hulu Sungai Selatan, Kab.", "Hulu Sungai Tengah, Kab.", "Hulu Sungai Utara, Kab.",
+             "Humbang Hasundutan, Kab.", "Indragiri Hilir, Kab.", "Indragiri Hulu, Kab.", "Indramayu, Kab.",
+             "Intan Jaya, Kab.", "Jakarta Barat, Kota", "Jakarta Pusat, Kota", "Jakarta Selatan, Kota", "Jakarta Timur,
+             Kota", "Jakarta Utara, Kota", "Jambi, Kota", "Jambi, Prop.", "Jawa Barat, Prop.", "Jawa Tengah, Prop.",
+             "Jawa Timur, Prop.", "Jayapura, Kab.", "Jayapura, Kota", "Jayawijaya, Kab.", "Jember, Kab.", "Jembrana, Kab.",
+             "Jeneponto, Kab.", "Jepara, Kab.", "Jombang, Kab.", "Kaimana, Kab.", "Kalimantan Barat, Prop.",
+             "Kalimantan Selatan, Prop.", "Kalimantan Tengah, Prop.", "Kalimantan Timur, Prop.", "Kalimantan Utara, Prop.",
+             "Kampar, Kab.", "Kapuas Hulu, Kab.", "Kapuas, Kab.", "Karanganyar, Kab.", "Karangasem, Kab.", "Karawang, Kab.",
+             "Karimun, Kab.", "Karo, Kab.", "Katingan, Kab.", "Kaur, Kab.", "Kayong Utara, Kab.", "Kebumen, Kab.",
+             "Kediri, Kab.", "Kediri, Kota", "Keerom, Kab.", "Kendal, Kab.", "Kendari City",
+             "Kep. Siau Tagulandang Biaro, Kab.", "Kepahiang, Kab.", "Kepulauan Anambas, Kab.", "Kepulauan Aru, Kab.",
+             "Kepulauan Bangka-Belitung, Prop.", "Kepulauan Mentawai, Kab.", "Kepulauan Meranti, Kab.",
+             "Kepulauan Riau, Prop.", "Kepulauan Sangihe, Kab.", "Kepulauan Selayar, Kab.", "Kepulauan Sula, Kab.",
+             "Kepulauan Talaud, Kab.", "Kepulauan Tidore, Kota", "Kepulauan Yapen, Kab.", "Kerinci, Kab.", "Ketapang, Kab.",
+             "Klaten, Kab.", "Klungkung, Kab.", "Kolaka Timur, Kab.", "Kolaka Utara, Kab.", "Kolaka, Kab.",
+             "Konawe Kepulauan, Kab.", "Konawe Selatan, Kab.", "Konawe Utara, Kab.", "Konawe, Kab.", "Kota Baru, Kab.",
+             "Kotamobagu, Kota", "Kotawaringin Barat, Kab.", "Kotawaringin Timur, Kab.", "Kuantan Singingi, Kab.",
+             "Kubu Raya, Kab.", "Kudus, Kab.", "Kulon Progo, Kab.", "Kuningan, Kab.", "Kupang, Kab.", "Kupang, Kota",
+             "Kutai Barat, Kab.", "Kutai Kartanegara, Kab.", "Kutai Timur, Kab.", "Labuhan Batu Selatan, Kab.",
+             "Labuhan Batu Utara, Kab.", "Labuhan Batu, Kab.", "Lahat, Kab.", "Lamandau, Kab.", "Lamongan, Kab.",
+             "Lampung Barat, Kab.", "Lampung Selatan, Kab.", "Lampung Tengah, Kab.", "Lampung Timur, Kab.",
+             "Lampung Utara, Kab.", "Lampung, Prop.", "Landak, Kab.", "Langkat, Kab.", "Langsa, Kota", "Lanny Jaya, Kab.",
+             "Lebak, Kab.", "Lebong, Kab.", "Lembata, Kab.", "Lhokseumawe, Kota", "Limapuluh Kota, Kab", "Lingga, Kab.",
+             "Lombok Barat, Kab.", "Lombok Tengah, Kab.", "Lombok Timur, Kab.", "Lombok Utara, Kab.", "Lubuklinggau, Kota",
+             "Lumajang, Kab.", "Luwu Timur, Kab.", "Luwu Utara, Kab.", "Luwu, Kab.", "Madiun, Kab.", "Madiun, Kota",
+             "Magelang, Kab.", "Magelang, Kota", "Magetan, Kab.", "Mahakam Hulu, Kab.", "Majalengka, Kab.", "Majene, Kab.",
+             "Makassar, Kota", "Malaka, Kab.", "Malang, Kab.", "Malang, Kota", "Malinau, Kab.", "Maluku Barat Daya, Kab.",
+             "Maluku Tengah, Kab.", "Maluku Tenggara Barat, Kab.", "Maluku Tenggara, Kab.", "Maluku Utara, Prop.",
+             "Maluku, Prop.", "Mamasa, Kab.", "Mamberamo Raya, Kab.", "Mamberamo Tengah, Kab.", "Mamuju Tengah, Kab.",
+             "Mamuju Utara, Kab.", "Mamuju, Kab.", "Manado, Kota", "Mandailing Natal, Kab", "Manggarai Barat, Kab.",
+             "Manggarai Timur, Kab.", "Manggarai, Kab.", "Manokwari Selatan, Kab.", "Manokwari, Kab.", "Mappi, Kab.",
+             "Maros, Kab.", "Mataram, Kota", "Maybrat, Kab.", "Medan, Kota", "Melawi, Kab.", "Merangin, Kab.",
+             "Merauke, Kab.", "Mesuji, Kab.", "Metro, Kota", "Mimika, Kab.", "Minahasa Selatan, Kab.",
+             "Minahasa Tenggara, Kab.", "Minahasa Utara, Kab.", "Minahasa, Kab.", "Mojokerto, Kab.", "Mojokerto, Kota",
+             "Morowali Utara, Kab.", "Morowali, Kab.", "Muara Enim, Kab.", "Muaro Jambi, Kab.", "Mukomuko, Kab.",
+             "Muna Barat, Kab.", "Muna, Kab.", "Murung Raya, Kab.", "Musi Banyuasin, Kab.", "Musi Rawas Utara, Kab.",
+             "Musi Rawas, Kab.", "Nabire, Kab.", "Nagan Raya, Kab.", "Nagekeo, Kab.", "Nanggroe Aceh Darussalam, Prop.",
+             "Natuna, Kab.", "Nduga, Kab.", "Ngada, Kab.", "Nganjuk, Kab.", "Ngawi, Kab.", "Nias Barat, Kab.",
+             "Nias Selatan, Kab.", "Nias Utara, Kab.", "Nias, Kab.", "Nunukan, Kab.", "Nusa Tenggara Barat, Prop.",
+             "Nusa Tenggara Timur, Prop.", "Ogan Ilir, Kab.", "Ogan Komering Ilir, Kab.", "Ogan Komering Ulu Selatan, Kab.",
+             "Ogan Komering Ulu Timur, Kab.", "Ogan Komering Ulu, Kab.", "Pacitan, Kab.", "Padang Lawas Utara, Kab.",
+             "Padang Lawas, Kab.", "Padang Panjang, Kota", "Padang Pariaman, Kab.", "Padang Sidempuan, Kota", "Padang, Kota",
+             "Pagar Alam, Kota", "Pakpak Bharat, Kab.", "Palangkaraya, Kota", "Palembang, Kota", "Palopo, Kota", "Palu, Kota",
+             "Pamekasan, Kab.", "Pandeglang, Kab.", "Pangandaran, Kab.", "Pangkajene Kepulauan, Kab.", "Pangkal Pinang, Kota",
+             "Paniai, Kab.", "Papua Barat, Prop.", "Papua, Prop.", "Parepare, Kota", "Pariaman, Kota", "Parigi Moutong, Kab.",
+             "Pasaman Barat, Kab.", "Pasaman, Kab", "Pasir, Kab.", "Pasuruan, Kab.", "Pasuruan, Kota", "Pati, Kab.", "Payakumbuh, Kota",
+             "Pegunungan Arfak, Kab.", "Pegunungan Bintang, Kab.", "Pekalongan, Kab.", "Pekalongan, Kota", "Pekanbaru, Kota",
+             "Pelalawan, Kab.", "Pemalang, Kab.", "Pematang Siantar, Kota", "Penajam Paser Utara, Kab.",
+             "Penukal Abab Lematang Ilir, Kab.", "Pesawaran, Kab.", "Pesisir Barat, Kab.", "Pesisir Selatan, Kab.", "Pidie Jaya, Kab.",
+             "Pidie, Kab.", "Pinrang, Kab.", "Pohuwato, Kab.", "Polewali Mandar, Kab.", "Ponorogo, Kab.", "Pontianak, Kab.",
+             "Pontianak, Kota", "Poso, Kab.", "Prabumulih, Kota", "Pringsewu, Kab.", "Probolinggo, Kab.", "Probolinggo, Kota",
+             "Pulang Pisau, Kab.", "Pulau Morotai, Kab.", "Pulau Taliabu, Kab.", "Puncak Jaya, Kab.", "Puncak, Kab.", "Purbalingga, Kab.",
+             "Purwakarta, Kab.", "Purworejo, Kab.", "Raja Ampat, Kab.", "Rejang Lebong, Kab.", "Rembang, Kab.", "Riau, Prop.",
+             "Rokan Hilir, Kab.", "Rokan Hulu, Kab.", "Rote Ndao, Kab.", "Sabang, Kota", "Sabu Raijua, Kab.", "Salatiga, Kota",
+             "Samarinda, Kota", "Sambas, Kab.", "Samosir, Kab.", "Sampang, Kab.", "Sanggau, Kab.", "Sarmi, Kab.", "Sarolangun, Kab.",
+             "Sawahlunto, Kota", "Sekadau, Kab.", "Seluma, Kab.", "Semarang, Kab.", "Semarang, Kota", "Seram Bagian Barat, Kab.",
+             "Seram Bagian Timur, Kab.", "Serang, Kab.", "Serang, Kota", "Serdang Bedagai, Kab.", "Seruyan, Kab.", "Siak, Kab.",
+             "Sibolga, Kota", "Sidenreng Rappang, Kab.", "Sidoarjo, Kab.", "Sigi, Kab.", "Sijunjung, Kab.", "Sikka, Kab.",
+             "Simalungun, Kab.", "Simeulue, Kab.", "Singkawang, Kota", "Sinjai, Kab.", "Sintang, Kab.", "Situbondo, Kab.", "Sleman, Kab.",
+             "Solok Selatan, Kab.", "Solok, Kab.", "Solok, Kota", "Soppeng, Kab.", "Sorong Selatan, Kab.", "Sorong, Kab.", "Sorong, Kota",
+             "Sragen, Kab.", "Subang, Kab.", "Subulussalam, Kota", "Sukabumi, Kab.", "Sukabumi, Kota", "Sukamara, Kab.",
+             "Sukoharjo, Kab.", "Sulawesi Barat, Prop.", "Sulawesi Selatan, Prop.", "Sulawesi Tengah, Prop.",
+             "Sulawesi Tenggara, Prop.", "Sulawesi Utara, Prop.", "Sumatera Barat, Prop.", "Sumatera Selatan, Prop.",
+             "Sumatera Utara, Prop.", "Sumba Barat Daya, Kab.", "Sumba Barat, Kab.", "Sumba Tengah, Kab.", "Sumba Timur, Kab.",
+             "Sumbawa Barat, Kab.", "Sumbawa, Kab.", "Sumedang, Kab.", "Sumenep, Kab.", "Sungai Penuh, Kota", "Supiori, Kab.",
+             "Surabaya, Kota", "Surakarta, Kota", "Tabalong, Kab.", "Tabanan, Kab.", "Takalar, Kab.", "Tambrauw, Kab",
+             "Tana Tidung, Kab.", "Tana Toraja, Kab.", "Tanah Bumbu, Kab.", "Tanah Datar, Kab.", "Tanah Laut, Kab.",
+             "Tangerang Selatan, Kota", "Tangerang, Kab.", "Tangerang, Kota", "Tanggamus, Kab.", "Tanjung Balai, Kota",
+             "Tanjung Jabung Barat, Kab.", "Tanjung Jabung Timur, Kab.", "Tanjung Pinang, Kota", "Tapanuli Selatan, Kab.",
+             "Tapanuli Tengah, Kab.", "Tapanuli Utara, Kab.", "Tapin, Kab.", "Tarakan, Kota", "Tasikmalaya, Kab.",
+             "Tasikmalaya, Kota", "Tebing Tinggi, Kota", "Tebo, Kab.", "Tegal, Kab.", "Tegal, Kota", "Teluk Bintuni, Kab.",
+             "Teluk Wondama, Kab.", "Temanggung, Kab.", "Ternate, Kota", "Timor Tengah Selatan, Kab.", "Timor Tengah Utara, Kab.",
+             "Toba Samosir, Kab.", "Tojo Una-Una, Kab.", "Toli-Toli, Kab.", "Tolikara, Kab.", "Tomohon, Kota",
+             "Toraja Utara, Kab.", "Trenggalek, Kab.", "Tual, Kota", "Tuban, Kab.", "Tulang Bawang Barat, Kab.",
+             "Tulang Bawang, Kab.", "Tulungagung, Kab.", "Wajo, Kab.", "Wakatobi, Kab.", "Waropen, Kab.", "Way Kanan, Kab.",
+             "Wonogiri, Kab.", "Wonosobo, Kab.", "Yahukimo, Kab.", "Yalimo, Kab.", "Yogyakarta, Kota", "DI Yogyakarta, Prop.",
+             "Empat Lawang, Kab.", "Jakarta Timur, Kota",
+             #Some cities and Regions
+             "Chittagong", "Dhaka", "BES Islands", "Rio de Janeiro", "Sao Paulo", "Caucasian and Central Asia", "Beijing",
+             "Shanghai", "Eastern Asia (not including Japan)", "Eastern Asia (including Japan)",
+             "Latin America and Caribbean", "Oceania (not including Australia and New Zealand)", "South Eastern Asia",
+             "Jakarta", "Surabaya", "Delhi", "Mumbai", "Osaka", "Tokyo", "Mexico City", "Monterrey",
+             "Nothern America", "Kano", "Lagos", "Karachi", "Lahore", "Moscow", "St. Petersburg", "Los Angeles", "New York")
 # Write to file for reading in country correspondence script
 write.csv(Region_drop, file = "./DropTheseCountries.csv", row.names = F)
 
 ## WB pull and split section
-{
+#{
 WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear, CLUM_endyear){
   DataFrame <- WDI(country = "all", indicator = indicator_list, start = CLUM_startyear, 
                    end = CLUM_endyear, extra = FALSE, cache = NULL)
   DataFrame <- subset(DataFrame, year == CLUM_startyear | year == CLUM_middleyear | year == CLUM_endyear)
-  return(DataFrame)
+  #Get rid of rows with all NAs: seems related to multiple iso2c values for individual country/years
+  DataFrame <- as.data.frame(DataFrame[rowSums(is.na(DataFrame[,4:ncol(DataFrame)])) != ncol(DataFrame[,4:ncol(DataFrame)]),])
+  DataFrame$iso2c <- NULL
+  # Average data when mulitple rows for a country/year
+# Nope
+     # aggregate(DataFrame[,4:ncol(DataFrame)] ~ country + year, mean, data = DataFrame)    
+   # keys <- c("DataFrame$country", "DataFrame$year")
+   # DataFrame[,lapply(.SD,mean),keys]
+  #Seems good 
+  DataFrame <- DataFrame %>% group_by(country, year) %>% summarise_all(funs(mean(., na.rm = TRUE)))
+   return(DataFrame)
 }
 #Single year pull function - Actually, better to just group in the minmax zscore
 # WB_DataPull_Function <- function(indicator_list, Datayear){
@@ -297,21 +419,33 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
 #                    start = Datayear, end = Datayear, extra = FALSE, cache = NULL) 
 #   return(DataFrame)
 # }
+### Testing
+# DataFrame <- WDI(country = "all", indicator = WBFood_Indicators, start = 2004, 
+#                  end = 2011, extra = FALSE, cache = NULL)
+# DataFrame <- subset(DataFrame, year == 2004 | year == 2007 | year == 2011)
+# DataFrame <- DataFrame[rowSums(is.na(DataFrame[,4:ncol(DataFrame)])) != ncol(DataFrame[,4:ncol(DataFrame)]),]
+
+#WBFood_Data_2004[rowSums(is.na(WBFood_Data_2004[,3:17])) != ncol(WBFood_Data_2004[,3:17]),]
 
 # Select Indicators and organising for World Bank data
-#if(WB_SDG=="WB"){
+  WBIndicatorsDownloaded <- data.frame()
+  #  Date=as.Date(character()),
+  #                                     File=character(), 
+  #                                     User=character())
+#  colnames(WBIndicatorsDownloaded) <- c()
+  #if(WB_SDG=="WB"){
   ######Food Section
   #Cereal Yield (Kg Per Hectare)
   WBFood_Indicators <- c(
-    "AG.YLD.CREL.KG", #High is good, low is bad#
+    "AG.YLD.CREL.KG",
     # Agriculture Value Added Per Worker (Constant 2010 US$)
-    "EA.PRD.AGRI.KD", #High is good, low is bad# #No download/data available 6/10/18
+    "EA.PRD.AGRI.KD", #No download/data available 6/10/18
     # Agriculture Value Added Per Hectare Of Agricultural Land (Constant 1995 US$)
-    "EA.PRD.LAND.KD", #High is good, low is bad# #No download/data available 6/10/18
+    "EA.PRD.LAND.KD", #No download/data available 6/10/18
     #Fertilizer Consumption (Kilograms Per Hectare Of Arable Land)
-    "AG.CON.FERT.ZS", #High is good, low is bad#
+    "AG.CON.FERT.ZS",
     #Food Production Index (2004-2006 = 100) Food production index covers food crops that are considered edible and that contain nutrients.
-    "AG.PRD.FOOD.XD", #High is good, low is bad#
+    "AG.PRD.FOOD.XD",
     #Agricultural Machinery, Tractors Per 100 Sq. Km Of Arable Land
     "AG.LND.TRAC.ZS",  #High is good, low is bad#
     #Agricultural Irrigated Land (% Of Total Agricultural Land)
@@ -321,16 +455,46 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
   #High is BAD#
   #how many calories would be needed to lift the undernourished from their status, everything else being constant.
   WBFood_Indicators_reverse <- c(
+    # Depth of the food deficit (kilocalories per person per day)
     "SN.ITK.DFCT", #High is BAD
+    # Depth of hunger (kilocalories per person per day)	
+    "SN.ITK.DPTH",
+    # Prevalence of moderate or severe food insecurity in the population (%)
+    "SN.ITK.MSFI.ZS",
+    # Prevalence of severe food insecurity in the population (%)
+    "SN.ITK.SVFI.ZS",
     #Malnourished Children (Underweight, -2SD) (% Of Children Under 5): Q1 (Lowest)
     "SH.STA.MALN.ZS", #High is BAD
+    # Prevalence of undernourishment (% of population)	
+    "SN.ITK.DEFC.ZS",
+    # Malnourished women (BMI is less than 18.5) (% of women): Q1 (lowest)
+    "SH.STA.LBMI.Q1.ZS",
+    # Malnourished children (underweight, -2SD) (% of children under 5): Q1 (lowest)
+    "SH.STA.MALN.Q1.ZS",
+    # Malnourished children (stunting, -2SD) (% of children under 5): Q1 (lowest)
+    "SH.STA.STNT.Q1.ZS",
+    # Malnourished children (wasting, -2SD) (% of children under 5): Q1 (lowest)
+    "SH.STA.WAST.Q1.ZS",
     # Fish Species, Threatened. number of species classified by the IUCN as endangered, vulnerable, rare, indeterminate, out of danger, or insufficiently known
     "EN.FSH.THRD.NO" #High is BAD  #Only 2017 data 6/10/18
   )
-  WBFood_Indicators <- c(WBFood_Indicators,WBFood_Indicators_reverse)
+
+  # WBIndicatorsDownloadedF <- 
+  #   subset(WBIndicatorList,WBIndicatorList$indicator %in% WBFood_Indicators)
+  # WBIndicatorsDownloaded$CLUM <- "Food"
+  # 
+ 
+  WBIndicatorsListF <- cbind(unique(WBIndicators$series[WBIndicators$series%in%WBFood_Indicators]),
+                           unique(WBIndicators$series[,"name"][WBIndicators$series%in%WBFood_Indicators]),
+                           "Food", "Fwd")
+  WBIndicatorsListR <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%WBFood_Indicators_reverse]),
+                           unique(SDGIndicators$series["name"][SDGIndicators$series%in%WBFood_Indicators_reverse]),
+                           "Food", "Reversed")
+  WBIndicatorsDownloaded <- rbind(WBIndicatorsDownloaded,
+                                    if(ncol(WBIndicatorsListF)==4){WBIndicatorsListF}, 
+                                    if(ncol(WBIndicatorsListR)==4){WBIndicatorsListR})
   
-  WBIndicatorsDownloaded <- subset(WBIndicatorList,WBIndicatorList$indicator %in% WBFood_Indicators)
-  WBIndicatorsDownloaded$CLUM <- "Food"
+  WBFood_Indicators <- c(WBFood_Indicators,WBFood_Indicators_reverse)
   
   #Actually better to separate just for the minmax and z-score
     #for (i in years){nam <- paste("Food_Data", i, sep = "_"); assign(nam,
@@ -344,7 +508,7 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
   WBFood_Data <- WB_DataPull_Function(WBFood_Indicators, 2004, 2007, 2011)
   #Filter out regions from the compiled list of non-NFA countries/regions
   WBFood_Data <- WBFood_Data[!(WBFood_Data$country %in% Region_drop),]
-  WBFood_Data$iso2c <- NULL
+  # Now in the function #WBFood_Data$iso2c <- NULL
   # Reverse the orders for High is BAD
   for (i in WBFood_Indicators_reverse){
     # The if removes the warning from the max function for when vectors are all NA
@@ -365,35 +529,41 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
   ######Government Section
   WBGovernment_Indicators <- c(
     #School Enrollment, Primary And Secondary (Gross), Gender Parity Index (GPI) Gender parity index for gross enrollment ratio in primary and secondary education is the ratio of girls to boys enrolled at primary and secondary levels in public and private schools.
-    "SE.ENR.PRSC.FM.ZS", #High is good, low is bad#
-    #People Using Basic Sanitation Services (% Of Population)
-    "SH.STA.BASS.ZS", #High is good, low is bad#
-    #Gross Savings (% Of GDP). Gross savings are calculated as gross national income less total consumption, plus net transfers.
-    "NY.GNS.ICTR.ZS", #High is good, low is bad#
+    "SE.ENR.PRSC.FM.ZS",
+    # Gross Savings (% Of GDP). Gross savings are calculated as gross national income less total consumption, plus net transfers.
+    "NY.GNS.ICTR.ZS",
     #Current Account Balance (% Of GDP). Current account balance is the sum of net exports of goods and services, net primary income, and net secondary income.
     "BN.CAB.XOKA.GD.ZS", #High is good (I reckon)
     #Expenditure On Education As % Of Total Government Expenditure (%)
-    "SE.XPD.TOTL.GB.ZS", #High is good, low is bad#
+    "SE.XPD.TOTL.GB.ZS",
     #Government Expenditure Per Primary Student (Constant PPP$)
-    "UIS.XUNIT.PPPCONST.1.FSGOV", #High is good, low is bad#
+    "UIS.XUNIT.PPPCONST.1.FSGOV",
     #Percentage Of Teachers In Primary Education Who Are Trained, Both Sexes (%)
-    "SE.PRM.TCAQ.ZS", #High is good, low is bad#
+    "SE.PRM.TCAQ.ZS",
     #Domestic Credit To Private Sector (% Of GDP)
-    "FS.AST.PRVT.GD.ZS", #High is good, low is bad#
+    "FS.AST.PRVT.GD.ZS",
     #Health Expenditure, Public (% Of GDP)
-    "SH.XPD.PUBL.ZS", #High is good, low is bad#  #No download/data availability 6/10/18
+    "SH.XPD.PUBL.ZS",  #No download/data availability 6/10/18
     #CPIA Economic Management Cluster Average (1=Low To 6=High). The economic management cluster includes macroeconomic management, fiscal policy, and debt policy.
-    "IQ.CPA.ECON.XQ", #High is good, low is bad#
+    "IQ.CPA.ECON.XQ",
     #CPIA Public Sector Management And Institutions Cluster Average (1=Low To 6=High)
-    "IQ.CPA.PUBS.XQ", #High is good, low is bad#
+    "IQ.CPA.PUBS.XQ",
     #IDA Resource Allocation Index (1=Low To 6=High). IDA Resource Allocation Index is obtained by calculating the average score for each cluster and then by averaging those scores. For each of 16 criteria countries are rated on a scale of 1 (low) to 6 (high)
-    "IQ.CPA.IRAI.XQ", #High is good, low is bad#
+    "IQ.CPA.IRAI.XQ",
     #Proportion Of Seats Held By Women In National Parliaments (%)
-    "SG.GEN.PARL.ZS", #High is good, low is bad#
+    "SG.GEN.PARL.ZS",
     #CPIA Policies For Social Inclusion/Equity Cluster Average (1=Low To 6=High). The policies for social inclusion and equity cluster includes gender equality, equity of public resource use, building human resources, social protection and labor, and policies and institutions for environmental sustainability.
-    "IQ.CPA.SOCI.XQ", #High is good, low is bad#
+    "IQ.CPA.SOCI.XQ",
+    # CPIA quality of public administration rating (1=low to 6=high)	
+    "IQ.CPA.PADM.XQ",	
+    # CPIA equity of public resource use rating (1=low to 6=high)	
+    "IQ.CPA.PRES.XQ",
+    # CPIA transparency, accountability, and corruption in the public sector rating (1=low to 6=high)	
+    "IQ.CPA.TRAN.XQ",
+    # Gini inequality index reduction (%) - All Social Protection and Labor	
+    "per_allsp_gini_tot",
     #CPIA Structural Policies Cluster Average (1=Low To 6=High). The structural policies cluster includes trade, financial sector, and business regulatory environment.
-    "IQ.CPA.STRC.XQ" #High is good, low is bad#
+    "IQ.CPA.STRC.XQ" 
     #Central Government Debt, Total (% Of GDP). Debt is the entire stock of direct government fixed-term contractual obligations to others outstanding on a particular date. It includes domestic and foreign liabilities such as currency and money deposits, securities other...
   )
   WBGovernment_Indicators_reverse <- c(
@@ -403,30 +573,47 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
     "SL.UEM.TOTL.NE.ZS", #High is BAD
     #Net Official Development Assistance Received (Constant 2014 US$)
     "DT.ODA.ODAT.KD", #High is BAD
+    # Bribery index (% of gift or informal payment requests during public transactions)	
+    "IC.FRM.CORR.GRAFT2",
+    #	Informal payments to public officials (% of firms)
+    "IC.FRM.CORR.ZS",
     #Inflation, Consumer Prices (Annual %)
     "FP.CPI.TOTL.ZG" #High is BAD
   )  
   
+  # WBIndicatorsDownloaded <- rbind(cbind(subset(WBIndicatorList,WBIndicatorList$indicator %in% WBGovernment_Indicators),
+  #                                     CLUM="Government"),WBIndicatorsDownloaded)
+  
+  WBIndicatorsListF <- cbind(unique(WBIndicators$series[WBIndicators$series%in%WBGovernment_Indicators]),
+                             unique(WBIndicators$series[,"name"][WBIndicators$series%in%WBGovernment_Indicators]),
+                             "Government", "Fwd")
+  
+  WBIndicatorsListR <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%WBGovernment_Indicators_reverse]),
+                             unique(SDGIndicators$series["name"][SDGIndicators$series%in%WBGovernment_Indicators_reverse]),
+                             "Government", "Reversed")
+
+  WBIndicatorsDownloaded <- rbind(WBIndicatorsDownloaded,
+                                   if(ncol(WBIndicatorsListF)==4){WBIndicatorsListF}, 
+                                   if(ncol(WBIndicatorsListR)==4){WBIndicatorsListR})
+  
   WBGovernment_Indicators <- c(WBGovernment_Indicators, WBGovernment_Indicators_reverse)
-  
-  WBIndicatorsDownloaded <- rbind(cbind(subset(WBIndicatorList,WBIndicatorList$indicator %in% WBGovernment_Indicators),
-                                      CLUM="Government"),WBIndicatorsDownloaded)
   WBGovernment_Data <- WB_DataPull_Function(WBGovernment_Indicators, 2004, 2007, 2011)
-  WBBovernment_Data <- WBGovernment_Data[!(WBGovernment_Data$country %in% Region_drop),]
-  WBGovernment_Data$iso2c <- NULL
+  WBGovernment_Data <- WBGovernment_Data[!(WBGovernment_Data$country %in% Region_drop),]
+  #Now in the pull funtcion WBGovernment_Data$iso2c <- NULL
   # Reverse the orders for High is BAD
-  for (i in WBGovernment_Indicators_reverse){WBGovernment_Data[i] <- 0 - WBGovernment_Data[i] + max(WBGovernment_Data[i], na.rm = TRUE)
+  for (i in WBGovernment_Indicators_reverse){WBGovernment_Data[i] <- 0 - WBGovernment_Data[i] +
+    max(WBGovernment_Data[i], na.rm = TRUE)
   }
-  
   for (i in years){
     nam <- paste(deparse(substitute(WBGovernment_Data)), i, sep = "_") 
     assign(nam, WBGovernment_Data[WBGovernment_Data$year==i,])
   }
   
   remove(WBGovernment_Indicators, WBGovernment_Indicators_reverse, WBGovernment_Data)
-  
+
   ##Services Metrics
-  WBServices_Indicators <- c(
+## Search terms included 'educ', 'sport', 'theat', 'financ', 'liter', 'serv', 'recrea', 'leis', 'cult'
+    WBServices_Indicators <- c(
     # School enrollment, primary and secondary (gross), gender parity index (GPI) 
     "SE.ENR.PRSC.FM.ZS",
     # Hospital beds (per 1,000 people) .  Hospital beds include inpatient beds available in public, private, general, and specialized hospitals and rehabilitation centers. In most cases beds for both acute and chronic care are included. 
@@ -457,36 +644,90 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
     "per_si_allsi.cov_pop_tot",
     # Coverage in extreme poor (<$1.25 a day) (%) - All Social Insurance  .  NULL 
     "per_si_allsi.cov_ep_tot",
+    #	DHS: Net intake rate for the first grade of primary education	
+    "HH.DHS.NIR.1",
+    #	PASEC: Mean performance on the mathematics scale for 6th grade students who attended pre-primary education	
+    "LO.PASEC.MAT.6.PP",
+    #	PASEC: Mean performance on the reading scale for 6th grade students who attended pre-primary education	
+    "LO.PASEC.REA.6.PP",
+    # Gross graduation ratio from primary education, both sexes (%)	
+    "SE.PRM.CMPL.ZS",
+    # Percentage of students in tertiary education who are female (%)	
+    "SE.TER.ENRL.FE.ZS",
+    #	Government expenditure on education, total (% of governmen
+    "SE.XPD.TOTL.GB.ZS",
+    # PIAAC: Adults by literacy proficiency level (%). Level 5	
+    "LO.PIAAC.LIT.5",
+    # Illiteracy rate, adult total (% of people ages 15 and above)	
+    "SE.ADT.ILIT.ZS",
+    #	No account because financial services are too expensive (% a
+    "fin11b.a",
+    # People Using Basic Sanitation Services (% Of Population)
+    "SH.STA.BASS.ZS",
+    #	People using safely managed drinking water services (% of population)	
+    "SH.H2O.SMDW.ZS",
+    #	Population covered by mobile cellular network (%)
+    "IT.CEL.COVR.ZS",
+    #	Fixed line and mobile cellular subscriptions (per 100 people)
+    "IT.TEL.TOTL.P2",
+    #	Community health workers (per 1,000 people)
+    "SH.MED.CMHW.P3",
+    #	Specialist surgical workforce (per 100,000 population)
+    "SH.MED.SAOP.P5",
     # CPIA financial sector rating (1=low to 6=high) .  Financial sector assesses the structure of the financial sector and the policies and regulations that affect it. 
     "IQ.CPA.FINS.XQ"
   )
+  # IC.ELC.RSTT.XD.08.DB1619	Getting electricity: Reliability of supply and transparency of tariff index (0-8) (DB16-20 methodology)
+  # IC.ELC.RSTT.XD.08.DFRN.DB1619	Getting electricity: Reliability of supply and transparency of tariff index (0-8) (DB16-20 methodology) - Score
   WBServices_Indicators_reverse <- c(
     #High is BAD
     # Pupil-teacher ratio, preprimary .  Preprimary school pupil-teacher ratio is the average number of pupils per teacher in preprimary school. 
     "SE.PRE.ENRL.TC.ZS", #High is BAD
+    #	Barro-Lee: Percentage of population age 15+ with no education
+    "BAR.NOED.15UP.ZS",
+    #	Cumulative drop-out rate to the last grade of lower secondary general education, both sexes (%)	
+    "UIS.DR.2.GPV.T",
+    #	Pupil/qualified teacher ratio in pre-primary education (headcount basis)	
+    "UIS.PTRHC.02.QUALIFIED",
+    #	Pupil/qualified teacher ratio in primary education (headcount basis)	
+    "UIS.PTRHC.1.QUALIFIED",
+    #	Pupil/trained teacher ratio in secondary education (headcount basis)	
+    "UIS.PTRHC.2T3.TRAINED",
     # Pupil-teacher ratio, primary .  Primary school pupil-teacher ratio is the average number of pupils per teacher in primary school. 
     "SE.PRM.ENRL.TC.ZS" #High is BAD
   )
   
-  WBServices_Indicators <- c(WBServices_Indicators, WBServices_Indicators_reverse)
+  # WBIndicatorsDownloaded <- rbind(cbind(subset(WBIndicatorList,WBIndicatorList$indicator %in% WBServices_Indicators),
+  #                                     CLUM="Services"),WBIndicatorsDownloaded)
+  WBIndicatorsListF <- cbind(unique(WBIndicators$series[WBIndicators$series%in%WBServices_Indicators]),
+                             unique(WBIndicators$series[,"name"][WBIndicators$series%in%WBServices_Indicators]),
+                             "Services", "Fwd")
+  WBIndicatorsListR <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%WBServices_Indicators_reverse]),
+                             unique(SDGIndicators$series["name"][SDGIndicators$series%in%WBServices_Indicators_reverse]),
+                             "Services", "Reversed")
+  WBIndicatorsDownloaded <- rbind (WBIndicatorsDownloaded,
+                                   if(ncol(WBIndicatorsListF)==4){WBIndicatorsListF}, 
+                                   if(ncol(WBIndicatorsListR)==4){WBIndicatorsListR})
   
-  WBIndicatorsDownloaded <- rbind(cbind(subset(WBIndicatorList,WBIndicatorList$indicator %in% WBServices_Indicators),
-                                      CLUM="Services"),WBIndicatorsDownloaded)
+  WBServices_Indicators <- c(WBServices_Indicators, WBServices_Indicators_reverse)
   WBServices_Data <- WB_DataPull_Function(WBServices_Indicators, 2004, 2007, 2011)
   WBServices_Data <- WBServices_Data[!(WBServices_Data$country %in% Region_drop),]
-  WBServices_Data$iso2c <- NULL
+  # Now in the pull function WBServices_Data$iso2c <- NULL
   # Reverse the orders for High is BAD
-  for (i in WBServices_Indicators_reverse){WBServices_Data[i] <- 0 - WBServices_Data[i] + max(WBServices_Data[i], na.rm = TRUE)
+  ## Added catches for non-downloaeded series AND all nas
+  for (i in WBServices_Indicators_reverse[WBServices_Indicators_reverse %in% colnames(WBServices_Data)]){
+    if(!all(is.na(WBServices_Data[i]))){
+      WBServices_Data[i] <- 0 - WBServices_Data[i] + max(WBServices_Data[i], na.rm = TRUE)
+   }
   }
-  
   for (i in years){
     nam <- paste(deparse(substitute(WBServices_Data)), i, sep = "_") 
     assign(nam, WBServices_Data[WBServices_Data$year==i,])
   }
-  
   remove(WBServices_Indicators, WBServices_Indicators_reverse, WBServices_Data)
   
   ######Personal Transportation Section
+  ## Search terms included 'transp', 'trans', auto', 'veh', 'train', 'loco', 'work', 'comm', 'mob', 'truck', 'car', 'carr'
   WBTransport_Indicators <- c(
     # Urban Road Density (KMs Per 1000 Population) .  Urban roads density is measured in KMs of Urban roads in the area (State, District) divided by population in thousands in that area (State, District). Urban roads are roads within a limits of a Municipality, Military Cantonment, Port o a Railway Authority. 
     "IN.TRANSPORT.URBNRD.DENSIT",
@@ -494,42 +735,76 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
     "IN.TRANSPORT.RURLRD.DENSIT",
     # Access to an all-season road (% of rural population) .  Access to an all-season road is measured as the proportion of rural people who live within 2 kilometers (typically equivalent to a 20-minute walk) of an all-season road. An all-season road is a road that is motorable all year by the prevailing means of rural transport (often a pick-up or a truck which does not have four-wheel-drive). Predictable interruptions of short duration during inclement weather (e.g. heavy rainfall) are acceptable, particularly on low volume roads. The preferred approach to measuring this indicator is by analysis of household surveys that include appropriate questions about access to transport. 
     "IS.ROD.ALLS.ZS",
-    # Railways, passengers carried (million passenger-km) .  Passengers carried by railway are the number of passengers transported by rail times kilometers traveled. 
-    "IS.RRS.PASG.KM",
+    ## Removed because it's not weighted by population so big populations (China, India) big outliers
+    # # Railways, passengers carried (million passenger-km) .  Passengers carried by railway are the number of passengers transported by rail times kilometers traveled. 
+    # "IS.RRS.PASG.KM",
     # Railways, passenger-km (per PPP $ million of GDP) .   
     "IS.RRS.PASG.K2.PP.ZS",
     # Roads, passengers carried (million passenger-km) .  Passengers carried by road are the number of passengers transported by road times kilometers traveled. 
     "IS.ROD.PSGR.K6",
     # Roads, paved (% of total roads) .  Paved roads are those surfaced with crushed stone (macadam) and hydrocarbon binder or bituminized agents, with concrete, or with cobblestones, as a percentage of all the country's roads, measured in length. 
     "IS.ROD.PAVE.ZS",
+    #	Motor vehicles (per 1,000 people)
+    "IS.VEH.NVEH.P3",
     #No per cap so outlier for high population countries    # Air transport, passengers carried .  Air passengers carried include both domestic and international aircraft passengers of air carriers registered in the country. 
                 # "IS.AIR.PSGR",
+    #	Logistics performance index: Quality of trade and transport-related infrastructure 
+    "LP.LPI.INFR.XQ",
+    # Railways, passenger-km (per PPP $ million of GDP)	
+    "IS.RRS.PASG.K2.PP.ZS",
     # Mortality caused by road traffic injury (per 100,000 people) .  Mortality caused by road traffic injury is estimated road traffic fatal injury deaths per 100,000 population. 
     "SH.STA.TRAF.P5"
   )
-  
   WBTransport_Indicators_reverse <- c(
-  )
+    # Traffic accidents (injured or killed per 1,000 vehicles)	
+    "EN.TRN.ACCT.VEH.ZS",
+    #	Road traffic (vehicles per km)
+    "EN.ROD.TRAF",
+    #	Transportation (% of firms identifying this as a major constraint)	
+    "IC.FRM.TRSP.ZS",
+    #	Problems in accessing health care (having to take transport) (% of women): Q1 (lowest)	Problems in accessing health care: Percentage of women who report they have big problems in accessing health care for themselves when they are sick, by type of problem. The types of problem specified are; knowing where to go for treatment, getting permission to go for treatment, getting money for treatment, distance to health facility, having to take transport, not wanting to go alone, and concern there may not be a female provider.	Health Nutrition and Population Statistics by Wealth Quintile	Household Surveys (DHS, MICS)
+    "SH.ACS.TRAN.Q1.ZS",
+    #	Problems in accessing health care (having to take transport) (% of women): Q2	Problems in accessing health care: Percentage of women who report they have big problems in accessing health care for themselves when they are sick, by type of problem. The types of problem specified are; knowing where to go for treatment, getting permission to go for treatment, getting money for treatment, distance to health facility, having to take transport, not wanting to go alone, and concern there may not be a female provider.	Health Nutrition and Population Statistics by Wealth Quintile	Household Surveys (DHS, MICS)
+    "SH.ACS.TRAN.Q2.ZS",
+    #	Problems in accessing health care (having to take transport) (% of women): Q3	Problems in accessing health care: Percentage of women who report they have big problems in accessing health care for themselves when they are sick, by type of problem. The types of problem specified are; knowing where to go for treatment, getting permission to go for treatment, getting money for treatment, distance to health facility, having to take transport, not wanting to go alone, and concern there may not be a female provider.	Health Nutrition and Population Statistics by Wealth Quintile	Household Surveys (DHS, MICS)
+    "SH.ACS.TRAN.Q3.ZS",
+  	#	Problems in accessing health care (having to take transport) (% of women): Q4	Problems in accessing health care: Percentage of women who report they have big problems in accessing health care for themselves when they are sick, by type of problem. The types of problem specified are; knowing where to go for treatment, getting permission to go for treatment, getting money for treatment, distance to health facility, having to take transport, not wanting to go alone, and concern there may not be a female provider.	Health Nutrition and Population Statistics by Wealth Quintile	Household Surveys (DHS, MICS)
+    "SH.ACS.TRAN.Q4.ZS",
+    #	Road sector gasoline fuel consumption per capita (kg of oil equivalent)	
+    "IS.ROD.SGAS.PC",
+    #	Problems in accessing health care (having to take transport) (% of women): Q5 (highest)	
+    "SH.ACS.TRAN.Q5.ZS"
+      )
   
+  # WBIndicatorsDownloaded <- rbind(cbind(subset(WBIndicatorList,WBIndicatorList$indicator %in% WBTransport_Indicators),
+  #                                     CLUM="Personal Transportation"),WBIndicatorsDownloaded)
+  WBIndicatorsListF <- cbind(unique(WBIndicators$series[WBIndicators$series%in%WBTransport_Indicators]),
+                             unique(WBIndicators$series[,"name"][WBIndicators$series%in%WBTransport_Indicators]),
+                             "Personal Transportation", "Fwd")
+  WBIndicatorsListR <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%WBTransport_Indicators_reverse]),
+                             unique(SDGIndicators$series["name"][SDGIndicators$series%in%WBTransport_Indicators_reverse]),
+                             "Personal Transportation", "Reversed")
+  WBIndicatorsDownloaded <- rbind (WBIndicatorsDownloaded,
+                                   if(ncol(WBIndicatorsListF)==4){WBIndicatorsListF}, 
+                                   if(ncol(WBIndicatorsListR)==4){WBIndicatorsListR})
   WBTransport_Indicators <- c(WBTransport_Indicators,WBTransport_Indicators_reverse)
-  
-  WBIndicatorsDownloaded <- rbind(cbind(subset(WBIndicatorList,WBIndicatorList$indicator %in% WBTransport_Indicators),
-                                      CLUM="Personal Transportation"),WBIndicatorsDownloaded)
   WBTransport_Data <- WB_DataPull_Function(WBTransport_Indicators, 2004, 2007, 2011)
-  
   WBTransport_Data <- WBTransport_Data[!(WBTransport_Data$country %in% Region_drop),]
-  WBTransport_Data$iso2c <- NULL
-  
+  # Now is pull function WBTransport_Data$iso2c <- NULL
   # Reverse the orders for High is BAD
+  for (i in WBTransport_Indicators_reverse[WBTransport_Indicators_reverse %in% colnames(WBTransport_Data)]){
+    if(!all(is.na(WBTransport_Data[i]))){
+      WBTransport_Data[i] <- 0 - WBTransport_Data[i] + max(WBTransport_Data[i], na.rm = TRUE)
+    }
+  }
   for (i in years){
     nam <- paste(deparse(substitute(WBTransport_Data)), i, sep = "_") 
     assign(nam, WBTransport_Data[WBTransport_Data$year==i,])
   }
-  
   remove(WBTransport_Indicators, WBTransport_Data, WBTransport_Indicators_reverse)
   
-  
   ####Housing Section
+  # Search terms included 'shel', 'buil', 'constr', 'qual', 'bath', 'cook', 'healt', 'hous', 'kitch', 'safe', 'roof', 'disas', 'home', 'displ'
   WBHousing_Indicators <- c(
     ##Households With Water On The Premises (%)
     "SG.H2O.PRMS.HH.ZS", #High is good#
@@ -545,32 +820,172 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
     "IC.DCP.BQCI", #High is good#
     ##Main Cooking Fuel: Electricity (% Of Households)
     "SG.COK.ELEC.ZS", #High is good#
+    #	Access to Clean Fuels and Technologies for cooking (% of total population)	
+    "2.1_ACCESS.CFT.TOT",
+    #	Access to clean fuels and technologies for cooking (% of population)	
+    "EG.CFT.ACCS.ZS",
+    #	Dealing with construction permits: Quality of building regulations index (0-2) (DB16-20 methodology)
+    "IC.CNST.PRMT.QBR.XD.02.DB1619",
+    #	Dealing with construction permits: Building quality control index (0-15) (DB16-20 methodology) - Score	
+    "IC.CNST.PRMT.BQCI.015.DB1619.DFRN",
+    #	Household Access to Electricity: Total (in % of total household)	
+    "HOU.ELC.ACSN.ZS",
+    #	Household Access to Safe Water (in % of total household)
+    "HOU.H2O.ACSN.ZS",
+    #	Total households with drinking water facility
+    "IN.POV.HH.DRKNGWATER",
     ##Main Cooking Fuel: LPG/Natural Gas/Biogas (% Of Households)
     "SG.COK.LPGN.ZS" #High is good, low is bad#
   )
   WBHousing_Indicators_reverse <- c(
-  
+    #	Location of cooking: outdoors (% of households)
+    "SG.COK.OUTD.ZS",
+    #	Mortality rate attributed to unsafe water, unsafe sanitation and lack of hygiene (per 100,000 population)	
+    "SH.STA.WASH.P5",
+    #	Mortality rate attributed to household and ambient air pollution, age-standardized (per 100,000 population)	    
+    "SH.STA.AIRP.P5"
     )
   
-  WBHousing_Indicators <- c(WBHousing_Indicators,WBHousing_Indicators_reverse)
   
-  WBIndicatorsDownloaded <- rbind(cbind(subset(WBIndicatorList,WBIndicatorList$indicator %in% WBHousing_Indicators),
-                                      CLUM="Housing"),WBIndicatorsDownloaded)
+  # 
+  # WBIndicatorsDownloaded <- rbind(cbind(subset(WBIndicatorList,WBIndicatorList$indicator %in% WBHousing_Indicators),
+  #                                     CLUM="Housing"),WBIndicatorsDownloaded)
+
+  WBIndicatorsListF <- cbind(unique(WBIndicators$series[WBIndicators$series%in%WBHousing_Indicators]),
+                             unique(WBIndicators$series[,"name"][WBIndicators$series%in%WBHousing_Indicators]),
+                             "Housing", "Fwd")
+  WBIndicatorsListR <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%WBHousing_Indicators_reverse]),
+                             unique(SDGIndicators$series["name"][SDGIndicators$series%in%WBHousing_Indicators_reverse]),
+                             "Housing", "Reversed")
+  WBIndicatorsDownloaded <- rbind (WBIndicatorsDownloaded,
+                                   if(ncol(WBIndicatorsListF)==4){WBIndicatorsListF}, 
+                                   if(ncol(WBIndicatorsListR)==4){WBIndicatorsListR})
+  
+  WBHousing_Indicators <- c(WBHousing_Indicators,WBHousing_Indicators_reverse)
   WBHousing_Data <- WB_DataPull_Function(WBHousing_Indicators, 2004, 2007, 2011)
   #Housing_Data$country <- trimws(Housing_Data$country, which = c("both", "left", "right"))
-  
   #Filter out regions on the non-NFA country/region list
   WBHousing_Data <- WBHousing_Data[!(WBHousing_Data$country %in% as.character(Region_drop)),]
   #Drop iso column
-  WBHousing_Data$iso2c <- NULL
+  # Delete: Now in pull function WBHousing_Data$iso2c <- NULL
   # Reverse the orders for High is BAD
-  
+  for (i in WBHousing_Indicators_reverse[WBHousing_Indicators_reverse %in% colnames(WBHousing_Data)]){
+    if(!all(is.na(WBHousing_Data[i]))){
+      WBHousing_Data[i] <- 0 - WBHousing_Data[i] + max(WBHousing_Data[i], na.rm = TRUE)
+    }
+  }
   for (i in years){
     nam <- paste(deparse(substitute(WBHousing_Data)), i, sep = "_") 
     assign(nam, WBHousing_Data[WBHousing_Data$year==i,])
   }
   
   remove(WBHousing_Indicators, WBHousing_Indicators_reverse, WBHousing_Data)
+  
+  ## Gross Fixed Capital Formation
+  ## Search terms included 'infra', 'mach', 'buil', 'equip', 'asse', 'struc', 'dwell'
+  WBGFCF_Indicators <- c(
+    #  Quality- of trade and transport-related infrastructure, rank (1=highest performer)  
+    "LP.LPI.INFR.RK",
+    #	Machinery and transport equipment (% of value added in mfg
+    "NV.MNF.MTRN.UN.ZS",
+    #	Machinery and transport equipment (% of value added in manufacturing)
+    "NV.MNF.MTRN.ZS.UN",
+    #	Quality of port infrastructure, WEF (1=extremely underdeveloped to 7=well developed and efficient by international standards)	
+    "IQ.WEF.PORT.XQ",
+    #	Agricultural machinery, tractors per 100 sq. km of arable land
+    "AG.LND.TRAC.ZS",
+    #	Net investment in nonfinancial assets (% of GDP)
+    "GC.NFN.TOTL.GD.ZS",
+    #	2nd pillar: Infrastructure
+    "GCI.2NDPILLAR.XQ",
+    #	Dealing with construction permits (rank)
+    "IC.FRM.XQ",
+    #	Capital health expenditure (% of GDP)
+    "SH.XPD.KHEX.GD.ZS",
+    # Gross public investment (% of GDP)	
+    "NE.GDI.FPUB.ZS"
+  )
+  WBGFCF_Indicators_reverse <- c(
+  )
+  
+  # WBIndicatorsDownloaded <- rbind(cbind(subset(WBIndicatorList,WBIndicatorList$indicator %in% WBGFCF_Indicators),
+  #                                       CLUM="GFCF"),WBIndicatorsDownloaded)
+  
+  WBIndicatorsListF <- cbind(unique(WBIndicators$series[WBIndicators$series%in%WBGFCF_Indicators]),
+                             unique(WBIndicators$series[,"name"][WBIndicators$series%in%WBGFCF_Indicators]),
+                             "GFCF", "Fwd")
+  WBIndicatorsListR <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%WBGFCF_Indicators_reverse]),
+                             unique(SDGIndicators$series["name"][SDGIndicators$series%in%WBGFCF_Indicators_reverse]),
+                             "GFCF", "Reversed")
+  WBIndicatorsDownloaded <- rbind (WBIndicatorsDownloaded,
+                                   if(ncol(WBIndicatorsListF)==4){WBIndicatorsListF}, 
+                                   if(ncol(WBIndicatorsListR)==4){WBIndicatorsListR})
+  
+  WBGFCF_Indicators <- c(WBGFCF_Indicators,WBGFCF_Indicators_reverse)
+  WBGFCF_Data <- WB_DataPull_Function(WBGFCF_Indicators, 2004, 2007, 2011)
+  WBGFCF_Data <- WBGFCF_Data[!(WBGFCF_Data$country %in% Region_drop),]
+  # Delete: Now in pul function WBGFCF_Data$iso2c <- NULL
+  # Reverse the orders for High is BAD
+  for (i in WBGFCF_Indicators_reverse[WBGFCF_Indicators_reverse %in% colnames(WBGFCF_Data)]){
+    if(!all(is.na(WBGFCF_Data[i]))){
+      WBGFCF_Data[i] <- 0 - WBGFCF_Data[i] + max(WBGFCF_Data[i], na.rm = TRUE)
+    }
+  }
+  for (i in years){
+    nam <- paste(deparse(substitute(WBGFCF_Data)), i, sep = "_") 
+    assign(nam, WBGFCF_Data[WBGFCF_Data$year==i,])
+  }
+  remove(WBGFCF_Indicators, WBGFCF_Data, WBGFCF_Indicators_reverse)
+  
+  "WB Goods data sources, for integration instead of the Oxford"
+  "fwd"
+  ## Goods
+  ## Search terms included 
+  WBGoods_Indicators <- c(
+    #	Ratio of textbooks per pupil, primary education, language
+    "3.14_PRI.LANGU.BOOK.PER.PUPIL",
+    #	Annualized average growth rate in per capita real survey m
+    "SI.SPR.PC40.ZG",
+    #	Households with a radio (%)
+    "IT.RAD.HOUS.ZS",
+    #	Households with telephones (%)
+    "IN.POV.HH.ASSETS.PHONE.PCT",
+    #	Households with television (%)
+    "IT.TVS.HOUS.ZS",
+    #	Ratio of textbooks per pupil, primary education, mathematics
+    "3.13_PRI.MATH.BOOK.PER.PUPIL"
+  )
+  WBGoods_Indicators_reverse <- c(
+    
+  )
+  # WBIndicatorsDownloaded <- rbind(cbind(subset(WBIndicatorList,WBIndicatorList$indicator %in% WBGoods_Indicators),
+  #                                       CLUM="Goods"),WBIndicatorsDownloaded)
+  
+  WBIndicatorsListF <- cbind(unique(WBIndicators$series[WBIndicators$series%in%WBGoods_Indicators]),
+                             unique(WBIndicators$series[,"name"][WBIndicators$series%in%WBGoods_Indicators]),
+                             "Goods", "Fwd")
+  WBIndicatorsListR <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%WBGoods_Indicators_reverse]),
+                             unique(SDGIndicators$series["name"][SDGIndicators$series%in%WBGoods_Indicators_reverse]),
+                             "Goods", "Reversed")
+  WBIndicatorsDownloaded <- rbind (WBIndicatorsDownloaded,
+                                   if(ncol(WBIndicatorsListF)==4){WBIndicatorsListF}, 
+                                   if(ncol(WBIndicatorsListR)==4){WBIndicatorsListR})
+  
+  WBGoods_Indicators <- c(WBGoods_Indicators,WBGoods_Indicators_reverse)
+  WBGoods_Data <- WB_DataPull_Function(WBGoods_Indicators, 2004, 2007, 2011)
+  WBGoods_Data <- WBGoods_Data[!(WBGoods_Data$country %in% Region_drop),]
+  # Delete: now in pull function WBGoods_Data$iso2c <- NULL
+  # Reverse the orders for High is BAD
+  for (i in WBGoods_Indicators_reverse[WBGoods_Indicators_reverse %in% colnames(WBGoods_Data)]){
+    if(!all(is.na(WBGoods_Data[i]))){
+      WBGoods_Data[i] <- 0 - WBGoods_Data[i] + max(WBGoods_Data[i], na.rm = TRUE)
+    }
+  }
+  for (i in years){
+    nam <- paste(deparse(substitute(WBGoods_Data)), i, sep = "_") 
+    assign(nam, WBGoods_Data[WBGoods_Data$year==i,])
+  }
+  remove(WBGoods_Indicators, WBGoods_Data, WBGoods_Indicators_reverse)
   
   ## Goods is now from different data source - in ass_pov_final.csv
   ##Goods Metrics (Prelminary from Scott) 
@@ -579,26 +994,38 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
   # linked to http://ophi.org.uk/multidimensional-poverty-index/global-mpi-2017/mpi-data/ has asset poverty measures for many countires.
   # Food_Beverages_Tobacco <- "NV.MNF.FBTO.ZS.UN"
   # Textiles_Clothing <- "NV.MNF.TXTL.ZS.UN"
-  WBGoods_Data <- read.csv("./ass_pov_final.csv")
-  # Reverse the orders for High is BAD
-  WBGoods_Data$ass_pov_extr <- 0-WBGoods_Data$ass_pov_extr+max(WBGoods_Data$ass_pov_extr, na.rm = TRUE)
-  for (i in years){
-    nam <- paste(deparse(substitute(WBGoods_Data)), i, sep = "_") 
-    assign(nam, WBGoods_Data[WBGoods_Data$year ==i,])
-  }
+  # WBGoods_Data <- read.csv("./ass_pov_final.csv")
+  # # Reverse the orders for High is BAD
+  # WBGoods_Data$ass_pov_extr <- 0-WBGoods_Data$ass_pov_extr+max(WBGoods_Data$ass_pov_extr, na.rm = TRUE)
+  # for (i in years){
+  #   nam <- paste(deparse(substitute(WBGoods_Data)), i, sep = "_")
+  #   assign(nam, WBGoods_Data[WBGoods_Data$year ==i,])
+  # }
+  # 
+  # #Add a row for Goods Data, including that it's needed for the plot function
+  # WBGoodsDL <- cbind.data.frame(
+  #   "ass_pov_extr",
+  #   "Percentage of population experiencing 'asset poverty'",
+  #   "People not owning a radio, TV, telephone, bicycle, motorbike, or
+  #   refrigerator, and does not own a car or truck.",
+  #   "Oxford Poverty & Human Development Initiative",
+  #   "Oxford University",
+  #   "Goods"
+  # )
+  # WBGoodsDownloaded <- cbind("ass_pov_extr", "Percentage of population experiencing 'asset poverty'", "Goods", "Reversed")
+  # colnames(WBGoodsDownloaded) <- colnames(WBIndicatorsDownloaded)
+### Not needed/useful unless I move to WB database instead of the Oxford data
+  # WBIndicatorsListF <- cbind(unique(WBIndicators$series[WBIndicators$series%in%WBGoods_Indicators]),
+  #                            unique(WBIndicators$series[,"name"][WBIndicators$series%in%WBGoods_Indicators]),
+  #                            "Goods", "Fwd")
+  # WBIndicatorsListR <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%WBGoods_Indicators_reverse]),
+  #                            unique(SDGIndicators$series["name"][SDGIndicators$series%in%WBGoods_Indicators_reverse]),
+  #                            "Goods", "Reversed")
+  # WBIndicatorsDownloaded <- rbind (WBIndicatorsDownloaded,
+  #                                  if(ncol(WBIndicatorsListF)==4){WBIndicatorsListF}, 
+  #                                  if(ncol(WBIndicatorsListR)==4){WBIndicatorsListR})
   
-  #Add a row for Goods Data, including that it's needed for the plot function
-  WBGoodsDL <- cbind.data.frame(
-    "No.Code",
-    "Percentage of population experiencing 'asset poverty'",
-    "People not owning a radio, TV, telephone, bicycle, motorbike, or
-    refrigerator, and does not own a car or truck.",
-    "Oxford Poverty & Human Development Initiative",
-    "Oxford University",
-    "Goods"
-  )
-  colnames(WBGoodsDL) <- colnames(WBIndicatorsDownloaded)
-  WBIndicatorsDownloaded <- rbind(WBIndicatorsDownloaded,WBGoodsDL)
+  colnames(WBIndicatorsDownloaded) <- c("indicator", "description", "CLUM", "Forw_Revd")
   
   # Collect Warnings (listing series not DLoaded) to include in file
   WBIndicators_Nodownloads <- as.data.frame(names(warnings()))
@@ -609,8 +1036,8 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
   write.table(WBIndicators_Nodownloads,"./WBIndicatorsDLed.csv",
               append = TRUE, col.names=FALSE)
 #From if WB  
+
 #}
-}
 # SDG Data split section
 {
 ### Funtion to select Indiactors and organise (for SDG Indicators data)
@@ -632,9 +1059,9 @@ SDGCLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
   #setDT(Data)
   ## Deals with the mulitple values for each country for a series in a year (but unclear why they exist)
   Data <-
+    # A try to give a message if none of the data series exist
     try(reshape2::dcast(Data, geoAreaName + timePeriodStart ~ series, value.var = 'value', fun.aggregate=mean))
-  # A try to give a message if none of the data series exist
-  if(class(Data) == "try-error"){
+    if(class(Data) == "try-error"){
     error_type <- attr(Data,"condition")
   #  print(class(error_type))
   #  print(error_type$message)
@@ -858,11 +1285,39 @@ SDGCLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
                                     if(ncol(IndicatorsListR)==4){IndicatorsListR})
   
   colnames(SDGIndicatorsDownloaded) <- c("indicator", "description", "CLUM", "Forw_Revd")
-  
+  SDGIndicators_Nodownloads <- as.data.frame(names(warnings()))
+  cat("\n Not Downloaded (and other warnings) \n", file = "./SDGIndicatorsDLed.csv", append = TRUE) 
+  write.table(SDGIndicators_Nodownloads,"./SDGIndicatorsDLed.csv",
+              append = TRUE, col.names=FALSE)
 #From if SDG
 #  }
 }
 
+WBSDGFood_Data_2004 <- merge(WBFood_Data_2004, SDG_Food_Data_2004[,-2], by.x = "country", by.y = "geoAreaName")
+WBSDGFood_Data_2007 <- merge(WBFood_Data_2007, SDG_Food_Data_2007[,-2], by.x = "country", by.y = "geoAreaName")
+WBSDGFood_Data_2011 <- merge(WBFood_Data_2011, SDG_Food_Data_2011[,-2], by.x = "country", by.y = "geoAreaName")
+WBSDGGovernment_Data_2004 <- merge(WBGovernment_Data_2004, SDG_Government_Data_2004[,-2], by.x = "country", by.y = "geoAreaName")
+WBSDGGovernment_Data_2007 <- merge(WBGovernment_Data_2007, SDG_Government_Data_2007[,-2], by.x = "country", by.y = "geoAreaName")
+WBSDGGovernment_Data_2011 <- merge(WBGovernment_Data_2011, SDG_Government_Data_2011[,-2], by.x = "country", by.y = "geoAreaName")
+WBSDGServices_Data_2004 <- merge(WBServices_Data_2004, SDG_Services_Data_2004[,-2], by.x = "country", by.y = "geoAreaName")
+WBSDGServices_Data_2007 <- merge(WBServices_Data_2007, SDG_Services_Data_2007[,-2], by.x = "country", by.y = "geoAreaName")
+WBSDGServices_Data_2011 <- merge(WBServices_Data_2011, SDG_Services_Data_2011[,-2], by.x = "country", by.y = "geoAreaName")
+WBSDGTransport_Data_2004 <- left_join(WBTransport_Data_2004, SDG_Transport_Data_2004[,-2], by = c("country" = "geoAreaName"))
+WBSDGTransport_Data_2007 <- left_join(WBTransport_Data_2007, SDG_Transport_Data_2007[,-2], by = c("country" = "geoAreaName"))
+WBSDGTransport_Data_2011 <- left_join(WBTransport_Data_2011, SDG_Transport_Data_2011[,-2], by = c("country" = "geoAreaName"))
+WBSDGHousing_Data_2004 <- merge(WBHousing_Data_2004, SDG_Housing_Data_2004[,-2], by.x = "country", by.y = "geoAreaName")
+WBSDGHousing_Data_2007 <- merge(WBHousing_Data_2007, SDG_Housing_Data_2007[,-2], by.x = "country", by.y = "geoAreaName")
+WBSDGHousing_Data_2011 <- merge(WBHousing_Data_2011, SDG_Housing_Data_2011[,-2], by.x = "country", by.y = "geoAreaName")
+WBSDGGFCF_Data_2004 <- merge(WBGFCF_Data_2004, SDG_GFCF_Data_2004[,-2], by.x = "country", by.y = "geoAreaName")
+WBSDGGFCF_Data_2007 <- merge(WBGFCF_Data_2007, SDG_GFCF_Data_2007[,-2], by.x = "country", by.y = "geoAreaName")
+WBSDGGFCF_Data_2011 <- merge(WBGFCF_Data_2011, SDG_GFCF_Data_2011[,-2], by.x = "country", by.y = "geoAreaName")
+WBSDGGoods_Data_2004 <- merge(WBGoods_Data_2004, SDG_Goods_Data_2004[,-2], by.x = "country", by.y = "geoAreaName")
+WBSDGGoods_Data_2007 <- merge(WBGoods_Data_2007, SDG_Goods_Data_2007[,-2], by.x = "country", by.y = "geoAreaName")
+WBSDGGoods_Data_2011 <- merge(WBGoods_Data_2011, SDG_Goods_Data_2011[,-2], by.x = "country", by.y = "geoAreaName")
+
+  
+  
+  
 ######
 ## Get rid of indicators that have more NAs/NA_factor (eg. 1/2 if NA_factor is 2., .8 if NA_factor is 1.25 etc.
 ######
@@ -896,32 +1351,51 @@ NARemove_Fun <- function(data, NA_factor){
 #           c("SN_ITK_DEFC","SH_STA_STUNT","SH_STA_OVRWGT"))
 
 # Drop indicators that have more than 1/NA factor proportion of NAs for World Bank (and goods) data
-WBFoodData_NoNAs_2004 <- NARemove_Fun(WBFood_Data_2004, 2); remove(WBFood_Data_2004)
-WBFoodData_NoNAs_2007 <- NARemove_Fun(WBFood_Data_2007, 2); remove(WBFood_Data_2007)
-WBFoodData_NoNAs_2011 <- NARemove_Fun(WBFood_Data_2011, 2); remove(WBFood_Data_2011)
-WBGovernmentData_NoNAs_2004 <- NARemove_Fun(WBGovernment_Data_2004, 2); remove(WBGovernment_Data_2004)
-WBGovernmentData_NoNAs_2007 <- NARemove_Fun(WBGovernment_Data_2007, 2); remove(WBGovernment_Data_2007)
-WBGovernmentData_NoNAs_2011 <- NARemove_Fun(WBGovernment_Data_2011, 2); remove(WBGovernment_Data_2011)
-WBServicesData_NoNAs_2004 <- NARemove_Fun(WBServices_Data_2004, 2); remove(WBServices_Data_2004)
-WBServicesData_NoNAs_2007 <- NARemove_Fun(WBServices_Data_2007, 2); remove(WBServices_Data_2007)
-WBServicesData_NoNAs_2011 <- NARemove_Fun(WBServices_Data_2011, 2); remove(WBServices_Data_2011)
-WBTransportData_NoNAs_2004 <- NARemove_Fun(WBTransport_Data_2004, 1.25); remove(WBTransport_Data_2004)
-WBTransportData_NoNAs_2007 <- NARemove_Fun(WBTransport_Data_2007, 1.25); remove(WBTransport_Data_2007)
-WBTransportData_NoNAs_2011 <- NARemove_Fun(WBTransport_Data_2011, 1.25); remove(WBTransport_Data_2011)
-WBHousingData_NoNAs_2004 <- NARemove_Fun(WBHousing_Data_2004, 1.25); remove(WBHousing_Data_2004)
-WBHousingData_NoNAs_2007 <- NARemove_Fun(WBHousing_Data_2007, 1.25); remove(WBHousing_Data_2007)
-WBHousingData_NoNAs_2011 <- NARemove_Fun(WBHousing_Data_2011, 1.25); remove(WBHousing_Data_2011)
-WBGoods_Data_NoNAs_2004 <- NARemove_Fun(WBGoods_Data_2004, 2); remove(WBGoods_Data_2004)
-WBGoods_Data_NoNAs_2007 <- NARemove_Fun(WBGoods_Data_2007, 2); remove(WBGoods_Data_2007)
-WBGoods_Data_NoNAs_2011 <- NARemove_Fun(WBGoods_Data_2011, 2); remove(WBGoods_Data_2011)
+k <- 1
+WBFoodData_NoNAs_2004 <- NARemove_Fun(WBFood_Data_2004, 1.2);  #remove(WBFood_Data_2004) #1.2
+WBFoodData_NoNAs_2007 <- NARemove_Fun(WBFood_Data_2007, 1.2);  #remove(WBFood_Data_2007) #1.2
+WBFoodData_NoNAs_2011 <- NARemove_Fun(WBFood_Data_2011, 1.2);  #remove(WBFood_Data_2011) #1.2
+WBGovernmentData_NoNAs_2004 <- NARemove_Fun(WBGovernment_Data_2004, 2);  #remove(WBGovernment_Data_2004) #2
+WBGovernmentData_NoNAs_2007 <- NARemove_Fun(WBGovernment_Data_2007, 2);  #remove(WBGovernment_Data_2007) #2
+WBGovernmentData_NoNAs_2011 <- NARemove_Fun(WBGovernment_Data_2011, 2);  #remove(WBGovernment_Data_2011) #2
+WBServicesData_NoNAs_2004 <- NARemove_Fun(WBServices_Data_2004, 1.5);  #remove(WBServices_Data_2004) #1.5
+WBServicesData_NoNAs_2007 <- NARemove_Fun(WBServices_Data_2007, 1.5);  #remove(WBServices_Data_2007) #1.5
+WBServicesData_NoNAs_2011 <- NARemove_Fun(WBServices_Data_2011, 1.5);  #remove(WBServices_Data_2011) #1.5
+WBTransportData_NoNAs_2004 <- NARemove_Fun(WBTransport_Data_2004, 1.02);  #remove(WBTransport_Data_2004) #1.02
+WBTransportData_NoNAs_2007 <- NARemove_Fun(WBTransport_Data_2007, 1.02);  #remove(WBTransport_Data_2007) #1.02
+WBTransportData_NoNAs_2011 <- NARemove_Fun(WBTransport_Data_2011, 1.02);  #remove(WBTransport_Data_2011) #1.02
+WBHousingData_NoNAs_2004 <- NARemove_Fun(WBHousing_Data_2004, 1.25);  #remove(WBHousing_Data_2004) #1.25
+WBHousingData_NoNAs_2007 <- NARemove_Fun(WBHousing_Data_2007, 1.25);  #remove(WBHousing_Data_2007) #1.25
+WBHousingData_NoNAs_2011 <- NARemove_Fun(WBHousing_Data_2011, 1.25);  #remove(WBHousing_Data_2011) #1.25
+WBGFCFData_NoNAs_2004 <- NARemove_Fun(WBGFCF_Data_2004, 2);  #remove(WBGFCF_Data_2004) #2
+WBGFCFData_NoNAs_2007 <- NARemove_Fun(WBGFCF_Data_2007, 2);  #remove(WBGFCF_Data_2007) #2
+WBGFCFData_NoNAs_2011 <- NARemove_Fun(WBGFCF_Data_2011, 2);  #remove(WBGFCF_Data_2011) #2
+WBGoodsData_NoNAs_2004 <- NARemove_Fun(WBGoods_Data_2004, 1.02); #remove(WBGoods_Data_2004) #1.02
+WBGoodsData_NoNAs_2007 <- NARemove_Fun(WBGoods_Data_2007, 1.02); #remove(WBGoods_Data_2007) #1.02
+WBGoodsData_NoNAs_2011 <- NARemove_Fun(WBGoods_Data_2011, 1.02); #remove(WBGoods_Data_2011) #1.02
+
+WBIndicatorsDownloadedNoNAs <- WBIndicatorsDownloaded[WBIndicatorsDownloaded$indicator %in%
+        unique(c(colnames(WBFoodData_NoNAs_2004[-(1:2)]),
+                 colnames(WBFoodData_NoNAs_2007[-(1:2)]), colnames(WBFoodData_NoNAs_2011[-(1:2)]),
+                 colnames(WBGovernmentData_NoNAs_2004[-(1:2)]),      colnames(WBGovernmentData_NoNAs_2007[-(1:2)]),
+                 colnames(WBGovernmentData_NoNAs_2011[-(1:2)]),      colnames(WBServicesData_NoNAs_2004[-(1:2)]),
+                 colnames(WBServicesData_NoNAs_2007[-(1:2)]),      colnames(WBServicesData_NoNAs_2011[-(1:2)]),
+                 colnames(WBTransportData_NoNAs_2004[-(1:2)]),      colnames(WBTransportData_NoNAs_2007[-(1:2)]),
+                 colnames(WBTransportData_NoNAs_2011[-(1:2)]),      colnames(WBHousingData_NoNAs_2004[-(1:2)]),
+                 colnames(WBHousingData_NoNAs_2007[-(1:2)]),      colnames(WBHousingData_NoNAs_2011[-(1:2)]),
+                 colnames(WBGFCFData_NoNAs_2004[-(1:2)]),      colnames(WBGFCFData_NoNAs_2007[-(1:2)]),
+                 colnames(WBGFCFData_NoNAs_2011[-(1:2)]), colnames(WBGoodsData_NoNAs_2004[-(1:2)]),
+                 colnames(WBGoodsData_NoNAs_2007[-(1:2)]), colnames(WBGoodsData_NoNAs_2011[-(1:2)]))),]
+
+write.csv(WBIndicatorsDownloadedNoNAs, "./WBIndicatorsDownloaded-Included.csv")
 
 # Drop indicators that have more than 1/NA factor proportion of NAs for SDG data
 SDGFoodData_NoNAs_2004 <- NARemove_Fun(SDG_Food_Data_2004, 1.05) #; remove(SDG_Food_Data_2004)
 SDGFoodData_NoNAs_2007 <- NARemove_Fun(SDG_Food_Data_2007, 1.05)#; remove(SDG_Food_Data_2007)
 SDGFoodData_NoNAs_2011 <- NARemove_Fun(SDG_Food_Data_2011, 1.05)#; remove(SDG_Food_Data_2011)
-SDGGovernmentData_NoNAs_2004 <- NARemove_Fun(SDG_Government_Data_2004, 1.025)#; remove(SDG_Government_Data_2004)
-SDGGovernmentData_NoNAs_2007 <- NARemove_Fun(SDG_Government_Data_2007, 1.025)#; remove(SDG_Government_Data_2007)
-SDGGovernmentData_NoNAs_2011 <- NARemove_Fun(SDG_Government_Data_2011, 1.025)#; remove(SDG_Government_Data_2011)
+SDGGovernmentData_NoNAs_2004 <- NARemove_Fun(SDG_Government_Data_2004, 1.5)#; remove(SDG_Government_Data_2004)
+SDGGovernmentData_NoNAs_2007 <- NARemove_Fun(SDG_Government_Data_2007, 1.5)#; remove(SDG_Government_Data_2007)
+SDGGovernmentData_NoNAs_2011 <- NARemove_Fun(SDG_Government_Data_2011, 1.5)#; remove(SDG_Government_Data_2011)
 SDGServicesData_NoNAs_2004 <- NARemove_Fun(SDG_Services_Data_2004, 2)#; remove(SDG_Services_Data_2004)
 SDGServicesData_NoNAs_2007 <- NARemove_Fun(SDG_Services_Data_2007, 2)#; remove(SDG_Services_Data_2007)
 SDGServicesData_NoNAs_2011 <- NARemove_Fun(SDG_Services_Data_2011, 2)#; remove(SDG_Services_Data_2011)
@@ -952,23 +1426,62 @@ SDGIndicatorsDownloadedNoNAs <- SDGIndicatorsDownloaded[SDGIndicatorsDownloaded$
       colnames(SDGGoods_Data_NoNAs_2011[,-(1:2)]),      colnames(SDGGFCF_Data_NoNAs_2004[,-(1:2)]),
       colnames(SDGGFCF_Data_NoNAs_2007[,-(1:2)]),      colnames(SDGGFCF_Data_NoNAs_2011[,-(1:2)]))),]
 
-write.csv(SDGIndicatorsDownloadedNoNAs, "./SDGIndicatorsDownloaded.csv")
+write.csv(SDGIndicatorsDownloadedNoNAs, "./SDGIndicatorsDownloaded-Included.csv")
 #Create a min-max range version of all remaining data to normalize btw 0 and 1, then aggregate with Averaging
 ####Max/Min function calculation####
+
+WBSDGFoodData_NoNAs_2004 <- NARemove_Fun(WBSDGFood_Data_2004, 1.2);  remove(WBSDGFood_Data_2004) #1.2
+WBSDGFoodData_NoNAs_2007 <- NARemove_Fun(WBSDGFood_Data_2007, 1.2);  remove(WBSDGFood_Data_2007) #1.2
+WBSDGFoodData_NoNAs_2011 <- NARemove_Fun(WBSDGFood_Data_2011, 1.2);  remove(WBSDGFood_Data_2011) #1.2
+WBSDGGovernmentData_NoNAs_2004 <- NARemove_Fun(WBSDGGovernment_Data_2004, 2);  remove(WBSDGGovernment_Data_2004) #2
+WBSDGGovernmentData_NoNAs_2007 <- NARemove_Fun(WBSDGGovernment_Data_2007, 2);  remove(WBSDGGovernment_Data_2007) #2
+WBSDGGovernmentData_NoNAs_2011 <- NARemove_Fun(WBSDGGovernment_Data_2011, 2);  remove(WBSDGGovernment_Data_2011) #2
+WBSDGServicesData_NoNAs_2004 <- NARemove_Fun(WBSDGServices_Data_2004, 1.5);  remove(WBSDGServices_Data_2004) #1.5
+WBSDGServicesData_NoNAs_2007 <- NARemove_Fun(WBSDGServices_Data_2007, 1.5);  remove(WBSDGServices_Data_2007) #1.5
+WBSDGServicesData_NoNAs_2011 <- NARemove_Fun(WBSDGServices_Data_2011, 1.5);  remove(WBSDGServices_Data_2011) #1.5
+WBSDGTransportData_NoNAs_2004 <- NARemove_Fun(WBSDGTransport_Data_2004, 1.02);  remove(WBSDGTransport_Data_2004) #1.02
+WBSDGTransportData_NoNAs_2007 <- NARemove_Fun(WBSDGTransport_Data_2007, 1.02);  remove(WBSDGTransport_Data_2007) #1.02
+WBSDGTransportData_NoNAs_2011 <- NARemove_Fun(WBSDGTransport_Data_2011, 1.02);  remove(WBSDGTransport_Data_2011) #1.02
+WBSDGHousingData_NoNAs_2004 <- NARemove_Fun(WBSDGHousing_Data_2004, 1.25);  remove(WBSDGHousing_Data_2004) #1.25
+WBSDGHousingData_NoNAs_2007 <- NARemove_Fun(WBSDGHousing_Data_2007, 1.25);  remove(WBSDGHousing_Data_2007) #1.25
+WBSDGHousingData_NoNAs_2011 <- NARemove_Fun(WBSDGHousing_Data_2011, 1.25);  remove(WBSDGHousing_Data_2011) #1.25
+WBSDGGFCFData_NoNAs_2004 <- NARemove_Fun(WBSDGGFCF_Data_2004, 2);  remove(WBSDGGFCF_Data_2004) #2
+WBSDGGFCFData_NoNAs_2007 <- NARemove_Fun(WBSDGGFCF_Data_2007, 2);  remove(WBSDGGFCF_Data_2007) #2
+WBSDGGFCFData_NoNAs_2011 <- NARemove_Fun(WBSDGGFCF_Data_2011, 2);  remove(WBSDGGFCF_Data_2011) #2
+WBSDGGoodsData_NoNAs_2004 <- NARemove_Fun(WBSDGGoods_Data_2004, 1.02); remove(WBSDGGoods_Data_2004) #1.02
+WBSDGGoodsData_NoNAs_2007 <- NARemove_Fun(WBSDGGoods_Data_2007, 1.02); remove(WBSDGGoods_Data_2007) #1.02
+WBSDGGoodsData_NoNAs_2011 <- NARemove_Fun(WBSDGGoods_Data_2011, 1.02); remove(WBSDGGoods_Data_2011) #1.02
+
+WBSDGIndicatorsDownloaded <- rbind(WBIndicatorsDownloaded, SDGIndicatorsDownloaded)
+WBSDGIndicatorsDownloadedNoNAs <- WBSDGIndicatorsDownloaded[WBSDGIndicatorsDownloaded$indicator %in%
+      unique(c(colnames(WBSDGFoodData_NoNAs_2004[-(1:2)]),
+               colnames(WBSDGFoodData_NoNAs_2007[-(1:2)]), colnames(WBSDGFoodData_NoNAs_2011[-(1:2)]),
+               colnames(WBSDGGovernmentData_NoNAs_2004[-(1:2)]),      colnames(WBSDGGovernmentData_NoNAs_2007[-(1:2)]),
+               colnames(WBSDGGovernmentData_NoNAs_2011[-(1:2)]),      colnames(WBSDGServicesData_NoNAs_2004[-(1:2)]),
+               colnames(WBSDGServicesData_NoNAs_2007[-(1:2)]),      colnames(WBSDGServicesData_NoNAs_2011[-(1:2)]),
+               colnames(WBSDGTransportData_NoNAs_2004[-(1:2)]),      colnames(WBSDGTransportData_NoNAs_2007[-(1:2)]),
+               colnames(WBSDGTransportData_NoNAs_2011[-(1:2)]),      colnames(WBSDGHousingData_NoNAs_2004[-(1:2)]),
+               colnames(WBSDGHousingData_NoNAs_2007[-(1:2)]),      colnames(WBSDGHousingData_NoNAs_2011[-(1:2)]),
+               colnames(WBSDGGFCFData_NoNAs_2004[-(1:2)]),      colnames(WBSDGGFCFData_NoNAs_2007[-(1:2)]),
+               colnames(WBSDGGFCFData_NoNAs_2011[-(1:2)]), colnames(WBSDGGoodsData_NoNAs_2004[-(1:2)]),
+               colnames(WBSDGGoodsData_NoNAs_2007[-(1:2)]), colnames(WBSDGGoodsData_NoNAs_2011[-(1:2)]))),]
+
+write.csv(WBSDGIndicatorsDownloadedNoNAs, "./WBSDGIndicatorsDownloaded-Included.csv")
+
+
 MaxMin_Fun <- function(data, category){
   colnames_important <- as.data.frame(data[,-c(1:2)])
-  datamatrix <- matrix(ncol = ncol(colnames_important), nrow = nrow(data))
+  datamatrix <- as.data.frame(matrix(ncol = ncol(colnames_important), nrow = nrow(data)))
   for(i in 1:ncol(colnames_important)){
     datamatrix[,i] <- data[,i+2]/max(data[,i+2], na.rm = TRUE)
   }
-  datamatrix <- as.data.frame(datamatrix)
   colnames(datamatrix) <- colnames(colnames_important)
   datamatrix$MaxMin_Index <- rowMeans(datamatrix, na.rm = TRUE)
-  colnames(datamatrix)[ncol(datamatrix)] <- "MaxMin_Index"
+  #colnames(datamatrix)[ncol(datamatrix)] <- "MaxMin_Index"
   datamatrix$CLUM_category <- category
-  datamatrix <- cbind(data[,c(1:2)], datamatrix[,-1])
-  datamatrix$NAPercent <- (rowSums(is.na(datamatrix))/max(rowSums(is.na(datamatrix))))*100
-  datamatrix <- datamatrix[,c(1:2,(ncol(datamatrix)-2):ncol(datamatrix))]
+  datamatrix$NApercent <- (rowSums(is.na(datamatrix))/ncol(colnames_important))*100
+  datamatrix <- cbind(as.data.frame(data[,c(1:2)]), datamatrix[,(ncol(datamatrix)-2):ncol(datamatrix)])
+  # Redundant datamatrix <- datamatrix[,c(1:2,(ncol(datamatrix)-2):ncol(datamatrix))]
   return(datamatrix)
 }
 
@@ -1005,8 +1518,25 @@ remove(WBServicesData_MaxMin_2004,WBServicesData_MaxMin_2007,WBServicesData_MaxM
 WBTransportData_MaxMin_2004 <- MaxMin_Fun(WBTransportData_NoNAs_2004, "Personal Transportation")
 WBTransportData_MaxMin_2007 <- MaxMin_Fun(WBTransportData_NoNAs_2007, "Personal Transportation")
 WBTransportData_MaxMin_2011 <- MaxMin_Fun(WBTransportData_NoNAs_2011, "Personal Transportation")
-WBTransportData_MaxMin <- rbind(WBTransportData_MaxMin_2004,WBTransportData_MaxMin_2007, WBTransportData_MaxMin_2011)
+WBTransportData_MaxMin <- rbind(WBTransportData_MaxMin_2004,WBTransportData_MaxMin_2007,
+                                if(length(WBTransportData_NoNAs_2011)>2){WBTransportData_MaxMin_2011})
 remove(WBTransportData_MaxMin_2004,WBTransportData_MaxMin_2007, WBTransportData_MaxMin_2011)
+try(WBGFCFData_MaxMin_2004 <- MaxMin_Fun(WBGFCFData_NoNAs_2004, "Gross Fixed Capital Formation"))
+WBGFCFData_MaxMin_2007 <- MaxMin_Fun(WBGFCFData_NoNAs_2007, "Gross Fixed Capital Formation")
+WBGFCFData_MaxMin_2011 <- MaxMin_Fun(WBGFCFData_NoNAs_2011, "Gross Fixed Capital Formation")
+WBGFCFData_MaxMin <- rbind(if(length(WBGFCFData_NoNAs_2004)>2){WBGFCFData_MaxMin_2004},
+                           WBGFCFData_MaxMin_2007,WBGFCFData_MaxMin_2011)
+WBHousingData_MaxMin_2004 <- MaxMin_Fun(WBHousingData_NoNAs_2004, "Housing")
+WBHousingData_MaxMin_2007 <- MaxMin_Fun(WBHousingData_NoNAs_2007, "Housing")
+WBHousingData_MaxMin_2011 <- MaxMin_Fun(WBHousingData_NoNAs_2011, "Housing")
+WBHousingData_MaxMin <- rbind(WBHousingData_MaxMin_2004,WBHousingData_MaxMin_2007,WBHousingData_MaxMin_2011)
+remove(WBHousingData_MaxMin_2004,WBHousingData_MaxMin_2007,WBHousingData_MaxMin_2011)
+WBGoodsData_MaxMin_2004 <- MaxMin_Fun(WBGoodsData_NoNAs_2004, "Goods")
+WBGoodsData_MaxMin_2007 <- MaxMin_Fun(WBGoodsData_NoNAs_2007, "Goods")
+WBGoodsData_MaxMin_2011 <- MaxMin_Fun(WBGoodsData_NoNAs_2011, "Goods")
+WBGoodsData_MaxMin <- rbind(WBGoodsData_MaxMin_2004,WBGoodsData_MaxMin_2007,WBGoodsData_MaxMin_2011)
+remove(WBGoodsData_MaxMin_2004,WBGoodsData_MaxMin_2007,WBGoodsData_MaxMin_2011)
+
 #Single column version
 ######  Transport if there is only 1 column (eg. if the NA_Factor for Transport is 2)
 # colnames(TransportData_NoNAs) <- c("iso2c", "country", "MaxMin_Index", "year")
@@ -1016,18 +1546,23 @@ remove(WBTransportData_MaxMin_2004,WBTransportData_MaxMin_2007, WBTransportData_
 # TransportData_MaxMin <- TransportData_NoNAs[,c(2:6)]
 
 ##For WB Housing data, only one column and already 0 to 100
-WBHousingData_MaxMin <- rbind(WBHousingData_NoNAs_2004,WBHousingData_NoNAs_2007,WBHousingData_NoNAs_2011)
-colnames(WBHousingData_MaxMin) <- c("country", "year", "MaxMin_Index")
-WBHousingData_MaxMin$MaxMin_Index <- WBHousingData_MaxMin$MaxMin_Index/100
-WBHousingData_MaxMin$CLUM_category <- "Housing"
-WBHousingData_MaxMin$NAPercent <- (rowSums(is.na(WBHousingData_MaxMin))/max(rowSums(is.na(WBHousingData_MaxMin))))*100
+# WBHousingData_MaxMin <- rbind(WBHousingData_NoNAs_2004,WBHousingData_NoNAs_2007,WBHousingData_NoNAs_2011)
+# colnames(WBHousingData_MaxMin) <- c("country", "year", "MaxMin_Index")
+# WBHousingData_MaxMin$MaxMin_Index <- WBHousingData_MaxMin$MaxMin_Index/100
+# WBHousingData_MaxMin$CLUM_category <- "Housing"
+# WBHousingData_MaxMin$NAPercent <- (rowSums(is.na(WBHousingData_MaxMin))/max(rowSums(is.na(WBHousingData_MaxMin))))*100
 ##For Goods Data, just rename column
-WBGoods_Data_MaxMin <- WBGoods_Data
-colnames(WBGoods_Data_MaxMin) <- c("country", "year", "MaxMin_Index")
-WBGoods_Data_MaxMin$MaxMin_Index <- WBGoods_Data_MaxMin$MaxMin_Index/
-  max(WBGoods_Data_MaxMin$MaxMin_Index, na.rm = TRUE)
-WBGoods_Data_MaxMin$CLUM_category <- "Goods"
-WBGoods_Data_MaxMin$NAPercent <- (rowSums(is.na(WBGoods_Data))/max(rowSums(is.na(WBGoods_Data))))*100
+# WBGoodsData_MaxMin <- WBGoods_Data
+# colnames(WBGoodsData_MaxMin) <- c("country", "year", "MaxMin_Index")
+# WBGoodsData_MaxMin$MaxMin_Index <- WBGoodsData_MaxMin$MaxMin_Index/
+#   max(WBGoodsData_MaxMin$MaxMin_Index, na.rm = TRUE)
+# WBGoodsData_MaxMin$CLUM_category <- "Goods"
+# WBGoodsData_MaxMin$NAPercent <- (rowSums(is.na(WBGoods_Data))/max(rowSums(is.na(WBGoods_Data))))*100
+
+##Binding Data together for single spreadsheet
+WBMaxMinData <- rbind(WBFoodData_MaxMin, WBGovernmentData_MaxMin, WBServicesData_MaxMin, 
+                      WBTransportData_MaxMin, WBGFCFData_MaxMin, WBHousingData_MaxMin, WBGoodsData_MaxMin)
+colnames(WBMaxMinData) <- c("country", "year", "MaxMin_Index", "CLUM_category", "NApercent")
 
 SDGFoodData_MaxMin_2004 <- MaxMin_Fun(SDGFoodData_NoNAs_2004, "Food")
 SDGFoodData_MaxMin_2007 <- MaxMin_Fun(SDGFoodData_NoNAs_2007, "Food")
@@ -1068,15 +1603,52 @@ SDGGFCF_Data_MaxMin_2011 <- MaxMin_Fun(SDGGFCF_Data_NoNAs_2011, "Gross Fixed Cap
 SDGGFCF_Data_MaxMin <- rbind(SDGGFCF_Data_MaxMin_2004,SDGGFCF_Data_MaxMin_2007, SDGGFCF_Data_MaxMin_2011)
   remove(SDGGFCF_Data_MaxMin_2004,SDGGFCF_Data_MaxMin_2007, SDGGFCF_Data_MaxMin_2011)
 
-##Binding Data together for single spreadsheet
-WBMaxMinData <- rbind(WBFoodData_MaxMin, WBGovernmentData_MaxMin, WBServicesData_MaxMin, 
-                      WBTransportData_MaxMin, WBHousingData_MaxMin, WBGoods_Data_MaxMin)
-colnames(WBMaxMinData) <- c("country", "year", "MaxMin_Index", "CLUM_category", "NAPercent")
-
 SDGMaxMinData <- rbind(SDGFoodData_MaxMin, SDGGovernmentData_MaxMin, SDGServicesData_MaxMin, 
                        SDGTransportData_MaxMin, SDGHousingData_MaxMin, SDGGoods_Data_MaxMin, 
                        SDGGFCF_Data_MaxMin)
-colnames(SDGMaxMinData) <- c("country", "year", "MaxMin_Index", "CLUM_category", "NAPercent")
+colnames(SDGMaxMinData) <- c("country", "year", "MaxMin_Index", "CLUM_category", "NApercent")
+
+
+WBSDGFoodData_MaxMin_2004 <- MaxMin_Fun(WBSDGFoodData_NoNAs_2004, "Food")
+WBSDGFoodData_MaxMin_2007 <- MaxMin_Fun(WBSDGFoodData_NoNAs_2007, "Food")
+WBSDGFoodData_MaxMin_2011 <- MaxMin_Fun(WBSDGFoodData_NoNAs_2011, "Food")
+WBSDGFoodData_MaxMin <- rbind(WBSDGFoodData_MaxMin_2004,WBSDGFoodData_MaxMin_2007, WBSDGFoodData_MaxMin_2011)
+remove(WBSDGFoodData_MaxMin_2004,WBSDGFoodData_MaxMin_2007,WBSDGFoodData_MaxMin_2011)
+WBSDGGovernmentData_MaxMin_2004 <- MaxMin_Fun(WBSDGGovernmentData_NoNAs_2004, "Government")
+WBSDGGovernmentData_MaxMin_2007 <- MaxMin_Fun(WBSDGGovernmentData_NoNAs_2007, "Government")
+WBSDGGovernmentData_MaxMin_2011 <- MaxMin_Fun(WBSDGGovernmentData_NoNAs_2011, "Government")
+WBSDGGovernmentData_MaxMin <- rbind(WBSDGGovernmentData_MaxMin_2004,WBSDGGovernmentData_MaxMin_2007, WBSDGGovernmentData_MaxMin_2011)
+remove(WBSDGGovernmentData_MaxMin_2004,WBSDGGovernmentData_MaxMin_2007,WBSDGGovernmentData_MaxMin_2011)
+WBSDGServicesData_MaxMin_2004 <- MaxMin_Fun(WBSDGServicesData_NoNAs_2004, "Services")
+WBSDGServicesData_MaxMin_2007 <- MaxMin_Fun(WBSDGServicesData_NoNAs_2007, "Services")
+WBSDGServicesData_MaxMin_2011 <- MaxMin_Fun(WBSDGServicesData_NoNAs_2011, "Services")
+WBSDGServicesData_MaxMin <- rbind(WBSDGServicesData_MaxMin_2004,WBSDGServicesData_MaxMin_2007,WBSDGServicesData_MaxMin_2011)
+remove(WBSDGServicesData_MaxMin_2004,WBSDGServicesData_MaxMin_2007,WBSDGServicesData_MaxMin_2011)
+WBSDGTransportData_MaxMin_2004 <- MaxMin_Fun(WBSDGTransportData_NoNAs_2004, "Personal Transportation")
+WBSDGTransportData_MaxMin_2007 <- MaxMin_Fun(WBSDGTransportData_NoNAs_2007, "Personal Transportation")
+WBSDGTransportData_MaxMin_2011 <- MaxMin_Fun(WBSDGTransportData_NoNAs_2011, "Personal Transportation")
+WBSDGTransportData_MaxMin <- rbind(WBSDGTransportData_MaxMin_2004, WBSDGTransportData_MaxMin_2007, WBSDGTransportData_MaxMin_2011)
+remove(WBSDGTransportData_MaxMin_2004,WBSDGTransportData_MaxMin_2007, WBSDGTransportData_MaxMin_2011)
+WBSDGHousingData_MaxMin_2004 <- MaxMin_Fun(WBSDGHousingData_NoNAs_2004, "Housing")
+WBSDGHousingData_MaxMin_2007 <- MaxMin_Fun(WBSDGHousingData_NoNAs_2007, "Housing")
+WBSDGHousingData_MaxMin_2011 <- MaxMin_Fun(WBSDGHousingData_NoNAs_2011, "Housing")
+WBSDGHousingData_MaxMin <- rbind(WBSDGHousingData_MaxMin_2004, WBSDGHousingData_MaxMin_2007, WBSDGHousingData_MaxMin_2011)
+remove(WBSDGHousingData_MaxMin_2004,WBSDGHousingData_MaxMin_2007, WBSDGHousingData_MaxMin_2011)
+WBSDGGoodsData_MaxMin_2004 <- MaxMin_Fun(WBSDGGoodsData_NoNAs_2004, "Goods")
+WBSDGGoodsData_MaxMin_2007 <- MaxMin_Fun(WBSDGGoodsData_NoNAs_2007, "Goods")
+WBSDGGoodsData_MaxMin_2011 <- MaxMin_Fun(WBSDGGoodsData_NoNAs_2011, "Goods")
+WBSDGGoodsData_MaxMin <- rbind(WBSDGGoodsData_MaxMin_2004,WBSDGGoodsData_MaxMin_2007, WBSDGGoodsData_MaxMin_2011)
+remove(WBSDGGoodsData_MaxMin_2004,WBSDGGoodsData_MaxMin_2007, WBSDGGoodsData_MaxMin_2011)
+WBSDGGFCFData_MaxMin_2004 <- MaxMin_Fun(WBSDGGFCFData_NoNAs_2004, "Gross Fixed Capital Formation")
+WBSDGGFCFData_MaxMin_2007 <- MaxMin_Fun(WBSDGGFCFData_NoNAs_2007, "Gross Fixed Capital Formation")
+WBSDGGFCFData_MaxMin_2011 <- MaxMin_Fun(WBSDGGFCFData_NoNAs_2011, "Gross Fixed Capital Formation")
+WBSDGGFCFData_MaxMin <- rbind(WBSDGGFCFData_MaxMin_2004,WBSDGGFCFData_MaxMin_2007, WBSDGGFCFData_MaxMin_2011)
+remove(WBSDGGFCFData_MaxMin_2004,WBSDGGFCFData_MaxMin_2007, WBSDGGFCFData_MaxMin_2011)
+
+WBSDGMaxMinData <- rbind(WBSDGFoodData_MaxMin, WBSDGGovernmentData_MaxMin, WBSDGServicesData_MaxMin, 
+                       try(WBSDGTransportData_MaxMin), WBSDGHousingData_MaxMin, WBSDGGoodsData_MaxMin, 
+                       WBSDGGFCFData_MaxMin)
+colnames(WBSDGMaxMinData) <- c("country", "year", "MaxMin_Index", "CLUM_category", "NApercent")
 
 ########Now for z-score stuff
 #### Z-Zcore function calculation####
@@ -1088,11 +1660,12 @@ ZScore_Fun <- function(data, category){
   }
   datamatrix <- as.data.frame(datamatrix)
   colnames(datamatrix) <- colnames(colnames_important)
-  datamatrix$MaxMin_Index <- rowMeans(datamatrix, na.rm = TRUE)
-  colnames(datamatrix)[ncol(datamatrix)] <- "ZScore_Index"
+  datamatrix$ZScore_Index <- rowMeans(datamatrix, na.rm = TRUE)
+  #Redundant: colnames(datamatrix)[ncol(datamatrix)] <- "ZScore_Index"
   datamatrix$CLUM_category <- category
-  datamatrix <- cbind(data[,c(1:2)], datamatrix[,-1])
-  datamatrix <- datamatrix[,c(1:2,(ncol(datamatrix)-1):ncol(datamatrix))]
+  datamatrix$NApercent <- (rowSums(is.na(datamatrix))/ncol(colnames_important))*100
+  datamatrix <- cbind(as.data.frame(data[,c(1:2)]), datamatrix[,(ncol(datamatrix)-2):ncol(datamatrix)])
+  # Redundant datamatrix <- datamatrix[,c(1:2,(ncol(datamatrix)-1):ncol(datamatrix))]
   return(datamatrix)
 }
 
@@ -1123,32 +1696,53 @@ WBGovernmentData_ZScore <- rbind(WBGovernmentData_ZScore_2004, WBGovernmentData_
 remove(WBGovernmentData_ZScore_2004, WBGovernmentData_ZScore_2007, WBGovernmentData_ZScore_2011)
 WBTransportData_ZScore_2004 <- ZScore_Fun(WBTransportData_NoNAs_2004, "Personal Transportation")
 WBTransportData_ZScore_2007 <- ZScore_Fun(WBTransportData_NoNAs_2007, "Personal Transportation")
-WBTransportData_ZScore_2011 <- ZScore_Fun(WBTransportData_NoNAs_2011, "Personal Transportation")
-WBTransportData_ZScore <- rbind(WBTransportData_ZScore_2004, WBTransportData_ZScore_2007, WBTransportData_ZScore_2011)
+try(WBTransportData_ZScore_2011 <- ZScore_Fun(WBTransportData_NoNAs_2011, "Personal Transportation"))
+WBTransportData_ZScore <- rbind(WBTransportData_ZScore_2004, WBTransportData_ZScore_2007, 
+                                if(length(WBTransportData_NoNAs_2011)>2){WBTransportData_ZScore_2011})
 remove(WBTransportData_ZScore_2004, WBTransportData_ZScore_2007, WBTransportData_ZScore_2011)
 WBServicesData_ZScore_2004 <- ZScore_Fun(WBServicesData_NoNAs_2004, "Services")
 WBServicesData_ZScore_2007 <- ZScore_Fun(WBServicesData_NoNAs_2007, "Services")
 WBServicesData_ZScore_2011 <- ZScore_Fun(WBServicesData_NoNAs_2011, "Services")
 WBServicesData_ZScore <- rbind(WBServicesData_ZScore_2004, WBServicesData_ZScore_2007, WBServicesData_ZScore_2011)
 remove(WBServicesData_ZScore_2004, WBServicesData_ZScore_2007, WBServicesData_ZScore_2011)
+try(WBGFCFData_ZScore_2004 <- ZScore_Fun(WBGFCFData_NoNAs_2004, "Gross Fixed Capital Formation"))
+WBGFCFData_ZScore_2007 <- ZScore_Fun(WBGFCFData_NoNAs_2007, "Gross Fixed Capital Formation")
+WBGFCFData_ZScore_2011 <- ZScore_Fun(WBGFCFData_NoNAs_2011, "Gross Fixed Capital Formation")
+WBGFCFData_ZScore <- rbind(if(length(WBGFCFData_NoNAs_2004)>2){WBGFCFData_ZScore_2004},
+                           WBGFCFData_ZScore_2007, WBGFCFData_ZScore_2011)
+WBHousingData_ZScore_2004 <- ZScore_Fun(WBHousingData_NoNAs_2004, "Housing")
+WBHousingData_ZScore_2007 <- ZScore_Fun(WBHousingData_NoNAs_2007, "Housing")
+WBHousingData_ZScore_2011 <- ZScore_Fun(WBHousingData_NoNAs_2011, "Housing")
+WBHousingData_ZScore <- rbind(WBHousingData_ZScore_2004, WBHousingData_ZScore_2007, WBHousingData_ZScore_2011)
+remove(WBHousingData_ZScore_2004, WBHousingData_ZScore_2007, WBHousingData_ZScore_2011)
+WBGoodsData_ZScore_2004 <- ZScore_Fun(WBGoodsData_NoNAs_2004, "Goods")
+WBGoodsData_ZScore_2007 <- ZScore_Fun(WBGoodsData_NoNAs_2007, "Goods")
+WBGoodsData_ZScore_2011 <- ZScore_Fun(WBGoodsData_NoNAs_2011, "Goods")
+WBGoodsData_ZScore <- rbind(WBGoodsData_ZScore_2004, WBGoodsData_ZScore_2007, WBGoodsData_ZScore_2011)
+remove(WBGoodsData_ZScore_2004, WBGoodsData_ZScore_2007, WBGoodsData_ZScore_2011)
+
+
+
 ##For Housing data, only one column and already 0 to 1
 ###HousingData_ZScore <- ZScore_Fun(HousingData_NoNAs, "Housing")
-WBZScore_Index <- scale(WBHousingData_MaxMin$MaxMin_Index)
-WBHousingData_ZScore <- cbind(WBHousingData_MaxMin[,c(1,2)], WBZScore_Index, WBHousingData_MaxMin[,4])
-colnames(WBHousingData_ZScore) <- c("country", "year", "ZScore_Index", "CLUM_category")
-##For Goods Data, just rename column
-WBZScore_Index <- scale(WBGoods_Data_MaxMin$MaxMin_Index)
-WBGoods_Data_ZScore <- cbind(WBGoods_Data_MaxMin[,c(1:2)], WBZScore_Index,WBGoods_Data_MaxMin[,4])
-colnames(WBGoods_Data_ZScore) <- c("country", "year", "ZScore_Index", "CLUM_category")
+# WBZScore_Index <- scale(WBHousingData_MaxMin$MaxMin_Index)
+# WBHousingData_ZScore <- cbind(WBHousingData_MaxMin[,c(1,2)], WBZScore_Index, WBHousingData_MaxMin[,4])
+# colnames(WBHousingData_ZScore) <- c("country", "year", "ZScore_Index", "CLUM_category")
+# ##For Goods Data, just rename column
+# WBZScore_Index <- scale(WBGoods_Data_MaxMin$MaxMin_Index)
+# WBGoods_Data_ZScore <- cbind(WBGoods_Data_MaxMin[,c(1:2)], WBZScore_Index,WBGoods_Data_MaxMin[,4])
+# colnames(WBGoods_Data_ZScore) <- c("country", "year", "ZScore_Index", "CLUM_category")
 
 
 ##Binding Data together for single spreadsheet
 WBZScoreData <- rbind(WBFoodData_ZScore, WBGovernmentData_ZScore, WBServicesData_ZScore, 
-                      WBTransportData_ZScore, WBHousingData_ZScore, WBGoods_Data_ZScore)
-colnames(WBZScoreData) <- c("country", "year", "ZScore_Index", "CLUM_category")
+                      WBTransportData_ZScore, WBHousingData_ZScore, WBGFCFData_ZScore, WBGoodsData_ZScore)
+#colnames(WBZScoreData) <- c("country", "year", "ZScore_Index", "CLUM_category")
 
 ##Combining MaxMin and Z-score datasets
-WBIndicesData <- left_join(WBZScoreData, WBMaxMinData, by = c("country", "year", "CLUM_category"))
+WBIndicesData <- merge(WBZScoreData, WBMaxMinData, by.x = c("country", "year", "CLUM_category", "NApercent"),
+                       by.y = c("country", "year", "CLUM_category", "NApercent"),
+                       all=TRUE)
 
 #write.csv(IndicesData, "./World Bank Data/IndicesData.csv")
 write.csv(WBIndicesData, "./IndicesDataWB.csv")
@@ -1197,12 +1791,64 @@ SDGGFCF_Data_ZScore <- rbind(SDGGFCF_Data_ZScore_2004, SDGGFCF_Data_ZScore_2007,
 ##Binding Data together for single spreadsheet
 SDGZScoreData <- rbind(SDGFoodData_ZScore, SDGGovernmentData_ZScore, SDGServicesData_ZScore, 
                        SDGTransportData_ZScore, SDGHousingData_ZScore, SDGGFCF_Data_ZScore, SDGGoods_Data_ZScore)
-colnames(SDGZScoreData) <- c("country", "year", "ZScore_Index", "CLUM_category")
+colnames(SDGZScoreData) <- c("country", "year", "ZScore_Index", "CLUM_category", "NApercent")
 
 ##Combining MaxMin and Z-score datasets
-SDGIndicesData <- left_join(SDGZScoreData, SDGMaxMinData, by = c("country", "year", "CLUM_category"))
+SDGIndicesData <- merge(SDGZScoreData, SDGMaxMinData, by.x = c("country", "year", "CLUM_category", "NApercent"),
+                        by.y = c("country", "year", "CLUM_category", "NApercent"),
+                        all=TRUE) 
 
 write.csv(SDGIndicesData, "./IndicesDataSDG.csv")
+
+WBSDGFoodData_ZScore_2004 <- ZScore_Fun(WBSDGFoodData_NoNAs_2004, "Food")
+WBSDGFoodData_ZScore_2007 <- ZScore_Fun(WBSDGFoodData_NoNAs_2007, "Food")
+WBSDGFoodData_ZScore_2011 <- ZScore_Fun(WBSDGFoodData_NoNAs_2011, "Food")
+WBSDGFoodData_ZScore <- rbind(WBSDGFoodData_ZScore_2004, WBSDGFoodData_ZScore_2007, WBSDGFoodData_ZScore_2011)
+remove(WBSDGFoodData_ZScore_2004, WBSDGFoodData_ZScore_2007, WBSDGFoodData_ZScore_2011)
+WBSDGGovernmentData_ZScore_2004 <- ZScore_Fun(WBSDGGovernmentData_NoNAs_2004, "Government")
+WBSDGGovernmentData_ZScore_2007 <- ZScore_Fun(WBSDGGovernmentData_NoNAs_2007, "Government")
+WBSDGGovernmentData_ZScore_2011 <- ZScore_Fun(WBSDGGovernmentData_NoNAs_2011, "Government")
+WBSDGGovernmentData_ZScore <- rbind(WBSDGGovernmentData_ZScore_2004, WBSDGGovernmentData_ZScore_2007, WBSDGGovernmentData_ZScore_2011)
+remove(WBSDGGovernmentData_ZScore_2004, WBSDGGovernmentData_ZScore_2007, WBSDGGovernmentData_ZScore_2011)
+# Temp fix for no data in 2004 or 2007 as of 12/22/2020
+WBSDGTransportData_ZScore_2004 <- ZScore_Fun(WBSDGTransportData_NoNAs_2004, "Personal Transportation")
+WBSDGTransportData_ZScore_2007 <- ZScore_Fun(WBSDGTransportData_NoNAs_2007, "Personal Transportation")
+WBSDGTransportData_ZScore_2011 <- ZScore_Fun(WBSDGTransportData_NoNAs_2011, "Personal Transportation")
+WBSDGTransportData_ZScore <- rbind(WBSDGTransportData_ZScore_2004,WBSDGTransportData_ZScore_2007,WBSDGTransportData_ZScore_2011)
+remove(WBSDGTransportData_ZScore_2004, WBSDGTransportData_ZScore_2007, WBSDGTransportData_ZScore_2011)
+WBSDGServicesData_ZScore_2004 <- ZScore_Fun(WBSDGServicesData_NoNAs_2004, "Services")
+WBSDGServicesData_ZScore_2007 <- ZScore_Fun(WBSDGServicesData_NoNAs_2007, "Services")
+WBSDGServicesData_ZScore_2011 <- ZScore_Fun(WBSDGServicesData_NoNAs_2011, "Services")
+WBSDGServicesData_ZScore <- rbind(WBSDGServicesData_ZScore_2004, WBSDGServicesData_ZScore_2007, WBSDGServicesData_ZScore_2011)
+remove(WBSDGServicesData_ZScore_2004, WBSDGServicesData_ZScore_2007, WBSDGServicesData_ZScore_2011)
+WBSDGHousingData_ZScore_2004 <- ZScore_Fun(WBSDGHousingData_NoNAs_2004, "Housing") # No data
+WBSDGHousingData_ZScore_2007 <- ZScore_Fun(WBSDGHousingData_NoNAs_2007, "Housing")
+WBSDGHousingData_ZScore_2011 <- ZScore_Fun(WBSDGHousingData_NoNAs_2011, "Housing")
+WBSDGHousingData_ZScore <- rbind(WBSDGHousingData_ZScore_2004, WBSDGHousingData_ZScore_2007, WBSDGHousingData_ZScore_2011)
+remove(WBSDGHousingData_ZScore_2004, WBSDGHousingData_ZScore_2007, WBSDGHousingData_ZScore_2011)
+WBSDGGoodsData_ZScore_2004 <- ZScore_Fun(WBSDGGoodsData_NoNAs_2004, "Goods")
+WBSDGGoodsData_ZScore_2007 <- ZScore_Fun(WBSDGGoodsData_NoNAs_2007, "Goods")
+WBSDGGoodsData_ZScore_2011 <- ZScore_Fun(WBSDGGoodsData_NoNAs_2011, "Goods")
+WBSDGGoodsData_ZScore <- rbind(WBSDGGoodsData_ZScore_2004, WBSDGGoodsData_ZScore_2007, WBSDGGoodsData_ZScore_2011)
+remove(WBSDGGoodsData_ZScore_2004, WBSDGGoodsData_ZScore_2007, WBSDGGoodsData_ZScore_2011)
+WBSDGGFCFData_ZScore_2004 <- ZScore_Fun(WBSDGGFCFData_NoNAs_2004, "Gross Fixed Capital Formation")
+WBSDGGFCFData_ZScore_2007 <- ZScore_Fun(WBSDGGFCFData_NoNAs_2007, "Gross Fixed Capital Formation")
+WBSDGGFCFData_ZScore_2011 <- ZScore_Fun(WBSDGGFCFData_NoNAs_2011, "Gross Fixed Capital Formation")
+WBSDGGFCFData_ZScore <- rbind(WBSDGGFCFData_ZScore_2004, WBSDGGFCFData_ZScore_2007, WBSDGGFCFData_ZScore_2011)
+remove(WBSDGGFCFData_ZScore_2004, WBSDGGFCFData_ZScore_2007, WBSDGGFCFData_ZScore_2011)
+
+##Binding Data together for single spreadsheet
+WBSDGZScoreData <- rbind(WBSDGFoodData_ZScore, WBSDGGovernmentData_ZScore, WBSDGServicesData_ZScore, 
+                       try(WBSDGTransportData_ZScore), WBSDGHousingData_ZScore, WBSDGGFCFData_ZScore, WBSDGGoodsData_ZScore)
+colnames(WBSDGZScoreData) <- c("country", "year", "ZScore_Index", "CLUM_category", "NApercent")
+
+##Combining MaxMin and Z-score datasets
+WBSDGIndicesData <- merge(WBSDGZScoreData, WBSDGMaxMinData, by.x = c("country", "year", "CLUM_category", "NApercent"),
+                          by.y = c("country", "year", "CLUM_category", "NApercent"),
+                          all=TRUE)
+
+write.csv(WBSDGIndicesData, "./IndicesDataWBSDG.csv")
+
 
 cat('Looks good, Run 2.Country Correspondence to make sure all countries and groupings were dealt with\n 
     and do the GTAP weighted aggregation')
