@@ -27,30 +27,30 @@ EFSDGData11 <- subset(EFSDGData,(EFSDGData$year == Year & EFSDGData$QScore > QSc
 EFSDGWBData11 <- subset(EFSDGWBData, (EFSDGWBData$year == Year & EFSDGWBData$QScore > QScoreMin))
 
 
-EFWBData11.Food <- subset(EFWBData11, EFWBData11$clum7_name == "Food")
-EFWBData11.Goods <- subset(EFWBData11, EFWBData11$clum7_name == "Goods")
-EFWBData11.Government <- subset(EFWBData11, EFWBData11$clum7_name == "Government")
-EFWBData11.Housing <- subset(EFWBData11, EFWBData11$clum7_name == "Housing")
-EFWBData11.PersonalTransportation <- subset(EFWBData11, EFWBData11$clum7_name == "Personal Transportation")
-EFWBData11.Services <- subset(EFWBData11, EFWBData11$clum7_name == "Services")
-EFWBData11.GFCF <- subset(EFWBData11, EFWBData11$clum7_name == "Gross Fixed Capital Formation")
+Food.EFWBData11 <- subset(EFWBData11, EFWBData11$clum7_name == "Food")
+Goods.EFWBData11 <- subset(EFWBData11, EFWBData11$clum7_name == "Goods")
+Government.EFWBData11 <- subset(EFWBData11, EFWBData11$clum7_name == "Government")
+Housing.EFWBData11 <- subset(EFWBData11, EFWBData11$clum7_name == "Housing")
+PersonalTransportation.EFWBData11 <- subset(EFWBData11, EFWBData11$clum7_name == "Personal Transportation")
+Services.EFWBData11 <- subset(EFWBData11, EFWBData11$clum7_name == "Services")
+GFCF.EFWBData11 <- subset(EFWBData11, EFWBData11$clum7_name == "Gross Fixed Capital Formation")
 
 
-EFSDGData11.Food <- subset(EFSDGData11, EFSDGData11$clum7_name == "Food")
-EFSDGData11.Goods <- subset(EFSDGData11, EFSDGData11$clum7_name == "Goods")
-EFSDGData11.Government <- subset(EFSDGData11, EFSDGData11$clum7_name == "Government")
-EFSDGData11.GrossFixedCapitalFormation <- subset(EFSDGData11, EFSDGData11$clum7_name == "Gross Fixed Capital Formation")
-EFSDGData11.Housing <- subset(EFSDGData11, EFSDGData11$clum7_name == "Housing")
-EFSDGData11.PersonalTransportation <- subset(EFSDGData11, EFSDGData11$clum7_name == "Personal Transportation")
-EFSDGData11.Services <- subset(EFSDGData11, EFSDGData11$clum7_name == "Services")
+Food.EFSDGData11 <- subset(EFSDGData11, EFSDGData11$clum7_name == "Food")
+Goods.EFSDGData11 <- subset(EFSDGData11, EFSDGData11$clum7_name == "Goods")
+Government.EFSDGData11 <- subset(EFSDGData11, EFSDGData11$clum7_name == "Government")
+Housing.EFSDGData11 <- subset(EFSDGData11, EFSDGData11$clum7_name == "Housing")
+PersonalTransportation.EFSDGData11 <- subset(EFSDGData11, EFSDGData11$clum7_name == "Personal Transportation")
+Services.EFSDGData11 <- subset(EFSDGData11, EFSDGData11$clum7_name == "Services")
+GFCF.EFSDGData11 <- subset(EFSDGData11, EFSDGData11$clum7_name == "Gross Fixed Capital Formation")
 
-EFSDGWBData11.Food <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Food")
-EFSDGWBData11.Goods <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Goods")
-EFSDGWBData11.Government <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Government")
-EFSDGWBData11.Housing <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Housing")
-EFSDGWBData11.PersonalTransportation <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Personal Transportation")
-EFSDGWBData11.Services <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Services")
-EFSDGWBData11.GFCF <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Gross Fixed Capital Formation")
+Food.EFSDGWBData11 <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Food")
+Goods.EFSDGWBData11 <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Goods")
+Government.EFSDGWBData11 <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Government")
+Housing.EFSDGWBData11 <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Housing")
+PersonalTransportation.EFSDGWBData11 <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Personal Transportation")
+Services.EFSDGWBData11 <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Services")
+GFCF.EFSDGWBData11 <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Gross Fixed Capital Formation")
 
 if (file.exists("Plots")){print("Plots directory already exists")
 } else {
@@ -94,7 +94,7 @@ plotfunc <- function(data, title, CLUMcat, IndDL, height1, height2){
 
 # change if no pause(waitlength) between charts wanted
 peruse <- "no"
-waitlength <- 1
+waitlength <- 0
 pause <- function (secs){
   if (peruse=="yes"){Sys.sleep(secs)
   } else {
@@ -102,52 +102,51 @@ pause <- function (secs){
 }
 
 #Plot and output all SDG Indicators 
-plotfunc(EFSDGData11.Food,"SDG Data", "Food", SDGIndicatorsDld_Inc, 1.5, .5)
+plotfunc(Food.EFSDGData11,"SDG Data", "Food", SDGIndicatorsDld_Inc, 1.5, .5)
 pause(waitlength)
-plotfunc(EFSDGData11.Goods,"SDG Data", "Goods",SDGIndicatorsDld_Inc, 1.5, .5)
+plotfunc(Goods.EFSDGData11,"SDG Data", "Goods",SDGIndicatorsDld_Inc, 1.5, .5)
 pause(waitlength)
-plotfunc(EFSDGData11.Housing,"SDG Data", "Housing", SDGIndicatorsDld_Inc, 1.5, .5)
+plotfunc(Housing.EFSDGData11,"SDG Data", "Housing", SDGIndicatorsDld_Inc, 1.5, .5)
 pause(waitlength)
-plotfunc(EFSDGData11.Services,"SDG Data", "Services", SDGIndicatorsDld_Inc, 1.5, .5)
+plotfunc(Services.EFSDGData11,"SDG Data", "Services", SDGIndicatorsDld_Inc, 1.5, .5)
 pause(waitlength)
-try(plotfunc(EFSDGData11.PersonalTransportation,"SDG Data", "Transport", SDGIndicatorsDld_Inc, 1.5, .5))
+try(plotfunc(PersonalTransportation.EFSDGData11,"SDG Data", "Transport", SDGIndicatorsDld_Inc, 1.5, .5))
 pause(waitlength)
-plotfunc(EFSDGData11.Government,"SDG Data", "Government", SDGIndicatorsDld_Inc, 1.5, .5)
+plotfunc(Government.EFSDGData11,"SDG Data", "Government", SDGIndicatorsDld_Inc, 1.5, .5)
 pause(waitlength)
-plotfunc(EFSDGData11.GrossFixedCapitalFormation,"SDG Data", "GFCF", SDGIndicatorsDld_Inc, 1.5, .5)
+plotfunc(GFCF.EFSDGData11,"SDG Data", "GFCF", SDGIndicatorsDld_Inc, 1.5, .5)
 pause(waitlength)
 
 #Plot and output all WB Indicators
-plotfunc(EFWBData11.Food,"World Bank Data", "Food",WBIndicatorsDLd_Inc, 1.5, .5)
+plotfunc(Food.EFWBData11,"World Bank Data", "Food",WBIndicatorsDLd_Inc, 1.5, .5)
 pause(waitlength)
 #Added manual line to WBIndicatorsDLd_Inc for WBGoods to work with function
-plotfunc(EFWBData11.Goods,"World Bank Data", "Goods", WBIndicatorsDLd_Inc, 1.5, .5)
+plotfunc(Goods.EFWBData11,"World Bank Data", "Goods", WBIndicatorsDLd_Inc, 1.5, .5)
 pause(waitlength)
-plotfunc(EFWBData11.Services,"World Bank Data", "Services",WBIndicatorsDLd_Inc, 2, .8)
+plotfunc(Services.EFWBData11,"World Bank Data", "Services",WBIndicatorsDLd_Inc, 2, .8)
 pause(waitlength)
-plotfunc(EFWBData11.Housing,"World Bank Data", "Housing",WBIndicatorsDLd_Inc, 1.5, .5)
+plotfunc(Housing.EFWBData11,"World Bank Data", "Housing",WBIndicatorsDLd_Inc, 1.5, .5)
 pause(waitlength)
-plotfunc(EFWBData11.PersonalTransportation,"World Bank Data", "Personal Transportation",WBIndicatorsDLd_Inc, 1.5, .5)
+plotfunc(PersonalTransportation.EFWBData11,"World Bank Data", "Personal Transportation",WBIndicatorsDLd_Inc, 1.5, .5)
 pause(waitlength)
-try(plotfunc(EFWBData11.GFCF,"World Bank Data", "Gross Fixed Capital Formation",WBIndicatorsDLd_Inc, 1.5, .5))
+try(plotfunc(GFCF.EFWBData11,"World Bank Data", "GFCF",WBIndicatorsDLd_Inc, 2, .5))
 pause(waitlength)
-plotfunc(EFWBData11.Government,"World Bank Data", "Government",WBIndicatorsDLd_Inc, 2, .8)
+plotfunc(Government.EFWBData11,"World Bank Data", "Government",WBIndicatorsDLd_Inc, 2, .8)
 pause(waitlength)
-
 
 #Plot and output all SDG and WB  Combination Indicators
-plotfunc(EFSDGWBData11.Food,"SDG & World Bank Data", "Food", WBSDGIndicatorsDld_Inc, 1.5, .5)
+plotfunc(Food.EFSDGWBData11,"SDG & World Bank Data", "Food", WBSDGIndicatorsDld_Inc, 1.5, .5)
 pause(waitlength)
 #Added manual line to WBIndicatorsDLd_Inc for WBGoods to work with function
-plotfunc(EFSDGWBData11.Goods,"SDG & World Bank Data", "Goods", WBSDGIndicatorsDld_Inc, 1.5, .5)
+plotfunc(Goods.EFSDGWBData11,"SDG & World Bank Data", "Goods", WBSDGIndicatorsDld_Inc, 1.5, .5)
 pause(waitlength)
-plotfunc(EFSDGWBData11.Services,"SDG & World Bank Data", "Services",WBSDGIndicatorsDld_Inc, 2, .8)
+plotfunc(Services.EFSDGWBData11,"SDG & World Bank Data", "Services",WBSDGIndicatorsDld_Inc, 2, .8)
 pause(waitlength)
-plotfunc(EFSDGWBData11.Housing,"SDG & World Bank Data", "Housing",WBSDGIndicatorsDld_Inc, 1.5, .5)
+plotfunc(Housing.EFSDGWBData11,"SDG & World Bank Data", "Housing",WBSDGIndicatorsDld_Inc, 1.5, .5)
 pause(waitlength)
-plotfunc(EFSDGWBData11.PersonalTransportation,"SDG & World Bank Data", "Personal Transportation",WBSDGIndicatorsDld_Inc, 1.5, .5)
+plotfunc(PersonalTransportation.EFSDGWBData11,"SDG & World Bank Data", "Personal Transportation",WBSDGIndicatorsDld_Inc, 1.5, .5)
 pause(waitlength)
-try(plotfunc(EFSDGWBData11.GFCF,"SDG & World Bank Data", "Gross Fixed Capital Formation",WBSDGIndicatorsDld_Inc, 1.5, .5))
+try(plotfunc(GFCF.EFSDGWBData11,"SDG & World Bank Data", "GFCF",WBSDGIndicatorsDld_Inc, 1.5, .5))
 pause(waitlength)
-plotfunc(EFSDGWBData11.Government,"SDG & World Bank Data", "Government",WBSDGIndicatorsDld_Inc, 2, .8)
+plotfunc(Government.EFSDGWBData11,"SDG & World Bank Data", "Government",WBSDGIndicatorsDld_Inc, 2, .8)
 pause(waitlength)

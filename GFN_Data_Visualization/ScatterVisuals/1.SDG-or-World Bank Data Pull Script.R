@@ -396,6 +396,82 @@ write.csv(Region_drop, file = "./DropTheseCountries.csv", row.names = F)
 
 ## WB pull and split section
 #{
+
+RespellDict <- list("Bahamas, The"="Bahamas", "Bolivia (Plurinational State of)" = "Bolivia",
+"Czechia" = "Czech Republic",
+"Cape Verde" = "Cabo Verde",
+"Congo, Dem. Rep." = "Congo, Democratic Republic of",
+"Democratic Republic of the Congo" = "Congo, Democratic Republic of",
+"Congo, Rep." = "Congo",
+"Congo Republic" = "Congo",
+"Cote dIvoire" = "Cote d'Ivoire",
+"Cote D'Ivoire" = "Cote d'Ivoire",
+"Curacao" = "Curaçao",
+"CuraÃ§ao" = "Curaçao",
+"Egypt, Arab Rep." = "Egypt",
+"Micronesia" = "Micronesia, Federated States of",
+"Micronesia, Fed. Sts." = "Micronesia, Federated States of",
+"French Guyana" = "French Guiana",
+"Gambia, The" = "Gambia",
+"Hong Kong SAR, China" = "China Hong Kong SAR",
+"Hong Kong, Special Administrative Region of China" = "China Hong Kong SAR",
+"Hong Kong, China" = "China Hong Kong SAR",
+"China, Hong Kong Special Administrative Region" = "China Hong Kong SAR",
+"Iran, Islamic Rep." = "Iran, Islamic Republic of",
+"Iran" = "Iran, Islamic Republic of",
+"Iran (Islamic Republic of)" = "Iran, Islamic Republic of",
+"Kyrgyz Republic" = "Kyrgyzstan",
+"St. Kitts and Nevis" = "Saint Kitts and Nevis",
+"Korea, Rep." = "Korea, Republic of",
+"South Korea" = "Korea, Republic of",
+"Republic of Korea" = "Korea, Republic of",
+"Korea, Dem. Rep." = "Korea, Democratic People's Republic of",
+"Democratic People's Republic of Korea" = "Korea, Democratic People's Republic of",
+"Lao PDR" = "Lao People's Democratic Republic",
+"Laos" = "Lao People's Democratic Republic",
+"St. Lucia" = "Saint Lucia",
+"Libya" = "Libyan Arab Jamahiriya",
+"St. Martin (French part)" = "Saint-Martin (French Part)",
+"Macedonia, FYR" = "Macedonia TFYR",
+"North Macedonia" = "Macedonia TFYR",
+"The former Yugoslav Republic of Macedonia" = "Macedonia TFYR",
+"Macao SAR, China" = "China, Macao SAR",
+"Republic of Moldova" = "Moldova",
+"Korea, Dem. People’s Rep." = "Korea, Democratic People's Republic of",
+"Reunion" = "Réunion",
+"RÃ©union" = "Réunion",
+"São Tomé and Principe" = "Sao Tome and Principe",
+"SÃ£o TomÃ© and Principe" = "Sao Tome and Principe",
+"Slovak Republic" = "Slovakia",
+"eSwatini" = "Swaziland",
+"Eswatini" = "Swaziland",
+"St. Helena" = "Saint Helena",
+"Sint Maarten (Dutch part)" = "Sint Maarten (Dutch Part)",
+"Sint Maarten (Dutch part)\t" = "Sint Maarten (Dutch Part)",
+"Saint Martin (French Part)" = "Saint-Martin (French Part)",
+"Saint Pierre et Miquelon" = "Saint Pierre and Miquelon",
+"Sudan [former]" = "Sudan (former)",
+"St. Vincent and the Grenadines" = "Saint Vincent and Grenadines",
+"Saint Vincent and the Grenadines" = "Saint Vincent and Grenadines",
+"Taiwan" = "Taiwan, Republic of China",
+"Taiwan, Republic of China" = "Taiwan, Republic of China",
+"Taiwan, China" = "Taiwan, Republic of China",
+"Tanzania" = "Tanzania, United Republic of",
+"United Republic of Tanzania" = "Tanzania, United Republic of",
+"United States" = "United States of America",
+"United Kingdom of Great Britain and Northern Ireland" = "United Kingdom",
+"Venezuela, RB" = "Venezuela, Bolivarian Republic of",
+"Venezuela (Bolivarian Republic of)" = "Venezuela, Bolivarian Republic of",
+"Virgin Islands (U.S.)" = "US Virgin Islands",
+"Vietnam" = "Viet Nam",
+"Wallis and Futuna" = "Wallis and Futuna Islands",
+"Yemen, Rep." = "Yemen")
+
+Repl_Country_ReSpell  <- function(Thedata, wb,gfn){
+  Thedata$country==RespellDict[[wb]]<<-gfn
+}
+
+
 WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear, CLUM_endyear){
   DataFrame <- WDI(country = "all", indicator = indicator_list, start = CLUM_startyear, 
                    end = CLUM_endyear, extra = FALSE, cache = NULL)
@@ -409,6 +485,18 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
    # keys <- c("DataFrame$country", "DataFrame$year")
    # DataFrame[,lapply(.SD,mean),keys]
   #Seems good 
+  DataFrame <- DataFrame[!(DataFrame$country %in% Region_drop),]
+  # Loop to match country names to the key:value list, RespellDict, and replace the key (name found in data) with the value (GFN name)
+  for (i in 1:length(RespellDict)){
+    for (j in 1:nrow(DataFrame)){
+      if (DataFrame$country[j]==names(RespellDict[i])){
+        DataFrame$country[j] <- RespellDict[[i]]
+      }
+    }
+  }
+  # Added these 2 becausee the symbols are not being picked up/differentiated
+  DataFrame$country[grepl("Korea, Dem. Peopl",DataFrame$country)] <- "Korea, Democratic People's Republic of"
+  DataFrame$country[grepl("oire",DataFrame$country)] <- "Cote d'Ivoire"
   DataFrame <- DataFrame %>% group_by(country, year) %>% summarise_all(funs(mean(., na.rm = TRUE)))
    return(DataFrame)
 }
@@ -507,6 +595,7 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
   
   WBFood_Data <- WB_DataPull_Function(WBFood_Indicators, 2004, 2007, 2011)
   #Filter out regions from the compiled list of non-NFA countries/regions
+  # I think redundant now - it's in the pull function
   WBFood_Data <- WBFood_Data[!(WBFood_Data$country %in% Region_drop),]
   # Now in the function #WBFood_Data$iso2c <- NULL
   # Reverse the orders for High is BAD
@@ -1055,9 +1144,17 @@ SDGCLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
   Data_cols <- c("series", "geoAreaName", "timePeriodStart", "value")
   Data <- Data[Data_cols]
   Data <- Data[!(Data$geoAreaName %in% Region_drop),]
-  #reshape to make each indicator a column
-  #setDT(Data)
-  ## Deals with the mulitple values for each country for a series in a year (but unclear why they exist)
+  for (i in 1:length(RespellDict)){
+    for (j in 1:nrow(Data)){
+      if (Data$geoAreaName[j]==names(RespellDict[i])){
+        Data$geoAreaName[j] <- RespellDict[[i]]
+      }
+    }
+  }
+  # Added these 2 becausee the symbols are not being picked up/differentiated
+  Data$geoAreaName[grepl("Korea, Dem. Peopl",Data$geoAreaName)] <- "Korea, Democratic People's Republic of"
+  Data$geoAreaName[grepl("oire",Data$geoAreaName)] <- "Cote d'Ivoire"
+  ## Deals with the mulitple values for each country for a series in a year bc of different isos (but still unclear why they exist)
   Data <-
     # A try to give a message if none of the data series exist
     try(reshape2::dcast(Data, geoAreaName + timePeriodStart ~ series, value.var = 'value', fun.aggregate=mean))
@@ -1293,27 +1390,31 @@ SDGCLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
 #  }
 }
 
-WBSDGFood_Data_2004 <- merge(WBFood_Data_2004, SDG_Food_Data_2004[,-2], by.x = "country", by.y = "geoAreaName")
-WBSDGFood_Data_2007 <- merge(WBFood_Data_2007, SDG_Food_Data_2007[,-2], by.x = "country", by.y = "geoAreaName")
-WBSDGFood_Data_2011 <- merge(WBFood_Data_2011, SDG_Food_Data_2011[,-2], by.x = "country", by.y = "geoAreaName")
-WBSDGGovernment_Data_2004 <- merge(WBGovernment_Data_2004, SDG_Government_Data_2004[,-2], by.x = "country", by.y = "geoAreaName")
-WBSDGGovernment_Data_2007 <- merge(WBGovernment_Data_2007, SDG_Government_Data_2007[,-2], by.x = "country", by.y = "geoAreaName")
-WBSDGGovernment_Data_2011 <- merge(WBGovernment_Data_2011, SDG_Government_Data_2011[,-2], by.x = "country", by.y = "geoAreaName")
-WBSDGServices_Data_2004 <- merge(WBServices_Data_2004, SDG_Services_Data_2004[,-2], by.x = "country", by.y = "geoAreaName")
-WBSDGServices_Data_2007 <- merge(WBServices_Data_2007, SDG_Services_Data_2007[,-2], by.x = "country", by.y = "geoAreaName")
-WBSDGServices_Data_2011 <- merge(WBServices_Data_2011, SDG_Services_Data_2011[,-2], by.x = "country", by.y = "geoAreaName")
-WBSDGTransport_Data_2004 <- left_join(WBTransport_Data_2004, SDG_Transport_Data_2004[,-2], by = c("country" = "geoAreaName"))
-WBSDGTransport_Data_2007 <- left_join(WBTransport_Data_2007, SDG_Transport_Data_2007[,-2], by = c("country" = "geoAreaName"))
-WBSDGTransport_Data_2011 <- left_join(WBTransport_Data_2011, SDG_Transport_Data_2011[,-2], by = c("country" = "geoAreaName"))
-WBSDGHousing_Data_2004 <- merge(WBHousing_Data_2004, SDG_Housing_Data_2004[,-2], by.x = "country", by.y = "geoAreaName")
-WBSDGHousing_Data_2007 <- merge(WBHousing_Data_2007, SDG_Housing_Data_2007[,-2], by.x = "country", by.y = "geoAreaName")
-WBSDGHousing_Data_2011 <- merge(WBHousing_Data_2011, SDG_Housing_Data_2011[,-2], by.x = "country", by.y = "geoAreaName")
-WBSDGGFCF_Data_2004 <- merge(WBGFCF_Data_2004, SDG_GFCF_Data_2004[,-2], by.x = "country", by.y = "geoAreaName")
-WBSDGGFCF_Data_2007 <- merge(WBGFCF_Data_2007, SDG_GFCF_Data_2007[,-2], by.x = "country", by.y = "geoAreaName")
-WBSDGGFCF_Data_2011 <- merge(WBGFCF_Data_2011, SDG_GFCF_Data_2011[,-2], by.x = "country", by.y = "geoAreaName")
-WBSDGGoods_Data_2004 <- merge(WBGoods_Data_2004, SDG_Goods_Data_2004[,-2], by.x = "country", by.y = "geoAreaName")
-WBSDGGoods_Data_2007 <- merge(WBGoods_Data_2007, SDG_Goods_Data_2007[,-2], by.x = "country", by.y = "geoAreaName")
-WBSDGGoods_Data_2011 <- merge(WBGoods_Data_2011, SDG_Goods_Data_2011[,-2], by.x = "country", by.y = "geoAreaName")
+
+  
+  
+  
+WBSDGFood_Data_2004 <- merge(WBFood_Data_2004, SDG_Food_Data_2004, by.x = c("country","year"), by.y = c("geoAreaName","timePeriodStart"), all=TRUE)
+WBSDGFood_Data_2007 <- merge(WBFood_Data_2007, SDG_Food_Data_2007, by.x = c("country", "year"), by.y = c("geoAreaName", "timePeriodStart"), all=TRUE)
+WBSDGFood_Data_2011 <- merge(WBFood_Data_2011, SDG_Food_Data_2011, by.x = c("country", "year"), by.y = c("geoAreaName", "timePeriodStart"), all=TRUE)
+WBSDGGovernment_Data_2004 <- merge(WBGovernment_Data_2004, SDG_Government_Data_2004, by.x = c("country", "year"), by.y = c("geoAreaName", "timePeriodStart"), all=TRUE)
+WBSDGGovernment_Data_2007 <- merge(WBGovernment_Data_2007, SDG_Government_Data_2007, by.x = c("country", "year"), by.y = c("geoAreaName", "timePeriodStart"), all=TRUE)
+WBSDGGovernment_Data_2011 <- merge(WBGovernment_Data_2011, SDG_Government_Data_2011, by.x = c("country", "year"), by.y = c("geoAreaName", "timePeriodStart"), all=TRUE)
+WBSDGServices_Data_2004 <- merge(WBServices_Data_2004, SDG_Services_Data_2004, by.x = c("country", "year"), by.y = c("geoAreaName", "timePeriodStart"), all=TRUE)
+WBSDGServices_Data_2007 <- merge(WBServices_Data_2007, SDG_Services_Data_2007, by.x = c("country", "year"), by.y = c("geoAreaName", "timePeriodStart"), all=TRUE)
+WBSDGServices_Data_2011 <- merge(WBServices_Data_2011, SDG_Services_Data_2011, by.x = c("country", "year"), by.y = c("geoAreaName", "timePeriodStart"), all=TRUE)
+WBSDGTransport_Data_2004 <- merge(WBTransport_Data_2004, SDG_Transport_Data_2004, by.x = c("country", "year"), by.y = c("geoAreaName", "timePeriodStart"), all=TRUE)
+WBSDGTransport_Data_2007 <- merge(WBTransport_Data_2007, SDG_Transport_Data_2007, by.x = c("country", "year"), by.y = c("geoAreaName", "timePeriodStart"), all=TRUE)
+WBSDGTransport_Data_2011 <- merge(WBTransport_Data_2011, SDG_Transport_Data_2011, by.x = c("country", "year"), by.y = c("geoAreaName", "timePeriodStart"), all=TRUE)
+WBSDGHousing_Data_2004 <- merge(WBHousing_Data_2004, SDG_Housing_Data_2004, by.x = c("country", "year"), by.y = c("geoAreaName", "timePeriodStart"), all=TRUE)
+WBSDGHousing_Data_2007 <- merge(WBHousing_Data_2007, SDG_Housing_Data_2007, by.x = c("country", "year"), by.y = c("geoAreaName", "timePeriodStart"), all=TRUE)
+WBSDGHousing_Data_2011 <- merge(WBHousing_Data_2011, SDG_Housing_Data_2011, by.x = c("country", "year"), by.y = c("geoAreaName", "timePeriodStart"), all=TRUE)
+WBSDGGFCF_Data_2004 <- merge(WBGFCF_Data_2004, SDG_GFCF_Data_2004, by.x = c("country", "year"), by.y = c("geoAreaName", "timePeriodStart"), all=TRUE)
+WBSDGGFCF_Data_2007 <- merge(WBGFCF_Data_2007, SDG_GFCF_Data_2007, by.x = c("country", "year"), by.y = c("geoAreaName", "timePeriodStart"), all=TRUE)
+WBSDGGFCF_Data_2011 <- merge(WBGFCF_Data_2011, SDG_GFCF_Data_2011, by.x = c("country", "year"), by.y = c("geoAreaName", "timePeriodStart"), all=TRUE)
+WBSDGGoods_Data_2004 <- merge(WBGoods_Data_2004, SDG_Goods_Data_2004, by.x = c("country", "year"), by.y = c("geoAreaName", "timePeriodStart"), all=TRUE)
+WBSDGGoods_Data_2007 <- merge(WBGoods_Data_2007, SDG_Goods_Data_2007, by.x = c("country", "year"), by.y = c("geoAreaName", "timePeriodStart"), all=TRUE)
+WBSDGGoods_Data_2011 <- merge(WBGoods_Data_2011, SDG_Goods_Data_2011, by.x = c("country", "year"), by.y = c("geoAreaName", "timePeriodStart"), all=TRUE)
 
   
   
@@ -1326,7 +1427,7 @@ NARemove_Fun <- function(data, NA_factor){
   na_count <-sapply(data, function(y) sum(length(which(is.na(y)))))
   na_count_df <- data.frame(na_count)
   ##Remove columns where more than half of observations are NAs for all 3 years
-  na_count_df <- subset(na_count_df, na_count < nrow(data)/NA_factor)
+  na_count_df <- subset(na_count_df, na_count < nrow(data) * NA_factor)
   rownames_tokeep <- rownames(na_count_df)
   ##Keep columns without big number of NAs
   Data_NoNAs <- data[rownames_tokeep]
@@ -1351,28 +1452,30 @@ NARemove_Fun <- function(data, NA_factor){
 #           c("SN_ITK_DEFC","SH_STA_STUNT","SH_STA_OVRWGT"))
 
 # Drop indicators that have more than 1/NA factor proportion of NAs for World Bank (and goods) data
-k <- 1
-WBFoodData_NoNAs_2004 <- NARemove_Fun(WBFood_Data_2004, 1.2);  #remove(WBFood_Data_2004) #1.2
-WBFoodData_NoNAs_2007 <- NARemove_Fun(WBFood_Data_2007, 1.2);  #remove(WBFood_Data_2007) #1.2
-WBFoodData_NoNAs_2011 <- NARemove_Fun(WBFood_Data_2011, 1.2);  #remove(WBFood_Data_2011) #1.2
-WBGovernmentData_NoNAs_2004 <- NARemove_Fun(WBGovernment_Data_2004, 2);  #remove(WBGovernment_Data_2004) #2
-WBGovernmentData_NoNAs_2007 <- NARemove_Fun(WBGovernment_Data_2007, 2);  #remove(WBGovernment_Data_2007) #2
-WBGovernmentData_NoNAs_2011 <- NARemove_Fun(WBGovernment_Data_2011, 2);  #remove(WBGovernment_Data_2011) #2
-WBServicesData_NoNAs_2004 <- NARemove_Fun(WBServices_Data_2004, 1.5);  #remove(WBServices_Data_2004) #1.5
-WBServicesData_NoNAs_2007 <- NARemove_Fun(WBServices_Data_2007, 1.5);  #remove(WBServices_Data_2007) #1.5
-WBServicesData_NoNAs_2011 <- NARemove_Fun(WBServices_Data_2011, 1.5);  #remove(WBServices_Data_2011) #1.5
-WBTransportData_NoNAs_2004 <- NARemove_Fun(WBTransport_Data_2004, 1.02);  #remove(WBTransport_Data_2004) #1.02
-WBTransportData_NoNAs_2007 <- NARemove_Fun(WBTransport_Data_2007, 1.02);  #remove(WBTransport_Data_2007) #1.02
-WBTransportData_NoNAs_2011 <- NARemove_Fun(WBTransport_Data_2011, 1.02);  #remove(WBTransport_Data_2011) #1.02
-WBHousingData_NoNAs_2004 <- NARemove_Fun(WBHousing_Data_2004, 1.25);  #remove(WBHousing_Data_2004) #1.25
-WBHousingData_NoNAs_2007 <- NARemove_Fun(WBHousing_Data_2007, 1.25);  #remove(WBHousing_Data_2007) #1.25
-WBHousingData_NoNAs_2011 <- NARemove_Fun(WBHousing_Data_2011, 1.25);  #remove(WBHousing_Data_2011) #1.25
-WBGFCFData_NoNAs_2004 <- NARemove_Fun(WBGFCF_Data_2004, 2);  #remove(WBGFCF_Data_2004) #2
-WBGFCFData_NoNAs_2007 <- NARemove_Fun(WBGFCF_Data_2007, 2);  #remove(WBGFCF_Data_2007) #2
-WBGFCFData_NoNAs_2011 <- NARemove_Fun(WBGFCF_Data_2011, 2);  #remove(WBGFCF_Data_2011) #2
-WBGoodsData_NoNAs_2004 <- NARemove_Fun(WBGoods_Data_2004, 1.02); #remove(WBGoods_Data_2004) #1.02
-WBGoodsData_NoNAs_2007 <- NARemove_Fun(WBGoods_Data_2007, 1.02); #remove(WBGoods_Data_2007) #1.02
-WBGoodsData_NoNAs_2011 <- NARemove_Fun(WBGoods_Data_2011, 1.02); #remove(WBGoods_Data_2011) #1.02
+# Updated so that NA Factor is between 0 and 1 (proportion of NAs as threshhold to drop data series)
+k <- .98
+
+WBFoodData_NoNAs_2004 <- NARemove_Fun(WBFood_Data_2004, k);  #remove(WBFood_Data_2004) #1.2
+WBFoodData_NoNAs_2007 <- NARemove_Fun(WBFood_Data_2007, k);  #remove(WBFood_Data_2007) #1.2
+WBFoodData_NoNAs_2011 <- NARemove_Fun(WBFood_Data_2011, k);  #remove(WBFood_Data_2011) #1.2
+WBGovernmentData_NoNAs_2004 <- NARemove_Fun(WBGovernment_Data_2004, k);  #remove(WBGovernment_Data_2004) #2
+WBGovernmentData_NoNAs_2007 <- NARemove_Fun(WBGovernment_Data_2007, k);  #remove(WBGovernment_Data_2007) #2
+WBGovernmentData_NoNAs_2011 <- NARemove_Fun(WBGovernment_Data_2011, k);  #remove(WBGovernment_Data_2011) #2
+WBServicesData_NoNAs_2004 <- NARemove_Fun(WBServices_Data_2004, k);  #remove(WBServices_Data_2004) #1.5
+WBServicesData_NoNAs_2007 <- NARemove_Fun(WBServices_Data_2007, k);  #remove(WBServices_Data_2007) #1.5
+WBServicesData_NoNAs_2011 <- NARemove_Fun(WBServices_Data_2011, k);  #remove(WBServices_Data_2011) #1.5
+WBTransportData_NoNAs_2004 <- NARemove_Fun(WBTransport_Data_2004, k);  #remove(WBTransport_Data_2004) #1.02
+WBTransportData_NoNAs_2007 <- NARemove_Fun(WBTransport_Data_2007, k);  #remove(WBTransport_Data_2007) #1.02
+WBTransportData_NoNAs_2011 <- NARemove_Fun(WBTransport_Data_2011, k);  #remove(WBTransport_Data_2011) #1.02
+WBHousingData_NoNAs_2004 <- NARemove_Fun(WBHousing_Data_2004, k);  #remove(WBHousing_Data_2004) #1.25
+WBHousingData_NoNAs_2007 <- NARemove_Fun(WBHousing_Data_2007, k);  #remove(WBHousing_Data_2007) #1.25
+WBHousingData_NoNAs_2011 <- NARemove_Fun(WBHousing_Data_2011, k);  #remove(WBHousing_Data_2011) #1.25
+WBGFCFData_NoNAs_2004 <- NARemove_Fun(WBGFCF_Data_2004, k);  #remove(WBGFCF_Data_2004) #2
+WBGFCFData_NoNAs_2007 <- NARemove_Fun(WBGFCF_Data_2007, k);  #remove(WBGFCF_Data_2007) #2
+WBGFCFData_NoNAs_2011 <- NARemove_Fun(WBGFCF_Data_2011, k);  #remove(WBGFCF_Data_2011) #2
+WBGoodsData_NoNAs_2004 <- NARemove_Fun(WBGoods_Data_2004, k); #remove(WBGoods_Data_2004) #1.02
+WBGoodsData_NoNAs_2007 <- NARemove_Fun(WBGoods_Data_2007, k); #remove(WBGoods_Data_2007) #1.02
+WBGoodsData_NoNAs_2011 <- NARemove_Fun(WBGoods_Data_2011, k); #remove(WBGoods_Data_2011) #1.02
 
 WBIndicatorsDownloadedNoNAs <- WBIndicatorsDownloaded[WBIndicatorsDownloaded$indicator %in%
         unique(c(colnames(WBFoodData_NoNAs_2004[-(1:2)]),
@@ -1390,27 +1493,27 @@ WBIndicatorsDownloadedNoNAs <- WBIndicatorsDownloaded[WBIndicatorsDownloaded$ind
 write.csv(WBIndicatorsDownloadedNoNAs, "./WBIndicatorsDownloaded-Included.csv")
 
 # Drop indicators that have more than 1/NA factor proportion of NAs for SDG data
-SDGFoodData_NoNAs_2004 <- NARemove_Fun(SDG_Food_Data_2004, 1.05) #; remove(SDG_Food_Data_2004)
-SDGFoodData_NoNAs_2007 <- NARemove_Fun(SDG_Food_Data_2007, 1.05)#; remove(SDG_Food_Data_2007)
-SDGFoodData_NoNAs_2011 <- NARemove_Fun(SDG_Food_Data_2011, 1.05)#; remove(SDG_Food_Data_2011)
-SDGGovernmentData_NoNAs_2004 <- NARemove_Fun(SDG_Government_Data_2004, 1.5)#; remove(SDG_Government_Data_2004)
-SDGGovernmentData_NoNAs_2007 <- NARemove_Fun(SDG_Government_Data_2007, 1.5)#; remove(SDG_Government_Data_2007)
-SDGGovernmentData_NoNAs_2011 <- NARemove_Fun(SDG_Government_Data_2011, 1.5)#; remove(SDG_Government_Data_2011)
-SDGServicesData_NoNAs_2004 <- NARemove_Fun(SDG_Services_Data_2004, 2)#; remove(SDG_Services_Data_2004)
-SDGServicesData_NoNAs_2007 <- NARemove_Fun(SDG_Services_Data_2007, 2)#; remove(SDG_Services_Data_2007)
-SDGServicesData_NoNAs_2011 <- NARemove_Fun(SDG_Services_Data_2011, 2)#; remove(SDG_Services_Data_2011)
-SDGTransportData_NoNAs_2004 <- NARemove_Fun(SDG_Transport_Data_2004, 1.25)#; remove(SDG_Transport_Data_2004)
-SDGTransportData_NoNAs_2007 <- NARemove_Fun(SDG_Transport_Data_2007, 1.25)#; remove(SDG_Transport_Data_2007)
-SDGTransportData_NoNAs_2011 <- NARemove_Fun(SDG_Transport_Data_2011, 1.25)#; remove(SDG_Transport_Data_2011)
-SDGHousingData_NoNAs_2004 <- NARemove_Fun(SDG_Housing_Data_2004, 1.25)#; remove(SDG_Housing_Data_2004)
-SDGHousingData_NoNAs_2007 <- NARemove_Fun(SDG_Housing_Data_2007, 1.25)#; remove(SDG_Housing_Data_2007)
-SDGHousingData_NoNAs_2011 <- NARemove_Fun(SDG_Housing_Data_2011, 1.25)#; remove(SDG_Housing_Data_2011)
-SDGGoods_Data_NoNAs_2004 <- NARemove_Fun(SDG_Goods_Data_2004, 2)#; remove(SDG_Goods_Data_2004)
-SDGGoods_Data_NoNAs_2007 <- NARemove_Fun(SDG_Goods_Data_2007, 2)#; remove(SDG_Goods_Data_2007)
-SDGGoods_Data_NoNAs_2011 <- NARemove_Fun(SDG_Goods_Data_2011, 2)#; remove(SDG_Goods_Data_2011)
-SDGGFCF_Data_NoNAs_2004 <- NARemove_Fun(SDG_GFCF_Data_2004, 2)#; remove(SDG_GFCF_Data_2004)
-SDGGFCF_Data_NoNAs_2007 <- NARemove_Fun(SDG_GFCF_Data_2007, 2)#; remove(SDG_GFCF_Data_2007)
-SDGGFCF_Data_NoNAs_2011 <- NARemove_Fun(SDG_GFCF_Data_2011, 2)#; remove(SDG_GFCF_Data_2011)
+SDGFoodData_NoNAs_2004 <- NARemove_Fun(SDG_Food_Data_2004, k) #; remove(SDG_Food_Data_2004)
+SDGFoodData_NoNAs_2007 <- NARemove_Fun(SDG_Food_Data_2007, k)#; remove(SDG_Food_Data_2007)
+SDGFoodData_NoNAs_2011 <- NARemove_Fun(SDG_Food_Data_2011, k)#; remove(SDG_Food_Data_2011)
+SDGGovernmentData_NoNAs_2004 <- NARemove_Fun(SDG_Government_Data_2004, k)#; remove(SDG_Government_Data_2004)
+SDGGovernmentData_NoNAs_2007 <- NARemove_Fun(SDG_Government_Data_2007, k)#; remove(SDG_Government_Data_2007)
+SDGGovernmentData_NoNAs_2011 <- NARemove_Fun(SDG_Government_Data_2011, k)#; remove(SDG_Government_Data_2011)
+SDGServicesData_NoNAs_2004 <- NARemove_Fun(SDG_Services_Data_2004, k)#; remove(SDG_Services_Data_2004)
+SDGServicesData_NoNAs_2007 <- NARemove_Fun(SDG_Services_Data_2007, k)#; remove(SDG_Services_Data_2007)
+SDGServicesData_NoNAs_2011 <- NARemove_Fun(SDG_Services_Data_2011, k)#; remove(SDG_Services_Data_2011)
+SDGTransportData_NoNAs_2004 <- NARemove_Fun(SDG_Transport_Data_2004, k)#; remove(SDG_Transport_Data_2004)
+SDGTransportData_NoNAs_2007 <- NARemove_Fun(SDG_Transport_Data_2007, k)#; remove(SDG_Transport_Data_2007)
+SDGTransportData_NoNAs_2011 <- NARemove_Fun(SDG_Transport_Data_2011, k)#; remove(SDG_Transport_Data_2011)
+SDGHousingData_NoNAs_2004 <- NARemove_Fun(SDG_Housing_Data_2004, k)#; remove(SDG_Housing_Data_2004)
+SDGHousingData_NoNAs_2007 <- NARemove_Fun(SDG_Housing_Data_2007, k)#; remove(SDG_Housing_Data_2007)
+SDGHousingData_NoNAs_2011 <- NARemove_Fun(SDG_Housing_Data_2011, k)#; remove(SDG_Housing_Data_2011)
+SDGGoods_Data_NoNAs_2004 <- NARemove_Fun(SDG_Goods_Data_2004, k)#; remove(SDG_Goods_Data_2004)
+SDGGoods_Data_NoNAs_2007 <- NARemove_Fun(SDG_Goods_Data_2007, k)#; remove(SDG_Goods_Data_2007)
+SDGGoods_Data_NoNAs_2011 <- NARemove_Fun(SDG_Goods_Data_2011, k)#; remove(SDG_Goods_Data_2011)
+SDGGFCF_Data_NoNAs_2004 <- NARemove_Fun(SDG_GFCF_Data_2004, k)#; remove(SDG_GFCF_Data_2004)
+SDGGFCF_Data_NoNAs_2007 <- NARemove_Fun(SDG_GFCF_Data_2007, k)#; remove(SDG_GFCF_Data_2007)
+SDGGFCF_Data_NoNAs_2011 <- NARemove_Fun(SDG_GFCF_Data_2011, k)#; remove(SDG_GFCF_Data_2011)
 
 #
 SDGIndicatorsDownloadedNoNAs <- SDGIndicatorsDownloaded[SDGIndicatorsDownloaded$indicator %in%
@@ -1430,27 +1533,27 @@ write.csv(SDGIndicatorsDownloadedNoNAs, "./SDGIndicatorsDownloaded-Included.csv"
 #Create a min-max range version of all remaining data to normalize btw 0 and 1, then aggregate with Averaging
 ####Max/Min function calculation####
 
-WBSDGFoodData_NoNAs_2004 <- NARemove_Fun(WBSDGFood_Data_2004, 1.2);  remove(WBSDGFood_Data_2004) #1.2
-WBSDGFoodData_NoNAs_2007 <- NARemove_Fun(WBSDGFood_Data_2007, 1.2);  remove(WBSDGFood_Data_2007) #1.2
-WBSDGFoodData_NoNAs_2011 <- NARemove_Fun(WBSDGFood_Data_2011, 1.2);  remove(WBSDGFood_Data_2011) #1.2
-WBSDGGovernmentData_NoNAs_2004 <- NARemove_Fun(WBSDGGovernment_Data_2004, 2);  remove(WBSDGGovernment_Data_2004) #2
-WBSDGGovernmentData_NoNAs_2007 <- NARemove_Fun(WBSDGGovernment_Data_2007, 2);  remove(WBSDGGovernment_Data_2007) #2
-WBSDGGovernmentData_NoNAs_2011 <- NARemove_Fun(WBSDGGovernment_Data_2011, 2);  remove(WBSDGGovernment_Data_2011) #2
-WBSDGServicesData_NoNAs_2004 <- NARemove_Fun(WBSDGServices_Data_2004, 1.5);  remove(WBSDGServices_Data_2004) #1.5
-WBSDGServicesData_NoNAs_2007 <- NARemove_Fun(WBSDGServices_Data_2007, 1.5);  remove(WBSDGServices_Data_2007) #1.5
-WBSDGServicesData_NoNAs_2011 <- NARemove_Fun(WBSDGServices_Data_2011, 1.5);  remove(WBSDGServices_Data_2011) #1.5
-WBSDGTransportData_NoNAs_2004 <- NARemove_Fun(WBSDGTransport_Data_2004, 1.02);  remove(WBSDGTransport_Data_2004) #1.02
-WBSDGTransportData_NoNAs_2007 <- NARemove_Fun(WBSDGTransport_Data_2007, 1.02);  remove(WBSDGTransport_Data_2007) #1.02
-WBSDGTransportData_NoNAs_2011 <- NARemove_Fun(WBSDGTransport_Data_2011, 1.02);  remove(WBSDGTransport_Data_2011) #1.02
-WBSDGHousingData_NoNAs_2004 <- NARemove_Fun(WBSDGHousing_Data_2004, 1.25);  remove(WBSDGHousing_Data_2004) #1.25
-WBSDGHousingData_NoNAs_2007 <- NARemove_Fun(WBSDGHousing_Data_2007, 1.25);  remove(WBSDGHousing_Data_2007) #1.25
-WBSDGHousingData_NoNAs_2011 <- NARemove_Fun(WBSDGHousing_Data_2011, 1.25);  remove(WBSDGHousing_Data_2011) #1.25
-WBSDGGFCFData_NoNAs_2004 <- NARemove_Fun(WBSDGGFCF_Data_2004, 2);  remove(WBSDGGFCF_Data_2004) #2
-WBSDGGFCFData_NoNAs_2007 <- NARemove_Fun(WBSDGGFCF_Data_2007, 2);  remove(WBSDGGFCF_Data_2007) #2
-WBSDGGFCFData_NoNAs_2011 <- NARemove_Fun(WBSDGGFCF_Data_2011, 2);  remove(WBSDGGFCF_Data_2011) #2
-WBSDGGoodsData_NoNAs_2004 <- NARemove_Fun(WBSDGGoods_Data_2004, 1.02); remove(WBSDGGoods_Data_2004) #1.02
-WBSDGGoodsData_NoNAs_2007 <- NARemove_Fun(WBSDGGoods_Data_2007, 1.02); remove(WBSDGGoods_Data_2007) #1.02
-WBSDGGoodsData_NoNAs_2011 <- NARemove_Fun(WBSDGGoods_Data_2011, 1.02); remove(WBSDGGoods_Data_2011) #1.02
+WBSDGFoodData_NoNAs_2004 <- NARemove_Fun(WBSDGFood_Data_2004, k);  remove(WBSDGFood_Data_2004) #1.2
+WBSDGFoodData_NoNAs_2007 <- NARemove_Fun(WBSDGFood_Data_2007, k);  remove(WBSDGFood_Data_2007) #1.2
+WBSDGFoodData_NoNAs_2011 <- NARemove_Fun(WBSDGFood_Data_2011, k);  remove(WBSDGFood_Data_2011) #1.2
+WBSDGGovernmentData_NoNAs_2004 <- NARemove_Fun(WBSDGGovernment_Data_2004, k);  remove(WBSDGGovernment_Data_2004) #2
+WBSDGGovernmentData_NoNAs_2007 <- NARemove_Fun(WBSDGGovernment_Data_2007, k);  remove(WBSDGGovernment_Data_2007) #2
+WBSDGGovernmentData_NoNAs_2011 <- NARemove_Fun(WBSDGGovernment_Data_2011, k);  remove(WBSDGGovernment_Data_2011) #2
+WBSDGServicesData_NoNAs_2004 <- NARemove_Fun(WBSDGServices_Data_2004, k);  remove(WBSDGServices_Data_2004) #1.5
+WBSDGServicesData_NoNAs_2007 <- NARemove_Fun(WBSDGServices_Data_2007, k);  remove(WBSDGServices_Data_2007) #1.5
+WBSDGServicesData_NoNAs_2011 <- NARemove_Fun(WBSDGServices_Data_2011, k);  remove(WBSDGServices_Data_2011) #1.5
+WBSDGTransportData_NoNAs_2004 <- NARemove_Fun(WBSDGTransport_Data_2004, k);  remove(WBSDGTransport_Data_2004) #1.02
+WBSDGTransportData_NoNAs_2007 <- NARemove_Fun(WBSDGTransport_Data_2007, k);  remove(WBSDGTransport_Data_2007) #1.02
+WBSDGTransportData_NoNAs_2011 <- NARemove_Fun(WBSDGTransport_Data_2011, k);  remove(WBSDGTransport_Data_2011) #1.02
+WBSDGHousingData_NoNAs_2004 <- NARemove_Fun(WBSDGHousing_Data_2004, k);  remove(WBSDGHousing_Data_2004) #1.25
+WBSDGHousingData_NoNAs_2007 <- NARemove_Fun(WBSDGHousing_Data_2007, k);  remove(WBSDGHousing_Data_2007) #1.25
+WBSDGHousingData_NoNAs_2011 <- NARemove_Fun(WBSDGHousing_Data_2011, k);  remove(WBSDGHousing_Data_2011) #1.25
+WBSDGGFCFData_NoNAs_2004 <- NARemove_Fun(WBSDGGFCF_Data_2004, k);  remove(WBSDGGFCF_Data_2004) #2
+WBSDGGFCFData_NoNAs_2007 <- NARemove_Fun(WBSDGGFCF_Data_2007, k);  remove(WBSDGGFCF_Data_2007) #2
+WBSDGGFCFData_NoNAs_2011 <- NARemove_Fun(WBSDGGFCF_Data_2011, k);  remove(WBSDGGFCF_Data_2011) #2
+WBSDGGoodsData_NoNAs_2004 <- NARemove_Fun(WBSDGGoods_Data_2004, k); remove(WBSDGGoods_Data_2004) #1.02
+WBSDGGoodsData_NoNAs_2007 <- NARemove_Fun(WBSDGGoods_Data_2007, k); remove(WBSDGGoods_Data_2007) #1.02
+WBSDGGoodsData_NoNAs_2011 <- NARemove_Fun(WBSDGGoods_Data_2011, k); remove(WBSDGGoods_Data_2011) #1.02
 
 WBSDGIndicatorsDownloaded <- rbind(WBIndicatorsDownloaded, SDGIndicatorsDownloaded)
 WBSDGIndicatorsDownloadedNoNAs <- WBSDGIndicatorsDownloaded[WBSDGIndicatorsDownloaded$indicator %in%
@@ -1744,7 +1847,6 @@ WBIndicesData <- merge(WBZScoreData, WBMaxMinData, by.x = c("country", "year", "
                        by.y = c("country", "year", "CLUM_category", "NApercent"),
                        all=TRUE)
 
-#write.csv(IndicesData, "./World Bank Data/IndicesData.csv")
 write.csv(WBIndicesData, "./IndicesDataWB.csv")
 
 #SDG Z-score and combine with MinMax
