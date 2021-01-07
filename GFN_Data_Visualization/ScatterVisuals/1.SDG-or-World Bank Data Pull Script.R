@@ -453,9 +453,8 @@ RespellDict <- list("Bahamas, The"="Bahamas", "Bolivia (Plurinational State of)"
 "Sudan [former]" = "Sudan (former)",
 "St. Vincent and the Grenadines" = "Saint Vincent and Grenadines",
 "Saint Vincent and the Grenadines" = "Saint Vincent and Grenadines",
-"Taiwan" = "Taiwan, Republic of China",
-"Taiwan, Republic of China" = "Taiwan, Republic of China",
-"Taiwan, China" = "Taiwan, Republic of China",
+"Taiwan, Republic of China" = "Taiwan",
+"Taiwan, China" = "Taiwan",
 "Tanzania" = "Tanzania, United Republic of",
 "United Republic of Tanzania" = "Tanzania, United Republic of",
 "United States" = "United States of America",
@@ -866,7 +865,7 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
       )
   
   # WBIndicatorsDownloaded <- rbind(cbind(subset(WBIndicatorList,WBIndicatorList$indicator %in% WBTransport_Indicators),
-  #                                     CLUM="Personal Transportation"),WBIndicatorsDownloaded)
+  #                                     CLUM="Transportation"),WBIndicatorsDownloaded)
   WBIndicatorsListF <- cbind(unique(WBIndicators$series[WBIndicators$series%in%WBTransport_Indicators]),
                              unique(WBIndicators$series[,"name"][WBIndicators$series%in%WBTransport_Indicators]),
                              "Personal Transportation", "Fwd")
@@ -1227,8 +1226,9 @@ SDGCLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
     "SI_COV_LMKT",
           # Countries with procedures in law or policy for participation by service users/communities in planning program in rural drinking-water supply, by level of definition in procedures (10 = Clearly defined; 5 = Not clearly defined ; 0 = NA)
           #    "ER_H2O_PRDU", not in the data for those years
-    # Countries that have conducted at least one population and housing census in the last 10 years (1 = YES; 0 = NO)
-    "SG_REG_CENSUSN",
+    # Removed because Zcore Function - specifically scale() doesn't like the single value 1
+    # # Countries that have conducted at least one population and housing census in the last 10 years (1 = YES; 0 = NO)
+    # "SG_REG_CENSUSN",
     # [World Bank] Proportion of population covered by social assistance programs (%)
     "SI_COV_SOCAST",
     # [World Bank] Proportion of population covered by social insurance programs (%)
@@ -1337,7 +1337,7 @@ SDGCLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
   SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,if(ncol(IndicatorsListF)==4){IndicatorsListF},
                                     if(ncol(IndicatorsListR)==4){IndicatorsListR})
   
-  SDGCLUMsplit("Transport",
+  SDGCLUMsplit("Personal Transportation",
             c(
               #Proportion of the rural population who live within 2 km of an all-season road
               "SP_ROD_R2KM"
@@ -1350,10 +1350,10 @@ SDGCLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
   # Add SDG Indicators selected to the list by CLUM category, but only if they are IN the CURRENT data
   IndicatorsListF <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsforward]),
                            unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsforward]),
-                           "Transport", "Fwd")
+                           "Personal Transportation", "Fwd")
   IndicatorsListR <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%All_Indicatorsreversed]),
                            unique(SDGIndicators$seriesDescription[SDGIndicators$series%in%All_Indicatorsreversed]),
-                           "Transport", "Reversed")
+                           "Personal Transportation", "Reversed")
   SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,if(ncol(IndicatorsListF)==4){IndicatorsListF},
                                     if(ncol(IndicatorsListR)==4){IndicatorsListR})
 
@@ -1390,10 +1390,6 @@ SDGCLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
 #  }
 }
 
-
-  
-  
-  
 WBSDGFood_Data_2004 <- merge(WBFood_Data_2004, SDG_Food_Data_2004, by.x = c("country","year"), by.y = c("geoAreaName","timePeriodStart"), all=TRUE)
 WBSDGFood_Data_2007 <- merge(WBFood_Data_2007, SDG_Food_Data_2007, by.x = c("country", "year"), by.y = c("geoAreaName", "timePeriodStart"), all=TRUE)
 WBSDGFood_Data_2011 <- merge(WBFood_Data_2011, SDG_Food_Data_2011, by.x = c("country", "year"), by.y = c("geoAreaName", "timePeriodStart"), all=TRUE)
@@ -1451,9 +1447,9 @@ NARemove_Fun <- function(data, NA_factor){
 #           #Indicators to be Reversed
 #           c("SN_ITK_DEFC","SH_STA_STUNT","SH_STA_OVRWGT"))
 
-# Drop indicators that have more than 1/NA factor proportion of NAs for World Bank (and goods) data
-# Updated so that NA Factor is between 0 and 1 (proportion of NAs as threshhold to drop data series)
-k <- .98
+# Drop series that have less than NA_Factor % or NAs: 
+#Default NA factor
+k <- .9
 
 WBFoodData_NoNAs_2004 <- NARemove_Fun(WBFood_Data_2004, k);  #remove(WBFood_Data_2004) #1.2
 WBFoodData_NoNAs_2007 <- NARemove_Fun(WBFood_Data_2007, k);  #remove(WBFood_Data_2007) #1.2
@@ -1463,10 +1459,10 @@ WBGovernmentData_NoNAs_2007 <- NARemove_Fun(WBGovernment_Data_2007, k);  #remove
 WBGovernmentData_NoNAs_2011 <- NARemove_Fun(WBGovernment_Data_2011, k);  #remove(WBGovernment_Data_2011) #2
 WBServicesData_NoNAs_2004 <- NARemove_Fun(WBServices_Data_2004, k);  #remove(WBServices_Data_2004) #1.5
 WBServicesData_NoNAs_2007 <- NARemove_Fun(WBServices_Data_2007, k);  #remove(WBServices_Data_2007) #1.5
-WBServicesData_NoNAs_2011 <- NARemove_Fun(WBServices_Data_2011, k);  #remove(WBServices_Data_2011) #1.5
-WBTransportData_NoNAs_2004 <- NARemove_Fun(WBTransport_Data_2004, k);  #remove(WBTransport_Data_2004) #1.02
-WBTransportData_NoNAs_2007 <- NARemove_Fun(WBTransport_Data_2007, k);  #remove(WBTransport_Data_2007) #1.02
-WBTransportData_NoNAs_2011 <- NARemove_Fun(WBTransport_Data_2011, k);  #remove(WBTransport_Data_2011) #1.02
+WBServicesData_NoNAs_2011 <- NARemove_Fun(WBServices_Data_2011, .9);  #remove(WBServices_Data_2011) #1.5
+WBTransportData_NoNAs_2004 <- NARemove_Fun(WBTransport_Data_2004, .99);  #remove(WBTransport_Data_2004) #1.02
+WBTransportData_NoNAs_2007 <- NARemove_Fun(WBTransport_Data_2007, .99);  #remove(WBTransport_Data_2007) #1.02
+WBTransportData_NoNAs_2011 <- NARemove_Fun(WBTransport_Data_2011, .99);  #remove(WBTransport_Data_2011) #1.02
 WBHousingData_NoNAs_2004 <- NARemove_Fun(WBHousing_Data_2004, k);  #remove(WBHousing_Data_2004) #1.25
 WBHousingData_NoNAs_2007 <- NARemove_Fun(WBHousing_Data_2007, k);  #remove(WBHousing_Data_2007) #1.25
 WBHousingData_NoNAs_2011 <- NARemove_Fun(WBHousing_Data_2011, k);  #remove(WBHousing_Data_2011) #1.25
@@ -1502,9 +1498,9 @@ SDGGovernmentData_NoNAs_2011 <- NARemove_Fun(SDG_Government_Data_2011, k)#; remo
 SDGServicesData_NoNAs_2004 <- NARemove_Fun(SDG_Services_Data_2004, k)#; remove(SDG_Services_Data_2004)
 SDGServicesData_NoNAs_2007 <- NARemove_Fun(SDG_Services_Data_2007, k)#; remove(SDG_Services_Data_2007)
 SDGServicesData_NoNAs_2011 <- NARemove_Fun(SDG_Services_Data_2011, k)#; remove(SDG_Services_Data_2011)
-SDGTransportData_NoNAs_2004 <- NARemove_Fun(SDG_Transport_Data_2004, k)#; remove(SDG_Transport_Data_2004)
-SDGTransportData_NoNAs_2007 <- NARemove_Fun(SDG_Transport_Data_2007, k)#; remove(SDG_Transport_Data_2007)
-SDGTransportData_NoNAs_2011 <- NARemove_Fun(SDG_Transport_Data_2011, k)#; remove(SDG_Transport_Data_2011)
+SDGTransportData_NoNAs_2004 <- NARemove_Fun(SDG_Transport_Data_2004, .99)#; remove(SDG_Transport_Data_2004)
+SDGTransportData_NoNAs_2007 <- NARemove_Fun(SDG_Transport_Data_2007, .99)#; remove(SDG_Transport_Data_2007)
+SDGTransportData_NoNAs_2011 <- NARemove_Fun(SDG_Transport_Data_2011, .99)#; remove(SDG_Transport_Data_2011)
 SDGHousingData_NoNAs_2004 <- NARemove_Fun(SDG_Housing_Data_2004, k)#; remove(SDG_Housing_Data_2004)
 SDGHousingData_NoNAs_2007 <- NARemove_Fun(SDG_Housing_Data_2007, k)#; remove(SDG_Housing_Data_2007)
 SDGHousingData_NoNAs_2011 <- NARemove_Fun(SDG_Housing_Data_2011, k)#; remove(SDG_Housing_Data_2011)
@@ -1541,10 +1537,10 @@ WBSDGGovernmentData_NoNAs_2007 <- NARemove_Fun(WBSDGGovernment_Data_2007, k);  r
 WBSDGGovernmentData_NoNAs_2011 <- NARemove_Fun(WBSDGGovernment_Data_2011, k);  remove(WBSDGGovernment_Data_2011) #2
 WBSDGServicesData_NoNAs_2004 <- NARemove_Fun(WBSDGServices_Data_2004, k);  remove(WBSDGServices_Data_2004) #1.5
 WBSDGServicesData_NoNAs_2007 <- NARemove_Fun(WBSDGServices_Data_2007, k);  remove(WBSDGServices_Data_2007) #1.5
-WBSDGServicesData_NoNAs_2011 <- NARemove_Fun(WBSDGServices_Data_2011, k);  remove(WBSDGServices_Data_2011) #1.5
-WBSDGTransportData_NoNAs_2004 <- NARemove_Fun(WBSDGTransport_Data_2004, k);  remove(WBSDGTransport_Data_2004) #1.02
-WBSDGTransportData_NoNAs_2007 <- NARemove_Fun(WBSDGTransport_Data_2007, k);  remove(WBSDGTransport_Data_2007) #1.02
-WBSDGTransportData_NoNAs_2011 <- NARemove_Fun(WBSDGTransport_Data_2011, k);  remove(WBSDGTransport_Data_2011) #1.02
+WBSDGServicesData_NoNAs_2011 <- NARemove_Fun(WBSDGServices_Data_2011, .9);  remove(WBSDGServices_Data_2011) #1.5
+WBSDGTransportData_NoNAs_2004 <- NARemove_Fun(WBSDGTransport_Data_2004, .99);  remove(WBSDGTransport_Data_2004) #1.02
+WBSDGTransportData_NoNAs_2007 <- NARemove_Fun(WBSDGTransport_Data_2007, .99);  remove(WBSDGTransport_Data_2007) #1.02
+WBSDGTransportData_NoNAs_2011 <- NARemove_Fun(WBSDGTransport_Data_2011, .99);  remove(WBSDGTransport_Data_2011) #1.02
 WBSDGHousingData_NoNAs_2004 <- NARemove_Fun(WBSDGHousing_Data_2004, k);  remove(WBSDGHousing_Data_2004) #1.25
 WBSDGHousingData_NoNAs_2007 <- NARemove_Fun(WBSDGHousing_Data_2007, k);  remove(WBSDGHousing_Data_2007) #1.25
 WBSDGHousingData_NoNAs_2011 <- NARemove_Fun(WBSDGHousing_Data_2011, k);  remove(WBSDGHousing_Data_2011) #1.25
@@ -1757,7 +1753,7 @@ colnames(WBSDGMaxMinData) <- c("country", "year", "MaxMin_Index", "CLUM_category
 #### Z-Zcore function calculation####
 ZScore_Fun <- function(data, category){
   colnames_important <- as.data.frame(data[,-c(1:2)])
-  datamatrix <- matrix(ncol = ncol(colnames_important), nrow = nrow(data))
+  datamatrix <- as.data.frame(matrix(ncol = ncol(colnames_important), nrow = nrow(data)))
   for(i in 1:ncol(colnames_important)){
     datamatrix[,i] <- scale(data[,i+2])
   }
@@ -1772,19 +1768,9 @@ ZScore_Fun <- function(data, category){
   return(datamatrix)
 }
 
-#DeBug
-# colnames_important <- as.data.frame(FoodData_NoNAs_2004[,-c(1:2)])
-# datamatrix <- matrix(ncol = ncol(colnames_important), nrow = nrow(FoodData_NoNAs_2004))
-# for(i in 1:ncol(colnames_important)){
-#   datamatrix[,i] <- scale(FoodData_NoNAs_2004[,i+2])
-# }
-# datamatrix <- as.data.frame(datamatrix)
-# colnames(datamatrix) <- colnames(colnames_important)
-# datamatrix$MaxMin_Index <- rowMeans(datamatrix, na.rm = TRUE)
-# colnames(datamatrix)[ncol(datamatrix)] <- "ZScore_Index"
-# datamatrix$CLUM_category <- "Food"
-# datamatrix <- cbind(FoodData_NoNAs_2004[,c(1:2)], datamatrix[,-1])
-# datamatrix <- datamatrix[,c(1:2,(ncol(datamatrix)-1):ncol(datamatrix))]
+data <- SDGGovernmentData_NoNAs_2011
+#data <- SDGGovernmentData_NoNAs_2007
+category <- "Government"
 
 
 WBFoodData_ZScore_2004 <- ZScore_Fun(WBFoodData_NoNAs_2004, "Food")

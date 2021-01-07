@@ -8,9 +8,6 @@ library(WDI)
 "Set to run either for World Bank or SDG results (then run again for the other 2)"
 WB_SDG <- list("SDG", "WB", "WBSDG")
 for (i in WB_SDG){
-  if (i == "SDG"){print(i)}
-  if (i == "WB"){print("It did pick up this if")}
-  
   # if (i=="WB"){print("got to WB")}
   #     }
   #WB_SDG <- "SDG"
@@ -29,9 +26,10 @@ for (i in WB_SDG){
   
   WBData$country <- as.character(WBData$country)
   WBData$CLUM_category <- as.character(WBData$CLUM_category)
+  ## This should be redundant now, it's in the data pull/split function
   #deal with weird symbol in country names of N Korea and Cote d'Ivoire
-  WBData$country[grepl("Korea, Dem. Peopl",WBData$country)] <- "Korea, Democratic People's Republic of"
-  WBData$country[grepl("oire",WBData$country)] <- "Cote d'Ivoire"
+  # WBData$country[grepl("Korea, Dem. Peopl",WBData$country)] <- "Korea, Democratic People's Republic of"
+  # WBData$country[grepl("oire",WBData$country)] <- "Cote d'Ivoire"
   
   # get correspondence of GFN countries to GTAP countries
   GFNtoGTAP <- read.csv("./GFNtoGTAP.csv", header=TRUE, colClasses = NA)
@@ -80,82 +78,6 @@ for (i in WB_SDG){
   "Assign alternate spelling, link to GFN spelling from ./GFNtoGTAP.csv;
 update spellings to GFN, and then drop from the 'remainder' list"
   
-  # Function to replace country name spellings with GFN spellings and then drop that old name from the list of unhandled names
-  Repl_Country_Spellings  <- function(wb,gfn){
-    WBData$country[WBData$country==wb]<<-gfn
-    WB_notGFNlist <<- WB_notGFNlist[WB_notGFNlist!=wb]
-  }
-  
-  Repl_Country_Spellings("Bahamas, The","Bahamas")
-  Repl_Country_Spellings("Bolivia (Plurinational State of)", "Bolivia")
-  Repl_Country_Spellings("Czechia" , "Czech Republic")
-  Repl_Country_Spellings("Cape Verde", "Cabo Verde")
-  Repl_Country_Spellings("Congo, Dem. Rep.", "Congo, Democratic Republic of")
-  Repl_Country_Spellings("Democratic Republic of the Congo", "Congo, Democratic Republic of")
-  Repl_Country_Spellings("Congo, Rep.", "Congo")
-  Repl_Country_Spellings("Congo Republic", "Congo")
-  Repl_Country_Spellings("Cote dIvoire", "Cote d'Ivoire")
-  Repl_Country_Spellings("Cote D'Ivoire", "Cote d'Ivoire")
-  Repl_Country_Spellings("Curacao", "Curaçao")
-  Repl_Country_Spellings("CuraÃ§ao", "Curaçao")
-  Repl_Country_Spellings("Egypt, Arab Rep.", "Egypt")
-  Repl_Country_Spellings("Micronesia", "Micronesia, Federated States of")
-  Repl_Country_Spellings("Micronesia, Fed. Sts.", "Micronesia, Federated States of")
-  Repl_Country_Spellings("French Guyana", "French Guiana")
-  Repl_Country_Spellings("Gambia, The", "Gambia")
-  Repl_Country_Spellings("Hong Kong SAR, China", "China Hong Kong SAR")
-  Repl_Country_Spellings("Hong Kong, Special Administrative Region of China", "China Hong Kong SAR")
-  Repl_Country_Spellings("Hong Kong, China", "China Hong Kong SAR")
-  Repl_Country_Spellings("China, Hong Kong Special Administrative Region", "China Hong Kong SAR")
-  Repl_Country_Spellings("Iran, Islamic Rep.", "Iran, Islamic Republic of")
-  Repl_Country_Spellings("Iran", "Iran, Islamic Republic of")
-  Repl_Country_Spellings("Iran (Islamic Republic of)", "Iran, Islamic Republic of")
-  Repl_Country_Spellings("Kyrgyz Republic", "Kyrgyzstan")
-  Repl_Country_Spellings("St. Kitts and Nevis", "Saint Kitts and Nevis")
-  Repl_Country_Spellings("Korea, Rep.", "Korea, Republic of")
-  Repl_Country_Spellings("South Korea", "Korea, Republic of")
-  Repl_Country_Spellings("Republic of Korea", "Korea, Republic of")
-  Repl_Country_Spellings("Korea, Dem. Rep.", "Korea, Democratic People's Republic of")
-  Repl_Country_Spellings("Democratic People's Republic of Korea", "Korea, Democratic People's Republic of")
-  Repl_Country_Spellings("Lao PDR", "Lao People's Democratic Republic")
-  Repl_Country_Spellings("Laos", "Lao People's Democratic Republic")
-  Repl_Country_Spellings("St. Lucia", "Saint Lucia")
-  Repl_Country_Spellings("Libya", "Libyan Arab Jamahiriya")
-  Repl_Country_Spellings("St. Martin (French part)", "Saint-Martin (French Part)")
-  Repl_Country_Spellings("Macedonia, FYR", "Macedonia TFYR")
-  Repl_Country_Spellings("North Macedonia", "Macedonia TFYR")
-  Repl_Country_Spellings("The former Yugoslav Republic of Macedonia", "Macedonia TFYR")
-  Repl_Country_Spellings("Macao SAR, China", "China, Macao SAR")
-  Repl_Country_Spellings("Republic of Moldova", "Moldova")
-  Repl_Country_Spellings("Korea, Dem. People’s Rep.", "Korea, Democratic People's Republic of")
-  Repl_Country_Spellings("Reunion", "Réunion")
-  Repl_Country_Spellings("RÃ©union", "Réunion")
-  Repl_Country_Spellings("São Tomé and Principe", "Sao Tome and Principe")
-  Repl_Country_Spellings("SÃ£o TomÃ© and Principe", "Sao Tome and Principe")
-  Repl_Country_Spellings("Slovak Republic", "Slovakia")
-  Repl_Country_Spellings("eSwatini", "Swaziland")
-  Repl_Country_Spellings("Eswatini", "Swaziland")
-  Repl_Country_Spellings("St. Helena", "Saint Helena")
-  Repl_Country_Spellings("Sint Maarten (Dutch part)", "Sint Maarten (Dutch Part)")
-  Repl_Country_Spellings("Sint Maarten (Dutch part)\t", "Sint Maarten (Dutch Part)")
-  Repl_Country_Spellings("Saint Martin (French Part)","Saint-Martin (French Part)")
-  Repl_Country_Spellings("Saint Pierre et Miquelon", "Saint Pierre and Miquelon")
-  Repl_Country_Spellings("Sudan [former]", "Sudan (former)")
-  Repl_Country_Spellings("St. Vincent and the Grenadines", "Saint Vincent and Grenadines")
-  Repl_Country_Spellings("Saint Vincent and the Grenadines", "Saint Vincent and Grenadines")
-  Repl_Country_Spellings("Taiwan", "Taiwan, Republic of China")
-  Repl_Country_Spellings("Taiwan, Republic of China", "Taiwan, Republic of China")
-  Repl_Country_Spellings("Taiwan, China", "Taiwan, Republic of China")
-  Repl_Country_Spellings("Tanzania", "Tanzania, United Republic of")
-  Repl_Country_Spellings("United Republic of Tanzania", "Tanzania, United Republic of")
-  Repl_Country_Spellings("United States", "United States of America")
-  Repl_Country_Spellings("United Kingdom of Great Britain and Northern Ireland", "United Kingdom")
-  Repl_Country_Spellings("Venezuela, RB", "Venezuela, Bolivarian Republic of")
-  Repl_Country_Spellings("Venezuela (Bolivarian Republic of)", "Venezuela, Bolivarian Republic of")
-  Repl_Country_Spellings("Virgin Islands (U.S.)", "US Virgin Islands")
-  Repl_Country_Spellings("Vietnam", "Viet Nam")
-  Repl_Country_Spellings("Wallis and Futuna", "Wallis and Futuna Islands")
-  Repl_Country_Spellings("Yemen, Rep.", "Yemen")
   
   # Throw exception and list if any countries haven't been dealt with
   #  Otherwise go ahead to weighted aggregation
@@ -251,7 +173,7 @@ This groups the countries' data from GFN names into GTAP 9 groupings"
   # file with indicator results (min-max and z-score) by GTAP country with all EF CLUM results
   if (i=="WB"){
     write.csv(NFA_CLUM_WB, "./2017_GTAPCLUM_WB.csv")
-    paste(i, " this WB write to csv was triggered *****")
+    print(paste(i, " this WB write to csv was triggered *****"))
   }
   # file with indicator results (min-max and z-score) by GTAP country with all EF CLUM results
   if (i=="SDG"){

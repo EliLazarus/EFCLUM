@@ -31,7 +31,7 @@ Food.EFWBData11 <- subset(EFWBData11, EFWBData11$clum7_name == "Food")
 Goods.EFWBData11 <- subset(EFWBData11, EFWBData11$clum7_name == "Goods")
 Government.EFWBData11 <- subset(EFWBData11, EFWBData11$clum7_name == "Government")
 Housing.EFWBData11 <- subset(EFWBData11, EFWBData11$clum7_name == "Housing")
-PersonalTransportation.EFWBData11 <- subset(EFWBData11, EFWBData11$clum7_name == "Personal Transportation")
+Transportation.EFWBData11 <- subset(EFWBData11, EFWBData11$clum7_name == "Personal Transportation")
 Services.EFWBData11 <- subset(EFWBData11, EFWBData11$clum7_name == "Services")
 GFCF.EFWBData11 <- subset(EFWBData11, EFWBData11$clum7_name == "Gross Fixed Capital Formation")
 
@@ -40,7 +40,7 @@ Food.EFSDGData11 <- subset(EFSDGData11, EFSDGData11$clum7_name == "Food")
 Goods.EFSDGData11 <- subset(EFSDGData11, EFSDGData11$clum7_name == "Goods")
 Government.EFSDGData11 <- subset(EFSDGData11, EFSDGData11$clum7_name == "Government")
 Housing.EFSDGData11 <- subset(EFSDGData11, EFSDGData11$clum7_name == "Housing")
-PersonalTransportation.EFSDGData11 <- subset(EFSDGData11, EFSDGData11$clum7_name == "Personal Transportation")
+Transportation.EFSDGData11 <- subset(EFSDGData11, EFSDGData11$clum7_name == "Personal Transportation")
 Services.EFSDGData11 <- subset(EFSDGData11, EFSDGData11$clum7_name == "Services")
 GFCF.EFSDGData11 <- subset(EFSDGData11, EFSDGData11$clum7_name == "Gross Fixed Capital Formation")
 
@@ -48,7 +48,7 @@ Food.EFSDGWBData11 <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Food")
 Goods.EFSDGWBData11 <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Goods")
 Government.EFSDGWBData11 <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Government")
 Housing.EFSDGWBData11 <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Housing")
-PersonalTransportation.EFSDGWBData11 <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Personal Transportation")
+Transportation.EFSDGWBData11 <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Personal Transportation")
 Services.EFSDGWBData11 <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Services")
 GFCF.EFSDGWBData11 <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Gross Fixed Capital Formation")
 
@@ -75,7 +75,6 @@ plotfunc <- function(data, title, CLUMcat, IndDL, height1, height2){
   gt <- ggplot_gtable(ggplot_build(p)) 
   gt$layout$clip[gt$layout$name == "panel"] <- "off" 
   
-  
   tb <- tableGrob(cbind(as.character(IndDL[,5][IndDL$CLUM==CLUMcat]),
                         stringr::str_wrap(as.character(IndDL[,3][IndDL$CLUM==CLUMcat]),160)),
                   theme = ttheme_default(base_size=8,
@@ -85,10 +84,10 @@ plotfunc <- function(data, title, CLUMcat, IndDL, height1, height2){
   #                                        core = list(fg_params=list(hjust=0, x=0))))
   # 
   plotname <- paste("Plots/",deparse(substitute(data)),".pdf", sep ="")
-  pdf(plotname,width=12,height=9, onefile = FALSE)
+  pdf(plotname,width=12,height=13, onefile = FALSE)
   dev.off
   grid.newpage()
-  grid.arrange(gt, tb, nrow=2, heights = c(height1, height2), vp=viewport(width=0.95, height=0.95))
+  grid.arrange(gt, tb, nrow=2, heights = c(height1, height2), vp=viewport(width=0.98, height=0.98))
   dev.off()
 }
 
@@ -110,7 +109,7 @@ plotfunc(Housing.EFSDGData11,"SDG Data", "Housing", SDGIndicatorsDld_Inc, 1.5, .
 pause(waitlength)
 plotfunc(Services.EFSDGData11,"SDG Data", "Services", SDGIndicatorsDld_Inc, 1.5, .5)
 pause(waitlength)
-try(plotfunc(PersonalTransportation.EFSDGData11,"SDG Data", "Transport", SDGIndicatorsDld_Inc, 1.5, .5))
+try(plotfunc(Transportation.EFSDGData11,"SDG Data", "Transportation", SDGIndicatorsDld_Inc, 1.5, .5))
 pause(waitlength)
 plotfunc(Government.EFSDGData11,"SDG Data", "Government", SDGIndicatorsDld_Inc, 1.5, .5)
 pause(waitlength)
@@ -123,15 +122,15 @@ pause(waitlength)
 #Added manual line to WBIndicatorsDLd_Inc for WBGoods to work with function
 plotfunc(Goods.EFWBData11,"World Bank Data", "Goods", WBIndicatorsDLd_Inc, 1.5, .5)
 pause(waitlength)
-plotfunc(Services.EFWBData11,"World Bank Data", "Services",WBIndicatorsDLd_Inc, 2, .8)
+plotfunc(Services.EFWBData11,"World Bank Data", "Services",WBIndicatorsDLd_Inc, .4, .3)
 pause(waitlength)
 plotfunc(Housing.EFWBData11,"World Bank Data", "Housing",WBIndicatorsDLd_Inc, 1.5, .5)
 pause(waitlength)
-plotfunc(PersonalTransportation.EFWBData11,"World Bank Data", "Personal Transportation",WBIndicatorsDLd_Inc, 1.5, .5)
+plotfunc(Transportation.EFWBData11,"World Bank Data", "Transportation",WBIndicatorsDLd_Inc, 1.5, .5)
 pause(waitlength)
 try(plotfunc(GFCF.EFWBData11,"World Bank Data", "GFCF",WBIndicatorsDLd_Inc, 2, .5))
 pause(waitlength)
-plotfunc(Government.EFWBData11,"World Bank Data", "Government",WBIndicatorsDLd_Inc, 2, .8)
+plotfunc(Government.EFWBData11,"World Bank Data", "Government",WBIndicatorsDLd_Inc, 1.6, .8)
 pause(waitlength)
 
 #Plot and output all SDG and WB  Combination Indicators
@@ -140,13 +139,13 @@ pause(waitlength)
 #Added manual line to WBIndicatorsDLd_Inc for WBGoods to work with function
 plotfunc(Goods.EFSDGWBData11,"SDG & World Bank Data", "Goods", WBSDGIndicatorsDld_Inc, 1.5, .5)
 pause(waitlength)
-plotfunc(Services.EFSDGWBData11,"SDG & World Bank Data", "Services",WBSDGIndicatorsDld_Inc, 2, .8)
+plotfunc(Services.EFSDGWBData11,"SDG & World Bank Data", "Services",WBSDGIndicatorsDld_Inc, 1, 1.1)
 pause(waitlength)
 plotfunc(Housing.EFSDGWBData11,"SDG & World Bank Data", "Housing",WBSDGIndicatorsDld_Inc, 1.5, .5)
 pause(waitlength)
-plotfunc(PersonalTransportation.EFSDGWBData11,"SDG & World Bank Data", "Personal Transportation",WBSDGIndicatorsDld_Inc, 1.5, .5)
+plotfunc(Transportation.EFSDGWBData11,"SDG & World Bank Data", "Transportation",WBSDGIndicatorsDld_Inc, 1.5, .5)
 pause(waitlength)
 try(plotfunc(GFCF.EFSDGWBData11,"SDG & World Bank Data", "GFCF",WBSDGIndicatorsDld_Inc, 1.5, .5))
 pause(waitlength)
-plotfunc(Government.EFSDGWBData11,"SDG & World Bank Data", "Government",WBSDGIndicatorsDld_Inc, 2, .8)
+plotfunc(Government.EFSDGWBData11,"SDG & World Bank Data", "Government",WBSDGIndicatorsDld_Inc, 1.1, .9)
 pause(waitlength)
