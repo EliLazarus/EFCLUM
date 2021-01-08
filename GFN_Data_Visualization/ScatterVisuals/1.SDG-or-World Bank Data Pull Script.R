@@ -8,8 +8,9 @@ library(boxr)
 library(readr)
 
 ###NOTES TO DO
-# 2020-12-23 At this point, data series which have multiple values for the same year from the same
-# data series (eg. split by sex, urban/rural/All) are just averaged
+# 2020-12-23 Data series which have multiple values for the same year from the same
+# data series (eg. split by sex, urban/rural/All) are averaged
+# The z-score function can't handle series with a single value (and NAs) only
 
 # Start the clock for the timing
 ptm <- proc.time()
@@ -20,20 +21,6 @@ if (!grepl("ScatterVisuals",getwd())){
   stop()
 }
 
-# "Set to use WB (WB_yes_or_no<-1) or SDG (WB_yes_or_no<-0) Indicators"
-# WB_yes_or_no <- 0
-# 
-# if(WB_yes_or_no==1) {
-#   WB_SDG <- "WB"
-# } else if (WB_yes_or_no == 0) {
-#   WB_SDG <- "SDG"
-# } else {
-#   stop(
-#     print(
-#       "WB_yes_or_no must be set either to 1 (for WB Indicators) or 0 (for SDG Indicators)"
-#     )
-#   )
-# }
 # 'no' for first run, and then changes in the script after a successful download so other parts of script can re-run
 if (exists("SDGDLed")){
   first_run <- "no"
@@ -173,8 +160,8 @@ SDGdata[grepl(")",SDGdata$goal),]
   try(write.table(as.matrix(SDGIndicators), "./AllSDGiList.csv", sep=","))
 }
 
-#### List for dropping WB countries not used in correspondence before forming indicators ####
-#  drop the known and obvious country groupings in the World Bank List
+#### List for dropping countries/regions not used in correspondence before forming indicators ####
+# This doesn't include different spelllings of included countries. That gets handled separately
 # This list gets updated after the process in script 2 if unhandled region names are found.
 Region_drop <- c("Africa", "Andean Region", "East Asia & Pacific (IBRD-only countries)", 
              "Europe & Central Asia (IBRD-only countries)", "IBRD countries classified as high income", 
@@ -394,9 +381,7 @@ Region_drop <- c("Africa", "Andean Region", "East Asia & Pacific (IBRD-only coun
 # Write to file for reading in country correspondence script
 write.csv(Region_drop, file = "./DropTheseCountries.csv", row.names = F)
 
-## WB pull and split section
-#{
-
+# Dictionary-like list of the found spellings (key, first values), linked to the standard GFN spellings (value) for replacing country names
 RespellDict <- list("Bahamas, The"="Bahamas", "Bolivia (Plurinational State of)" = "Bolivia",
 "Czechia" = "Czech Republic",
 "Cape Verde" = "Cabo Verde",
@@ -466,11 +451,9 @@ RespellDict <- list("Bahamas, The"="Bahamas", "Bolivia (Plurinational State of)"
 "Wallis and Futuna" = "Wallis and Futuna Islands",
 "Yemen, Rep." = "Yemen")
 
-Repl_Country_ReSpell  <- function(Thedata, wb,gfn){
-  Thedata$country==RespellDict[[wb]]<<-gfn
-}
-
-
+# This downloads from the World Bank just the indicators between the 1st and last years wanted
+# Then drops all years except those wanted, and drops irrelevant countries, updates country name spelling
+# And resturcures by keeping just the relevant columns
 WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear, CLUM_endyear){
   DataFrame <- WDI(country = "all", indicator = indicator_list, start = CLUM_startyear, 
                    end = CLUM_endyear, extra = FALSE, cache = NULL)
@@ -499,28 +482,10 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
   DataFrame <- DataFrame %>% group_by(country, year) %>% summarise_all(funs(mean(., na.rm = TRUE)))
    return(DataFrame)
 }
-#Single year pull function - Actually, better to just group in the minmax zscore
-# WB_DataPull_Function <- function(indicator_list, Datayear){
-#   DataFrame <- WDI(country = "all",
-#                    indicator = indicator_list,
-#                    start = Datayear, end = Datayear, extra = FALSE, cache = NULL) 
-#   return(DataFrame)
-# }
-### Testing
-# DataFrame <- WDI(country = "all", indicator = WBFood_Indicators, start = 2004, 
-#                  end = 2011, extra = FALSE, cache = NULL)
-# DataFrame <- subset(DataFrame, year == 2004 | year == 2007 | year == 2011)
-# DataFrame <- DataFrame[rowSums(is.na(DataFrame[,4:ncol(DataFrame)])) != ncol(DataFrame[,4:ncol(DataFrame)]),]
 
-#WBFood_Data_2004[rowSums(is.na(WBFood_Data_2004[,3:17])) != ncol(WBFood_Data_2004[,3:17]),]
-
-# Select Indicators and organising for World Bank data
+# Initialise data frame collecting list of WB indicators downloaded
   WBIndicatorsDownloaded <- data.frame()
-  #  Date=as.Date(character()),
-  #                                     File=character(), 
-  #                                     User=character())
-#  colnames(WBIndicatorsDownloaded) <- c()
-  #if(WB_SDG=="WB"){
+
   ######Food Section
   #Cereal Yield (Kg Per Hectare)
   WBFood_Indicators <- c(
@@ -538,9 +503,7 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
     #Agricultural Irrigated Land (% Of Total Agricultural Land)
     "AG.LND.IRIG.AG.ZS" #High is good, low is bad#
   )
-  
   #High is BAD#
-  #how many calories would be needed to lift the undernourished from their status, everything else being constant.
   WBFood_Indicators_reverse <- c(
     # Depth of the food deficit (kilocalories per person per day)
     "SN.ITK.DFCT", #High is BAD
@@ -566,11 +529,6 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
     "EN.FSH.THRD.NO" #High is BAD  #Only 2017 data 6/10/18
   )
 
-  # WBIndicatorsDownloadedF <- 
-  #   subset(WBIndicatorList,WBIndicatorList$indicator %in% WBFood_Indicators)
-  # WBIndicatorsDownloaded$CLUM <- "Food"
-  # 
- 
   WBIndicatorsListF <- cbind(unique(WBIndicators$series[WBIndicators$series%in%WBFood_Indicators]),
                            unique(WBIndicators$series[,"name"][WBIndicators$series%in%WBFood_Indicators]),
                            "Food", "Fwd")
@@ -583,20 +541,10 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
   
   WBFood_Indicators <- c(WBFood_Indicators,WBFood_Indicators_reverse)
   
-  #Actually better to separate just for the minmax and z-score
-    #for (i in years){nam <- paste("Food_Data", i, sep = "_"); assign(nam,
-  #                                                                 WB_DataPull_Function(Food_Indicators, i))
-  #Drop the countries from the Region_drop list
-  #assign(print(paste("Food_Data", i, sep="_")),
-  #       print(get(paste("Food_Data",i, sep="_")))[!(print(get(paste("Food_Data",
-  #                                                       i, sep="_")))$country %in% Region_drop),])
-  #}
-  
   WBFood_Data <- WB_DataPull_Function(WBFood_Indicators, 2004, 2007, 2011)
   #Filter out regions from the compiled list of non-NFA countries/regions
   # I think redundant now - it's in the pull function
   WBFood_Data <- WBFood_Data[!(WBFood_Data$country %in% Region_drop),]
-  # Now in the function #WBFood_Data$iso2c <- NULL
   # Reverse the orders for High is BAD
   for (i in WBFood_Indicators_reverse){
     # The if removes the warning from the max function for when vectors are all NA
@@ -668,10 +616,7 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
     #Inflation, Consumer Prices (Annual %)
     "FP.CPI.TOTL.ZG" #High is BAD
   )  
-  
-  # WBIndicatorsDownloaded <- rbind(cbind(subset(WBIndicatorList,WBIndicatorList$indicator %in% WBGovernment_Indicators),
-  #                                     CLUM="Government"),WBIndicatorsDownloaded)
-  
+
   WBIndicatorsListF <- cbind(unique(WBIndicators$series[WBIndicators$series%in%WBGovernment_Indicators]),
                              unique(WBIndicators$series[,"name"][WBIndicators$series%in%WBGovernment_Indicators]),
                              "Government", "Fwd")
@@ -785,8 +730,6 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
     "SE.PRM.ENRL.TC.ZS" #High is BAD
   )
   
-  # WBIndicatorsDownloaded <- rbind(cbind(subset(WBIndicatorList,WBIndicatorList$indicator %in% WBServices_Indicators),
-  #                                     CLUM="Services"),WBIndicatorsDownloaded)
   WBIndicatorsListF <- cbind(unique(WBIndicators$series[WBIndicators$series%in%WBServices_Indicators]),
                              unique(WBIndicators$series[,"name"][WBIndicators$series%in%WBServices_Indicators]),
                              "Services", "Fwd")
@@ -800,7 +743,6 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
   WBServices_Indicators <- c(WBServices_Indicators, WBServices_Indicators_reverse)
   WBServices_Data <- WB_DataPull_Function(WBServices_Indicators, 2004, 2007, 2011)
   WBServices_Data <- WBServices_Data[!(WBServices_Data$country %in% Region_drop),]
-  # Now in the pull function WBServices_Data$iso2c <- NULL
   # Reverse the orders for High is BAD
   ## Added catches for non-downloaeded series AND all nas
   for (i in WBServices_Indicators_reverse[WBServices_Indicators_reverse %in% colnames(WBServices_Data)]){
@@ -864,8 +806,6 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
     "SH.ACS.TRAN.Q5.ZS"
       )
   
-  # WBIndicatorsDownloaded <- rbind(cbind(subset(WBIndicatorList,WBIndicatorList$indicator %in% WBTransport_Indicators),
-  #                                     CLUM="Transportation"),WBIndicatorsDownloaded)
   WBIndicatorsListF <- cbind(unique(WBIndicators$series[WBIndicators$series%in%WBTransport_Indicators]),
                              unique(WBIndicators$series[,"name"][WBIndicators$series%in%WBTransport_Indicators]),
                              "Personal Transportation", "Fwd")
@@ -878,7 +818,6 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
   WBTransport_Indicators <- c(WBTransport_Indicators,WBTransport_Indicators_reverse)
   WBTransport_Data <- WB_DataPull_Function(WBTransport_Indicators, 2004, 2007, 2011)
   WBTransport_Data <- WBTransport_Data[!(WBTransport_Data$country %in% Region_drop),]
-  # Now is pull function WBTransport_Data$iso2c <- NULL
   # Reverse the orders for High is BAD
   for (i in WBTransport_Indicators_reverse[WBTransport_Indicators_reverse %in% colnames(WBTransport_Data)]){
     if(!all(is.na(WBTransport_Data[i]))){
@@ -934,11 +873,6 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
     "SH.STA.AIRP.P5"
     )
   
-  
-  # 
-  # WBIndicatorsDownloaded <- rbind(cbind(subset(WBIndicatorList,WBIndicatorList$indicator %in% WBHousing_Indicators),
-  #                                     CLUM="Housing"),WBIndicatorsDownloaded)
-
   WBIndicatorsListF <- cbind(unique(WBIndicators$series[WBIndicators$series%in%WBHousing_Indicators]),
                              unique(WBIndicators$series[,"name"][WBIndicators$series%in%WBHousing_Indicators]),
                              "Housing", "Fwd")
@@ -954,8 +888,6 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
   #Housing_Data$country <- trimws(Housing_Data$country, which = c("both", "left", "right"))
   #Filter out regions on the non-NFA country/region list
   WBHousing_Data <- WBHousing_Data[!(WBHousing_Data$country %in% as.character(Region_drop)),]
-  #Drop iso column
-  # Delete: Now in pull function WBHousing_Data$iso2c <- NULL
   # Reverse the orders for High is BAD
   for (i in WBHousing_Indicators_reverse[WBHousing_Indicators_reverse %in% colnames(WBHousing_Data)]){
     if(!all(is.na(WBHousing_Data[i]))){
@@ -995,9 +927,6 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
   )
   WBGFCF_Indicators_reverse <- c(
   )
-  
-  # WBIndicatorsDownloaded <- rbind(cbind(subset(WBIndicatorList,WBIndicatorList$indicator %in% WBGFCF_Indicators),
-  #                                       CLUM="GFCF"),WBIndicatorsDownloaded)
   
   WBIndicatorsListF <- cbind(unique(WBIndicators$series[WBIndicators$series%in%WBGFCF_Indicators]),
                              unique(WBIndicators$series[,"name"][WBIndicators$series%in%WBGFCF_Indicators]),
@@ -1046,35 +975,9 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
   WBGoods_Indicators_reverse <- c(
     
   )
-  # WBIndicatorsDownloaded <- rbind(cbind(subset(WBIndicatorList,WBIndicatorList$indicator %in% WBGoods_Indicators),
-  #                                       CLUM="Goods"),WBIndicatorsDownloaded)
-  
-  WBIndicatorsListF <- cbind(unique(WBIndicators$series[WBIndicators$series%in%WBGoods_Indicators]),
-                             unique(WBIndicators$series[,"name"][WBIndicators$series%in%WBGoods_Indicators]),
-                             "Goods", "Fwd")
-  WBIndicatorsListR <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%WBGoods_Indicators_reverse]),
-                             unique(SDGIndicators$series["name"][SDGIndicators$series%in%WBGoods_Indicators_reverse]),
-                             "Goods", "Reversed")
-  WBIndicatorsDownloaded <- rbind (WBIndicatorsDownloaded,
-                                   if(ncol(WBIndicatorsListF)==4){WBIndicatorsListF}, 
-                                   if(ncol(WBIndicatorsListR)==4){WBIndicatorsListR})
-  
-  WBGoods_Indicators <- c(WBGoods_Indicators,WBGoods_Indicators_reverse)
-  WBGoods_Data <- WB_DataPull_Function(WBGoods_Indicators, 2004, 2007, 2011)
-  WBGoods_Data <- WBGoods_Data[!(WBGoods_Data$country %in% Region_drop),]
-  # Delete: now in pull function WBGoods_Data$iso2c <- NULL
-  # Reverse the orders for High is BAD
-  for (i in WBGoods_Indicators_reverse[WBGoods_Indicators_reverse %in% colnames(WBGoods_Data)]){
-    if(!all(is.na(WBGoods_Data[i]))){
-      WBGoods_Data[i] <- 0 - WBGoods_Data[i] + max(WBGoods_Data[i], na.rm = TRUE)
-    }
-  }
-  for (i in years){
-    nam <- paste(deparse(substitute(WBGoods_Data)), i, sep = "_") 
-    assign(nam, WBGoods_Data[WBGoods_Data$year==i,])
-  }
-  remove(WBGoods_Indicators, WBGoods_Data, WBGoods_Indicators_reverse)
-  
+
+  ## Redundant bc there is data. Keeping as a back-up
+  ### Also would need work to re-structure
   ## Goods is now from different data source - in ass_pov_final.csv
   ##Goods Metrics (Prelminary from Scott) 
   # I'm tempted to use just 1 or two measures of material satisfaction and well-being
@@ -1102,17 +1005,32 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
   # )
   # WBGoodsDownloaded <- cbind("ass_pov_extr", "Percentage of population experiencing 'asset poverty'", "Goods", "Reversed")
   # colnames(WBGoodsDownloaded) <- colnames(WBIndicatorsDownloaded)
-### Not needed/useful unless I move to WB database instead of the Oxford data
-  # WBIndicatorsListF <- cbind(unique(WBIndicators$series[WBIndicators$series%in%WBGoods_Indicators]),
-  #                            unique(WBIndicators$series[,"name"][WBIndicators$series%in%WBGoods_Indicators]),
-  #                            "Goods", "Fwd")
-  # WBIndicatorsListR <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%WBGoods_Indicators_reverse]),
-  #                            unique(SDGIndicators$series["name"][SDGIndicators$series%in%WBGoods_Indicators_reverse]),
-  #                            "Goods", "Reversed")
-  # WBIndicatorsDownloaded <- rbind (WBIndicatorsDownloaded,
-  #                                  if(ncol(WBIndicatorsListF)==4){WBIndicatorsListF}, 
-  #                                  if(ncol(WBIndicatorsListR)==4){WBIndicatorsListR})
+  ### Not needed/useful unless I move to WB database instead of the Oxford data
+
+  WBIndicatorsListF <- cbind(unique(WBIndicators$series[WBIndicators$series%in%WBGoods_Indicators]),
+                             unique(WBIndicators$series[,"name"][WBIndicators$series%in%WBGoods_Indicators]),
+                             "Goods", "Fwd")
+  WBIndicatorsListR <- cbind(unique(SDGIndicators$series[SDGIndicators$series%in%WBGoods_Indicators_reverse]),
+                             unique(SDGIndicators$series["name"][SDGIndicators$series%in%WBGoods_Indicators_reverse]),
+                             "Goods", "Reversed")
+  WBIndicatorsDownloaded <- rbind (WBIndicatorsDownloaded,
+                                   if(ncol(WBIndicatorsListF)==4){WBIndicatorsListF}, 
+                                   if(ncol(WBIndicatorsListR)==4){WBIndicatorsListR})
   
+  WBGoods_Indicators <- c(WBGoods_Indicators,WBGoods_Indicators_reverse)
+  WBGoods_Data <- WB_DataPull_Function(WBGoods_Indicators, 2004, 2007, 2011)
+  WBGoods_Data <- WBGoods_Data[!(WBGoods_Data$country %in% Region_drop),]
+  # Reverse the orders for High is BAD
+  for (i in WBGoods_Indicators_reverse[WBGoods_Indicators_reverse %in% colnames(WBGoods_Data)]){
+    if(!all(is.na(WBGoods_Data[i]))){
+      WBGoods_Data[i] <- 0 - WBGoods_Data[i] + max(WBGoods_Data[i], na.rm = TRUE)
+    }
+  }
+  for (i in years){
+    nam <- paste(deparse(substitute(WBGoods_Data)), i, sep = "_") 
+    assign(nam, WBGoods_Data[WBGoods_Data$year==i,])
+  }
+  remove(WBGoods_Indicators, WBGoods_Data, WBGoods_Indicators_reverse)
   colnames(WBIndicatorsDownloaded) <- c("indicator", "description", "CLUM", "Forw_Revd")
   
   # Collect Warnings (listing series not DLoaded) to include in file
@@ -1123,11 +1041,9 @@ WB_DataPull_Function <- function(indicator_list, CLUM_startyear, CLUM_middleyear
   cat("\n Not Downloaded (and other warnings) \n", file = "./WBIndicatorsDLed.csv", append = TRUE) 
   write.table(WBIndicators_Nodownloads,"./WBIndicatorsDLed.csv",
               append = TRUE, col.names=FALSE)
-#From if WB  
 
-#}
 # SDG Data split section
-{
+
 ### Funtion to select Indiactors and organise (for SDG Indicators data)
 SDGCLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
   # Just making variable names for each CLUM category list of series
@@ -1162,17 +1078,12 @@ SDGCLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
   #  print(class(error_type))
   #  print(error_type$message)
     if(error_type$message == "dims [product 1] do not match the length of object [0]"){
-    #   cat("***None of the listed data series exist: you need to look for other data series with\n
-    # View(SDGIndicators)\n
-    #       or***\n")
       cat("***None of the listed data series exist: you need to look for other data series with\n View(SDGIndicators)\n or in the AllSDGiList.csv ***\n")
     }
   }
-  #return(Data)
   # Reverse the orders for High is BAD
   if (paste(CLUMcat,"reversed", sep = "_")!="done"){
     for (i in Indicators_rev) {
-      
       # The if removes the warning from the max function for when vectors are all NA
       if (!all(is.na(Data[[i]]))) {
         Data[i] <-
@@ -1188,8 +1099,7 @@ SDGCLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
   }
 }
 
-#if (WB_SDG == "SDG") {
-# Initialise the dataframe for holding the data
+# Initialise the dataframe for holding the names of the data series used
   SDGIndicatorsDownloaded <- data.frame()
   
   # Organise data series by CLUM category with CLUMsplit function, and add to separate lists for reference
@@ -1337,7 +1247,7 @@ SDGCLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
   SDGIndicatorsDownloaded <- rbind (SDGIndicatorsDownloaded,if(ncol(IndicatorsListF)==4){IndicatorsListF},
                                     if(ncol(IndicatorsListR)==4){IndicatorsListR})
   
-  SDGCLUMsplit("Personal Transportation",
+  SDGCLUMsplit("Transport",
             c(
               #Proportion of the rural population who live within 2 km of an all-season road
               "SP_ROD_R2KM"
@@ -1386,9 +1296,6 @@ SDGCLUMsplit <- function(CLUMcat, Indicators, Indicators_rev){
   cat("\n Not Downloaded (and other warnings) \n", file = "./SDGIndicatorsDLed.csv", append = TRUE) 
   write.table(SDGIndicators_Nodownloads,"./SDGIndicatorsDLed.csv",
               append = TRUE, col.names=FALSE)
-#From if SDG
-#  }
-}
 
 WBSDGFood_Data_2004 <- merge(WBFood_Data_2004, SDG_Food_Data_2004, by.x = c("country","year"), by.y = c("geoAreaName","timePeriodStart"), all=TRUE)
 WBSDGFood_Data_2007 <- merge(WBFood_Data_2007, SDG_Food_Data_2007, by.x = c("country", "year"), by.y = c("geoAreaName", "timePeriodStart"), all=TRUE)
@@ -1430,27 +1337,8 @@ NARemove_Fun <- function(data, NA_factor){
   return(Data_NoNAs)
 }
 
-#TESTING
-# data <- SDG_Government_Data_2004
-# NA_factor <- 1.02
-# na_count <-sapply(SDG_Government_Data_2004, function(y) sum(length(which(is.na(y)))))
-# na_count_df <- data.frame(na_count)
-# ##Remove columns where more than half of observations are NAs for all 3 years
-# na_count_df <- subset(na_count_df, na_count < nrow(SDG_Government_Data_2004)/NA_factor)
-# rownames_tokeep <- rownames(na_count_df)
-# ##Keep columns without big number of NAs
-# Data_NoNAs <- data[rownames_tokeep]
-# return(Data_NoNAs)
-# # 
-# CLUMsplit("Food",
-#           c(),
-#           #Indicators to be Reversed
-#           c("SN_ITK_DEFC","SH_STA_STUNT","SH_STA_OVRWGT"))
-
-# Drop series that have less than NA_Factor % or NAs: 
-#Default NA factor
+# Setting a default NA factor
 k <- .9
-
 WBFoodData_NoNAs_2004 <- NARemove_Fun(WBFood_Data_2004, k);  #remove(WBFood_Data_2004) #1.2
 WBFoodData_NoNAs_2007 <- NARemove_Fun(WBFood_Data_2007, k);  #remove(WBFood_Data_2007) #1.2
 WBFoodData_NoNAs_2011 <- NARemove_Fun(WBFood_Data_2011, k);  #remove(WBFood_Data_2011) #1.2
@@ -1526,8 +1414,6 @@ SDGIndicatorsDownloadedNoNAs <- SDGIndicatorsDownloaded[SDGIndicatorsDownloaded$
       colnames(SDGGFCF_Data_NoNAs_2007[,-(1:2)]),      colnames(SDGGFCF_Data_NoNAs_2011[,-(1:2)]))),]
 
 write.csv(SDGIndicatorsDownloadedNoNAs, "./SDGIndicatorsDownloaded-Included.csv")
-#Create a min-max range version of all remaining data to normalize btw 0 and 1, then aggregate with Averaging
-####Max/Min function calculation####
 
 WBSDGFoodData_NoNAs_2004 <- NARemove_Fun(WBSDGFood_Data_2004, k);  remove(WBSDGFood_Data_2004) #1.2
 WBSDGFoodData_NoNAs_2007 <- NARemove_Fun(WBSDGFood_Data_2007, k);  remove(WBSDGFood_Data_2007) #1.2
@@ -1567,6 +1453,8 @@ WBSDGIndicatorsDownloadedNoNAs <- WBSDGIndicatorsDownloaded[WBSDGIndicatorsDownl
 
 write.csv(WBSDGIndicatorsDownloadedNoNAs, "./WBSDGIndicatorsDownloaded-Included.csv")
 
+#Create a min-max range version of all remaining data to normalize btw 0 and 1, then aggregate with Averaging
+####Max/Min function calculation####
 
 MaxMin_Fun <- function(data, category){
   colnames_important <- as.data.frame(data[,-c(1:2)])
@@ -1576,28 +1464,11 @@ MaxMin_Fun <- function(data, category){
   }
   colnames(datamatrix) <- colnames(colnames_important)
   datamatrix$MaxMin_Index <- rowMeans(datamatrix, na.rm = TRUE)
-  #colnames(datamatrix)[ncol(datamatrix)] <- "MaxMin_Index"
   datamatrix$CLUM_category <- category
   datamatrix$NApercent <- (rowSums(is.na(datamatrix))/ncol(colnames_important))*100
   datamatrix <- cbind(as.data.frame(data[,c(1:2)]), datamatrix[,(ncol(datamatrix)-2):ncol(datamatrix)])
-  # Redundant datamatrix <- datamatrix[,c(1:2,(ncol(datamatrix)-2):ncol(datamatrix))]
   return(datamatrix)
 }
-
-#DeBug
-# colnames_important <- as.data.frame(FoodData_NoNAs_2004[,-c(1:2), drop = FALSE])
-# datamatrix <- matrix(ncol = ncol(colnames_important), nrow = nrow(FoodData_NoNAs_2004))
-# for(i in 1:ncol(colnames_important)){
-#   datamatrix[,i] <- FoodData_NoNAs_2004[,i+2]/max(FoodData_NoNAs_2004[,i+2], na.rm = TRUE)
-# }
-# datamatrix <- as.data.frame(datamatrix)
-# colnames(datamatrix) <- colnames(colnames_important)
-# datamatrix$MaxMin_Index <- rowMeans(datamatrix, na.rm = TRUE)
-# colnames(datamatrix)[ncol(datamatrix)] <- "MaxMin_Index"
-# datamatrix$CLUM_category <- "Food"
-# datamatrix <- cbind(FoodData_NoNAs_2004[,c(1:2)], datamatrix[,-1])
-# datamatrix$NAPercent <- (rowSums(is.na(datamatrix))/max(rowSums(is.na(datamatrix))))*100
-# datamatrix <- datamatrix[,c(1:2,(ncol(datamatrix)-2):ncol(datamatrix))]
 
 WBFoodData_MaxMin_2004 <- MaxMin_Fun(WBFoodData_NoNAs_2004, "Food")
 WBFoodData_MaxMin_2007 <- MaxMin_Fun(WBFoodData_NoNAs_2007, "Food")
@@ -1898,7 +1769,6 @@ WBSDGGovernmentData_ZScore_2007 <- ZScore_Fun(WBSDGGovernmentData_NoNAs_2007, "G
 WBSDGGovernmentData_ZScore_2011 <- ZScore_Fun(WBSDGGovernmentData_NoNAs_2011, "Government")
 WBSDGGovernmentData_ZScore <- rbind(WBSDGGovernmentData_ZScore_2004, WBSDGGovernmentData_ZScore_2007, WBSDGGovernmentData_ZScore_2011)
 remove(WBSDGGovernmentData_ZScore_2004, WBSDGGovernmentData_ZScore_2007, WBSDGGovernmentData_ZScore_2011)
-# Temp fix for no data in 2004 or 2007 as of 12/22/2020
 WBSDGTransportData_ZScore_2004 <- ZScore_Fun(WBSDGTransportData_NoNAs_2004, "Personal Transportation")
 WBSDGTransportData_ZScore_2007 <- ZScore_Fun(WBSDGTransportData_NoNAs_2007, "Personal Transportation")
 WBSDGTransportData_ZScore_2011 <- ZScore_Fun(WBSDGTransportData_NoNAs_2011, "Personal Transportation")
@@ -1909,7 +1779,7 @@ WBSDGServicesData_ZScore_2007 <- ZScore_Fun(WBSDGServicesData_NoNAs_2007, "Servi
 WBSDGServicesData_ZScore_2011 <- ZScore_Fun(WBSDGServicesData_NoNAs_2011, "Services")
 WBSDGServicesData_ZScore <- rbind(WBSDGServicesData_ZScore_2004, WBSDGServicesData_ZScore_2007, WBSDGServicesData_ZScore_2011)
 remove(WBSDGServicesData_ZScore_2004, WBSDGServicesData_ZScore_2007, WBSDGServicesData_ZScore_2011)
-WBSDGHousingData_ZScore_2004 <- ZScore_Fun(WBSDGHousingData_NoNAs_2004, "Housing") # No data
+WBSDGHousingData_ZScore_2004 <- ZScore_Fun(WBSDGHousingData_NoNAs_2004, "Housing")
 WBSDGHousingData_ZScore_2007 <- ZScore_Fun(WBSDGHousingData_NoNAs_2007, "Housing")
 WBSDGHousingData_ZScore_2011 <- ZScore_Fun(WBSDGHousingData_NoNAs_2011, "Housing")
 WBSDGHousingData_ZScore <- rbind(WBSDGHousingData_ZScore_2004, WBSDGHousingData_ZScore_2007, WBSDGHousingData_ZScore_2011)
@@ -1942,3 +1812,5 @@ cat('Looks good, Run 2.Country Correspondence to make sure all countries and gro
     and do the GTAP weighted aggregation')
 
 proc.time() - ptm
+ cat("~",round((proc.time()[3] - DLtm[3]) / 60), "minutes to run this time \n")
+ 

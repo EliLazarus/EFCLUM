@@ -12,13 +12,6 @@ EFSDGWBData <- read.csv("2017_GTAPCLUM_WBSDG.csv")
 WBIndicatorsDLd_Inc <- read.csv("WBIndicatorsDownloaded-Included.csv")
 SDGIndicatorsDld_Inc <- read.csv("SDGIndicatorsDownloaded-Included.csv")
 WBSDGIndicatorsDld_Inc <- read.csv("WBSDGIndicatorsDownloaded-Included.csv")
-#Pull the data from csv files
-# EFWBData <- read.csv("./GFN_Data_Visualization/ScatterVisuals/NFA_WB_2017_CLUM.csv")
-# EFSDGData <- read.csv("./GFN_Data_Visualization/ScatterVisuals/NFA_SDG_2017_CLUM.csv")
-# IndicatorsDownloaded <- read.csv("./GFN_Data_Visualization/ScatterVisuals/IndicatorsDownloaded.csv")
-# SDGIndicatorsDownloaded <- read.csv("./GFN_Data_Visualization/ScatterVisuals/SDGIndicatorsDownloaded.csv")
-
-#color.codes<-as.character(c("#3399FF", "#FF0000", "#000000"))
 
 #subet data by year and QScore to plot
 Year = 2011
@@ -52,10 +45,13 @@ Transportation.EFSDGWBData11 <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name =
 Services.EFSDGWBData11 <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Services")
 GFCF.EFSDGWBData11 <- subset(EFSDGWBData11, EFSDGWBData11$clum7_name == "Gross Fixed Capital Formation")
 
+# Add a sub-folder to store the plots if there isn't one yet
 if (file.exists("Plots")){print("Plots directory already exists")
 } else {
   dir.create("Plots/")
 }
+
+#Redundant note: color.codes<-as.character(c("#3399FF", "#FF0000", "#000000"))
 
 plotfunc <- function(data, title, CLUMcat, IndDL, height1, height2){
   myColors <-   c("gold","black", "forestgreen", "royalblue", "darkorange2", "grey30", "grey70", "purple3")
@@ -65,7 +61,7 @@ plotfunc <- function(data, title, CLUMcat, IndDL, height1, height2){
     geom_point(size = 3) +
     geom_text(label = data$GTAP_name,hjust=-.2, alpha=0.55, colour="grey") +
     colScale +
-    #Remove the below line to get values on the y-axis
+    #Remove the below line to get EF values on the y-axis
     scale_y_continuous(breaks=c(0,max(data$total, na.rm = TRUE)), labels=c("0", "High"), limits = c(0,max(data$total, na.rm = TRUE))) +
     labs(title = paste(title,"CLUM category:",data$clum7_name), y = "EF per capita", x = paste(data$clum7_name ,"z-score Index")) +
     theme(plot.margin = unit(c(1,2,1,1),"cm"), legend.position = c(.1,.7),
@@ -109,7 +105,7 @@ plotfunc(Housing.EFSDGData11,"SDG Data", "Housing", SDGIndicatorsDld_Inc, 1.5, .
 pause(waitlength)
 plotfunc(Services.EFSDGData11,"SDG Data", "Services", SDGIndicatorsDld_Inc, 1.5, .5)
 pause(waitlength)
-try(plotfunc(Transportation.EFSDGData11,"SDG Data", "Transportation", SDGIndicatorsDld_Inc, 1.5, .5))
+try(plotfunc(Transportation.EFSDGData11,"SDG Data", "Personal Transportation", SDGIndicatorsDld_Inc, 1.5, .5))
 pause(waitlength)
 plotfunc(Government.EFSDGData11,"SDG Data", "Government", SDGIndicatorsDld_Inc, 1.5, .5)
 pause(waitlength)
@@ -126,7 +122,7 @@ plotfunc(Services.EFWBData11,"World Bank Data", "Services",WBIndicatorsDLd_Inc, 
 pause(waitlength)
 plotfunc(Housing.EFWBData11,"World Bank Data", "Housing",WBIndicatorsDLd_Inc, 1.5, .5)
 pause(waitlength)
-plotfunc(Transportation.EFWBData11,"World Bank Data", "Transportation",WBIndicatorsDLd_Inc, 1.5, .5)
+plotfunc(Transportation.EFWBData11,"World Bank Data", "Personal Transportation",WBIndicatorsDLd_Inc, 1.5, .5)
 pause(waitlength)
 try(plotfunc(GFCF.EFWBData11,"World Bank Data", "GFCF",WBIndicatorsDLd_Inc, 2, .5))
 pause(waitlength)
@@ -143,7 +139,7 @@ plotfunc(Services.EFSDGWBData11,"SDG & World Bank Data", "Services",WBSDGIndicat
 pause(waitlength)
 plotfunc(Housing.EFSDGWBData11,"SDG & World Bank Data", "Housing",WBSDGIndicatorsDld_Inc, 1.5, .5)
 pause(waitlength)
-plotfunc(Transportation.EFSDGWBData11,"SDG & World Bank Data", "Transportation",WBSDGIndicatorsDld_Inc, 1.5, .5)
+plotfunc(Transportation.EFSDGWBData11,"SDG & World Bank Data", "Personal Transportation",WBSDGIndicatorsDld_Inc, 1.5, .5)
 pause(waitlength)
 try(plotfunc(GFCF.EFSDGWBData11,"SDG & World Bank Data", "GFCF",WBSDGIndicatorsDld_Inc, 1.5, .5))
 pause(waitlength)

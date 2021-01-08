@@ -5,35 +5,28 @@ library(WDI)
 
 "Set working directory to top level directory in console"
 ##eg. setwd("C:\\Users\\Eli\\GitFolders\\EFCLUM\\GFN_Data_Visualization\\ScatterVisuals")
-"Set to run either for World Bank or SDG results (then run again for the other 2)"
+
+#start timer
+ptm <- proc.time()
+
+"Runs whole script to correspond and aggregate to GTAP countries for each data source"
 WB_SDG <- list("SDG", "WB", "WBSDG")
 for (i in WB_SDG){
-  # if (i=="WB"){print("got to WB")}
-  #     }
   #WB_SDG <- "SDG"
   #WB_SDG <- "WB"
-  # WB_SDG <- "WBSDG"
+  #WB_SDG <- "WBSDG"
   #read in previous World Bank and SDG Indicator data to get country list in case of unhandled countries
   # and for GTAP group weighted Aggregation (by population) and final output
   if(i =="SDG"){WBData <- read.csv("./IndicesDataSDG.csv", header=TRUE, colClasses=NA)}
   if(i =="WB"){WBData <- read.csv("./IndicesDataWB.csv", header=TRUE, colClasses=NA)}
   if(i =="WBSDG"){WBData <- read.csv("./IndicesDataWBSDG.csv", header=TRUE, colClasses=NA)}
-  #IndDataWB <- read.csv("./IndicesDataWB.csv", header=TRUE, colClasses=NA)
-  #IndDataSDG <- read.csv("./IndicesDataSDG.csv", header=TRUE, colClasses=NA)
   
-  #start timer
-  ptm <- proc.time()
   
   WBData$country <- as.character(WBData$country)
   WBData$CLUM_category <- as.character(WBData$CLUM_category)
-  ## This should be redundant now, it's in the data pull/split function
-  #deal with weird symbol in country names of N Korea and Cote d'Ivoire
-  # WBData$country[grepl("Korea, Dem. Peopl",WBData$country)] <- "Korea, Democratic People's Republic of"
-  # WBData$country[grepl("oire",WBData$country)] <- "Cote d'Ivoire"
-  
+
   # get correspondence of GFN countries to GTAP countries
   GFNtoGTAP <- read.csv("./GFNtoGTAP.csv", header=TRUE, colClasses = NA)
-  
   #Get GFN population to use for country aggregation weighting
   GFN_Pop <- read.csv("./GFN_Population.csv", header=TRUE, colClasses = NA)
   #Deal with wierd characters in population file
@@ -62,22 +55,16 @@ for (i in WB_SDG){
   # }
   
   #### filter to end up with a list of country name not in GFN or drop ####
-  # All names in the list need to have alt spelling added as below, or added to Region_drop
-  # Filter out countries from either list that are already in drop list
+  # All names in the list need to have alt spelling added to the RespellDict in Script 1, or added to Region_drop list in Script 1
+  # Filter out countries from either list that are already in drop list created in Script 1
   Region_drop <- read.csv("./DropTheseCountries.csv",
                           header=TRUE, colClasses=NA)
   colnames(Region_drop) <- "country"
   
-  #Region_drop <- as.character(Region_drop)
-  
-  # List of countries from the WB download that are not already on the Region_drop list
+    # List of countries from the WB download that are not already on the Region_drop list
   WBData_Countries <- unique(WBData$country[!(WBData$country %in% Region_drop[,1])])
   # Filter out countries that are in the GFN names
   WB_notGFNlist <- WBData_Countries[!(WBData_Countries %in% GFNtoGTAP$GFN_Name)]
-  
-  "Assign alternate spelling, link to GFN spelling from ./GFNtoGTAP.csv;
-update spellings to GFN, and then drop from the 'remainder' list"
-  
   
   # Throw exception and list if any countries haven't been dealt with
   #  Otherwise go ahead to weighted aggregation
@@ -91,9 +78,10 @@ or add to the alt spelling code above, then re-run this script from beginning: \
                       cat(paste(shQuote(WB_notGFNlist), collapse=", "))),
                     "/n
             Then you potentially have to add to the Drop Countries list in script 1. /n
+            OR add alternate spellings in RespellDict in sctipt 1 to match the GFN spellings
             AND...you have to start from Script 1. again")))
   
-  "Reminder for Eli: the function used to print singly country names to build list:
+"Reminder for Eli: the function used to print singly country names to build list:
 #as a string dput(WB_notGFNlist[1]) "
   
   "Let the weighted aggregation begin
