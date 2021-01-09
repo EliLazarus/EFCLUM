@@ -160,17 +160,17 @@ This groups the countries' data from GFN names into GTAP 9 groupings"
   
   # file with indicator results (min-max and z-score) by GTAP country with all EF CLUM results
   if (i=="WB"){
-    write.csv(NFA_CLUM_WB, "./2017_GTAPCLUM_WB.csv")
+    write.csv(NFA_CLUM_WB, "./private-localonly/2017_GTAPCLUM_WB.csv")
     print(paste(i, " this WB write to csv was triggered *****"))
   }
   # file with indicator results (min-max and z-score) by GTAP country with all EF CLUM results
   if (i=="SDG"){
-    write.csv(NFA_CLUM_WB, "./2017_GTAPCLUM_SDG.csv")
+    write.csv(NFA_CLUM_WB, "./private-localonly/2017_GTAPCLUM_SDG.csv")
     print(i)
   }
   
   if(i=="WBSDG"){
-    write.csv(NFA_CLUM_WB, "./2017_GTAPCLUM_WBSDG.csv")
+    write.csv(NFA_CLUM_WB, "./private-localonly/2017_GTAPCLUM_WBSDG.csv")
     print(i)
   }
   # If new country correspondence issues came up, repeat WB data pull sripts again once they're dealt with
