@@ -149,7 +149,9 @@ This groups the countries' data from GFN names into GTAP 9 groupings"
   
   write.csv(GTAP_WBweighted, "./WBIndicators_byGTAP.csv")
   
-  NFA_CLUM <- read.csv("./NFA_2017_CLUM.csv", header=TRUE, colClasses=NA)
+  # The data is unfortunately not open for public access
+  ## I'll try to put in mock data at some point for replicability of everything else
+  NFA_CLUM <- read.csv("./private-localonly/NFA_2017_CLUM.csv", header=TRUE, colClasses=NA)
   
   NFA_CLUM_WB <- merge(NFA_CLUM, GTAP_WBweighted, by.x = c("year", "clum7_name", "GTAP_name"), 
                        by.y = c("year", "CLUM_category", "GTAP_Region"), sort = TRUE)
