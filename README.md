@@ -7,12 +7,11 @@ series from the World Bank data API. The data is organised by datasource, consum
 'economic service qulity' indicators are created from the various data series for each consumption categroy/year - a 
 MinMax normalization (minimum values become 0, max become 1, and values in between are spaced accordingly, and a
 zscore normalization (each data value is assigned a value relative to the mean and standard deviation of that series.
-Data outputs to csv files.
+Data outputs to csv files. <br>
 The 2nd script reads the output csv, country name correspondence and population data and reaggregates to match the GTAP country
-grouping.
-3.a and 4 are Shiny app versions of the results with different data sources.
-3.b builds plots of all the results.
-5. Is the (abandoned) start of an attempt to write a paper using Rmarkdown.
-
- 
-For reasons of herstorical logistics the actual working directory is 2 levels down in GFN_Data_Visualization\\ScatterVisuals
+grouping. <br>
+3.a and 4 are Shiny app versions of the results with different data sources. <br>
+3.b builds plots of all the results. <br>
+5. Is the (abandoned) start of an attempt to write a paper using Rmarkdown. <br>
+<p> 
+For reasons of herstorical logistics the actual working directory is 2 levels down in GFN_Data_Visualization\ScatterVisuals
