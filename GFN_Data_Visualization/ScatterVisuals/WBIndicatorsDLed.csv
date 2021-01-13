@@ -94,4 +94,5 @@
 "93","SI.SPR.PC40.ZG","Annualized average growth rate in per capita real survey mean consumption or income, bottom 40% of population (%)","Goods","Fwd"
 
  Not Downloaded (and other warnings) 
-"1" "argument 'pattern' has length > 1 and only the first element will be used"
+"1" "no non-missing arguments to max; returning -Inf"
+"2" "no non-missing arguments to max; returning -Inf"

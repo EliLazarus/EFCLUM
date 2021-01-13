@@ -12,7 +12,7 @@ ptm <- proc.time()
 "Runs whole script to correspond and aggregate to GTAP countries for each data source"
 WB_SDG <- list("SDG", "WB", "WBSDG")
 for (i in WB_SDG){
-  #WB_SDG <- "SDG"
+  WB_SDG <- "SDG"
   #WB_SDG <- "WB"
   #WB_SDG <- "WBSDG"
   #read in previous World Bank and SDG Indicator data to get country list in case of unhandled countries
@@ -129,7 +129,17 @@ This groups the countries' data from GFN names into GTAP 9 groupings"
   #Create table of aggregated indicators by GTAP Region, na's omitted
   WBGTAP_weighted <- as.data.frame(t(sapply(split(WBGFN_notGTAP, list(WBGFN_notGTAP$GTAP_Region,WBGFN_notGTAP$CLUM_category,
                                                                       WBGFN_notGTAP$year)),
-                                            function(x) apply(x[,c(4:6)], 2, weighted.mean, x$Population, na.rm = TRUE))))
+                                            function(x) apply(x[,c(4:6)], 2, weighted.mean, x$Population, na.rm = FALSE))))
+  WBGTAP_weighted <- WBGTAP_weighted[!!rowSums(!is.na(WBGTAP_weighted)),]
+  #TESTING
+  # WBGTAP_France_weighted <- as.data.frame(t(sapply(split(WBGFN_FranceTest, list(WBGFN_FranceTest$GTAP_Region,WBGFN_FranceTest$CLUM_category,
+  #                                                                               WBGFN_FranceTest$year)),
+  #                                           function(x) apply(x[,c(4:6)], 2, weighted.mean, x$Population, na.rm = FALSE))))
+  # WBGTAP_France_weighted <- WBGTAP_France_weighted[!!rowSums(!is.na(WBGTAP_France_weighted)),]
+  # 
+  
+  
+  
   setDT(WBGTAP_weighted, keep.rownames = TRUE )[]
   colnames(WBGTAP_weighted)[1] <- "REgion_year_CLUM"
   WBGTAP_weighted <- cSplit(WBGTAP_weighted, "REgion_year_CLUM", ".")

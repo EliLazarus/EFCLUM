@@ -1329,12 +1329,14 @@ NARemove_Fun <- function(data, NA_factor){
   ##Count NAs by column to remove columns with lots of NAs
   na_count <-sapply(data, function(y) sum(length(which(is.na(y)))))
   na_count_df <- data.frame(na_count)
-  ##Remove columns where more than half of observations are NAs for all 3 years
+  ##Remove columns where more than half of observations are NAs
   na_count_df <- subset(na_count_df, na_count < nrow(data) * NA_factor)
-  rownames_tokeep <- rownames(na_count_df)
+  colnames_tokeep <- rownames(na_count_df)
   ##Keep columns without big number of NAs
-  Data_NoNAs <- data[rownames_tokeep]
-  return(Data_NoNAs)
+  Data_NoNAs <- data[colnames_tokeep]
+  #delete any row/country with only NAs (unless there is no data)
+  if(ncol(Data_NoNAs)>2 & nrow(Data_NoNAs)>1){Data_NoNAs <- Data_NoNAs[!!rowSums(!is.na(Data_NoNAs[,3:ncol(Data_NoNAs)])),]}
+  if(nrow(Data_NoNAs)>1){return(Data_NoNAs)}
 }
 
 # Setting a default NA factor
@@ -1348,9 +1350,9 @@ WBGovernmentData_NoNAs_2011 <- NARemove_Fun(WBGovernment_Data_2011, k);  #remove
 WBServicesData_NoNAs_2004 <- NARemove_Fun(WBServices_Data_2004, k);  #remove(WBServices_Data_2004) #1.5
 WBServicesData_NoNAs_2007 <- NARemove_Fun(WBServices_Data_2007, k);  #remove(WBServices_Data_2007) #1.5
 WBServicesData_NoNAs_2011 <- NARemove_Fun(WBServices_Data_2011, .9);  #remove(WBServices_Data_2011) #1.5
-WBTransportData_NoNAs_2004 <- NARemove_Fun(WBTransport_Data_2004, .99);  #remove(WBTransport_Data_2004) #1.02
-WBTransportData_NoNAs_2007 <- NARemove_Fun(WBTransport_Data_2007, .99);  #remove(WBTransport_Data_2007) #1.02
-WBTransportData_NoNAs_2011 <- NARemove_Fun(WBTransport_Data_2011, .99);  #remove(WBTransport_Data_2011) #1.02
+WBTransportData_NoNAs_2004 <- NARemove_Fun(WBTransport_Data_2004, .96);  #remove(WBTransport_Data_2004) #1.02
+WBTransportData_NoNAs_2007 <- NARemove_Fun(WBTransport_Data_2007, .96);  #remove(WBTransport_Data_2007) #1.02
+WBTransportData_NoNAs_2011 <- NARemove_Fun(WBTransport_Data_2011, .96);  #remove(WBTransport_Data_2011) #1.02
 WBHousingData_NoNAs_2004 <- NARemove_Fun(WBHousing_Data_2004, k);  #remove(WBHousing_Data_2004) #1.25
 WBHousingData_NoNAs_2007 <- NARemove_Fun(WBHousing_Data_2007, k);  #remove(WBHousing_Data_2007) #1.25
 WBHousingData_NoNAs_2011 <- NARemove_Fun(WBHousing_Data_2011, k);  #remove(WBHousing_Data_2011) #1.25
@@ -1424,9 +1426,9 @@ WBSDGGovernmentData_NoNAs_2011 <- NARemove_Fun(WBSDGGovernment_Data_2011, k);  r
 WBSDGServicesData_NoNAs_2004 <- NARemove_Fun(WBSDGServices_Data_2004, k);  remove(WBSDGServices_Data_2004) #1.5
 WBSDGServicesData_NoNAs_2007 <- NARemove_Fun(WBSDGServices_Data_2007, k);  remove(WBSDGServices_Data_2007) #1.5
 WBSDGServicesData_NoNAs_2011 <- NARemove_Fun(WBSDGServices_Data_2011, .9);  remove(WBSDGServices_Data_2011) #1.5
-WBSDGTransportData_NoNAs_2004 <- NARemove_Fun(WBSDGTransport_Data_2004, .99);  remove(WBSDGTransport_Data_2004) #1.02
-WBSDGTransportData_NoNAs_2007 <- NARemove_Fun(WBSDGTransport_Data_2007, .99);  remove(WBSDGTransport_Data_2007) #1.02
-WBSDGTransportData_NoNAs_2011 <- NARemove_Fun(WBSDGTransport_Data_2011, .99);  remove(WBSDGTransport_Data_2011) #1.02
+WBSDGTransportData_NoNAs_2004 <- NARemove_Fun(WBSDGTransport_Data_2004, .96);  remove(WBSDGTransport_Data_2004) #1.02
+WBSDGTransportData_NoNAs_2007 <- NARemove_Fun(WBSDGTransport_Data_2007, .96);  remove(WBSDGTransport_Data_2007) #1.02
+WBSDGTransportData_NoNAs_2011 <- NARemove_Fun(WBSDGTransport_Data_2011, .8);  remove(WBSDGTransport_Data_2011) #1.02
 WBSDGHousingData_NoNAs_2004 <- NARemove_Fun(WBSDGHousing_Data_2004, k);  remove(WBSDGHousing_Data_2004) #1.25
 WBSDGHousingData_NoNAs_2007 <- NARemove_Fun(WBSDGHousing_Data_2007, k);  remove(WBSDGHousing_Data_2007) #1.25
 WBSDGHousingData_NoNAs_2011 <- NARemove_Fun(WBSDGHousing_Data_2011, k);  remove(WBSDGHousing_Data_2011) #1.25
@@ -1552,10 +1554,10 @@ SDGServicesData_MaxMin <- rbind(SDGServicesData_MaxMin_2004,SDGServicesData_MaxM
 #Temp fix to ignore 2004 and 2007 Transport because there is not data right now
 try(SDGTransportData_MaxMin_2004 <- MaxMin_Fun(SDGTransportData_NoNAs_2004, "Personal Transportation"))
 try(SDGTransportData_MaxMin_2007 <- MaxMin_Fun(SDGTransportData_NoNAs_2007, "Personal Transportation"))
-SDGTransportData_MaxMin_2011 <- MaxMin_Fun(SDGTransportData_NoNAs_2011, "Personal Transportation")
+try(SDGTransportData_MaxMin_2011 <- MaxMin_Fun(SDGTransportData_NoNAs_2011, "Personal Transportation"))
 SDGTransportData_MaxMin <- rbind(if(exists("SDGTransportData_MaxMin_2004")){SDGTransportData_MaxMin_2004},
                                  if(exists("SDGTransportData_MaxMin_2007")){SDGTransportData_MaxMin_2007},
-                                 SDGTransportData_MaxMin_2011)
+                                 if(exists("SDGTransportData_MaxMin_2011")){SDGTransportData_MaxMin_2011})
   remove(SDGTransportData_MaxMin_2004,SDGTransportData_MaxMin_2007, SDGTransportData_MaxMin_2011)
 SDGHousingData_MaxMin_2004 <- MaxMin_Fun(SDGHousingData_NoNAs_2004, "Housing")
 SDGHousingData_MaxMin_2007 <- MaxMin_Fun(SDGHousingData_NoNAs_2007, "Housing")
@@ -1631,10 +1633,11 @@ ZScore_Fun <- function(data, category){
   datamatrix <- as.data.frame(datamatrix)
   colnames(datamatrix) <- colnames(colnames_important)
   datamatrix$ZScore_Index <- rowMeans(datamatrix, na.rm = TRUE)
-  #Redundant: colnames(datamatrix)[ncol(datamatrix)] <- "ZScore_Index"
   datamatrix$CLUM_category <- category
   datamatrix$NApercent <- (rowSums(is.na(datamatrix))/ncol(colnames_important))*100
   datamatrix <- cbind(as.data.frame(data[,c(1:2)]), datamatrix[,(ncol(datamatrix)-2):ncol(datamatrix)])
+  #delete any row/country with only NAs (unless there is no data)
+  if(ncol(datamatrix)>2 & nrow(datamatrix)>1){datamatrix <- datamatrix[!is.na(datamatrix$ZScore_Index),]}
   # Redundant datamatrix <- datamatrix[,c(1:2,(ncol(datamatrix)-1):ncol(datamatrix))]
   return(datamatrix)
 }
@@ -1720,11 +1723,11 @@ remove(SDGGovernmentData_ZScore_2004, SDGGovernmentData_ZScore_2007, SDGGovernme
 # Temp fix for no data in 2004 or 2007 as of 12/22/2020
 try(SDGTransportData_ZScore_2004 <- ZScore_Fun(SDGTransportData_NoNAs_2004, "Personal Transportation"))
 try(SDGTransportData_ZScore_2007 <- ZScore_Fun(SDGTransportData_NoNAs_2007, "Personal Transportation"))
-SDGTransportData_ZScore_2011 <- ZScore_Fun(SDGTransportData_NoNAs_2011, "Personal Transportation")
+try(SDGTransportData_ZScore_2011 <- ZScore_Fun(SDGTransportData_NoNAs_2011, "Personal Transportation"))
 SDGTransportData_ZScore <- rbind(
   if(exists("SDGTransportData_ZScore_2004")){SDGTransportData_ZScore_2004},
   if(exists("SDGTransportData_ZScore_2007")){SDGTransportData_ZScore_2007},
-  SDGTransportData_ZScore_2011)
+  if(exists("SDGTransportData_ZScore_2011")){SDGTransportData_ZScore_2011})
 remove(SDGTransportData_ZScore_2004, SDGTransportData_ZScore_2007, SDGTransportData_ZScore_2011)
 SDGServicesData_ZScore_2004 <- ZScore_Fun(SDGServicesData_NoNAs_2004, "Services")
 SDGServicesData_ZScore_2007 <- ZScore_Fun(SDGServicesData_NoNAs_2007, "Services")
@@ -1813,4 +1816,3 @@ cat('Looks good, Run 2.Country Correspondence to make sure all countries and gro
 
 proc.time() - ptm
  cat("~",round((proc.time()[3] - DLtm[3]) / 60), "minutes to run this time \n")
- 

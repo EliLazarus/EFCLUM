@@ -6,9 +6,9 @@ library(gridExtra)
 QScoreMin <- 4
 
 #Pull the data from csv files
-EFWBData <- read.csv("2017_GTAPCLUM_WB.csv")
-EFSDGData <- read.csv("2017_GTAPCLUM_SDG.csv")
-EFSDGWBData <- read.csv("2017_GTAPCLUM_WBSDG.csv")
+EFWBData <- read.csv("./private-localonly/2017_GTAPCLUM_WB.csv")
+EFSDGData <- read.csv("./private-localonly/2017_GTAPCLUM_SDG.csv")
+EFSDGWBData <- read.csv("./private-localonly/2017_GTAPCLUM_WBSDG.csv")
 WBIndicatorsDLd_Inc <- read.csv("WBIndicatorsDownloaded-Included.csv")
 SDGIndicatorsDld_Inc <- read.csv("SDGIndicatorsDownloaded-Included.csv")
 WBSDGIndicatorsDld_Inc <- read.csv("WBSDGIndicatorsDownloaded-Included.csv")
